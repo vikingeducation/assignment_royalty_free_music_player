@@ -24,4 +24,15 @@
 .song-wrapper {
   border-bottom: 2px solid #bbb; }
 
+a {
+  color: black;
+  display: block;
+  text-decoration: none; }
+
+a:hover {
+  color: black; }
+
+.dark-footer a {
+  width: 40px; }
+
 /*# sourceMappingURL=style.css.map */
