@@ -15,6 +15,9 @@ html, body {
     font-size: 40px;
     line-height: 1.5em;
     color: #444;
+    .glyphicon {
+      padding-right: 10px;
+    }
   }
 }
 li {
@@ -54,4 +57,5 @@ li {
     padding-left: 20px;
   }
 }
+
 
