@@ -1,0 +1,105 @@
+h1, body, main, h3, h4 {
+	margin: 0px;
+	
+}
+
+.glyphicon-king, .glyphicon-play, .glyphicon-backward, .glyphicon-pause {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.container {
+	width: 60%;
+	margin-top: 20px;
+}
+.glyphicon-play, .glyphicon-backward, .glyphicon-forward, .glyphicon-pause { 
+	position: relative;
+	top: 10px;
+}
+.glyphicon-play, .glyphicon-pause {
+	font-size: 15px;
+	color: grey;	
+}
+
+h3 .glyphicon-play, #master-play, #master-pause {
+	font-size: 30px;
+	color: white;
+	position: relative;
+	margin-left: 10px;
+	top: 12px;
+}
+
+.glyphicon-play:hover, .glyphicon-backward:hover, .glyphicon-forward:hover, .glyphicon-pause:hover {
+	cursor: pointer;
+}
+
+h1 {
+	background-color: #4F4F4F;
+	border: 3px solid black;
+	color: white;
+}
+
+#control {
+	background-color: black;
+	height: 80px;
+	color: white;
+}
+
+.song {
+	margin-left: 40px;
+	font-weight: 400;
+	color: grey;
+}
+
+
+h3 .song {
+	margin-left: 145px;
+	font-weight: 400;
+	font-size: 22px;
+	color: inherit;
+}
+
+h1, h4, h3{
+	padding: 10px;
+}
+.artist {
+	margin-left: 7px;
+
+}
+
+h4, .row {
+ 	background-color: #D6DADC;
+}
+
+h4, .row, #control {
+	border-left: 3px solid black;
+	border-bottom: 3px solid black;
+	border-right: 3px solid black;
+}
+
+.col-xs-12 {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.progress {
+	position: relative;
+	top: 260px;
+	height: 40px;
+	cursor: pointer;
+	border-radius: 0px;	
+}
+
+.progress-bar {
+	background-color: grey;
+}
+
+.row {
+	margin-left: 0px;
+	margin-right: 0px;
+	height: 300px;
+}
+
+
+
+

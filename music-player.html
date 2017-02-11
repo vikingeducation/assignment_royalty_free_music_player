@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Royalty Free Music Player</title>
+	<meta charset="utf-8">
+	<script src="https://code.jquery.com/jquery-3.1.1.js"
+  	integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  	crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="music.css">
+	<script type="text/javascript" src="music.js"></script>
+</head>
+<body>
+	<main>
+		<div class="container">
+			<h1><span class="glyphicon glyphicon-king" aria-hidden="true"></span>  Royalty Free Music Player</h1>
+			<h4><span class="glyphicon glyphicon-play" aria-hidden="true"></span>  <span class = "musician">Dr. Dre ft. Eminem</span> <br>
+			<span class="song">Forgot About Dre</span><audio id="dre-eminem"><source src="Dr Dre ft Eminem 'Forgot About Dre' Lyrics (Good Q.mp3" type=""></audio></h4>
+
+			<h4><span class="glyphicon glyphicon-play" aria-hidden="true"></span> <span class = "musician"> Dr. Dre, Snoop Dogg </span><br> <span class="song">Nuthin' But A G Thang</span><audio id="dre-snoop"><source src="Dr. Dre, Snoop Dogg - Nuthin' But A G Thang.mp3" type=""></audio></h4>
+
+			<h4><span class="glyphicon glyphicon-play" aria-hidden="true"></span> <span class = "musician"> Outkast </span> <br> <span class="song">ATLiens</span><audio id="outkast"><source src="outkast - ATLiens.mp3" type=""></audio></h4>
+
+			<h4><span class="glyphicon glyphicon-play" aria-hidden="true"></span> <span class="musician">Method Man, Redman</span> <br> <span class="song">Da Rockwilder</span><audio id="method-red"><source src="Method Man, Redman - Da Rockwilder.mp3" type=""></audio></h4>
+			<div class = "row">
+				<div class="col-xs-12">
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row" id="control">
+				<div class="col-xs-12"><h3><span class="glyphicon glyphicon-backward" aria-hidden="true"></span> <span class="glyphicon glyphicon-play" id="master-play" aria-hidden="true"></span> <span class="glyphicon glyphicon-forward" aria-hidden="true"></span></span> <span class="artist">Dr. Dre ft. Eminem</span> <br> <span class="song"> Forgot About Dre</span> </h3> </div>
+			</div>	
+		</div>
+		
+	</main>
+</body>
+</html>
