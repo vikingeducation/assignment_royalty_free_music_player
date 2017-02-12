@@ -5,34 +5,39 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 /* Styles */
 
 $madison: #2C3E50;
-$turquoise: #65C6BB;
-$pomegranate: #96281B;
+$playing: #1b8b96;
+$playerColor: rgba(17, 47, 51, 0.85);
+$hover: #9c8b88;
+$bodyBkg: #e64141;
 
 * {
   box-sizing: border-box;
 }
 
-.center-text {
-  text-align: center;
+html, body {
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
-  background: #DADFE1;
+  background-color: $bodyBkg;
+  position: relative;
+  font-family: "PT Sans", Arial, sans-serif;
 }
 
 #player {
   position: absolute;
-  top: 0;
-  bottom: 0;
   left: 0;
   right: 0;
-  margin: auto;
-  font-family: "PT Sans", Arial, sans-serif;
-  width: 280px;
-  height: 240px;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 385px;
+  text-align: center;
   border-radius: 20px;
   box-shadow: 0 5px 65px rgba(0,0,0,0.7);
-  background: $madison;
+  background-color: $playerColor;
+  z-index: 100;
 
   #playlist {
     padding: 20px 0;
@@ -42,28 +47,28 @@ body {
 
     li {
       font-size: 14px;
-      width: 240px;
+      width: 350px;
       margin: 0 auto;
       padding: 8px 8px;
       cursor: pointer;
 
       &.playing {
         color: white;
-        background: $pomegranate;
+        background-color: $playing;
       }
 
       &:hover {
         color: white;
-        background: #EC644B;
+        background: $hover;
       }
     }
   }
 
   #controls {
     position: relative;
-    padding: 20px 0;
+    padding: 20px 0 30px;
 
-    .main-button {
+    #main-button {
       width: 33px;
       height: 39px;
       margin: 0 12px;
@@ -97,4 +102,20 @@ body {
       background: url("player/nextButton.png") no-repeat;
     }
   }
+}
+
+#waveform {
+  height: 100%;
+  overflow: hidden;
+}
+
+#currently-playing {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-weight: 800;
+  position: absolute;
+  left: -50px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 40em;
+  text-transform: uppercase;
+  line-height: .6em;
 }

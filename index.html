@@ -5,13 +5,14 @@
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.0.52/wavesurfer.min.js"></script>
   <script type="text/javascript" src="player.js"></script>
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans|Open+Sans:800" rel="stylesheet">
 </head>
 <body>
-
-  <main id="player" class="center-text">
+  <div id="currently-playing"></div>
+  <main id="player">
     <ul id="playlist">
       <li>
         Nosaj Thing - Aquarium
@@ -31,11 +32,17 @@
           <source src="audio/getgood.mp3" type="audio/mpeg">
         </audio>
       </li>
+      <li>
+        Aphex Twin - Xtal
+        <audio>
+          <source src="audio/xtal.mp3" type="audio/mpeg">
+        </audio>
+      </li>
     </ul>
     <div id="controls">
-      <div class="side-button icon-prev"></div><!--
-      --><div class="main-button icon-play"></div><!--
-      --><div class="side-button icon-next"></div>
+      <div id="prev-button" class="side-button icon-prev"></div><!--
+      --><div id="main-button" class="icon-play"></div><!--
+      --><div id="next-button" class="side-button icon-next"></div>
     </div>
   </main>
 
