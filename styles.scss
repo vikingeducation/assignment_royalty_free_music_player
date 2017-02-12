@@ -1,0 +1,102 @@
+/* Reset */
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+/* Styles */
+
+$dark-gray: #123D3D;
+$turquoise: #00BDBC;
+$navy: #233C57;
+$yellow: #FCF0C6;
+$pomegranate: #F0301B;
+
+* {
+  box-sizing: border-box;
+}
+
+.center-text {
+  text-align: center;
+}
+
+body {
+  background: #eee;
+}
+
+#player {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  font-family: "PT Sans", Arial, sans-serif;
+  width: 280px;
+  height: 210px;
+  border-radius: 20px;
+  box-shadow: 0 5px 65px rgba(0,0,0,0.7);
+  background: $dark-gray;
+
+  #playlist {
+    padding: 20px 0;
+    border-radius: 20px 20px 0 0;
+    color: $yellow;
+    background: $turquoise;
+
+    li {
+      font-size: 14px;
+      width: 240px;
+      margin: 0 auto;
+      padding: 8px 0;
+      cursor: pointer;
+
+      &.playing {
+        color: white;
+        background: $pomegranate;
+      }
+
+      &:hover {
+        color: $pomegranate;
+        background: $yellow;
+      }
+    }
+  }
+
+  #controls {
+    position: relative;
+    padding: 20px 0;
+
+    .main-button {
+      width: 33px;
+      height: 39px;
+      margin: 0 12px;
+      display: inline-block;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+
+    .side-button {
+      width: 33px;
+      height: 21px;
+      margin: 0 12px;
+      display: inline-block;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+
+    .icon-play {
+      background: url("player/playButton.png") no-repeat;
+    }
+
+    .icon-pause {
+      background: url("player/pauseButton.png") no-repeat;
+    }
+
+    .icon-prev {
+      background: url("player/prevButton.png") no-repeat;
+    }
+
+    .icon-next {
+      background: url("player/nextButton.png") no-repeat;
+    }
+  }
+}
