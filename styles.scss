@@ -4,11 +4,9 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 /* Styles */
 
-$dark-gray: #123D3D;
-$turquoise: #00BDBC;
-$navy: #233C57;
-$yellow: #FCF0C6;
-$pomegranate: #F0301B;
+$madison: #2C3E50;
+$turquoise: #65C6BB;
+$pomegranate: #96281B;
 
 * {
   box-sizing: border-box;
@@ -19,7 +17,7 @@ $pomegranate: #F0301B;
 }
 
 body {
-  background: #eee;
+  background: #DADFE1;
 }
 
 #player {
@@ -31,22 +29,22 @@ body {
   margin: auto;
   font-family: "PT Sans", Arial, sans-serif;
   width: 280px;
-  height: 210px;
+  height: 240px;
   border-radius: 20px;
   box-shadow: 0 5px 65px rgba(0,0,0,0.7);
-  background: $dark-gray;
+  background: $madison;
 
   #playlist {
     padding: 20px 0;
     border-radius: 20px 20px 0 0;
-    color: $yellow;
-    background: $turquoise;
+    color: $madison;
+    background: white;
 
     li {
       font-size: 14px;
       width: 240px;
       margin: 0 auto;
-      padding: 8px 0;
+      padding: 8px 8px;
       cursor: pointer;
 
       &.playing {
@@ -55,8 +53,8 @@ body {
       }
 
       &:hover {
-        color: $pomegranate;
-        background: $yellow;
+        color: white;
+        background: #EC644B;
       }
     }
   }

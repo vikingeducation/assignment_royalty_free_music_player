@@ -34,7 +34,7 @@ table {
   text-align: center; }
 
 body {
-  background: #eee; }
+  background: #DADFE1; }
 
 #player {
   position: absolute;
@@ -45,27 +45,27 @@ body {
   margin: auto;
   font-family: "PT Sans", Arial, sans-serif;
   width: 280px;
-  height: 210px;
+  height: 240px;
   border-radius: 20px;
   box-shadow: 0 5px 65px rgba(0, 0, 0, 0.7);
-  background: #123D3D; }
+  background: #2C3E50; }
   #player #playlist {
     padding: 20px 0;
     border-radius: 20px 20px 0 0;
-    color: #FCF0C6;
-    background: #00BDBC; }
+    color: #2C3E50;
+    background: white; }
     #player #playlist li {
       font-size: 14px;
       width: 240px;
       margin: 0 auto;
-      padding: 8px 0;
+      padding: 8px 8px;
       cursor: pointer; }
       #player #playlist li.playing {
         color: white;
-        background: #F0301B; }
+        background: #96281B; }
       #player #playlist li:hover {
-        color: #F0301B;
-        background: #FCF0C6; }
+        color: white;
+        background: #EC644B; }
   #player #controls {
     position: relative;
     padding: 20px 0; }
