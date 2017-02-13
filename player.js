@@ -72,8 +72,8 @@ var player = {
     player.playing = true;
     if ($(".playing").length > 0) $(".playing").removeClass();
     $currTrack.addClass("playing");
-    var bkgText = $currTrack.text();
-    $("#currently-playing").text(`${bkgText} ${bkgText}`);
+    var bkgText = $currTrack.text().replace(/[^a-z]/gi, "")
+    $("#currently-playing").text(bkgText + bkgText + bkgText + bkgText);
     $currTrack.children("audio")[0].play();
   },
 
@@ -108,5 +108,6 @@ var player = {
 
 $(document).ready( function() {
   player.init();
-  $("#currently-playing").css("font-size", $(window).height() / 1.6);
+  $("#currently-playing").width($(window).width() + 500);
+  $("#currently-playing").css("font-size", $(window).height() / 1.8);
 });

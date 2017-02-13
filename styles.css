@@ -99,11 +99,19 @@ body {
   font-family: "Open Sans", Arial, sans-serif;
   font-weight: 800;
   position: absolute;
-  left: -50px;
-  top: -50px;
-  color: rgba(255, 255, 255, 0.4);
+  left: -100px;
+  top: -25px;
+  color: rgba(197, 239, 247, 0.6);
   font-size: 40em;
   text-transform: uppercase;
-  line-height: .6em; }
+  line-height: .6em;
+  word-wrap: break-word;
+  cursor: default; }
+
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
 
 /*# sourceMappingURL=styles.css.map */
