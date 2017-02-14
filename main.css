@@ -48,12 +48,41 @@ table {
 }
 
 /*CSS Reset End */
-
 body {
-	max-width: 850px;
-	margin: 0 auto;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .display-flex {
   display: flex;
 }
+
+.right-arrow {
+  width: 0;
+  height: 0;
+  border-bottom: 30px solid transparent; 
+  border-left: 45px solid green;
+  border-top: 30px solid transparent;
+}
+
+.left-arrow {
+  width: 0;
+  height: 0;
+  border-bottom: 30px solid transparent; 
+  border-right: 45px solid green;
+  border-top: 30px solid transparent;
+}
+.vertical-rule {
+  width: 0;
+  height: auto;
+  border-left: 5px solid black;
+}
+
+.skip-button {
+  
+}
+
+.previous-button {
+  
+}
+
