@@ -98,3 +98,9 @@ footer {
   
 }
 
+.pause-button {
+  width: .5em;
+  border-left: .5em solid black;
+  border-right: .5em solid black;
+  height: 2em;
+}
