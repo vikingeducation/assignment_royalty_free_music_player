@@ -48,3 +48,7 @@ table {
 }
 
 /*CSS Reset End */
+
+.display-flex {
+  display: flex;
+}
