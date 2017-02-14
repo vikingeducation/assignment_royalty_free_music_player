@@ -53,6 +53,18 @@ body {
   margin: 0 auto;
 }
 
+header {
+	height: 10vh;
+}
+
+main {
+	height: 75vh;
+}
+
+footer {
+	height: 15vh;
+}
+
 .display-flex {
   display: flex;
 }
