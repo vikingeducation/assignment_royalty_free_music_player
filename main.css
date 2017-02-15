@@ -79,12 +79,23 @@ footer {
 .display-flex {
   display: flex;
 }
-
+.flex-column {
+  flex-direction: column;
+}
+.flex-justify-center {
+  justify-content: center;
+}
+.flex-align-center {
+  align-items: center;
+}
 .track {
     border-left: 1px solid lightgray;
     border-right: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
   
+}
+
+.track-info {
 }
 
 .right-arrow {
