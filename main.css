@@ -55,17 +55,25 @@ body {
 
 header {
 	height: 10vh;
+	box-sizing:border-box;
 	-webkit-box-shadow: 1px 4px 20px 0px rgba(0,0,0,0.4);
 	-moz-box-shadow: 1px 4px 20px 0px rgba(0,0,0,0.4);
 	box-shadow: 1px 4px 20px 0px rgba(0,0,0,0.4);
+	align-items: center;
+  background-color: lightgray;
+  border: 1px solid black;
 }
 
 main {
 	height: 75vh;
+	box-sizing:border-box;
+
 }
 
 footer {
 	height: 15vh;
+	box-sizing:border-box;
+
 }
 
 .display-flex {
@@ -73,7 +81,10 @@ footer {
 }
 
 .track {
-	border-bottom : 1px solid black;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+  
 }
 
 .right-arrow {
