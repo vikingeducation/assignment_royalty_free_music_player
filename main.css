@@ -67,6 +67,8 @@ header {
 main {
 	height: 75vh;
 	box-sizing:border-box;
+  border-left: 1px solid #C8C8C8;
+  border-right: 1px solid #C8C8C8;
 
 }
 
@@ -74,6 +76,7 @@ footer {
 	height: 15vh;
 	box-sizing:border-box;
 	background-color: #7E7B7B;
+	border: 1px solid #C8C8C8;
 
 }
 
@@ -90,9 +93,7 @@ footer {
   align-items: center;
 }
 .track {
-    border-left: 1px solid lightgray;
-    border-right: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid #C8C8C8;
   
 }
 
