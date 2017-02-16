@@ -23,5 +23,8 @@ let musicPlayer = {
         audioElement.pause(); //Call pause() on HTMLAudioElement (MediaElement)
         });
 
+    },
+    "stopAllAudio" : function stopAllAudio() {
+        //for each audio element, loop through and call load on it to reset it.
     }
 };
