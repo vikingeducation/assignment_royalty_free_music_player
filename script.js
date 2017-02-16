@@ -26,5 +26,12 @@ let musicPlayer = {
     },
     "stopAllAudio" : function stopAllAudio() {
         //for each audio element, loop through and call load on it to reset it.
+        let audioElements = document.getElementsByTagName("audio");
+        audioElements.forEach(function (element, index, arr) {
+            element.load();
+        });
+    },
+    "startAudio" : function startAudio(element) {
+        element.play();
     }
 };
