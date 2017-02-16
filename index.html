@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Music Player</title>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="player.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans|Open+Sans:800" rel="stylesheet">
+</head>
+<body>
+  <div id="currently-playing" class="unselectable"></div>
+  <main id="player">
+    <ul id="playlist">
+      <li>
+        Nosaj Thing - Aquarium
+        <audio>
+          <source src="audio/aquarium.mp3" type="audio/mpeg">
+        </audio>
+      </li>
+      <li>
+        Boards of Canada - Everything You Do is a Balloon
+        <audio>
+          <source src="audio/balloon.mp3" type="audio/mpeg">
+        </audio>
+      </li>
+      <li>
+        St. South - Get Good (Infinitefreefall Remix)
+        <audio>
+          <source src="audio/getgood.mp3" type="audio/mpeg">
+        </audio>
+      </li>
+      <li>
+        Aphex Twin - Xtal
+        <audio>
+          <source src="audio/xtal.mp3" type="audio/mpeg">
+        </audio>
+      </li>
+    </ul>
+    <div id="controls">
+      <div id="prev-button" class="side-button icon-prev"></div><!--
+      --><div id="main-button" class="icon-play"></div><!--
+      --><div id="next-button" class="side-button icon-next"></div>
+    </div>
+  </main>
+
+</body>
+</html>

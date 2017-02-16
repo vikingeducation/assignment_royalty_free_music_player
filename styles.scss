@@ -1,0 +1,126 @@
+/* Reset */
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+/* Styles */
+
+$madison: #2C3E50;
+$playing: #1b8b96;
+$playerColor: rgba(17, 47, 51, 0.85);
+$hover: #9c8b88;
+$bodyBkg: #e64141;
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background-color: $bodyBkg;
+  position: relative;
+  font-family: "PT Sans", Arial, sans-serif;
+}
+
+#player {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 385px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 5px 65px rgba(0,0,0,0.7);
+  background-color: $playerColor;
+  z-index: 100;
+
+  #playlist {
+    padding: 20px 0;
+    border-radius: 20px 20px 0 0;
+    color: $madison;
+    background: white;
+
+    li {
+      font-size: 14px;
+      width: 350px;
+      margin: 0 auto;
+      padding: 8px 8px;
+      cursor: pointer;
+
+      &.playing {
+        color: white;
+        background-color: $playing;
+      }
+
+      &:hover {
+        color: white;
+        background: $hover;
+      }
+    }
+  }
+
+  #controls {
+    position: relative;
+    padding: 20px 0 30px;
+
+    #main-button {
+      width: 33px;
+      height: 39px;
+      margin: 0 12px;
+      display: inline-block;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+
+    .side-button {
+      width: 33px;
+      height: 21px;
+      margin: 0 12px;
+      display: inline-block;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+
+    .icon-play {
+      background: url("player/playButton.png") no-repeat;
+    }
+
+    .icon-pause {
+      background: url("player/pauseButton.png") no-repeat;
+    }
+
+    .icon-prev {
+      background: url("player/prevButton.png") no-repeat;
+    }
+
+    .icon-next {
+      background: url("player/nextButton.png") no-repeat;
+    }
+  }
+}
+
+#currently-playing {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-weight: 800;
+  position: absolute;
+  left: -100px;
+  top: -25px;
+  color: rgba(197, 239, 247, 0.6);
+  font-size: 40em;
+  text-transform: uppercase;
+  line-height: .6em;
+  word-wrap: break-word;
+  cursor: default;
+}
+
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
