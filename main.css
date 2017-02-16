@@ -99,6 +99,8 @@ footer {
 }
 .track {
     border-bottom: 1px solid #C8C8C8;
+    box-sizing: border-box;
+    height: 10vh;
   
 }
 
