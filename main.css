@@ -79,9 +79,9 @@ main {
 footer {
 	height: 15vh;
 	box-sizing:border-box;
-	background-color: #909090;
+	background-color: #303030;
 	border: 1px solid #C8C8C8;
-	color: #FFFBE3; /*Eggshell*/
+	color: #FFFBF7; /*Eggshell*/
 
 }
 
