@@ -103,7 +103,10 @@ footer {
     height: 10vh;
   
 }
-
+.music-buttons {
+    margin: 0 15px;
+    width: 50px;
+}
 .track-info {
 }
 
