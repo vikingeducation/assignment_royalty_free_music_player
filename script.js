@@ -1,6 +1,6 @@
 "use strict";
 
-$(document).ready(function(musicPlayer) {
+$(document).ready(function() {
     musicPlayer.init();
 });
 
