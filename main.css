@@ -60,7 +60,7 @@ header {
 	-moz-box-shadow: 1px 4px 20px 0px rgba(0,0,0,0.4);
 	box-shadow: 1px 4px 20px 0px rgba(0,0,0,0.4);
 	align-items: center;
-  background-color: lightgray;
+  background-color: #C8C8C8;
   border: 1px solid black;
 }
 
@@ -73,6 +73,7 @@ main {
 footer {
 	height: 15vh;
 	box-sizing:border-box;
+	background-color: #7E7B7B;
 
 }
 
