@@ -64,6 +64,10 @@ header {
   border: 1px solid black;
 }
 
+h1 {
+  font-size: 2em;
+}
+
 main {
 	height: 75vh;
 	box-sizing:border-box;
@@ -75,7 +79,7 @@ main {
 footer {
 	height: 15vh;
 	box-sizing:border-box;
-	background-color: #7E7B7B;
+	background-color: #F2F2F2;
 	border: 1px solid #C8C8C8;
 
 }
@@ -142,4 +146,8 @@ footer {
   border-left: .5em solid black;
   border-right: .5em solid black;
   height: 2em;
+}
+
+.main-icon {
+  font-size: 2em;
 }
