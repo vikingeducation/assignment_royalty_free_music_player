@@ -108,6 +108,6 @@ var player = {
 
 $(document).ready( function() {
   player.init();
-  $("#currently-playing").width($(window).width() + 500);
-  $("#currently-playing").css("font-size", $(window).height() / 1.8);
+  $("#currently-playing").width(window.innerWidth + 500);
+  $("#currently-playing").css("font-size", window.innerHeight / 1.8);
 });
