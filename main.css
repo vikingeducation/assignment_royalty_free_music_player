@@ -110,25 +110,25 @@ footer {
 .play-button {
   width: 0;
   height: 0;
-  border-bottom: 30px solid transparent; 
-  border-left: 45px solid #B0B0B0;
-  border-top: 30px solid transparent;
+  border-bottom: 18px solid transparent;
+  border-left: 27px solid #B0B0B0;
+  border-top: 18px solid transparent;
 }
 
 .right-arrow {
   width: 0;
   height: 0;
-  border-bottom: 30px solid transparent; 
-  border-left: 45px solid #B0B0B0;
-  border-top: 30px solid transparent;
+  border-bottom: 18px solid transparent;
+  border-left: 27px solid #B0B0B0;
+  border-top: 18px solid transparent;
 }
 
 .left-arrow {
   width: 0;
   height: 0;
-  border-bottom: 30px solid transparent; 
-  border-right: 45px solid #B0B0B0;
-  border-top: 30px solid transparent;
+  border-bottom: 18px solid transparent;
+  border-right: 27px solid #B0B0B0;
+  border-top: 18px solid transparent;
 }
 .vertical-rule {
   width: 0;
@@ -152,5 +152,5 @@ footer {
 }
 
 .main-icon {
-  font-size: 2em;
+  font-size: 2em !important;
 }
