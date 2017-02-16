@@ -79,9 +79,9 @@ main {
 footer {
 	height: 15vh;
 	box-sizing:border-box;
-	background-color: #F2F2F2;
+	background-color: #909090;
 	border: 1px solid #C8C8C8;
-	color: white;
+	color: #FFFBE3; /*Eggshell*/
 
 }
 
@@ -109,7 +109,7 @@ footer {
   width: 0;
   height: 0;
   border-bottom: 30px solid transparent; 
-  border-left: 45px solid #D8D8D8;
+  border-left: 45px solid #B0B0B0;
   border-top: 30px solid transparent;
 }
 
@@ -117,7 +117,7 @@ footer {
   width: 0;
   height: 0;
   border-bottom: 30px solid transparent; 
-  border-left: 45px solid #D8D8D8;
+  border-left: 45px solid #B0B0B0;
   border-top: 30px solid transparent;
 }
 
@@ -125,7 +125,7 @@ footer {
   width: 0;
   height: 0;
   border-bottom: 30px solid transparent; 
-  border-right: 45px solid #D8D8D8;
+  border-right: 45px solid #B0B0B0;
   border-top: 30px solid transparent;
 }
 .vertical-rule {
