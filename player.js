@@ -5,7 +5,7 @@ var player = {
   init: function() {
 
     // $currTrack is a $('li') containing currently playing audio
-    var $currTrack = $( $("#playlist li")[0] );
+    var $currTrack = $("#playlist li").eq(0);
 
     $("#playlist").click( function(event) {
       if (player.playing) {
