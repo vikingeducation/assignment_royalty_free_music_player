@@ -12,11 +12,15 @@ let musicPlayer = {
         //Event listeners will update this element accordingly
         //if body receives a "play" event, then update track and main-controls accordingly
         $("audio").on("play", function (event) { //play event does not bubble
-            console.log("play event triggered!");
+            //update main music-controls
+            //change main music-controls to pause-button
+            $(".music-controls .play-pause-button").children().removeClass("play-button").addClass("pause-button");
         });
         //if body receives a "pause" event, then update track and main-controls accordingly
         $("audio").on("pause", function (event) {
-            console.log("pause event triggered!");
+            //update main music-controls
+            //change main music-controls to play-button
+            $(".music-controls .play-pause-button").children().removeClass("pause-button").addClass("play-button");
 
         });
         //these handlers will be responsible for switching play/pause classes and adding new event handlers.
