@@ -47,6 +47,7 @@ let musicPlayer = {
         if (audioElement.currentTime === 0 ) {//Check to see if audioElement has started playing
             musicPlayer.resetAllAudio(); //if not, call load on all elements and start playing this audio element check if audio.currentTime is 0.
             musicPlayer.resetAllPauseButtons();
+            updateCurrentTrack(audioElement);
             audioElement.play();
         }
         else { // if so, call play() on this audio element to resume playing.
