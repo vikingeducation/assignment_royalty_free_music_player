@@ -6,8 +6,8 @@ $(document).ready(function() {
 
 let musicPlayer = {
     "init" : function init() {
-        let audiosArray = this.createTrackArray();
-        this.currentTrack = audiosArray[0];
+        this.audiosArray = this.createTrackArray();
+        this.currentTrack = this.audiosArray[0];
         //Find the element holding the "main" audio player controls
         let musicControls = document.getElementsByClassName("music-controls"); //music-controls is the class given to the footer holding the "main" controls
         //Add event listeners to the body for play and pause so that controls from the tracks or the main music-controls will both be seen
@@ -30,6 +30,25 @@ let musicPlayer = {
             //also need to update tracks if event is emitted from main-controls
             musicPlayer.togglePlayToPause($(event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
 
+        });
+        //Add listener and handler for previous button
+        $(".previous-button").on("click", function previousButtonHandler(event) {
+            //Look up current track
+            //If at first track, go to last track in the array
+            //Else set new current track number to currentTrack minus one
+            //Reload all tracks
+            //Reset all buttons to play
+            //Call play on the new currentTrack
+        });
+        
+        $(".next-button").on("click", function nextButtonHandler(event) {
+         //Add listener and handler for next button
+        //Look up current track
+        //If at first track, go to last track in the array
+        //Else set new current track number to currentTrack minus one
+        //Reload all tracks
+        //Reset all buttons to play
+        //Call play on the new currentTrack
         });
         
         //Need to attach handlers to pause and play-buttons of .music-controls to pause and play music
