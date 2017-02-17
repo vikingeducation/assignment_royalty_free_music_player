@@ -7,7 +7,7 @@ $(document).ready(function() {
 let musicPlayer = {
     "init" : function init() {
         let audiosArray = this.createTrackArray();
-        let currentTrack = audiosArray[0];
+        this.currentTrack = audiosArray[0];
         //Find the element holding the "main" audio player controls
         let musicControls = document.getElementsByClassName("music-controls"); //music-controls is the class given to the footer holding the "main" controls
         //Add event listeners to the body for play and pause so that controls from the tracks or the main music-controls will both be seen
@@ -29,12 +29,12 @@ let musicPlayer = {
         $(".music-controls .play-pause-button").on("click", ".play-button", function () {
             //What to do if all music track are at 0? Need an array of track and one as "currentTrack"
             //For now, play will resume an audio track
-            currentTrack.play();
+            musicPlayer.currentTrack.play();
             console.log("Main music-controls play-button clicked");
         });
 
         $(".music-controls .play-pause-button").on("click", ".pause-button", function () {
-            currentTrack.pause();
+            musicPlayer.currentTrack.pause();
             console.log("Main music-controls pause-button clicked");
 
         });        
@@ -47,7 +47,7 @@ let musicPlayer = {
         if (audioElement.currentTime === 0 ) {//Check to see if audioElement has started playing
             musicPlayer.resetAllAudio(); //if not, call load on all elements and start playing this audio element check if audio.currentTime is 0.
             musicPlayer.resetAllPauseButtons();
-            updateCurrentTrack(audioElement);
+            musicPlayer.updateCurrentTrack(audioElement);
             audioElement.play();
         }
         else { // if so, call play() on this audio element to resume playing.
@@ -65,11 +65,10 @@ let musicPlayer = {
         $musicButton.addClass("play-button").removeClass("pause-button"); //Switch button types
         });
         
-        function updateCurrentTrack(newTrack) {
-            currentTrack = newTrack;
 
-        }
-
+    },
+    "updateCurrentTrack" : function updateCurrentTrack(newTrack) {
+        musicPlayer.currentTrack = newTrack;
     },
     "resetAllAudio" : function resetAllAudio() {
         //for each audio element, loop through and call load on it to reset it.
