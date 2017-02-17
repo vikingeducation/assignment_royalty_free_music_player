@@ -16,7 +16,7 @@ let musicPlayer = {
         $("audio").on("play", function (event) { //play event does not bubble
             //update main music-controls
             //change main music-controls to pause-button
-            $(".music-controls .play-pause-button").children().removeClass("play-button").addClass("pause-button");
+            musicPlayer.togglePlayToPause($(".music-controls .play-pause-button").children());
             //also need to update tracks if event is emitted from main-controls
             musicPlayer.togglePlayToPause($(event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
 
@@ -26,7 +26,7 @@ let musicPlayer = {
         $("audio").on("pause", function (event) {
             //update main music-controls
             //change main music-controls to play-button
-            $(".music-controls .play-pause-button").children().removeClass("pause-button").addClass("play-button");
+            musicPlayer.togglePlayToPause($(".music-controls .play-pause-button").children());
             //also need to update tracks if event is emitted from main-controls
             musicPlayer.togglePlayToPause($(event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
 
