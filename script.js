@@ -6,7 +6,8 @@ $(document).ready(function() {
 
 let musicPlayer = {
     "init" : function init() {
-        let currentTrack = ""; //Need to figure out how to update this
+        let audiosArray = this.createTrackArray();
+        let currentTrack = audiosArray[0];
         //Find the element holding the "main" audio player controls
         let musicControls = document.getElementsByClassName("music-controls"); //music-controls is the class given to the footer holding the "main" controls
         //Add event listeners to the body for play and pause so that controls from the tracks or the main music-controls will both be seen
@@ -26,6 +27,8 @@ let musicPlayer = {
         });
         //Need to attach handlers to pause and play-buttons of .music-controls to pause and play music
         $(".music-controls .play-pause-button").on("click", ".play-button", function () {
+            //What to do if all music track are at 0? Need an array of track and one as "currentTrack"
+            //For now, play will resume an audio track
             console.log("Main music-controls play-button clicked");
         });
 
@@ -72,6 +75,13 @@ let musicPlayer = {
     },
     "startAudio" : function startAudio(element) {
         element.play();
-    }
+    },
     //Bottom player will update with global body listening for events from divclass="tracks"
+    "createTrackArray" : function createTrackArray() {
+        //return array of audio elements.
+        return $("audio").get();
+    },
+    "updateTrackArray" : function updateTrackArray() {
+        
+    }
 };
