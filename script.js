@@ -17,18 +17,21 @@ let musicPlayer = {
             //update main music-controls
             //change main music-controls to pause-button
             $(".music-controls .play-pause-button").children().removeClass("play-button").addClass("pause-button");
+            //also need to update tracks if event is emitted from main-controls
+            musicPlayer.togglePlayToPause((event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
+
         });
             //also need to update tracks if event is emitted from main-controls
+            musicPlayer.togglePlayToPause((event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
         //if body receives a "pause" event, then update track and main-controls accordingly
         $("audio").on("pause", function (event) {
             //update main music-controls
             //change main music-controls to play-button
             $(".music-controls .play-pause-button").children().removeClass("pause-button").addClass("play-button");
+            //also need to update tracks if event is emitted from main-controls
+            musicPlayer.togglePlayToPause((event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
 
         });
-        //also need to update tracks if event is emitted from main-controls
-
-        
         
         //Need to attach handlers to pause and play-buttons of .music-controls to pause and play music
         $(".music-controls .play-pause-button").on("click", ".play-button", function () {
