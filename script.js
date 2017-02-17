@@ -32,6 +32,7 @@ let musicPlayer = {
         else { // if so, call play() on this audio element to resume playing.
             audioElement.play();
         }
+        //Just change all pause buttons to play buttons
         $musicButton.addClass("pause-button").removeClass("play-button"); //Switch button types
         });
         
@@ -48,8 +49,11 @@ let musicPlayer = {
         //for each audio element, loop through and call load on it to reset it.
         let audioElements = Array.from(document.getElementsByTagName("audio")); //Convert/Insure HTMLCollection to Array
         audioElements.forEach(function (element, index, arr) {
-            element.load();
+            element.load(); //reset audio back to zero
         });
+        $(".pause-button").addClass("play-button").removeClass("pause-button"); //If any audio has a pause-button, change it back to play-button
+
+
     },
     "startAudio" : function startAudio(element) {
         element.play();
