@@ -63,6 +63,11 @@ let musicPlayer = {
         audioElement.pause(); //Call pause() on HTMLAudioElement (MediaElement)
         $musicButton.addClass("play-button").removeClass("pause-button"); //Switch button types
         });
+        
+        function updateCurrentTrack(newTrack) {
+            currentTrack = newTrack;
+
+        }
 
     },
     "resetAllAudio" : function resetAllAudio() {
@@ -85,8 +90,6 @@ let musicPlayer = {
     },
     "updateTrackArray" : function updateTrackArray() {
         
-    },
-    "updateCurrentTrack" : function updateCurrentTrack() {
-        
     }
+
 };
