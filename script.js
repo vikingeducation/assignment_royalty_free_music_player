@@ -18,7 +18,7 @@ let musicPlayer = {
             //change main music-controls to pause-button
             $(".music-controls .play-pause-button").children().removeClass("play-button").addClass("pause-button");
             //also need to update tracks if event is emitted from main-controls
-            musicPlayer.togglePlayToPause((event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
+            musicPlayer.togglePlayToPause($(event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
 
         });
 
@@ -28,7 +28,7 @@ let musicPlayer = {
             //change main music-controls to play-button
             $(".music-controls .play-pause-button").children().removeClass("pause-button").addClass("play-button");
             //also need to update tracks if event is emitted from main-controls
-            musicPlayer.togglePlayToPause((event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
+            musicPlayer.togglePlayToPause($(event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
 
         });
         
