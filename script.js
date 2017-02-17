@@ -27,6 +27,7 @@ let musicPlayer = {
         let audioElement = $musicButton.parents(".music-buttons").siblings("audio").get(0); //get the music-buttons containers of the clicked button, find the audio element that's a sibling of that button, then get the DOMElement back.
         if (audioElement.currentTime === 0 ) {//Check to see if audioElement has started playing
             musicPlayer.resetAllAudio(); //if not, call load on all elements and start playing this audio element check if audio.currentTime is 0.
+            musicPlayer.resetAllPauseButtons();
             audioElement.play();
         }
         else { // if so, call play() on this audio element to resume playing.
@@ -51,9 +52,9 @@ let musicPlayer = {
         audioElements.forEach(function (element, index, arr) {
             element.load(); //reset audio back to zero
         });
-        $(".pause-button").addClass("play-button").removeClass("pause-button"); //If any audio has a pause-button, change it back to play-button
-
-
+    },
+    "resetAllPauseButtons" : function resetAllPauseButtons() {  //If any audio has a pause-button, change it back to play-button
+        $(".pause-button").addClass("play-button").removeClass("pause-button");
     },
     "startAudio" : function startAudio(element) {
         element.play();
