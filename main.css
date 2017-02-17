@@ -104,8 +104,10 @@ footer {
   
 }
 .music-buttons {
-    margin: 0 15px;
-    width: 50px;
+    margin: 0 25px;
+}
+.music-buttons > * {
+  padding: 0 10px;
 }
 .track-info {
 }
