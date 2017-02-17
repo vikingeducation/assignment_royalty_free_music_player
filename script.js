@@ -11,11 +11,11 @@ let musicPlayer = {
         //Add event listeners to the body for play and pause so that controls from the tracks or the main music-controls will both be seen
         //Event listeners will update this element accordingly
         //if body receives a "play" event, then update track and main-controls accordingly
-        $(document.body).on("play", function (event) {
+        document.body.addEventListener("play", function (event) {
             console.log("play event triggered!");
         });
         //if body receives a "pause" event, then update track and main-controls accordingly
-        $(document.body).on("pause", function (event) {
+        document.body.addEventListener("pause", function (event) {
             console.log("pause event triggered!");
 
         });
