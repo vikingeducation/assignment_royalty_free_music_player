@@ -85,5 +85,8 @@ let musicPlayer = {
     },
     "updateTrackArray" : function updateTrackArray() {
         
+    },
+    "updateCurrentTrack" : function updateCurrentTrack() {
+        
     }
 };
