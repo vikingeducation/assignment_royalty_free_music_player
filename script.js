@@ -7,7 +7,9 @@ $(document).ready(function() {
 let musicPlayer = {
     "init" : function init() {
         this.audiosArray = this.createTrackArray();
-        this.currentTrack = this.audiosArray[0];
+        this.currentTrackNumber = 0;
+        this.currentTrack = this.audiosArray[this.currentTrackNumber];
+        
         //Find the element holding the "main" audio player controls
         let musicControls = document.getElementsByClassName("music-controls"); //music-controls is the class given to the footer holding the "main" controls
         //Add event listeners to the body for play and pause so that controls from the tracks or the main music-controls will both be seen
@@ -93,6 +95,9 @@ let musicPlayer = {
     "updateCurrentTrack" : function updateCurrentTrack(newTrack) {
         musicPlayer.currentTrack = newTrack;
     },
+    "updateCurrentTrackNumber" : function updateCurrentTrackNumber(newTrackNumber) {
+        musicPlayer.currentTrackNumner = newTrackNumber;
+    },
     "resetAllAudio" : function resetAllAudio() {
         //for each audio element, loop through and call load on it to reset it.
         let audioElements = Array.from(document.getElementsByTagName("audio")); //Convert/Insure HTMLCollection to Array
@@ -122,8 +127,24 @@ let musicPlayer = {
     },
     //Bottom player will update with global body listening for events from divclass="tracks"
     "createTrackArray" : function createTrackArray() {
-        //return array of audio elements.
-        return $("audio").get();
+        //return array of audio elements objects.
+        //each object contains a reference to the audioElement, src, trackName, and trackArtist
+        //with API, would likely be building this from data returned from call, then using this information to build the audio elements
+        //Rework to get an array or collection of tracks from the API then for each one, constructing a new audio element and corresponding information
+        let audioArray = $("audio").get();
+        audioArray = audioArray.map(function (element, index, arr) {
+            let $audio = $(element);
+            let trackTitle = "";
+            let trackArtist = "";
+            let trackSource = "";
+            let trackInfo = {
+                "trackTitle" : trackTitle,
+                "trackArtist" : trackArtist,
+                "trackSource" : trackSource,
+                "audioElement" : element
+            };
+        });
+        return audioArray;
     },
     "updateTrackArray" : function updateTrackArray() {
         
