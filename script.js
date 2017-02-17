@@ -60,8 +60,6 @@ let musicPlayer = {
         else { // if so, call play() on this audio element to resume playing.
             audioElement.play();
         }
-        //Just change all pause buttons to play buttons
-        $musicButton.addClass("pause-button").removeClass("play-button"); //Switch button types
         });
         
         
@@ -69,7 +67,6 @@ let musicPlayer = {
         let $musicButton = $(event.currentTarget);
         let audioElement = $musicButton.parents(".music-buttons").siblings("audio").get(0); //get the music-buttons containers of the clicked button, find the audio element that's a sibling of that button, then get the DOMElement back.
         audioElement.pause(); //Call pause() on HTMLAudioElement (MediaElement)
-        $musicButton.addClass("play-button").removeClass("pause-button"); //Switch button types
         });
         
 
