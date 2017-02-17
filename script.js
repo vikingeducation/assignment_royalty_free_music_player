@@ -23,6 +23,15 @@ let musicPlayer = {
             $(".music-controls .play-pause-button").children().removeClass("pause-button").addClass("play-button");
 
         });
+        //Need to attach handlers to pause and play-buttons of .music-controls to pause and play music
+        $(".music-controls .play-pause-button").on("click", ".play-button", function () {
+            console.log("Main music-controls play-button clicked");
+        });
+
+        $(".music-controls .play-pause-button").on("click", ".pause-button", function () {
+            console.log("Main music-controls pause-button clicked");
+
+        });        
         //these handlers will be responsible for switching play/pause classes and adding new event handlers.
     //Whenever a play button is clicked, get the respective audio for that play-button and call play() on it
     //Should we delegate so that we don't need to worry about toggling? Let's try
