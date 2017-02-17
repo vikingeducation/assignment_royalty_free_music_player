@@ -15,7 +15,7 @@ let musicPlayer = {
             audioElement.play();// if so, call play() on this audio element to resume playing
         }
         else { //if not, call load on all elements and start playing this audio element check if audio.currentTime is 0
-            this.resetAllAudio();
+            musicPlayer.resetAllAudio();
             audioElement.play();
         }
         $musicButton.addClass("pause-button").removeClass("play-button"); //Switch button types
