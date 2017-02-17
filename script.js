@@ -18,6 +18,7 @@ let musicPlayer = {
             //change main music-controls to pause-button
             $(".music-controls .play-pause-button").children().removeClass("play-button").addClass("pause-button");
         });
+            //also need to update tracks if event is emitted from main-controls
         //if body receives a "pause" event, then update track and main-controls accordingly
         $("audio").on("pause", function (event) {
             //update main music-controls
@@ -25,6 +26,10 @@ let musicPlayer = {
             $(".music-controls .play-pause-button").children().removeClass("pause-button").addClass("play-button");
 
         });
+        //also need to update tracks if event is emitted from main-controls
+
+        
+        
         //Need to attach handlers to pause and play-buttons of .music-controls to pause and play music
         $(".music-controls .play-pause-button").on("click", ".play-button", function () {
             //What to do if all music track are at 0? Need an array of track and one as "currentTrack"
@@ -80,6 +85,20 @@ let musicPlayer = {
     },
     "resetAllPauseButtons" : function resetAllPauseButtons() {  //If any audio has a pause-button, change it back to play-button
         $(".pause-button").addClass("play-button").removeClass("pause-button");
+    },
+    "togglePlayToPause" : function togglePlayToPause(holderDiv) {
+        let $holderDiv = $(holderDiv);
+        //if div class is play-button, add pause-button and remove play-button
+        if ($holderDiv.hasClass("play-button")) {
+            $holderDiv.addClass("pause-button").removeClass("play-button");
+        }
+        //if div class is pause-button, add play-button and remove pause-button
+        else if ($holderDiv.hasClass("pause-button")) {
+            $holderDiv.addClass("play-button").removeClass("pause-button");
+        }
+        else {
+            console.error("div did not have either class. Error");
+        }
     },
     "startAudio" : function startAudio(element) {
         element.play();
