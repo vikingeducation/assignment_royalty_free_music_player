@@ -29,10 +29,12 @@ let musicPlayer = {
         $(".music-controls .play-pause-button").on("click", ".play-button", function () {
             //What to do if all music track are at 0? Need an array of track and one as "currentTrack"
             //For now, play will resume an audio track
+            currentTrack.play();
             console.log("Main music-controls play-button clicked");
         });
 
         $(".music-controls .play-pause-button").on("click", ".pause-button", function () {
+            currentTrack.pause();
             console.log("Main music-controls pause-button clicked");
 
         });        
