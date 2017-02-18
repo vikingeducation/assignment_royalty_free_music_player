@@ -70,14 +70,35 @@ let musicPlayer = {
         });
         
         //Need to attach handlers to pause and play-buttons of .music-controls to pause and play music
-        $(".music-controls .play-pause-button").on("click", ".play-button", function () {
+        $(".music-controls .play-pause-button").on("click", ".play-button", function (event) {
+            //update main music-controls
+            //change main music-controls to pause-button
+            musicPlayer.changePlayToPause(event.currentTarget);
+            //also need to update tracks if event is emitted from main-controls
+            musicPlayer.changePlayToPause($(musicPlayer.currentTrack.audioElement).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
+            //Display track-title of .track-info in both respective track and music-controls .track-info
+            //event.currentTarget is the song that is playing, therefore we need to set it's respective track-info
+            musicPlayer.changeTrackArtist();
+            musicPlayer.displayTrackTitle();
+            //updating the main music-controls track-info display
+
             //What to do if all music track are at 0? Need an array of track and one as "currentTrack"
             //For now, play will resume an audio track
-            musicPlayer.currentTrack.audioElement.play();
+            musicPlayer.playCurrentTrack();
         });
 
-        $(".music-controls .play-pause-button").on("click", ".pause-button", function () {
-            musicPlayer.currentTrack.audioElement.pause();
+        $(".music-controls .play-pause-button").on("click", ".pause-button", function (event) {
+            //update main music-controls
+            //change main music-controls to pause-button
+            musicPlayer.changePauseToPlay(event.currentTarget);
+            //also need to update tracks if event is emitted from main-controls
+            musicPlayer.changePauseToPlay($(musicPlayer.currentTrack.audioElement).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
+            //Display track-title of .track-info in both respective track and music-controls .track-info
+            //event.currentTarget is the song that is playing, therefore we need to set it's respective track-info
+            musicPlayer.changeTrackArtist();
+            musicPlayer.displayTrackTitle();
+            //updating the main music-controls track-info display
+            musicPlayer.pauseCurrentTrack();
 
         });        
         //these handlers will be responsible for switching play/pause classes and adding new event handlers.
@@ -90,6 +111,8 @@ let musicPlayer = {
             let p = new Promise(function (resolve, reject) { //if not, call load on all elements and start playing this audio element check if audio.currentTime is 0.
                 musicPlayer.resetAllAudio(resolve); 
             //It seems that sometimes play will get called on the next track before the resetAllAudio function has completed resulting in a playing song displaying. Solution would be to return a promise and chain the rest of these function off of the promise.
+            //Still doesn't work with promise, likely because I need to do Promise.all and have each forEach return a promise, this currently just runs forEach synchronously but the function called in the function to forEach are not completing on time, so each one of those would also need to be promise aware fulfill a promise would all in-turn fulfill the promise for new Plays
+                
             });
             p.then(function onFulfilled(success) {
                 musicPlayer.updateCurrentTrackNumber(musicPlayer.findTrackInAudiosArray(audioElement));
@@ -102,6 +125,16 @@ let musicPlayer = {
         else { // if so, call play() on this audio element to resume playing.
             audioElement.play();
         }
+        //update main music-controls
+        //change main music-controls to pause-button
+        musicPlayer.changePlayToPause($(".music-controls .play-pause-button").children());
+        //also need to update tracks if event is emitted from main-controls
+        musicPlayer.changePlayToPause($musicButton); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
+        //Display track-title of .track-info in both respective track and music-controls .track-info
+        //event.currentTarget is the song that is playing, therefore we need to set it's respective track-info
+        musicPlayer.changeTrackArtist();
+        musicPlayer.displayTrackTitle();
+        //updating the main music-controls track-info display
         });
         
         
@@ -109,6 +142,17 @@ let musicPlayer = {
         let $musicButton = $(event.currentTarget);
         let audioElement = $musicButton.parents(".music-buttons").siblings("audio").get(0); //get the music-buttons containers of the clicked button, find the audio element that's a sibling of that button, then get the DOMElement back.
         audioElement.pause(); //Call pause() on HTMLAudioElement (MediaElement)
+        //update main music-controls
+        //change main music-controls to play-button
+        musicPlayer.changePauseToPlay($(".music-controls .play-pause-button").children());
+        //also need to update tracks if event is emitted from main-controls
+        musicPlayer.changePauseToPlay($musicButton); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
+        //Display "Music Paused" of .track-info in both respective track and music-controls .track-info
+        //event.currentTarget is the song that is playing, therefore we need to set it's respective track-info
+        musicPlayer.displayTrackPaused();
+        //updating the main music-controls track-info display
+
+            
         });
         
 
@@ -126,7 +170,9 @@ let musicPlayer = {
             element.pause();
             element.currentTime = 0; //reset audio back to zero
             musicPlayer.displayTrackTitle(element); //Need to change all tracks back to track-title name to correct for pause event listener
+
         });
+        musicPlayer.resetAllPauseButtons();
         resolve();
     },
     "resetAllPauseButtons" : function resetAllPauseButtons() {  //If any audio has a pause-button, change it back to play-button
@@ -177,6 +223,9 @@ let musicPlayer = {
     "playCurrentTrack" : function playCurrentTrack() {
         musicPlayer.currentTrack.audioElement.play();
     },
+    "pauseCurrentTrack" : function pauseCurrentTrack() {
+        musicPlayer.currentTrack.audioElement.pause();
+    },
     //Bottom player will update with global body listening for events from divclass="tracks"
     "createTrackArray" : function createTrackArray() {
         //return array of audio elements objects.
@@ -209,20 +258,20 @@ let musicPlayer = {
             }
         }
     },
-    "displayTrackTitle" : function displayTrackTitle(audioElement) {
+    "displayTrackTitle" : function displayTrackTitle() {
             let trackTitle = musicPlayer.currentTrack.trackTitle
-            $(audioElement).siblings(".track-info").children(".track-title").text(trackTitle);
+            $(musicPlayer.currentTrack.audioElement).siblings(".track-info").children(".track-title").text(trackTitle);
             //updating the main music-controls track-info display
             $(".music-controls .track-info > .track-title").text(trackTitle);
     },
-    "displayTrackPaused" : function displayTrackPaused(audioElement) {
-            $(audioElement).siblings(".track-info").children(".track-title").text("Music paused");
+    "displayTrackPaused" : function displayTrackPaused() {
+            $(musicPlayer.currentTrack.audioElement).siblings(".track-info").children(".track-title").text("Music paused");
             //updating the main music-controls track-info display
             $(".music-controls .track-info > .track-title").text("Music paused");        
     },
-    "changeTrackArtist" : function changeTrackArtist(audioElement) {
+    "changeTrackArtist" : function changeTrackArtist() {
             let trackArtist = musicPlayer.currentTrack.trackArtist;
-            $(audioElement).siblings(".track-info").children(".track-artist").text(trackArtist);
+            $(musicPlayer.currentTrack.audioElement).siblings(".track-info").children(".track-artist").text(trackArtist);
             $(".music-controls .track-info > .track-artist").text(trackArtist);
 
     }
