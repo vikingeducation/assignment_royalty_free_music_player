@@ -105,7 +105,7 @@ footer {
 }
 .music-buttons {
     margin: 0 25px;
-    height: 30px;
+    height: 40px;
 }
 .music-buttons > * {
   padding: 0 10px;
@@ -139,7 +139,7 @@ footer {
 }
 .vertical-rule {
   width: 0;
-  height: auto;
+  height: 100%;
   border-left: 5px solid black;
 }
 
