@@ -8,7 +8,7 @@ let musicPlayer = {
     "init" : function init() {
         this.audiosArray = this.createTrackArray();
         this.currentTrackNumber = 0;
-        this.currentTrack = this.audiosArray[this.currentTrackNumber];
+        this.currentTrack = this.audiosArray[0]; //CurrentTrack is an object that holds information about the track
         
         //Find the element holding the "main" audio player controls
         let musicControls = document.getElementsByClassName("music-controls"); //music-controls is the class given to the footer holding the "main" controls
@@ -57,12 +57,12 @@ let musicPlayer = {
         $(".music-controls .play-pause-button").on("click", ".play-button", function () {
             //What to do if all music track are at 0? Need an array of track and one as "currentTrack"
             //For now, play will resume an audio track
-            musicPlayer.currentTrack.play();
+            musicPlayer.currentTrack.audioElement.play();
             console.log("Main music-controls play-button clicked");
         });
 
         $(".music-controls .play-pause-button").on("click", ".pause-button", function () {
-            musicPlayer.currentTrack.pause();
+            musicPlayer.currentTrack.audioElement.pause();
             console.log("Main music-controls pause-button clicked");
 
         });        
@@ -75,7 +75,8 @@ let musicPlayer = {
         if (audioElement.currentTime === 0 ) {//Check to see if audioElement has started playing
             musicPlayer.resetAllAudio(); //if not, call load on all elements and start playing this audio element check if audio.currentTime is 0.
             musicPlayer.resetAllPauseButtons();
-            musicPlayer.updateCurrentTrack(audioElement);
+            musicPlayer.updateCurrentTrackNumber(musicPlayer.findTrackInAudiosArray(audioElement));
+            musicPlayer.updateCurrentTrack();
             audioElement.play();
         }
         else { // if so, call play() on this audio element to resume playing.
@@ -92,11 +93,11 @@ let musicPlayer = {
         
 
     },
-    "updateCurrentTrack" : function updateCurrentTrack(newTrack) {
-        musicPlayer.currentTrack = newTrack;
+    "updateCurrentTrack" : function updateCurrentTrack() {
+        musicPlayer.currentTrack = musicPlayer.audiosArray[musicPlayer.currentTrackNumber];
     },
     "updateCurrentTrackNumber" : function updateCurrentTrackNumber(newTrackNumber) {
-        musicPlayer.currentTrackNumner = newTrackNumber;
+        musicPlayer.currentTrackNumber = newTrackNumber;
     },
     "resetAllAudio" : function resetAllAudio() {
         //for each audio element, loop through and call load on it to reset it.
@@ -148,6 +149,13 @@ let musicPlayer = {
     },
     "updateTrackArray" : function updateTrackArray() {
         
+    },
+    "findTrackInAudiosArray" : function findTrackInAudiosArray(audioElement) {
+        musicPlayer.audiosArray.forEach(function(element, index, arr) {
+            if (element.audioElement === audioElement) {
+                return index;
+            }
+        });
     }
 
 };
