@@ -18,9 +18,9 @@ let musicPlayer = {
         $("audio").on("play", function (event) { //play event does not bubble
             //update main music-controls
             //change main music-controls to pause-button
-            musicPlayer.togglePlayToPause($(".music-controls .play-pause-button").children());
+            musicPlayer.changePlayToPause($(".music-controls .play-pause-button").children());
             //also need to update tracks if event is emitted from main-controls
-            musicPlayer.togglePlayToPause($(event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
+            musicPlayer.changePlayToPause($(event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
 
         });
 
@@ -28,9 +28,9 @@ let musicPlayer = {
         $("audio").on("pause", function (event) {
             //update main music-controls
             //change main music-controls to play-button
-            musicPlayer.togglePlayToPause($(".music-controls .play-pause-button").children());
+            musicPlayer.changePauseToPlay($(".music-controls .play-pause-button").children());
             //also need to update tracks if event is emitted from main-controls
-            musicPlayer.togglePlayToPause($(event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
+            musicPlayer.changePauseToPlay($(event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
 
         });
         //Add listener and handler for previous button
@@ -74,7 +74,6 @@ let musicPlayer = {
         let audioElement = $musicButton.parents(".music-buttons").siblings("audio").get(0); //get the music-buttons containers of the clicked button, find the audio element that's a sibling of that button, then get the DOMElement back.
         if (audioElement.currentTime === 0 ) {//Check to see if audioElement has started playing
             musicPlayer.resetAllAudio(); //if not, call load on all elements and start playing this audio element check if audio.currentTime is 0.
-            musicPlayer.resetAllPauseButtons();
             musicPlayer.updateCurrentTrackNumber(musicPlayer.findTrackInAudiosArray(audioElement));
             musicPlayer.updateCurrentTrack();
             audioElement.play();
