@@ -22,16 +22,10 @@ let musicPlayer = {
             //also need to update tracks if event is emitted from main-controls
             musicPlayer.changePlayToPause($(event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
             //Display track-title of .track-info in both respective track and music-controls .track-info
-            let currentSongTitle = musicPlayer.currentTrack.trackTitle;
-            let currentSongArtist = musicPlayer.currentTrack.trackArtist;
             //event.currentTarget is the song that is playing, therefore we need to set it's respective track-info
-            $(event.currentTarget).siblings(".track-info").children(".track-title").text(currentSongTitle);
-            $(event.currentTarget).siblings(".track-info").children(".track-artist").text(currentSongArtist);
-            
+            musicPlayer.changeTrackArtist(event.currentTarget);
+            musicPlayer.displayTrackTitle(event.currentTarget);
             //updating the main music-controls track-info display
-            $(".music-controls .track-info > .track-title").text(currentSongTitle);
-            $(".music-controls .track-info > .track-artist").text(currentSongArtist);
-
 
         });
 
@@ -44,10 +38,8 @@ let musicPlayer = {
             musicPlayer.changePauseToPlay($(event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
             //Display "Music Paused" of .track-info in both respective track and music-controls .track-info
             //event.currentTarget is the song that is playing, therefore we need to set it's respective track-info
-            $(event.currentTarget).siblings(".track-info").children(".track-title").text("Music paused");
-
+            musicPlayer.displayTrackPaused(event.currentTarget);
             //updating the main music-controls track-info display
-            $(".music-controls .track-info > .track-title").text("Music paused");
 
 
         });
@@ -124,8 +116,9 @@ let musicPlayer = {
         //for each audio element, loop through and call load on it to reset it.
         let audioElements = Array.from(document.getElementsByTagName("audio")); //Convert/Insure HTMLCollection to Array
         audioElements.forEach(function (element, index, arr) {
-            element.pause(); //See where pause get's triggered
+            element.pause();
             element.currentTime = 0; //reset audio back to zero
+            musicPlayer.displayTrackTitle(element); //Need to change all tracks back to track-title name to correct for pause event listener
         });
     },
     "resetAllPauseButtons" : function resetAllPauseButtons() {  //If any audio has a pause-button, change it back to play-button
@@ -208,20 +201,20 @@ let musicPlayer = {
             }
         }
     },
-    "trackTitlePlaying" : function trackTitlePlaying() {
+    "displayTrackTitle" : function displayTrackTitle(audioElement) {
             let trackTitle = musicPlayer.currentTrack.trackTitle
-            $(event.currentTarget).siblings(".track-info").children(".track-title").text(trackTitle);
+            $(audioElement).siblings(".track-info").children(".track-title").text(trackTitle);
             //updating the main music-controls track-info display
             $(".music-controls .track-info > .track-title").text(trackTitle);
     },
-    "trackTitlePaused" : function trackTitlePaused() {
-            $(musicPlayer.currentTrack).siblings(".track-info").children(".track-title").text("Music paused");
+    "displayTrackPaused" : function displayTrackPaused(audioElement) {
+            $(audioElement).siblings(".track-info").children(".track-title").text("Music paused");
             //updating the main music-controls track-info display
             $(".music-controls .track-info > .track-title").text("Music paused");        
     },
-    "changeTrackArtist" : function changeTrackArtist() {
+    "changeTrackArtist" : function changeTrackArtist(audioElement) {
             let trackArtist = musicPlayer.currentTrack.trackArtist;
-            $(musicPlayer.currentTrack).siblings(".track-info").children(".track-artist").text(trackArtist);
+            $(audioElement).siblings(".track-info").children(".track-artist").text(trackArtist);
             $(".music-controls .track-info > .track-artist").text(trackArtist);
 
     }
