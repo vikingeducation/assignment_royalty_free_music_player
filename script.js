@@ -95,8 +95,7 @@ let musicPlayer = {
             musicPlayer.changePauseToPlay($(musicPlayer.currentTrack.audioElement).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
             //Display track-title of .track-info in both respective track and music-controls .track-info
             //event.currentTarget is the song that is playing, therefore we need to set it's respective track-info
-            musicPlayer.changeTrackArtist();
-            musicPlayer.displayTrackTitle();
+            musicPlayer.displayTrackPaused();
             //updating the main music-controls track-info display
             musicPlayer.pauseCurrentTrack();
 
