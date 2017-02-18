@@ -123,9 +123,9 @@ let musicPlayer = {
                 musicPlayer.updateCurrentTrackNumber(musicPlayer.findTrackInAudiosArray(audioElement));
                 //Stuff to do before we update the currentTrack "clean-up operations"
                 //remove active from the current track element
-                $(musicPlayer.currentTrack).parents(".track").removeClass("active");
+                $(musicPlayer.currentTrack.audioElemet).parents(".track").removeClass("active");
                 musicPlayer.updateCurrentTrack();
-                $(musicPlayer.currentTrack).parents(".track").addClass("active");
+                $(musicPlayer.currentTrack.audioElement).parents(".track").addClass("active");
                 //Stuff to do after we update the currentTrack "set-up" operations
                 //add active to the new track element                musicPlayer.changeTrackArtist();
                 musicPlayer.playCurrentTrack();
