@@ -103,13 +103,42 @@ let musicPlayer = {
         //for each audio element, loop through and call load on it to reset it.
         let audioElements = Array.from(document.getElementsByTagName("audio")); //Convert/Insure HTMLCollection to Array
         audioElements.forEach(function (element, index, arr) {
-            element.load(); //reset audio back to zero
+            element.pause(); //See where pause get's triggered
+            element.currentTime = 0; //reset audio back to zero
         });
     },
     "resetAllPauseButtons" : function resetAllPauseButtons() {  //If any audio has a pause-button, change it back to play-button
         $(".pause-button").addClass("play-button").removeClass("pause-button");
     },
     "togglePlayToPause" : function togglePlayToPause(holderDiv) {
+        let $holderDiv = $(holderDiv);
+        //if div class is play-button, add pause-button and remove play-button
+        if ($holderDiv.hasClass("play-button")) {
+            $holderDiv.addClass("pause-button").removeClass("play-button");
+        }
+        //if div class is pause-button, add play-button and remove pause-button
+        else if ($holderDiv.hasClass("pause-button")) {
+            $holderDiv.addClass("play-button").removeClass("pause-button");
+        }
+        else {
+            console.error("div did not have either class. Error");
+        }
+    },
+    "changePauseToPlay" : function changePauseToPlay(holderDiv) {
+        let $holderDiv = $(holderDiv);
+        //if div class is play-button, add pause-button and remove play-button
+        if ($holderDiv.hasClass("play-button")) {
+            $holderDiv.addClass("pause-button").removeClass("play-button");
+        }
+        //if div class is pause-button, add play-button and remove pause-button
+        else if ($holderDiv.hasClass("pause-button")) {
+            $holderDiv.addClass("play-button").removeClass("pause-button");
+        }
+        else {
+            console.error("div did not have either class. Error");
+        }
+    },
+    "changePlayToPause" : function changePlayToPause(holderDiv) {
         let $holderDiv = $(holderDiv);
         //if div class is play-button, add pause-button and remove play-button
         if ($holderDiv.hasClass("play-button")) {
