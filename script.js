@@ -209,9 +209,10 @@ let musicPlayer = {
         }
     },
     "trackTitlePlaying" : function trackTitlePlaying() {
-            $(event.currentTarget).siblings(".track-info > .track-title").text(currentSongTitle);
+            let trackTitle = musicPlayer.currentTrack.trackTitle
+            $(event.currentTarget).siblings(".track-info > .track-title").text(trackTitle);
             //updating the main music-controls track-info display
-            $(".music-controls .track-info > .track-title").text(currentSongTitle);
+            $(".music-controls .track-info > .track-title").text(trackTitle);
     },
     "trackTitlePaused" : function trackTitlePaused() {
             $(musicPlayer.currentTrack).siblings(".track-info > .track-title").text("Music paused");
@@ -219,8 +220,9 @@ let musicPlayer = {
             $(".music-controls .track-info > .track-title").text("Music paused");        
     },
     "changeTrackArtist" : function changeTrackArtist() {
-            $(musicPlayer.currentTrack).siblings(".track-info > .track-artist").text(currentSongArtist);
-            $(".music-controls .track-info > .track-artist").text(currentSongArtist);
+            let trackArtist = musicPlayer.currentTrack.trackArtist;
+            $(musicPlayer.currentTrack).siblings(".track-info > .track-artist").text(trackArtist);
+            $(".music-controls .track-info > .track-artist").text(trackArtist);
 
     }
 
