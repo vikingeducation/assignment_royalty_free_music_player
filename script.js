@@ -120,7 +120,8 @@ let musicPlayer = {
             musicPlayer.updateCurrentTrack();
             $(musicPlayer.currentTrack.audioElement).parents(".track").addClass("active");
             //Stuff to do after we update the currentTrack "set-up" operations
-            //add active to the new track element                musicPlayer.changeTrackArtist();
+            //add active to the new track element               
+            musicPlayer.changeTrackArtist();
             musicPlayer.playCurrentTrack();
         }
         else { // if so, call play() on this audio element to resume playing.
