@@ -9,39 +9,12 @@ let musicPlayer = {
         this.audiosArray = this.createTrackArray();
         this.currentTrackNumber = 0;
         this.currentTrack = this.audiosArray[0]; //CurrentTrack is an object that holds information about the track
-        
-        //Find the element holding the "main" audio player controls
-        let musicControls = document.getElementsByClassName("music-controls"); //music-controls is the class given to the footer holding the "main" controls
-        /*
-        $("audio").on("play", function (event) { //play event does not bubble
-            //update main music-controls
-            //change main music-controls to pause-button
-            musicPlayer.changePlayToPause($(".music-controls .play-pause-button").children());
-            //also need to update tracks if event is emitted from main-controls
-            musicPlayer.changePlayToPause($(event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
-            //Display track-title of .track-info in both respective track and music-controls .track-info
-            //event.currentTarget is the song that is playing, therefore we need to set it's respective track-info
-            musicPlayer.changeTrackArtist(event.currentTarget);
-            musicPlayer.displayTrackTitle(event.currentTarget);
-            //updating the main music-controls track-info display
-
+        //combine previous and next button listeners with event delegation
+        $(".music-controls .music-buttons").on("click", "previous-button, next-button", function (event) {
+            if ($(event.currentTarget).hasClass(".previous-button")) {
+                
+            }
         });
-
-        //if body receives a "pause" event, then update track and main-controls accordingly
-        $("audio").on("pause", function (event) {
-            //update main music-controls
-            //change main music-controls to play-button
-            musicPlayer.changePauseToPlay($(".music-controls .play-pause-button").children());
-            //also need to update tracks if event is emitted from main-controls
-            musicPlayer.changePauseToPlay($(event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
-            //Display "Music Paused" of .track-info in both respective track and music-controls .track-info
-            //event.currentTarget is the song that is playing, therefore we need to set it's respective track-info
-            musicPlayer.displayTrackPaused(event.currentTarget);
-            //updating the main music-controls track-info display
-
-
-        });
-        */
         //Add listener and handler for previous button
         $(".previous-button").on("click", function previousButtonHandler(event) {
             //Look up current track
@@ -51,7 +24,12 @@ let musicPlayer = {
                 musicPlayer.updateCurrentTrackNumber(musicPlayer.currentTrackNumber - 1); //Else set new current track number to currentTrack minus one
             }
             musicPlayer.updateCurrentTrack();
-            musicPlayer.resetAllAudio(); //Reset all tracks
+            let p = new Promise(function (resolve, reject) { //if not, call load on all elements and start playing this audio element check if audio.currentTime is 0.
+                musicPlayer.resetAllAudio(resolve); 
+            //It seems that sometimes play will get called on the next track before the resetAllAudio function has completed resulting in a playing song displaying. Solution would be to return a promise and chain the rest of these function off of the promise.
+            //Still doesn't work with promise, likely because I need to do Promise.all and have each forEach return a promise, this currently just runs forEach synchronously but the function called in the function to forEach are not completing on time, so each one of those would also need to be promise aware fulfill a promise would all in-turn fulfill the promise for new Plays
+                
+            });
             //Change play-buttons of track and main-controls to pause buttons
             musicPlayer.changePlayToPause($(musicPlayer.currentTrack.audioElement).siblings(".music-buttons").children().children());
             musicPlayer.changePlayToPause($(".music-controls .play-pause-button").children());
@@ -70,7 +48,12 @@ let musicPlayer = {
                 musicPlayer.updateCurrentTrackNumber(musicPlayer.currentTrackNumber + 1); //Else set new current track number to currentTrack plus one
             }
             musicPlayer.updateCurrentTrack();
-            musicPlayer.resetAllAudio(); //Reset all tracks
+            let p = new Promise(function (resolve, reject) { //if not, call load on all elements and start playing this audio element check if audio.currentTime is 0.
+                musicPlayer.resetAllAudio(resolve); 
+            //It seems that sometimes play will get called on the next track before the resetAllAudio function has completed resulting in a playing song displaying. Solution would be to return a promise and chain the rest of these function off of the promise.
+            //Still doesn't work with promise, likely because I need to do Promise.all and have each forEach return a promise, this currently just runs forEach synchronously but the function called in the function to forEach are not completing on time, so each one of those would also need to be promise aware fulfill a promise would all in-turn fulfill the promise for new Plays
+                
+            });
             //Change play-buttons of track and main-controls to pause buttons
             musicPlayer.changePlayToPause($(musicPlayer.currentTrack.audioElement).siblings(".music-buttons").children().children());
             musicPlayer.changePlayToPause($(".music-controls .play-pause-button").children());
