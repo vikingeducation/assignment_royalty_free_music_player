@@ -126,6 +126,7 @@ footer {
   border-top: 18px solid transparent;
 }
 
+
 .right-arrow {
   width: 0;
   height: 0;
@@ -144,7 +145,7 @@ footer {
 .vertical-rule {
   width: 0;
   height: 100%;
-  border-left: 5px solid;
+  border-left: 5px solid white;
 }
 
 .next-button {
@@ -161,17 +162,15 @@ footer {
   border-right: .5em solid;
   height: 80%;
 }
+.color-gray {
+  color: #B0B0B0;
+}
+.color-white {
+  color: white;
+}
 
 .main-icon {
   font-size: 2em !important;
-}
-
-.track .music-buttons > * {
-  border-color: #B0B0B0;
-}
-
-.music-controls .music-buttons > * {
-    border-color: white;
 }
 
 .active {
