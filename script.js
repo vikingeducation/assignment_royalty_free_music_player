@@ -10,6 +10,8 @@ let musicPlayer = {
         this.currentTrackNumber = 0;
         this.currentTrack = this.audiosArray[0]; //CurrentTrack is an object that holds information about the track
         //combine previous and next button listeners with event delegation
+        //Initialize the first track with active class
+        $(musicPlayer.currentTrack).parents(".track").addClass("active");
         $(".music-controls .music-buttons").on("click", "previous-button, next-button", function (event) {
             if ($(event.currentTarget).hasClass(".previous-button")) {
                 
@@ -23,7 +25,13 @@ let musicPlayer = {
             } else {
                 musicPlayer.updateCurrentTrackNumber(musicPlayer.currentTrackNumber - 1); //Else set new current track number to currentTrack minus one
             }
+            //Stuff to do before we update the currentTrack "clean-up operations"
+            //remove active from the current track element
+            $(musicPlayer.currentTrack).parents(".track").remomveClass("active");
             musicPlayer.updateCurrentTrack();
+            $(musicPlayer.currentTrack).parents(".track").addClass("active");
+            //Stuff to do after we update the currentTrack "set-up" operations
+            //add active to the new track element
             let p = new Promise(function (resolve, reject) { //if not, call load on all elements and start playing this audio element check if audio.currentTime is 0.
                 musicPlayer.resetAllAudio(resolve); 
             //It seems that sometimes play will get called on the next track before the resetAllAudio function has completed resulting in a playing song displaying. Solution would be to return a promise and chain the rest of these function off of the promise.
@@ -47,7 +55,13 @@ let musicPlayer = {
             } else {
                 musicPlayer.updateCurrentTrackNumber(musicPlayer.currentTrackNumber + 1); //Else set new current track number to currentTrack plus one
             }
+            //Stuff to do before we update the currentTrack "clean-up operations"
+            //remove active from the current track element
+            $(musicPlayer.currentTrack).parents(".track").removeClass("active");
             musicPlayer.updateCurrentTrack();
+            $(musicPlayer.currentTrack).parents(".track").addClass("active");
+            //Stuff to do after we update the currentTrack "set-up" operations
+            //add active to the new track element
             let p = new Promise(function (resolve, reject) { //if not, call load on all elements and start playing this audio element check if audio.currentTime is 0.
                 musicPlayer.resetAllAudio(resolve); 
             //It seems that sometimes play will get called on the next track before the resetAllAudio function has completed resulting in a playing song displaying. Solution would be to return a promise and chain the rest of these function off of the promise.
@@ -107,15 +121,20 @@ let musicPlayer = {
             });
             p.then(function onFulfilled(success) {
                 musicPlayer.updateCurrentTrackNumber(musicPlayer.findTrackInAudiosArray(audioElement));
+                //Stuff to do before we update the currentTrack "clean-up operations"
+                //remove active from the current track element
+                $(musicPlayer.currentTrack).parents(".track").removeClass("active");
                 musicPlayer.updateCurrentTrack();
-                musicPlayer.changeTrackArtist();
-                audioElement.play();
+                $(musicPlayer.currentTrack).parents(".track").addClass("active");
+                //Stuff to do after we update the currentTrack "set-up" operations
+                //add active to the new track element                musicPlayer.changeTrackArtist();
+                musicPlayer.playCurrentTrack();
             }).catch(function onRejection(err) {
                 console.error("Error message", err);
             });
         }
         else { // if so, call play() on this audio element to resume playing.
-            audioElement.play();
+            musicPlayer.playCurrentTrack();
         }
         //update main music-controls
         //change main music-controls to pause-button
@@ -132,7 +151,7 @@ let musicPlayer = {
         $(".track .play-pause-button").on("click", ".pause-button", function(event) {
         let $musicButton = $(event.currentTarget);
         let audioElement = $musicButton.parents(".music-buttons").siblings("audio").get(0); //get the music-buttons containers of the clicked button, find the audio element that's a sibling of that button, then get the DOMElement back.
-        audioElement.pause(); //Call pause() on HTMLAudioElement (MediaElement)
+        musicPlayer.pauseCurrentTrack(); //Call pause() on HTMLAudioElement (MediaElement)
         //update main music-controls
         //change main music-controls to play-button
         musicPlayer.changePauseToPlay($(".music-controls .play-pause-button").children());
