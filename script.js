@@ -43,7 +43,7 @@ let musicPlayer = {
             }
             musicPlayer.updateCurrentTrack();
             musicPlayer.resetAllAudio(); //Reset all tracks
-            musicPlayer.currentTrack.play(); //Call play on the new currentTrack
+            musicPlayer.playCurrentTrack(); //Call play on the new currentTrack
 
         });
         
@@ -56,7 +56,7 @@ let musicPlayer = {
             }
             musicPlayer.updateCurrentTrack();
             musicPlayer.resetAllAudio(); //Reset all tracks
-            musicPlayer.currentTrack.play(); //Call play on the new currentTrack
+            musicPlayer.playCurrentTrack(); //Call play on the new currentTrack
         });
         
         //Need to attach handlers to pause and play-buttons of .music-controls to pause and play music
@@ -157,8 +157,8 @@ let musicPlayer = {
             console.error("div did not have either class. Error");
         }
     },
-    "startAudio" : function startAudio(element) {
-        element.play();
+    "playCurrentTrack" : function playCurrentTrack() {
+        musicPlayer.currentTrack.audioElement.play();
     },
     //Bottom player will update with global body listening for events from divclass="tracks"
     "createTrackArray" : function createTrackArray() {
