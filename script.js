@@ -72,68 +72,6 @@ let musicPlayer = {
                 musicPlayer.playCurrentTrack(); //Call play on the new currentTrack
             }
         });
-        /*
-        //Add listener and handler for previous button
-        $(".previous-button").on("click", function previousButtonHandler(event) {
-            //Look up current track
-            if (musicPlayer.currentTrackNumber === 0) { //If at first track, go to last track in the audiosArray
-                musicPlayer.updateCurrentTrackNumber(musicPlayer.audiosArray.length - 1);
-            } else {
-                musicPlayer.updateCurrentTrackNumber(musicPlayer.currentTrackNumber - 1); //Else set new current track number to currentTrack minus one
-            }
-            //Stuff to do before we update the currentTrack "clean-up operations"
-            //remove active from the current track element
-            $(musicPlayer.currentTrack.audioElement).parents(".track").removeClass("active");
-            musicPlayer.updateCurrentTrack();
-            $(musicPlayer.currentTrack.audioElement).parents(".track").addClass("active");
-            //Stuff to do after we update the currentTrack "set-up" operations
-            //add active to the new track element
-            let p = new Promise(function (resolve, reject) { //if not, call load on all elements and start playing this audio element check if audio.currentTime is 0.
-                musicPlayer.resetAllAudio(resolve); 
-            //It seems that sometimes play will get called on the next track before the resetAllAudio function has completed resulting in a playing song displaying. Solution would be to return a promise and chain the rest of these function off of the promise.
-            //Still doesn't work with promise, likely because I need to do Promise.all and have each forEach return a promise, this currently just runs forEach synchronously but the function called in the function to forEach are not completing on time, so each one of those would also need to be promise aware fulfill a promise would all in-turn fulfill the promise for new Plays
-                
-            });
-            //Change play-buttons of track and main-controls to pause buttons
-            musicPlayer.changePlayToPause($(musicPlayer.currentTrack.audioElement).siblings(".music-buttons").children().children());
-            musicPlayer.changePlayToPause($(".music-controls .play-pause-button").children());
-            //Update main-controls displays to reflect new song
-            musicPlayer.changeTrackArtist();
-            musicPlayer.displayTrackTitle();
-            musicPlayer.playCurrentTrack(); //Call play on the new currentTrack
-
-        });
-        
-        $(".next-button").on("click", function nextButtonHandler(event) {
-            //Look up current track
-            if (musicPlayer.currentTrackNumber === musicPlayer.audiosArray.length - 1) { //If the last track, go to first track in the audiosArray
-                musicPlayer.updateCurrentTrackNumber(0);
-            } else {
-                musicPlayer.updateCurrentTrackNumber(musicPlayer.currentTrackNumber + 1); //Else set new current track number to currentTrack plus one
-            }
-            //Stuff to do before we update the currentTrack "clean-up operations"
-            //remove active from the current track element
-            $(musicPlayer.currentTrack.audioElement).parents(".track").removeClass("active");
-            musicPlayer.updateCurrentTrack();
-            $(musicPlayer.currentTrack.audioElement).parents(".track").addClass("active");
-            //Stuff to do after we update the currentTrack "set-up" operations
-            //add active to the new track element
-            let p = new Promise(function (resolve, reject) { //if not, call load on all elements and start playing this audio element check if audio.currentTime is 0.
-                musicPlayer.resetAllAudio(resolve); 
-            //It seems that sometimes play will get called on the next track before the resetAllAudio function has completed resulting in a playing song displaying. Solution would be to return a promise and chain the rest of these function off of the promise.
-            //Still doesn't work with promise, likely because I need to do Promise.all and have each forEach return a promise, this currently just runs forEach synchronously but the function called in the function to forEach are not completing on time, so each one of those would also need to be promise aware fulfill a promise would all in-turn fulfill the promise for new Plays
-                
-            });
-            //Change play-buttons of track and main-controls to pause buttons
-            musicPlayer.changePlayToPause($(musicPlayer.currentTrack.audioElement).siblings(".music-buttons").children().children());
-            musicPlayer.changePlayToPause($(".music-controls .play-pause-button").children());
-            //Update main-controls displays to reflect new song
-            musicPlayer.changeTrackArtist();
-            musicPlayer.displayTrackTitle();
-
-            musicPlayer.playCurrentTrack(); //Call play on the new currentTrack
-        });
-        */
         //Need to attach handlers to pause and play-buttons of .music-controls to pause and play music
         $(".music-controls .play-pause-button").on("click", ".play-button", function (event) {
             //update main music-controls
