@@ -12,7 +12,7 @@ let musicPlayer = {
         //combine previous and next button listeners with event delegation
         //Initialize the first track with active class
         $(musicPlayer.currentTrack.audioElement).parents(".track").addClass("active");
-        $(".music-controls .music-buttons").on("click", "previous-button, next-button", function (event) {
+        $(".music-controls .music-buttons").on("click", ".previous-button, .next-button", function (event) {
             if ($(event.currentTarget).hasClass(".previous-button")) {
                 
             }
