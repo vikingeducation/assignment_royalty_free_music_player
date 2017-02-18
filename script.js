@@ -11,7 +11,7 @@ let musicPlayer = {
         this.currentTrack = this.audiosArray[0]; //CurrentTrack is an object that holds information about the track
         //combine previous and next button listeners with event delegation
         //Initialize the first track with active class
-        $(musicPlayer.currentTrack).parents(".track").addClass("active");
+        $(musicPlayer.currentTrack.audioElement).parents(".track").addClass("active");
         $(".music-controls .music-buttons").on("click", "previous-button, next-button", function (event) {
             if ($(event.currentTarget).hasClass(".previous-button")) {
                 
@@ -27,9 +27,9 @@ let musicPlayer = {
             }
             //Stuff to do before we update the currentTrack "clean-up operations"
             //remove active from the current track element
-            $(musicPlayer.currentTrack).parents(".track").removeClass("active");
+            $(musicPlayer.currentTrack.audioElement).parents(".track").removeClass("active");
             musicPlayer.updateCurrentTrack();
-            $(musicPlayer.currentTrack).parents(".track").addClass("active");
+            $(musicPlayer.currentTrack.audioElement).parents(".track").addClass("active");
             //Stuff to do after we update the currentTrack "set-up" operations
             //add active to the new track element
             let p = new Promise(function (resolve, reject) { //if not, call load on all elements and start playing this audio element check if audio.currentTime is 0.
@@ -57,9 +57,9 @@ let musicPlayer = {
             }
             //Stuff to do before we update the currentTrack "clean-up operations"
             //remove active from the current track element
-            $(musicPlayer.currentTrack).parents(".track").removeClass("active");
+            $(musicPlayer.currentTrack.audioElement).parents(".track").removeClass("active");
             musicPlayer.updateCurrentTrack();
-            $(musicPlayer.currentTrack).parents(".track").addClass("active");
+            $(musicPlayer.currentTrack.audioElement).parents(".track").addClass("active");
             //Stuff to do after we update the currentTrack "set-up" operations
             //add active to the new track element
             let p = new Promise(function (resolve, reject) { //if not, call load on all elements and start playing this audio element check if audio.currentTime is 0.
