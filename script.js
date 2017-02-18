@@ -21,6 +21,17 @@ let musicPlayer = {
             musicPlayer.changePlayToPause($(".music-controls .play-pause-button").children());
             //also need to update tracks if event is emitted from main-controls
             musicPlayer.changePlayToPause($(event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
+            //Display track-title of .track-info in both respective track and music-controls .track-info
+            let currentSongTitle = musicPlayer.currentTrack.trackTitle;
+            let currentSongArtist = musicPlayer.currentTrack.trackArtist;
+            //event.currentTarget is the song that is playing, therefore we need to set it's respective track-info
+            $(event.currentTarget).siblings(".track-info > .track-title").text(currentSongTitle);
+            $(event.currentTarget).siblings(".track-info > .track-artist").text(currentSongArtist);
+            
+            //updating the main music-controls track-info display
+            $(".music-controls .track-info > .track-title").text(currentSongTitle);
+            $(".music-controls .track-info > .track-artist").text(currentSongArtist);
+
 
         });
 
@@ -31,6 +42,13 @@ let musicPlayer = {
             musicPlayer.changePauseToPlay($(".music-controls .play-pause-button").children());
             //also need to update tracks if event is emitted from main-controls
             musicPlayer.changePauseToPlay($(event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
+            //Display "Music Paused" of .track-info in both respective track and music-controls .track-info
+            //event.currentTarget is the song that is playing, therefore we need to set it's respective track-info
+            $(event.currentTarget).siblings(".track-info > .track-title").text("Music paused");
+
+            //updating the main music-controls track-info display
+            $(".music-controls .track-info > .track-title").text("Music paused");
+
 
         });
         //Add listener and handler for previous button
