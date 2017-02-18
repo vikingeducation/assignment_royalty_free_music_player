@@ -214,12 +214,12 @@ let musicPlayer = {
             $(".music-controls .track-info > .track-title").text(currentSongTitle);
     },
     "trackTitlePaused" : function trackTitlePaused() {
-            $(event.currentTarget).siblings(".track-info > .track-title").text("Music paused");
+            $(musicPlayer.currentTrack).siblings(".track-info > .track-title").text("Music paused");
             //updating the main music-controls track-info display
             $(".music-controls .track-info > .track-title").text("Music paused");        
     },
     "changeTrackArtist" : function changeTrackArtist() {
-            $(event.currentTarget).siblings(".track-info > .track-artist").text(currentSongArtist);
+            $(musicPlayer.currentTrack).siblings(".track-info > .track-artist").text(currentSongArtist);
             $(".music-controls .track-info > .track-artist").text(currentSongArtist);
 
     }

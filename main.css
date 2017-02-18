@@ -118,7 +118,7 @@ footer {
   width: 0;
   height: 0;
   border-bottom: 18px solid transparent;
-  border-left: 27px solid #B0B0B0;
+  border-left: 27px solid;
   border-top: 18px solid transparent;
 }
 
@@ -126,7 +126,7 @@ footer {
   width: 0;
   height: 0;
   border-bottom: 18px solid transparent;
-  border-left: 27px solid #B0B0B0;
+  border-left: 27px solid;
   border-top: 18px solid transparent;
 }
 
@@ -134,13 +134,13 @@ footer {
   width: 0;
   height: 0;
   border-bottom: 18px solid transparent;
-  border-right: 27px solid #B0B0B0;
+  border-right: 27px solid;
   border-top: 18px solid transparent;
 }
 .vertical-rule {
   width: 0;
   height: 100%;
-  border-left: 5px solid black;
+  border-left: 5px solid;
 }
 
 .next-button {
@@ -153,8 +153,8 @@ footer {
 
 .pause-button {
   width: .5em;
-  border-left: .5em solid black;
-  border-right: .5em solid black;
+  border-left: .5em solid;
+  border-right: .5em solid;
   height: 80%;
 }
 
