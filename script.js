@@ -36,21 +36,27 @@ let musicPlayer = {
         //Add listener and handler for previous button
         $(".previous-button").on("click", function previousButtonHandler(event) {
             //Look up current track
-            //If at first track, go to last track in the array
-            //Else set new current track number to currentTrack minus one
-            //Reload all tracks
-            //Reset all buttons to play
-            //Call play on the new currentTrack
+            if (musicPlayer.currentTrackNumber === 0) { //If at first track, go to last track in the audiosArray
+                musicPlayer.updateCurrentTrackNumber(musicPlayer.audiosArray.length - 1);
+            } else {
+                musicPlayer.updateCurrentTrackNumber(musicPlayer.currentTrackNumber - 1); //Else set new current track number to currentTrack minus one
+            }
+            musicPlayer.updateCurrentTrack();
+            musicPlayer.resetAllAudio(); //Reset all tracks
+            musicPlayer.currentTrack.play(); //Call play on the new currentTrack
+
         });
         
         $(".next-button").on("click", function nextButtonHandler(event) {
-         //Add listener and handler for next button
-        //Look up current track
-        //If at first track, go to last track in the array
-        //Else set new current track number to currentTrack minus one
-        //Reload all tracks
-        //Reset all buttons to play
-        //Call play on the new currentTrack
+            //Look up current track
+            if (musicPlayer.currentTrackNumber === musicPlayer.audiosArray.length - 1) { //If the last track, go to first track in the audiosArray
+                musicPlayer.updateCurrentTrackNumber(0);
+            } else {
+                musicPlayer.updateCurrentTrackNumber(musicPlayer.currentTrackNumber + 1); //Else set new current track number to currentTrack plus one
+            }
+            musicPlayer.updateCurrentTrack();
+            musicPlayer.resetAllAudio(); //Reset all tracks
+            musicPlayer.currentTrack.play(); //Call play on the new currentTrack
         });
         
         //Need to attach handlers to pause and play-buttons of .music-controls to pause and play music
