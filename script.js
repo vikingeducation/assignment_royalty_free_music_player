@@ -27,7 +27,7 @@ let musicPlayer = {
             }
             //Stuff to do before we update the currentTrack "clean-up operations"
             //remove active from the current track element
-            $(musicPlayer.currentTrack).parents(".track").remomveClass("active");
+            $(musicPlayer.currentTrack).parents(".track").removeClass("active");
             musicPlayer.updateCurrentTrack();
             $(musicPlayer.currentTrack).parents(".track").addClass("active");
             //Stuff to do after we update the currentTrack "set-up" operations
