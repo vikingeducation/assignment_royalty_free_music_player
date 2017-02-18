@@ -25,8 +25,8 @@ let musicPlayer = {
             let currentSongTitle = musicPlayer.currentTrack.trackTitle;
             let currentSongArtist = musicPlayer.currentTrack.trackArtist;
             //event.currentTarget is the song that is playing, therefore we need to set it's respective track-info
-            $(event.currentTarget).siblings(".track-info > .track-title").text(currentSongTitle);
-            $(event.currentTarget).siblings(".track-info > .track-artist").text(currentSongArtist);
+            $(event.currentTarget).siblings(".track-info").children(".track-title").text(currentSongTitle);
+            $(event.currentTarget).siblings(".track-info").children(".track-artist").text(currentSongArtist);
             
             //updating the main music-controls track-info display
             $(".music-controls .track-info > .track-title").text(currentSongTitle);
@@ -44,7 +44,7 @@ let musicPlayer = {
             musicPlayer.changePauseToPlay($(event.currentTarget).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
             //Display "Music Paused" of .track-info in both respective track and music-controls .track-info
             //event.currentTarget is the song that is playing, therefore we need to set it's respective track-info
-            $(event.currentTarget).siblings(".track-info > .track-title").text("Music paused");
+            $(event.currentTarget).siblings(".track-info").children(".track-title").text("Music paused");
 
             //updating the main music-controls track-info display
             $(".music-controls .track-info > .track-title").text("Music paused");
@@ -210,18 +210,18 @@ let musicPlayer = {
     },
     "trackTitlePlaying" : function trackTitlePlaying() {
             let trackTitle = musicPlayer.currentTrack.trackTitle
-            $(event.currentTarget).siblings(".track-info > .track-title").text(trackTitle);
+            $(event.currentTarget).siblings(".track-info").children(".track-title").text(trackTitle);
             //updating the main music-controls track-info display
             $(".music-controls .track-info > .track-title").text(trackTitle);
     },
     "trackTitlePaused" : function trackTitlePaused() {
-            $(musicPlayer.currentTrack).siblings(".track-info > .track-title").text("Music paused");
+            $(musicPlayer.currentTrack).siblings(".track-info").children(".track-title").text("Music paused");
             //updating the main music-controls track-info display
             $(".music-controls .track-info > .track-title").text("Music paused");        
     },
     "changeTrackArtist" : function changeTrackArtist() {
             let trackArtist = musicPlayer.currentTrack.trackArtist;
-            $(musicPlayer.currentTrack).siblings(".track-info > .track-artist").text(trackArtist);
+            $(musicPlayer.currentTrack).siblings(".track-info").children(".track-artist").text(trackArtist);
             $(".music-controls .track-info > .track-artist").text(trackArtist);
 
     }
