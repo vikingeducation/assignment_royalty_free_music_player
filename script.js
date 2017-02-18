@@ -175,19 +175,15 @@ let musicPlayer = {
             //Still doesn't work with promise, likely because I need to do Promise.all and have each forEach return a promise, this currently just runs forEach synchronously but the function called in the function to forEach are not completing on time, so each one of those would also need to be promise aware fulfill a promise would all in-turn fulfill the promise for new Plays
                 
             });
-            p.then(function onFulfilled(success) {
-                musicPlayer.updateCurrentTrackNumber(musicPlayer.findTrackInAudiosArray(audioElement));
-                //Stuff to do before we update the currentTrack "clean-up operations"
-                //remove active from the current track element
-                $(musicPlayer.currentTrack.audioElemet).parents(".track").removeClass("active");
-                musicPlayer.updateCurrentTrack();
-                $(musicPlayer.currentTrack.audioElement).parents(".track").addClass("active");
-                //Stuff to do after we update the currentTrack "set-up" operations
-                //add active to the new track element                musicPlayer.changeTrackArtist();
-                musicPlayer.playCurrentTrack();
-            }).catch(function onRejection(err) {
-                console.error("Error message", err);
-            });
+            musicPlayer.updateCurrentTrackNumber(musicPlayer.findTrackInAudiosArray(audioElement));
+            //Stuff to do before we update the currentTrack "clean-up operations"
+            //remove active from the current track element
+            $(musicPlayer.currentTrack.audioElemet).parents(".track").removeClass("active");
+            musicPlayer.updateCurrentTrack();
+            $(musicPlayer.currentTrack.audioElement).parents(".track").addClass("active");
+            //Stuff to do after we update the currentTrack "set-up" operations
+            //add active to the new track element                musicPlayer.changeTrackArtist();
+            musicPlayer.playCurrentTrack();
         }
         else { // if so, call play() on this audio element to resume playing.
             musicPlayer.playCurrentTrack();
