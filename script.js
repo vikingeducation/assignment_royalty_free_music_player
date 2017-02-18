@@ -64,12 +64,10 @@ let musicPlayer = {
             //What to do if all music track are at 0? Need an array of track and one as "currentTrack"
             //For now, play will resume an audio track
             musicPlayer.currentTrack.audioElement.play();
-            console.log("Main music-controls play-button clicked");
         });
 
         $(".music-controls .play-pause-button").on("click", ".pause-button", function () {
             musicPlayer.currentTrack.audioElement.pause();
-            console.log("Main music-controls pause-button clicked");
 
         });        
         //these handlers will be responsible for switching play/pause classes and adding new event handlers.
@@ -169,9 +167,9 @@ let musicPlayer = {
         let audioArray = $("audio").get();
         audioArray = audioArray.map(function (element, index, arr) {
             let $audio = $(element);
-            let trackTitle = "";
-            let trackArtist = "";
-            let trackSource = "";
+            let trackTitle = $audio.siblings(".track-info").children(".track-title").text();
+            let trackArtist = $audio.siblings(".track-info").children(".track-artist").text();;
+            let trackSource = $audio.children("source").attr("src"); //Doesn't work with multiple sources
             let trackInfo = {
                 "trackTitle" : trackTitle,
                 "trackArtist" : trackArtist,
@@ -191,6 +189,15 @@ let musicPlayer = {
                 return i;
             }
         }
+    },
+    "trackTitlePlaying" : function trackTitlePlaying() {
+        
+    },
+    "trackTitlePaused" : function trackTitlePaused() {
+        
+    },
+    "changeTrackArtist" : function changeTrackArtist() {
+        
     }
 
 };

@@ -155,9 +155,18 @@ footer {
   width: .5em;
   border-left: .5em solid black;
   border-right: .5em solid black;
-  height: 100%;
+  height: 80%;
 }
 
 .main-icon {
   font-size: 2em !important;
 }
+
+.track .music-buttons > * {
+  border-color: #B0B0B0;
+}
+
+.music-controls .music-buttons > * {
+    border-color: white;
+}
+
