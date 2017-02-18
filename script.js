@@ -152,11 +152,11 @@ let musicPlayer = {
         
     },
     "findTrackInAudiosArray" : function findTrackInAudiosArray(audioElement) {
-        musicPlayer.audiosArray.forEach(function(element, index, arr) {
-            if (element.audioElement === audioElement) {
-                return index;
+        for (let i = 0; musicPlayer.audiosArray.length; i++){
+            if (musicPlayer.audiosArray[i].audioElement === audioElement) {
+                return i;
             }
-        });
+        }
     }
 
 };
