@@ -144,6 +144,7 @@ let musicPlayer = {
                 "trackSource" : trackSource,
                 "audioElement" : element
             };
+            return trackInfo;
         });
         return audioArray;
     },
