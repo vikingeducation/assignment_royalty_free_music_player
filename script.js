@@ -12,9 +12,7 @@ let musicPlayer = {
         
         //Find the element holding the "main" audio player controls
         let musicControls = document.getElementsByClassName("music-controls"); //music-controls is the class given to the footer holding the "main" controls
-        //Add event listeners to the body for play and pause so that controls from the tracks or the main music-controls will both be seen
-        //Event listeners will update this element accordingly
-        //if body receives a "play" event, then update track and main-controls accordingly
+        /*
         $("audio").on("play", function (event) { //play event does not bubble
             //update main music-controls
             //change main music-controls to pause-button
@@ -43,6 +41,7 @@ let musicPlayer = {
 
 
         });
+        */
         //Add listener and handler for previous button
         $(".previous-button").on("click", function previousButtonHandler(event) {
             //Look up current track
@@ -53,6 +52,12 @@ let musicPlayer = {
             }
             musicPlayer.updateCurrentTrack();
             musicPlayer.resetAllAudio(); //Reset all tracks
+            //Change play-buttons of track and main-controls to pause buttons
+            musicPlayer.changePlayToPause($(musicPlayer.currentTrack.audioElement).siblings(".music-buttons").children().children());
+            musicPlayer.changePlayToPause($(".music-controls .play-pause-button").children());
+            //Update main-controls displays to reflect new song
+            musicPlayer.changeTrackArtist();
+            musicPlayer.displayTrackTitle();
             musicPlayer.playCurrentTrack(); //Call play on the new currentTrack
 
         });
@@ -66,6 +71,13 @@ let musicPlayer = {
             }
             musicPlayer.updateCurrentTrack();
             musicPlayer.resetAllAudio(); //Reset all tracks
+            //Change play-buttons of track and main-controls to pause buttons
+            musicPlayer.changePlayToPause($(musicPlayer.currentTrack.audioElement).siblings(".music-buttons").children().children());
+            musicPlayer.changePlayToPause($(".music-controls .play-pause-button").children());
+            //Update main-controls displays to reflect new song
+            musicPlayer.changeTrackArtist();
+            musicPlayer.displayTrackTitle();
+
             musicPlayer.playCurrentTrack(); //Call play on the new currentTrack
         });
         
@@ -78,12 +90,9 @@ let musicPlayer = {
             musicPlayer.changePlayToPause($(musicPlayer.currentTrack.audioElement).siblings(".music-buttons").children().children()); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
             //Display track-title of .track-info in both respective track and music-controls .track-info
             //event.currentTarget is the song that is playing, therefore we need to set it's respective track-info
-            musicPlayer.changeTrackArtist();
             musicPlayer.displayTrackTitle();
             //updating the main music-controls track-info display
 
-            //What to do if all music track are at 0? Need an array of track and one as "currentTrack"
-            //For now, play will resume an audio track
             musicPlayer.playCurrentTrack();
         });
 
@@ -116,6 +125,7 @@ let musicPlayer = {
             p.then(function onFulfilled(success) {
                 musicPlayer.updateCurrentTrackNumber(musicPlayer.findTrackInAudiosArray(audioElement));
                 musicPlayer.updateCurrentTrack();
+                musicPlayer.changeTrackArtist();
                 audioElement.play();
             }).catch(function onRejection(err) {
                 console.error("Error message", err);
@@ -131,7 +141,6 @@ let musicPlayer = {
         musicPlayer.changePlayToPause($musicButton); //is the audio that emitted the play. Meaning we can find the sibling for this and toggle
         //Display track-title of .track-info in both respective track and music-controls .track-info
         //event.currentTarget is the song that is playing, therefore we need to set it's respective track-info
-        musicPlayer.changeTrackArtist();
         musicPlayer.displayTrackTitle();
         //updating the main music-controls track-info display
         });
