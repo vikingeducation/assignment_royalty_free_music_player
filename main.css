@@ -59,7 +59,6 @@ header {
 	-webkit-box-shadow: 1px 4px 20px 0px rgba(0,0,0,0.4);
 	-moz-box-shadow: 1px 4px 20px 0px rgba(0,0,0,0.4);
 	box-shadow: 1px 4px 20px 0px rgba(0,0,0,0.4);
-	align-items: center;
   background-color: #C8C8C8;
   border: 1px solid black;
 }

@@ -87,10 +87,17 @@ let musicPlayer = {
         let $musicButton = $(event.currentTarget);
         let audioElement = $musicButton.parents(".music-buttons").siblings("audio").get(0); //get the music-buttons containers of the clicked button, find the audio element that's a sibling of that button, then get the DOMElement back.
         if (audioElement.currentTime === 0 ) {//Check to see if audioElement has started playing
-            musicPlayer.resetAllAudio(); //if not, call load on all elements and start playing this audio element check if audio.currentTime is 0.
-            musicPlayer.updateCurrentTrackNumber(musicPlayer.findTrackInAudiosArray(audioElement));
-            musicPlayer.updateCurrentTrack();
-            audioElement.play();
+            let p = new Promise(function (resolve, reject) { //if not, call load on all elements and start playing this audio element check if audio.currentTime is 0.
+                musicPlayer.resetAllAudio(resolve); 
+            //It seems that sometimes play will get called on the next track before the resetAllAudio function has completed resulting in a playing song displaying. Solution would be to return a promise and chain the rest of these function off of the promise.
+            });
+            p.then(function onFulfilled(success) {
+                musicPlayer.updateCurrentTrackNumber(musicPlayer.findTrackInAudiosArray(audioElement));
+                musicPlayer.updateCurrentTrack();
+                audioElement.play();
+            }).catch(function onRejection(err) {
+                console.error("Error message", err);
+            });
         }
         else { // if so, call play() on this audio element to resume playing.
             audioElement.play();
@@ -112,7 +119,7 @@ let musicPlayer = {
     "updateCurrentTrackNumber" : function updateCurrentTrackNumber(newTrackNumber) {
         musicPlayer.currentTrackNumber = newTrackNumber;
     },
-    "resetAllAudio" : function resetAllAudio() {
+    "resetAllAudio" : function resetAllAudio(resolve) {
         //for each audio element, loop through and call load on it to reset it.
         let audioElements = Array.from(document.getElementsByTagName("audio")); //Convert/Insure HTMLCollection to Array
         audioElements.forEach(function (element, index, arr) {
@@ -120,6 +127,7 @@ let musicPlayer = {
             element.currentTime = 0; //reset audio back to zero
             musicPlayer.displayTrackTitle(element); //Need to change all tracks back to track-title name to correct for pause event listener
         });
+        resolve();
     },
     "resetAllPauseButtons" : function resetAllPauseButtons() {  //If any audio has a pause-button, change it back to play-button
         $(".pause-button").addClass("play-button").removeClass("pause-button");
