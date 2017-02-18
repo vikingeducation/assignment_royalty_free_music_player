@@ -209,13 +209,19 @@ let musicPlayer = {
         }
     },
     "trackTitlePlaying" : function trackTitlePlaying() {
-        
+            $(event.currentTarget).siblings(".track-info > .track-title").text(currentSongTitle);
+            //updating the main music-controls track-info display
+            $(".music-controls .track-info > .track-title").text(currentSongTitle);
     },
     "trackTitlePaused" : function trackTitlePaused() {
-        
+            $(event.currentTarget).siblings(".track-info > .track-title").text("Music paused");
+            //updating the main music-controls track-info display
+            $(".music-controls .track-info > .track-title").text("Music paused");        
     },
     "changeTrackArtist" : function changeTrackArtist() {
-        
+            $(event.currentTarget).siblings(".track-info > .track-artist").text(currentSongArtist);
+            $(".music-controls .track-info > .track-artist").text(currentSongArtist);
+
     }
 
 };
