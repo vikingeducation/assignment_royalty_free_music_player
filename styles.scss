@@ -47,9 +47,15 @@ main {
 		border-bottom: 1px solid #bbb;
 		border-top: 1px solid #bbb;
 		display: flex;
+		padding: 1rem;
 
 		.play-pause-icon {
-			padding: .6rem 1rem;
+			cursor: pointer;
+			margin-right: 1rem;
+
+			img {
+				pointer-events: none;
+			}
 		}
 
 		.song {
@@ -79,6 +85,7 @@ footer {
 		margin-right: 1rem;
 
 		img {
+			cursor: pointer;
 			margin-right: .25rem;
 		}
 	}
