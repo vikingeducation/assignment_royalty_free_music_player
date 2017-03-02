@@ -1,0 +1,13 @@
+header {
+  background-color: #796484;
+  border-bottom: #483055; }
+  header i {
+    display: inline-block;
+    padding: 10px;
+    font-size: 5em; }
+  header h1 {
+    display: inline-block;
+    font-weight: bold;
+    padding: 10px; }
+
+/*# sourceMappingURL=output.css.map */
