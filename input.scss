@@ -1,3 +1,5 @@
+
+
 $header_bg_color: #796484;
 $main_bg_color: #BEB5C2;
 $footer_bg_color: #61486F;
@@ -46,6 +48,7 @@ footer {
   }
   div {
     display: inline-block;
+    padding: 5px;
     h3 {
       color: $artist_color;
     }
