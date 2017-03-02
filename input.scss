@@ -7,8 +7,8 @@ $dark_border: #483055;
 
 header {
   background-color: $header_bg_color;
-  border-bottom: $dark_border;
-    i {
+  border-bottom: thick solid $dark_border;
+      i {
       display: inline-block;
       padding: 10px;
     }
@@ -17,4 +17,23 @@ header {
       font-weight: bold;
       padding: 10px;
     }
+}
+main {
+  background-color: $main_bg_color;
+  ul {
+    list-style: none;
+    li {
+      border-bottom: thick solid $light_border;
+      i {
+        display: inline-block;
+        padding: 10px;
+      }
+      div {
+        display: inline-block;
+        h5 {
+          color: $artist_color;
+        }
+      }
+    }
+  }
 }
