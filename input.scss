@@ -37,3 +37,17 @@ main {
     }
   }
 }
+
+footer {
+  background-color: $footer_bg_color;
+  i {
+    display: inline-block;
+    padding: 10px;
+  }
+  div {
+    display: inline-block;
+    h3 {
+      color: $artist_color;
+    }
+  }
+}
