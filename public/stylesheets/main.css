@@ -1,0 +1,182 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*CSS Reset End */
+body {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+header {
+	height: 10vh;
+	box-sizing:border-box;
+	-webkit-box-shadow: 1px 4px 20px 0px rgba(0,0,0,0.4);
+	-moz-box-shadow: 1px 4px 20px 0px rgba(0,0,0,0.4);
+	box-shadow: 1px 4px 20px 0px rgba(0,0,0,0.4);
+  background-color: #C8C8C8;
+  border: 1px solid black;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+main {
+	height: 75vh;
+	box-sizing:border-box;
+  border-left: 1px solid #C8C8C8;
+  border-right: 1px solid #C8C8C8;
+
+}
+
+footer {
+	height: 15vh;
+	box-sizing:border-box;
+	background-color: #303030;
+	border: 1px solid #C8C8C8;
+	color: #FFFBF7; /*Eggshell*/
+
+}
+
+.display-flex {
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-justify-center {
+  justify-content: center;
+}
+.flex-align-center {
+  align-items: center;
+}
+.track {
+    border-bottom: 1px solid #C8C8C8;
+    box-sizing: border-box;
+    height: 10vh;
+    background-color: #fcfcfc;
+    -webkit-box-shadow: 7px 7px 5px -12px rgba(0,0,0,0.98);
+    -moz-box-shadow: 7px 7px 5px -12px rgba(0,0,0,0.98);
+    box-shadow: 7px 7px 5px -12px rgba(0,0,0,0.98);
+    transition: box-shadow 1s;
+  
+}
+.music-buttons {
+    margin: 0 25px;
+    height: 40px;
+}
+.music-buttons > * {
+  padding: 0 10px;
+  width: 40px;
+}
+.track-info {
+}
+
+.play-button {
+  width: 0;
+  height: 0;
+  border-bottom: 18px solid transparent;
+  border-left: 27px solid;
+  border-top: 18px solid transparent;
+}
+
+
+.right-arrow {
+  width: 0;
+  height: 0;
+  border-bottom: 18px solid transparent;
+  border-left: 27px solid;
+  border-top: 18px solid transparent;
+}
+
+.left-arrow {
+  width: 0;
+  height: 0;
+  border-bottom: 18px solid transparent;
+  border-right: 27px solid;
+  border-top: 18px solid transparent;
+}
+.vertical-rule {
+  width: 0;
+  height: 100%;
+  border-left: 5px solid white;
+}
+
+.next-button {
+  
+}
+
+.previous-button {
+  
+}
+
+.pause-button {
+  width: .5em;
+  border-left: .5em solid;
+  border-right: .5em solid;
+  height: 80%;
+}
+.color-gray {
+  color: #B0B0B0;
+}
+.color-white {
+  color: white;
+}
+
+.main-icon {
+  font-size: 2em !important;
+}
+
+.active {
+  background-color: white;
+  -webkit-box-shadow: 7px 8px 37px -3px rgba(0,0,0,0.57);
+  -moz-box-shadow: 7px 8px 37px -3px rgba(0,0,0,0.57);
+  box-shadow: 7px 8px 37px -3px rgba(0,0,0,0.57);
+  position: relative;
+}
