@@ -5,7 +5,11 @@
     <title>Royalty Free Music Player</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="output.css" type="text/css">
-
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.js"
+    integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
   </head>
   <body>
     <header>
@@ -17,14 +21,14 @@
     <main>
       <ul>
         <li>
-          <i class="fa fa-play fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-play fa-2x" aria-hidden="true" input type="button" value="PLAY"  scr="tracks/onhold"></i>
           <div>
             <h4>On Hold</h4>
             <h5>Edith Frost</h5>
         </div>
         </li>
         <li>
-          <i class= "fa fa-play fa-2x" aria-hidden="true"></i>
+          <i class= "fa fa-play fa-2x" aria-hidden="true" input type="button" value="PLAY"   scr="tracks/onhold"></i>
           <div>
             <h4>How Can I Be So Thirsty Today?</h4>
             <h5>The Meat Purveyors</h5>
@@ -54,70 +58,14 @@
       </ul>
     </main>
     <footer>
-      <i class="fa fa-step-backward fa-2x" aria-hidden="true"></i>
-      <i class="fa fa-play-circle fa-3x" aria-hidden="true"></i>
-      <i class="fa fa-step-forward fa-2x" aria-hidden="true"></i>
+      <i id="prev" class="fa fa-step-backward fa-2x" aria-hidden="true"></i>
+      <i id="playButton" class="fa fa-play-circle fa-3x" aria-hidden="true"></i>
+      <i id="next" class="fa fa-step-forward fa-2x" aria-hidden="true"></i>
       <div>
-        <h2>song</h2>
-        <h3>artist</h3>
+        <h2>On Hold</h2>
+        <h3>Edith Frost</h3>
       </div>
     </footer>
-    <header>
-      <i class="fa fa-music fa-3x" aria-hidden="true"></i>
-      <h1>
-        Roaylty Free Music Player
-      </h1>
-  </header>
-  <main>
-    <ul>
-      <li>
-        <i class="fa fa-play fa-2x" aria-hidden="true"></i>
-        <div>
-          <h4>On Hold</h4>
-          <h5>Edith Frost</h5>
-      </div>
-      </li>
-      <li>
-        <i class= "fa fa-play fa-2x" aria-hidden="true"></i>
-        <div>
-          <h4>How Can I Be So Thirsty Today?</h4>
-          <h5>The Meat Purveyors</h5>
-      </div>
-      </li>
-      <li>
-        <i class="fa fa-play fa-2x" aria-hidden="true"></i>
-        <div>
-          <h4>18 Wheels</h4>
-          <h5>Moonshine willy</h5>
-      </div>
-      </li>
-      <li>
-        <i class="fa fa-pause fa-2x" aria-hidden="true"></i>
-        <div>
-        <h4>Hold the Woodplie Down</h4>
-        <h5>The Holy Modal Rounders</h5>
-      </div>
-      </li>
-      <li>
-        <i class="fa fa-play fa-2x" aria-hidden="true"></i>
-        <div>
-          <h4>'Til My Teardrops Turn to Gold'</h4>
-          <h5>Rex Hobart &amp; the Misery Boys</h5>
-      </div>
-      </li>
-    </ul>
-  </main>
-  <footer>
-    <i class="fa fa-step-backward fa-2x" aria-hidden="true"></i>
-    <i class="fa fa-pause-circle fa-3x" aria-hidden="true"></i>
-    <i class="fa fa-step-forward fa-2x" aria-hidden="true"></i>
-    <div>
-      <h2>18 Wheels</h2>
-      <h3>artist</h3>
-    </div>
-  </footer>
 
-
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
   </body>
 </html>
