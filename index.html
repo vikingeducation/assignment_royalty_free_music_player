@@ -6,59 +6,69 @@
   <link rel="stylesheet" href="reset.css" />
   <link rel="stylesheet" href="output.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-  <script src="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <script src="scripts.js"></script>
 </head>
 
-<body>
-  <header>
-    <i class="fa fa-pied-piper-alt" aria-hidden="true"></i>
+<body class="container-fluid">
+  <header class="row">
+    <i class="fa fa-pied-piper-alt fa-4x" aria-hidden="true"></i>
     <h1>Royalty Free Music Player</h1>
   </header>
 
-  <main>
+  <main class="row">
     <ul>
-      <li>
-        <i class="fa fa-play btn btn-default" aria-hidden="true">
-          <input type="button" value="play" src="#" />
-        </i>
-        <div>
+      <li class="row">
+        <div class="col-xs-1 toggleAudio">
+          <audio id="frost-hold" autoplay="none"><source src="frost-hold.mp3" type="audio/mpeg" /></audio>
+          <i class="fa fa-play fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-pause fa-2x hidden" aria-hidden="true"></i>
+        </div>
+        <div class="col-xs-11 track">
           <h4>On Hold</h4>
           <h5>Edith Frost</h5>
         </div>
       </li>
-      <li>
-        <i class="fa fa-play btn btn-default" aria-hidden="true">
-          <input type="button" value="play" src="#" />
-        </i>
-        <div>
+      <li class="row">
+        <div class="col-xs-1 toggleAudio">
+          <audio id="meat-thirsty" autoplay="none"><source src="meat-thirsty.mp3" type="audio/mpeg" /></audio>
+          <i class="fa fa-play fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-pause fa-2x hidden" aria-hidden="true"></i>
+        </div>
+        <div class="col-xs-11 track">
           <h4>How Can I Be So Thirsty Today?</h4>
           <h5>The Meat Purveyors</h5>
         </div>
       </li>
-      <li>
-        <i class="fa fa-play btn btn-default" aria-hidden="true">
-          <input type="button" value="play" src="#" />
-        </i>
-        <div>
+      <li class="row">
+        <div class="col-xs-1 toggleAudio">
+          <audio id="wally-wheels" autoplay="none"><source src="wally-wheels.mp3" type="audio/mpeg" /></audio>
+          <i class="fa fa-play fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-pause fa-2x hidden" aria-hidden="true"></i>
+        </div>
+        <div class="col-xs-11 track">
           <h4>18 Wheels</h4>
           <h5>Moonshine Wally</h5>
         </div>
       </li>
-      <li>
-        <i class="fa fa-play btn btn-default" aria-hidden="true">
-          <input type="button" value="play" src="#" />
-        </i>
-        <div>
+      <li class="row">
+        <div class="col-xs-1 toggleAudio">
+          <audio id="holy-woodpile" autoplay="none"><source src="holy-woodpile.mp3" type="audio/mpeg" /></audio>
+          <i class="fa fa-play fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-pause fa-2x hidden" aria-hidden="true"></i>
+        </div>
+        <div class="col-xs-11 track">
           <h4>Hold the Woodpile Down</h4>
           <h5>The Holy Modal Rounders</h5>
         </div>
       </li>
-      <li>
-        <i class="fa fa-play btn btn-default" aria-hidden="true">
-          <input type="button" value="play" src="#" />
-        </i>
-        <div>
+      <li class="row">
+        <div class="col-xs-1 toggleAudio">
+          <audio id="hobart-teardrops" autoplay="none"><source src="hobart-teardrops.mp3" type="audio/mpeg" /></audio>
+          <i class="fa fa-play fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-pause fa-2x hidden" aria-hidden="true"></i>
+        </div>
+        <div class="col-xs-11 track">
           <h4>'Til My Teardrops Turn to Gold</h4>
           <h5>Rex Hobart and the Misery Boys</h5>
         </div>
@@ -66,11 +76,13 @@
     </ul>
   </main>
 
-  <footer>
-      <i id="previous" class="fa fa-fast-backward" aria-hidden="true"></i>
-      <i id="play" class="fa fa-play-circle-o btn btn-default" aria-hidden="true"></i>
-      <i id="pause" class="fa fa-pause-circle-o btn btn-default" aria-hidden="true"></i>
-      <i id="next" class="fa fa-fast-forward" aria-hidden="true"></i>
+  <footer class="row">
+      <i id="previous" class="fa fa-fast-backward fa-2x" aria-hidden="true"></i>
+      <i id="play" class="fa fa-play-circle-o fa-4x" aria-hidden="true"></i>
+      <i id="pause" class="fa fa-pause-circle-o fa-4x hidden" aria-hidden="true"></i>
+      <i id="next" class="fa fa-fast-forward fa-2x" aria-hidden="true"></i>
+      <h5 id="currentSong"></h5>
+      <h4 id="currentArtist"></h4>
   </footer>
 </body>
 </html>
