@@ -1,0 +1,90 @@
+html {
+  height: 100%; }
+
+body {
+  margin: 0px;
+  min-height: 100%; }
+
+header {
+  border: black solid 3px;
+  background-color: lightgrey;
+  position: inline-block;
+  font-family: Impact, Charcoal, sans-serif;
+  min-width: 600px; }
+  header img {
+    height: 84px;
+    float: left;
+    margin: 0px 0px 0px 10px; }
+  header h1 {
+    font-size: 3em;
+    margin: 15px 10px 15px 0px; }
+
+#main-cont ul {
+  list-style: none; }
+  #main-cont ul li {
+    padding: 5px;
+    cursor: pointer; }
+    #main-cont ul li.playing {
+      color: white;
+      background-color: #5D8AA8; }
+  #main-cont ul li:hover {
+    color: white;
+    background: grey; }
+
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  height: 5.7em;
+  background-color: #1B1B1B; }
+  footer #container {
+    width: 320px;
+    margin: 0 auto; }
+    footer #container #controlbar {
+      float: left;
+      margin: 7px 10px 20px 10px; }
+      footer #container #controlbar #prev-skip {
+        cursor: pointer;
+        color: grey;
+        font-size: 50px;
+        padding: 0;
+        border: none;
+        background: none;
+        display: inline-block; }
+      footer #container #controlbar #next-skip {
+        cursor: pointer;
+        color: grey;
+        font-size: 50px;
+        padding: 0;
+        border: none;
+        background: none;
+        display: inline-block; }
+      footer #container #controlbar #play-button {
+        cursor: pointer;
+        display: inline-block; }
+      footer #container #controlbar .play {
+        color: grey;
+        font-size: 50px;
+        border: none;
+        background: none;
+        margin: -4px 10px 10px 10px; }
+    footer #container #songname-foot {
+      color: white;
+      font-size: 1.5em;
+      font-weight: bold;
+      padding: 2.5px 5px;
+      margin: 14px 0px 0px 15px; }
+    footer #container #artist-foot {
+      font-size: 1.3em;
+      font-weight: lighter;
+      color: grey;
+      padding: 2.5px 5px; }
+
+.pause {
+  color: grey;
+  font-size: 46px;
+  border: none;
+  background: none;
+  margin: -4px 10px 10px 10px; }
+
+/*# sourceMappingURL=style.css.map */
