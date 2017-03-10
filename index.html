@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <title>Royalty Free Music Player</title>
   <link rel="stylesheet" href="reset.css" />
-  <link rel="stylesheet" href="output.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="output.css" />
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="scripts.js"></script>
 </head>
 
@@ -19,70 +20,64 @@
   <main class="row">
     <ul>
       <li class="row">
-        <div class="col-xs-1 toggleAudio">
-          <audio id="frost-hold" autoplay="none"><source src="frost-hold.mp3" type="audio/mpeg" /></audio>
-          <i class="fa fa-play fa-2x" aria-hidden="true"></i>
-          <i class="fa fa-pause fa-2x hidden" aria-hidden="true"></i>
+        <div class="col-xs-1">
+          <audio id="track-1" autostart="0" preload="none"><source src="music/Breanna_Barbara_-_08_-_You_Got_Me_High.mp3" type="audio/mpeg" /></audio>
+          <i class="fa fa-play fa-2x track-toggle" aria-hidden="true"></i>
         </div>
-        <div class="col-xs-11 track">
-          <h4>On Hold</h4>
-          <h5>Edith Frost</h5>
-        </div>
-      </li>
-      <li class="row">
-        <div class="col-xs-1 toggleAudio">
-          <audio id="meat-thirsty" autoplay="none"><source src="meat-thirsty.mp3" type="audio/mpeg" /></audio>
-          <i class="fa fa-play fa-2x" aria-hidden="true"></i>
-          <i class="fa fa-pause fa-2x hidden" aria-hidden="true"></i>
-        </div>
-        <div class="col-xs-11 track">
-          <h4>How Can I Be So Thirsty Today?</h4>
-          <h5>The Meat Purveyors</h5>
+        <div class="col-xs-11 track-metadata">
+          <h4>You Got Me High</h4>
+          <h5>Breanna Barbara</h5>
         </div>
       </li>
       <li class="row">
-        <div class="col-xs-1 toggleAudio">
-          <audio id="wally-wheels" autoplay="none"><source src="wally-wheels.mp3" type="audio/mpeg" /></audio>
-          <i class="fa fa-play fa-2x" aria-hidden="true"></i>
-          <i class="fa fa-pause fa-2x hidden" aria-hidden="true"></i>
+        <div class="col-xs-1">
+          <audio id="track-2" autostart="0" preload="none"><source src="music/Jan_Morgenson_-_03_-_Concatenation.mp3" type="audio/mpeg" /></audio>
+          <i class="fa fa-play fa-2x track-toggle" aria-hidden="true"></i>
         </div>
-        <div class="col-xs-11 track">
-          <h4>18 Wheels</h4>
-          <h5>Moonshine Wally</h5>
-        </div>
-      </li>
-      <li class="row">
-        <div class="col-xs-1 toggleAudio">
-          <audio id="holy-woodpile" autoplay="none"><source src="holy-woodpile.mp3" type="audio/mpeg" /></audio>
-          <i class="fa fa-play fa-2x" aria-hidden="true"></i>
-          <i class="fa fa-pause fa-2x hidden" aria-hidden="true"></i>
-        </div>
-        <div class="col-xs-11 track">
-          <h4>Hold the Woodpile Down</h4>
-          <h5>The Holy Modal Rounders</h5>
+        <div class="col-xs-11 track-metadata">
+          <h4>Concatenation</h4>
+          <h5>Jan Morgenson</h5>
         </div>
       </li>
       <li class="row">
-        <div class="col-xs-1 toggleAudio">
-          <audio id="hobart-teardrops" autoplay="none"><source src="hobart-teardrops.mp3" type="audio/mpeg" /></audio>
-          <i class="fa fa-play fa-2x" aria-hidden="true"></i>
-          <i class="fa fa-pause fa-2x hidden" aria-hidden="true"></i>
+        <div class="col-xs-1">
+          <audio id="track-3" autostart="0" preload="none"><source src="music/Lobo_Loco_-_17_-_Flying_Winter_Birds_ID_441.mp3" type="audio/mpeg" /></audio>
+          <i class="fa fa-play fa-2x track-toggle" aria-hidden="true"></i>
         </div>
-        <div class="col-xs-11 track">
-          <h4>'Til My Teardrops Turn to Gold</h4>
-          <h5>Rex Hobart and the Misery Boys</h5>
+        <div class="col-xs-11 track-metadata">
+          <h4>Flying Winter Birds</h4>
+          <h5>Lobo Loco</h5>
+        </div>
+      </li>
+      <li class="row">
+        <div class="col-xs-1">
+          <audio id="track-4" autostart="0" preload="none"><source src="music/Mud_Dogs_-_02_-_Sun_and_the_Moon.mp3" type="audio/mpeg" /></audio>
+          <i class="fa fa-play fa-2x track-toggle" aria-hidden="true"></i>
+        </div>
+        <div class="col-xs-11 track-metadata">
+          <h4>Sun and the Moon</h4>
+          <h5>Mud Dogs</h5>
+        </div>
+      </li>
+      <li class="row">
+        <div class="col-xs-1">
+          <audio id="track-5" autostart="0" preload="none"><source src="music/The_Agrarians_-_02_-_Touching_the_Lonely.mp3" type="audio/mpeg" /></audio>
+          <i class="fa fa-play fa-2x track-toggle" aria-hidden="true"></i>
+        </div>
+        <div class="col-xs-11 track-metadata">
+          <h4>Touching the Lonely</h4>
+          <h5>The Agrarians</h5>
         </div>
       </li>
     </ul>
   </main>
 
   <footer class="row">
-      <i id="previous" class="fa fa-fast-backward fa-2x" aria-hidden="true"></i>
-      <i id="play" class="fa fa-play-circle-o fa-4x" aria-hidden="true"></i>
-      <i id="pause" class="fa fa-pause-circle-o fa-4x hidden" aria-hidden="true"></i>
-      <i id="next" class="fa fa-fast-forward fa-2x" aria-hidden="true"></i>
-      <h5 id="currentSong"></h5>
-      <h4 id="currentArtist"></h4>
+    <i id="previous" class="fa fa-fast-backward fa-2x" aria-hidden="true"></i>
+    <i id="main-toggle" class="fa fa-play-circle-o fa-4x" aria-hidden="true"></i>
+    <i id="next" class="fa fa-fast-forward fa-2x" aria-hidden="true"></i>
+    <div class="track-metadata">
+    </div>
   </footer>
 </body>
 </html>
