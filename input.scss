@@ -14,8 +14,12 @@ body {
   }
   ul {
     padding-bottom: 150px;
+    li:hover {
+        color: #000000;
+    }
     li {
       border-bottom: 1px solid;
+      color: rgba(0,0,0,.60);
       i {
         display: inline-block;
         vertical-align: middle;
@@ -35,8 +39,5 @@ body {
     i, h4, h5 {
       display: inline-block;
     }
-  }
-  .hidden {
-    display: none;
   }
 }
