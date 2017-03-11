@@ -1,0 +1,54 @@
+$header_bg_color: #796484;
+$main_bg_color: #BEB5C2;
+$footer_bg_color: #61486F;
+$artist_color: #796484;
+$light_border: #796484;
+$dark_border: #483055;
+
+header {
+  background-color: $header_bg_color;
+  border-bottom: thick solid $dark_border;
+      i {
+      display: inline-block;
+      padding: 10px;
+    }
+    h1 {
+      display: inline-block;
+      font-weight: bold;
+      padding: 10px;
+    }
+}
+main {
+  background-color: $main_bg_color;
+  ul {
+    list-style: none;
+    li {
+      border-bottom: thick solid $light_border;
+      i {
+        display: inline-block;
+        padding: 10px;
+      }
+      div {
+        display: inline-block;
+        h5 {
+          color: $artist_color;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $footer_bg_color;
+  i {
+    display: inline-block;
+    padding: 10px;
+  }
+  div {
+    display: inline-block;
+    padding: 5px;
+    h3 {
+      color: $artist_color;
+    }
+  }
+}
