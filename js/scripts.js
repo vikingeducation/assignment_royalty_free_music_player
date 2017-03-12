@@ -3,6 +3,9 @@ $(document).ready(function() {
 
     var $songContainers = $(".song-container");
     var $allSongs = $("audio");
+    var currentSong = $allSongs[0];
+    var currentSongIndex = 0;
+    var isPlaying = false;
 
     $songContainers.click(function(event) {
       var $target = $(this);
@@ -31,11 +34,68 @@ $(document).ready(function() {
 
         $allSongs.each(function( index, element ) {
           this.pause();
+          isPlaying = false;
         });
-        
-        song.play();
 
+        song.play();
+        isPlaying = true;
+      }
+    });
+
+    // Footer controls
+    var $backBtn = $(".glyphicon-step-backward");
+    var $footerPlay = $("footer .glyphicon-play");
+    var $footerPause = $("footer .glyphicon-pause");
+    var $forwardBtn = $(".glyphicon-step-forward");
+
+
+    $backBtn.click(function(event) {
+      $allSongs[currentSongIndex].pause();
+
+      if ($allSongs[currentSongIndex].currentTime < 5) {
+        currentSongIndex--;
+        if (currentSongIndex < 0) {
+          currentSongIndex = $allSongs.length - 1;
+        }
+
+        if (isPlaying) {
+          $allSongs[currentSongIndex].play();
+        }
+      }
+      else {
+        $allSongs[currentSongIndex].currentTime = 0;
+        $allSongs[currentSongIndex].play();
+      }
+    });
+
+    $forwardBtn.click(function(event) {
+      $allSongs[currentSongIndex].pause();
+
+      currentSongIndex++;
+      if (currentSongIndex >= $allSongs.length) {
+        currentSongIndex = 0;
       }
 
+      if (isPlaying) {
+        $allSongs[currentSongIndex].play();
+      }
+
+    });
+
+    $footerPlay.click(function(event) {
+      $footerPlay.addClass("inactive");
+      $footerPause.removeClass("inactive");
+      $allSongs[currentSongIndex].play();
+      isPlaying = true;
+      //Make matching song's play icon visible, pause icon invisible
+
+    });
+
+    $footerPause.click(function(event) {
+      $footerPlay.removeClass("inactive");
+      $footerPause.addClass("inactive");
+      $allSongs[currentSongIndex].pause();
+      isPlaying = false;
+      //Make matching song's play icon visible, pause icon invisible
     });
   });
