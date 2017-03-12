@@ -12,15 +12,21 @@ header {
   border: 1px solid black;
   border-bottom: none;
 }
+
 .glyphicon-king{
   margin-left: 10px;
   padding: 5px;
   margin-right: 10px;
   font-size: 21px;
-  -webkit-transform: rotate(-45deg);
-  border: 1px solid black;
+
+  border: 2px solid grey;
   border-radius: 90px;
 
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
 }
 
 h1{
@@ -32,8 +38,27 @@ h1{
 }
 .song-container{
   border: 1px solid black;
+  border-bottom: none;
+
+  .glyphicon {
+    font-size: 23px;
+    top: -5px;
+    color:grey;
+  }
 }
 
 .song-info{
   display:inline-block;
+
+  .title {
+    font-size: 16px;
+  }
+
+  .artist {
+    font-weight: 300;
+  }
+
+  p {
+    margin: 0 0 2px;
+  }
 }
