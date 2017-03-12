@@ -1,0 +1,51 @@
+.container{
+  width:720px;
+  margin-top: 75px;
+}
+header{
+  background: lightgrey;
+  width:100%;
+  border: 1px solid black;
+}
+
+.glyphicon{
+  color: black;
+}
+.glyphicon:hover{
+  color: grey;
+}
+main .glyphicon,
+header .glyphicon{
+  margin-left: 15px;
+}
+.glyphicon-fire{
+  margin-right: 10px;
+}
+main{
+  padding-bottom: 123px;
+  border: 1px solid black;
+  color: #333333;
+}
+.media{
+  border-bottom: 1px solid black;
+  margin-top: 0;
+  padding-top: 15px;
+}
+p{
+  color: grey;
+}
+footer{
+  font-size: 2em;
+  color: white;
+  background: black;
+}
+footer p{
+  color: white;
+}
+
+footer .glyphicon{
+  color: white;
+}
+#left-most{
+  margin-left: 15px;
+}
