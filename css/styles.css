@@ -78,8 +78,13 @@ h1 {
   .player-controls .artist {
     font-size: 16px;
     font-weight: 300; }
-  .player-controls .progress-bar {
-    margin: 0px; }
+
+.progress {
+  margin-bottom: 0px;
+  border: 1px solid black;
+  border-radius: 0px;
+  border-top: none;
+  border-bottom: none; }
 
 .inactive {
   display: none; }

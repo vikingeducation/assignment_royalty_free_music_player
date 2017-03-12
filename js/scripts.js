@@ -51,7 +51,7 @@ $(document).ready(function() {
 
     $backBtn.click(function(event) {
       $allSongs[currentSongIndex].pause();
-
+      resetProgress();
       if ($allSongs[currentSongIndex].currentTime < 5) {
         currentSongIndex--;
         if (currentSongIndex < 0) {
@@ -70,6 +70,7 @@ $(document).ready(function() {
 
     $forwardBtn.click(function(event) {
       $allSongs[currentSongIndex].pause();
+      resetProgress();
 
       currentSongIndex++;
       if (currentSongIndex >= $allSongs.length) {
@@ -87,8 +88,8 @@ $(document).ready(function() {
       $footerPause.removeClass("inactive");
       $allSongs[currentSongIndex].play();
       isPlaying = true;
+      updateProgress();
       //Make matching song's play icon visible, pause icon invisible
-
     });
 
     $footerPause.click(function(event) {
@@ -98,4 +99,28 @@ $(document).ready(function() {
       isPlaying = false;
       //Make matching song's play icon visible, pause icon invisible
     });
+
+//progress bar
+    var progressBar = $(".progress-bar-striped");
+    var currentTime;
+    var duration;
+    var currentTimeRatio;
+
+    var resetProgress = function () {
+      progressBar.css("width", 0);
+    };
+
+    var updateProgress = function () {
+      console.log("Update has been called");
+      setInterval(function() {
+        console.log("Checking if playing");
+        if (isPlaying) {
+          currentTime = $allSongs[currentSongIndex].currentTime;
+          duration = $allSongs[currentSongIndex].duration;
+          currentTimeRatio = ((currentTime / duration) * 100);
+          progressBar.css("width", currentTimeRatio);
+          console.log("Updating");
+      }
+      }, 1000);
+};
   });
