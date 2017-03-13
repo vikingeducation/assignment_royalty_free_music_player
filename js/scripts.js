@@ -7,6 +7,11 @@ $(document).ready(function() {
     var currentSongIndex = 0;
     var isPlaying = false;
 
+    var progressBar = $(".progress-bar-striped");
+    var currentSongTime;
+    var duration;
+    var currentTimeRatio;
+
     $songContainers.click(function(event) {
       var $target = $(this);
       var $playButton = $target.children(".glyphicon-play");
@@ -48,28 +53,9 @@ $(document).ready(function() {
     var $footerPause = $("footer .glyphicon-pause");
     var $forwardBtn = $(".glyphicon-step-forward");
 
-
-    $backBtn.click(function(event) {
+    var stepForward = function () {
       $allSongs[currentSongIndex].pause();
-      resetProgress();
-      if ($allSongs[currentSongIndex].currentTime < 5) {
-        currentSongIndex--;
-        if (currentSongIndex < 0) {
-          currentSongIndex = $allSongs.length - 1;
-        }
-
-        if (isPlaying) {
-          $allSongs[currentSongIndex].play();
-        }
-      }
-      else {
-        $allSongs[currentSongIndex].currentTime = 0;
-        $allSongs[currentSongIndex].play();
-      }
-    });
-
-    $forwardBtn.click(function(event) {
-      $allSongs[currentSongIndex].pause();
+      resetTrack();
       resetProgress();
 
       currentSongIndex++;
@@ -80,47 +66,131 @@ $(document).ready(function() {
       if (isPlaying) {
         $allSongs[currentSongIndex].play();
       }
+    };
 
-    });
+    var stepBack = function () {
+      $allSongs[currentSongIndex].pause();
+      resetProgress();
 
-    $footerPlay.click(function(event) {
+      if ($allSongs[currentSongIndex].currentTime < 5) {
+        currentSongIndex--;
+
+        if (currentSongIndex < 0) {
+          currentSongIndex = $allSongs.length - 1;
+        }
+
+        if (isPlaying) {
+          $allSongs[currentSongIndex].play();
+        }
+      }
+      else {
+        resetTrack();
+        $allSongs[currentSongIndex].play();
+      }
+    };
+
+    var play = function() {
       $footerPlay.addClass("inactive");
       $footerPause.removeClass("inactive");
       $allSongs[currentSongIndex].play();
       isPlaying = true;
       updateProgress();
-      //Make matching song's play icon visible, pause icon invisible
-    });
+      $(progressBar).addClass("active");
+    };
 
-    $footerPause.click(function(event) {
+    var pause = function() {
       $footerPlay.removeClass("inactive");
       $footerPause.addClass("inactive");
       $allSongs[currentSongIndex].pause();
       isPlaying = false;
+
+      $(progressBar).removeClass("active");
+    };
+
+    $backBtn.click(function(event) {
+      stepBack();
+      // $allSongs[currentSongIndex].pause();
+      // resetProgress();
+      //
+      // if ($allSongs[currentSongIndex].currentTime < 5) {
+      //   currentSongIndex--;
+      //
+      //   if (currentSongIndex < 0) {
+      //     currentSongIndex = $allSongs.length - 1;
+      //   }
+      //
+      //   if (isPlaying) {
+      //     $allSongs[currentSongIndex].play();
+      //   }
+      // }
+      // else {
+      //   resetTrack();
+      //   $allSongs[currentSongIndex].play();
+      // }
+    });
+
+    $forwardBtn.click(function(event) {
+      stepForward();
+      // $allSongs[currentSongIndex].pause();
+      // resetTrack();
+      // resetProgress();
+      //
+      // currentSongIndex++;
+      // if (currentSongIndex >= $allSongs.length) {
+      //   currentSongIndex = 0;
+      // }
+      //
+      // if (isPlaying) {
+      //   $allSongs[currentSongIndex].play();
+      // }
+
+    });
+
+    $footerPlay.click(function(event) {
+      play();
+      // $footerPlay.addClass("inactive");
+      // $footerPause.removeClass("inactive");
+      // $allSongs[currentSongIndex].play();
+      // isPlaying = true;
+      // updateProgress();
+      // $(progressBar).addClass("active");
       //Make matching song's play icon visible, pause icon invisible
     });
 
+    $footerPause.click(function(event) {
+      pause();
+      // $footerPlay.removeClass("inactive");
+      // $footerPause.addClass("inactive");
+      // $allSongs[currentSongIndex].pause();
+      // isPlaying = false;
+      //
+      // $(progressBar).removeClass("active");
+      //Make matching song's play icon visible, pause icon invisible
+    });
+
+    var resetTrack = function() {
+      $allSongs[currentSongIndex].currentTime = 0;
+    };
+
+    $allSongs.on("ended", function(){
+      stepForward();
+    });
+
 //progress bar
-    var progressBar = $(".progress-bar-striped");
-    var currentTime;
-    var duration;
-    var currentTimeRatio;
+
 
     var resetProgress = function () {
       progressBar.css("width", 0);
     };
 
     var updateProgress = function () {
-      console.log("Update has been called");
       setInterval(function() {
-        console.log("Checking if playing");
         if (isPlaying) {
-          currentTime = $allSongs[currentSongIndex].currentTime;
+          currentSongTime = $allSongs[currentSongIndex].currentTime;
           duration = $allSongs[currentSongIndex].duration;
-          currentTimeRatio = ((currentTime / duration) * 100);
+          currentTimeRatio = ((currentSongTime / duration) * 100) + "%";
           progressBar.css("width", currentTimeRatio);
-          console.log("Updating");
       }
-      }, 1000);
+    }, 250);
 };
   });
