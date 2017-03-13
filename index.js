@@ -4,31 +4,34 @@ $(document).ready(function(){
 
 var playHandlers = {
   init: function(){
-
     $('.play').click(playHandlers.handleClickPlay);
-
   },
 
   handleClickPlay: function(){
-    var play = $('<img src="../assets/play.png" />');
-    var pause = $('<img src="../assets/pause.png" />');
-    var currentlyPlaying = $('.playing');
-    $(this).children().first().remove();
-
     if ($(this).hasClass('playing')) {
-      $(this).removeClass('playing');
-      $(this).append($(play));
-
+      playHandlers.pauseSong($(this));
     } else {
-      $(currentlyPlaying).removeClass('playing');
-      $(currentlyPlaying).children().first().remove();
-      $(currentlyPlaying).append($(play));
-
-      $(this).addClass('playing');
-      $(this).append($(pause));
+      playHandlers.pauseSong($('.playing'));
+      playHandlers.playSong($(this));
     }
+  },
 
+  playSong: function(obj){
+    var icon = $('<img src="../assets/pause.png" />');
+    $(obj).children().first().remove();
+    $(obj).addClass('playing');
+    $(obj).append($(icon));
 
+    $(obj).siblings().find('audio').trigger('play');
+  },
+
+  pauseSong: function(obj){
+    var icon = $('<img src="../assets/play.png" />');
+    $(obj).children().first().remove();
+    $(obj).removeClass('playing');
+    $(obj).append($(icon));
+
+    $(obj).siblings().find('audio').trigger('pause');
   }
 
 };
