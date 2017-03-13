@@ -13,6 +13,9 @@ body {
   color: #fff;
   background-color: #181818;
 }
+main.container-fluid {
+  margin-bottom: 90px;
+}
 
 /* Header Styles */
 .header {
@@ -59,6 +62,7 @@ body {
 .footer {
   background: black;
   height: 90px;
+  margin-top:90px;
 }
 
 .song-options {
