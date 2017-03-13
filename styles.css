@@ -51,6 +51,7 @@ main.container-fluid {
 }
 .song-row p {
   margin: 1em 0;
+  color: #B2B1B1;
 }
 
 .song-row  img {
@@ -78,4 +79,7 @@ main.container-fluid {
   width: 50px;
 }
 
+.footer p {
+  color: #B2B1B1;
+}
 
