@@ -59,6 +59,9 @@ main.container-fluid {
   height: 40px;
 }
 
+/*.playing {
+  display: none;
+}*/
 /* Footer styles */
 .footer {
   background: black;
