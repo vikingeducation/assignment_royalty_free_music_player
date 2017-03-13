@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="font-awesome.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="scripts.js"></script>
+    <title>Royalty Free Music Player</title>
+  </head>
+
+  <body>
+    <div class="main-container">
+      <div class="player-title">
+        <i class="fa fa-headphones fa-2x"></i>
+        <h2>Royalty Free Music Player</h2>
+      </div>
+      <div id="song-list" class="song-container">
+
+        <div class="item-song">
+          <button class="btn-play"><i class="fa fa-play" aria-hidden="true"></i></button>
+          <div class="item-song-info">
+            <p class="song-title">Night Owl</p>
+            <p class="song-artist">Broke For Free</p>
+            <audio src="songs/Broke For Free - Night Owl.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="item-song">
+          <button class="btn-play"><i class="fa fa-play" aria-hidden="true"></i></button>
+          <div class="item-song-info">
+            <p class="song-title">Springish</p>
+            <p class="song-artist">Gillicuddy</p>
+            <audio src="songs/Gillicuddy - Springish.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="item-song">
+          <button class="btn-play"><i class="fa fa-play" aria-hidden="true"></i></button>
+          <div class="item-song-info">
+            <p class="song-title">It's Your Birthday!</p>
+            <p class="song-artist">Monk Turner +</p>
+            <audio src="songs/Monk Turner + - It's Your Birthday!.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="item-song">
+          <button class="btn-play"><i class="fa fa-play" aria-hidden="true"></i></button>
+          <div class="item-song-info">
+            <p class="song-title">Bonsoir</p>
+            <p class="song-artist">Monplaisir</p>
+            <audio src="songs/Monplaisir - Bonsoir.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="item-song">
+          <button class="btn-play"><i class="fa fa-play" aria-hidden="true"></i></button>
+          <div class="item-song-info">
+            <p class="song-title">Beach Vibes With Drums</p>
+            <p class="song-artist">Ryan Cullinane</p>
+            <audio src="songs/Ryan Cullinane - Beach Vibes With Drums.mp3"></audio>
+          </div>
+        </div>
+
+        <div class="item-song">
+          <button class="btn-play"><i class="fa fa-play" aria-hidden="true"></i></button>
+          <div class="item-song-info">
+            <p class="song-title">Enthusiast</p>
+            <p class="song-artist">Tours</p>
+            <audio src="songs/Tours - Enthusiast.mp3"></audio>
+          </div>
+        </div>
+
+        <div id="player-controls" class="player-controls">
+          <button id="btn-back">
+            <i class="fa fa-step-backward fa-2x"></i>
+          </button>
+          <button id="btn-play">
+            <i class="fa fa-play-circle-o fa-3x"></i>
+          </button>
+          <button id="btn-next">
+            <i class="fa fa-step-forward fa-2x"></i>
+          </button>
+          <div class="current-song-info">
+            <p class="current-song-title">Night Owl</p>
+            <p class="current-song-artist">Broke For Free</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>
