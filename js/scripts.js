@@ -20,19 +20,18 @@ $(document).ready(function() {
       var $playButton = $target.children(".glyphicon-play");
       var $pauseButton = $target.children(".glyphicon-pause");
 
+      if ($currentSong[0] !== $target.children("audio")[0]) {
+        resetTrack();
+      }
       $currentSong = $target.children("audio");
 
-      //If that song is currently playing
-      if ($playButton.is(":hidden")) {
-        console.log("Pause");
+      if ($currentSong.hasClass("playing")) {
         $playButton.show();
         $pauseButton.hide();
 
         pauseSong($currentSong[0]);
       }
-      //Else if that song is not playing
       else {
-        console.log("Play");
         $playButton.hide();
         $pauseButton.show();
 
@@ -87,6 +86,7 @@ $(document).ready(function() {
 
       $currentSong[0].play();
       $currentSong.addClass("playing");
+      updateInfo();
       $(progressBar).addClass("active");
       updateProgress();
     };
@@ -103,9 +103,15 @@ $(document).ready(function() {
     };
 
     var updateInfo = function () {
+      var $songTitle = $currentSong.siblings(".song-info").children(".title");
+      var $songArtist = $currentSong.siblings(".song-info").children(".artist");
+      var $playerTitle = $(".player-title");
+      var $playerArtist = $(".player-artist");
 
+      $playerTitle.html($songTitle.html());
+      $playerArtist.html($songArtist.html());
     };
-    
+
     var pauseLastSong = function() {
       var $songToPause = $allSongs.filter(".playing");
 
@@ -145,11 +151,10 @@ $(document).ready(function() {
 
 //progress bar
     var resetProgress = function () {
-      progressBar.css("width", 0);
+      progressBar.css("width", "0%");
     };
 
     var updateProgress = function () {
-      console.log("checking");
       setInterval(function() {
         if (isPlaying()) {
           console.log("Updating");
@@ -158,7 +163,7 @@ $(document).ready(function() {
           currentTimeRatio = ((currentSongTime / duration) * 100) + "%";
           progressBar.css("width", currentTimeRatio);
       }
-    }, 250);
+    }, 200);
 
     var isPlaying = function() {
       if (!$currentSong.get(0).paused && !$currentSong.get(0).ended && $currentSong.get(0).currentTime > 0) {

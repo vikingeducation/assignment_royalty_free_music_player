@@ -40,6 +40,8 @@ h1 {
     font-size: 23px;
     top: -5px;
     color: grey; }
+  .song-container .playing {
+    background-color: pink; }
 
 .song-container:hover {
   background-color: lightsteelblue; }
