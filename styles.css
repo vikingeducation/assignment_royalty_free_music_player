@@ -1,0 +1,88 @@
+html,
+body {
+  height: 100%;
+}
+
+@font-face {
+  font-family: 'Prox';
+  src: url('../assets/fonts/Prox.ttf');
+}
+
+body {
+  font-family: 'Prox';
+  color: #fff;
+  background-color: #181818;
+}
+main.container-fluid {
+  margin-bottom: 90px;
+}
+
+/* Header Styles */
+.header {
+  padding: 15px;
+  background: #000;
+  height:85px;
+  border-bottom: 1px solid #fff;
+}
+
+.header img {
+  height: 50px;
+  width: 50px;
+
+  -ms-transform: rotate(-45deg); /* IE 9 */
+  -webkit-transform: rotate(-45deg); /* Safari */
+  transform: rotate(-45deg);
+}
+
+.header h1 {
+  margin-top: 10px;
+}
+
+/* Song row styles */
+
+.song-row {
+  border-bottom: 1px solid #fff;
+  height: 80px;
+  padding: 10px;
+}
+
+.song-row h3 {
+  display: inline;
+}
+.song-row p {
+  margin: 1em 0;
+  color: #B2B1B1;
+}
+
+.song-row  img {
+  margin: 10px 0 0 0;
+  height: 40px;
+}
+
+/*.playing {
+  display: none;
+}*/
+/* Footer styles */
+.footer {
+  background: black;
+  height: 90px;
+  margin-top:90px;
+}
+
+.song-options {
+  padding: 25px;
+}
+.song-options img {
+  height: 20px;
+  width: 20px;
+  display: inline;
+}
+#footer-play {
+  height: 50px;
+  width: 50px;
+}
+
+.footer p {
+  color: #B2B1B1;
+}
+
