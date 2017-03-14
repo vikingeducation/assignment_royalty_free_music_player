@@ -42,7 +42,9 @@ var playHandlers = {
   },
 
   handleFooterPrevious: function(){
-    console.log($(this))
+    var currentSong = $('.footer .song-info h3').text();
+    var songObject = songCollection.list()[currentSong];
+    $(songObject).prev().children().first().trigger('click');
   },
   handleFooterPlay: function(){
     var currentSong = $('.footer .song-info h3').text();
@@ -50,7 +52,9 @@ var playHandlers = {
     $(songObject).children().first().trigger('click');
   },
   handleFooterNext: function(){
-    console.log($(this))
+    var currentSong = $('.footer .song-info h3').text();
+    var songObject = songCollection.list()[currentSong];
+    $(songObject).next().children().first().trigger('click');
   },
 
   playSong: function(obj){
