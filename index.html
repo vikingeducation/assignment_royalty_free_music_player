@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Viking Music Player</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <aside>
+            <i class="fa fa-bars"></i>
+            <i class="fa fa-home"></i>
+            <i class="fa fa-user"></i>
+            <i class="fa fa-search"></i>
+            <i class="fa fa-volume-up"></i>
+            <i class="fa fa-cog"></i>
+        </aside>
+        <section class="content">
+            <div class="music-header">
+                <img id="track-image" src="images/journey.jpg" />
+
+                <section class="album">
+                    <div>
+                        <p id="current-track"></p>
+                        <p>Artist: Fleslit</p>
+                        <p>Album: Journey</p>
+                    </div>
+                </section>
+            </div>
+            <ul class="music-list">
+            </ul>
+        </section>
+
+    </main>
+    <footer>
+        <div class="controls">
+            <i class="fa fa-step-backward control-buttons control"></i>
+            <i class="fa fa-play control-buttons" id="play-button"></i>
+            <i class="fa fa-step-forward control-buttons control"></i>
+        </div>
+    </footer>
+    <script src="main.js">
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+body, html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    margin: 0;
+    font-family: Lato, sans-serif;
+    color: #222;
+    font-size: 0.9em;
+}
+
+main {
+    flex: 1 0 auto;
+    display: flex;
+}
+
+aside {
+    background-color: #A4B8C4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex: 0 0 40px;
+}
+
+aside i.fa {
+    font-size: 0.9em;
+    color: #48575b;
+}
+
+aside i.fa:hover {
+    color: #FCFAFA;
+}
+
+.content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+}
+
+.music-list {
+    flex: 1 0 auto;
+    list-style-type: none;
+    padding: 5px 10px 0;
+}
+
+.music-list li {
+    display: flex;
+    padding: 0 20px;
+}
+
+.music-list li p {
+    width: 25%;
+}
+
+.music-list li span.cloud-music {
+    border: 1px solid #000;
+    font-size: 0.6em;
+    padding: 0.3em;
+}
+
+.music-list li:nth-child(2n) {
+    background-color: #E8ECED;
+}
+
+.music-header {
+    flex: 0 0 200px;
+    display: flex;
+    padding: 40px;
+    background-color: #6E8387;
+}
+
+.music-header img {
+    width: 250px;
+    height: 200px;
+}
+
+.music-header .album {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    font-weight: 300;
+    color: #fff;
+    padding-left: 50px;
+}
+
+.music-header .album div:nth-child(1) {
+    margin-bottom: auto;
+}
+
+.music-header .album div:nth-child(1) p:first-child {
+    font-size: 1.8em;
+    margin: 0 0 10px;
+}
+
+.music-header .album div:nth-child(1) p:not(:first-child) {
+    font-size: 1.2em;
+    margin: 2px 0;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex: 0 0 70px;
+    padding: 1em;
+    color: #fff;
+    background-color: rgba(34, 116, 165, 0.9);
+}
+
+footer .controls {
+    display: inline-flex;
+    font-size: 2em;
+    flex: 0 0 27%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+footer .controls .control-buttons {
+    align-self: center;
+    transition: color 0.3s ease-in-out;
+    color: #A4B8C4;
+}
+
+footer .controls .active {
+    color: #FCFAFA;
+}
+
+footer .controls .control:active {
+    color: #FCFAFA;
+    animation: blur 0.4s 1;
+}
+
+.playing {
+    animation: blur 0.3s 1;
+}
+
+.paused {
+    animation: unblur 0.09s 1;
+}
+
+@keyframes blur {
+    from {
+        text-shadow: 0 0 1px #FCFAFA;
+    }
+    to {
+        text-shadow: 0 0 80px transparent;
+    }
+}
+
+@keyframes unblur {
+    from {
+        text-shadow: 0 0 10px transparent;
+    }
+    to {
+        text-shadow: 0 0 0.1px #FCFAFA;
+    }
+}
