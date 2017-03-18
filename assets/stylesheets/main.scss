@@ -1,0 +1,116 @@
+.container {
+  position: relative;
+  display: block;
+  width: 700px;
+  height: 800px;
+  margin: 10% auto;
+  background-color: white;
+  border: 2px solid grey;
+}
+
+li {
+  list-style: none;
+}
+
+.title-bar {
+  position: relative;
+  background-color: white;
+  height: 80px;
+  border-bottom: 2px solid black;
+}
+
+.title-bar h1 {
+  margin: 0;
+  position: absolute;               
+  top: 50%;                         
+  transform: translate(30%, -50%) 
+}
+
+.title-bar img {
+  height: 80px;
+  width: 90px;
+}
+
+
+
+
+
+
+.song-bar {
+  position: relative;
+  height: 70px;
+  border-bottom: 2px solid black;
+
+}
+
+.song-bar ul {
+  display: inline-block;
+  position: absolute; 
+  top: 0                                
+  transform: translate(0%, 0%)
+}
+
+.song-bar img {
+  margin: auto 0;
+  height: 40px;
+  padding: 15px;
+}
+
+.song-title {
+  font-size: 22px;
+  color: gray;
+  font-weight: 600;
+}
+
+.song-artist {
+  font-size: 20px;
+  color: gray;
+}
+
+
+
+
+
+.control-bar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 110px;
+  border-top: 4px solid black;
+}
+
+#control-buttons {
+  display: inline-block;
+  margin: 20px 0px 0px 50px;
+}
+
+#song-display {
+  display: inline-block;
+  position: relative;
+  bottom: 20px;
+  left: 20px;
+  margin: auto 0px;
+}
+
+#last-track {
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+#play-button {
+  height: 70px;
+}
+
+#next-track {
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+#current-song {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+#current-artist {
+  font-size: 24px;
+}
