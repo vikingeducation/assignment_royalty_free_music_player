@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <title>Royalty Free Music Player</title>
+</head>
+
+<body>
+    <div class="player">
+
+        <div class="header navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <i class="fa fa-music fa-4x navbar-brand" aria-hidden="true"></i>
+                    <h1 class="title navbar-brand">Royalty Free Music Player</h1>
+                </div>
+            </div>
+
+        </div>
+        <div class="container  player-body">
+
+
+            <div class="row list-group">
+                <div class="col-xs-12 songs">
+                    <div class="list-group-item active">
+                        <i class="fa fa-play fa-3x" aria-hidden="true"></i>
+                        <h4 class="title" data-source="brando.mp3">An Offer He Can't Refuse</h4>
+                        <h6 class="artist">Marlon Brando</h6>
+                    </div>
+                    <div class="list-group-item">
+                        <i class="fa fa-play fa-3x" aria-hidden="true"></i>
+                        <h4 class="title" data-source="hal.mp3">I'm Sorry Dave</h4>
+                        <h6 class="artist">Hal 9000</h6>
+                    </div>
+                    <div class="list-group-item">
+                        <i class="fa fa-play fa-3x" aria-hidden="true"></i>
+                        <h4 class="title" data-source="pacino.mp3">Balls</h4>
+                        <h6 class="artist">Al Pacino</h6>
+                    </div>
+                    <div class="list-group-item">
+                        <i class="fa fa-play fa-3x" aria-hidden="true"></i>
+                        <h4 class="title" data-source="fight_club.mp3">Fight Club Rules</h4>
+                        <h6 class="artist">Brad Pitt</h6>
+                    </div>
+                    <div class="list-group-item">
+                        <i class="fa fa-play fa-3x" aria-hidden="true"></i>
+                        <h4 class="title" data-source="pulp_fiction.mp3">Jimmy's Coffee</h4>
+                        <h6 class="artist">Pulp Fiction</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid footer navbar navbar-inverse navbar-fixed-bottom">
+            <div class="row current-song">
+                <div class="xs-col-12">
+                    <i class="fa fa-step-backward fa-3x navbar-brand" aria-hidden="true"></i>
+                    <i class="playing-status fa fa-play-circle fa-3x navbar-brand" aria-hidden="true"></i>
+                    <i class="fa fa-step-forward fa-3x navbar-brand" aria-hidden="true"></i>
+                    <span class="playing-title navbar-text navbar-left">An Offer He Can't Refuse</span>
+                    <span class="playing-artist navbar-text navbar-left">Marlon Brando</span>
+                    <audio id="audio" src="./assets/brando.mp3" type="audio/mpeg"> </audio>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/59976f4619.js"></script>
+    <script type="text/javascript" src="scripts.js"></script>
+</body>
+
+</html>
