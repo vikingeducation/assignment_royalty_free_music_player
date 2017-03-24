@@ -1,15 +1,139 @@
+html {
+  font-family: helvetica;
+}
+
+
 .container {
+  position: relative;
   display: block;
-  width: 600px;
-  height: 600px;
-  margin: 0 auto;
-  background-color: blue;
+  width: 700px;
+  height: 800px;
+  margin: 10% auto;
+  background-color: white;
+  border: 2px solid grey;
 }
 
-.nester {
+li {
+  list-style: none;
+}
+
+.title-bar {
+  position: relative;
+  background-color: white;
+  height: 80px;
+  border-bottom: 2px solid black;
+}
+
+.title-bar h1 {
+  margin: 0;
+  position: absolute;               
+  top: 50%;                         
+  transform: translate(30%, -50%) 
+}
+
+.title-bar img {
+  height: 80px;
+  width: 90px;
+}
+
+
+
+
+.song {
+  position: relative;
+  height: 70px;
+  border-bottom: 2px solid black;
+
+}
+
+.song ul {
+  display: inline-block;
+  position: absolute; 
+  top: 50%;                               
+  transform: translate(0%, -50%);
+  padding-left: 0;
+
+}
+
+.play {
+  margin: auto 0;
+  height: 40px;
+  padding: 15px 15px 15px 15px;
+}
+
+.pause {
+  margin: auto 0;
+  height: 40px;
+  padding: 15px 15px 15px 15px;
+}
+
+.song-title {
+  font-size: 20px;
+  color: gray;
+  font-weight: 600;
+}
+
+.song-artist {
+  font-size: 18px;
+  color: gray;
+}
+
+
+ul#playlist,
+ul#playlist li {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+
+.control-bar {
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  height: 10%;
-  background-color: black;
-  border: 6px solid white;
+  height: 110px;
+  border-top: 4px solid black;
 }
 
+#control-buttons {
+  display: inline-block;
+  margin: 20px 0px 0px 50px;
+}
+
+#song-display {
+  display: inline-block;
+  position: relative;
+  bottom: 20px;
+  left: 20px;
+  margin: auto 0px;
+}
+
+#last-track {
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+.control-bar #play-button {
+  height: 70px;
+}
+
+.control-bar #pause-button {
+  height: 70px;
+}
+
+#next-track,
+#last-track {
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+#current-song {
+  color: gray;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+#current-artist {
+  color: gray;
+  font-size: 18px;
+}

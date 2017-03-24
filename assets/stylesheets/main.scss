@@ -50,7 +50,14 @@ li {
   transform: translate(0%, 0%)
 }
 
-.song-bar img {
+#play {
+  margin: auto 0;
+  height: 40px;
+  padding: 15px;
+}
+
+#pause {
+  display: none;
   margin: auto 0;
   height: 40px;
   padding: 15px;
@@ -97,11 +104,16 @@ li {
   margin-bottom: 20px;
 }
 
-#play-button {
+.control-bar #play-button {
   height: 70px;
 }
 
-#next-track {
+.control-bar #pause-button {
+  display: none;
+}
+
+#next-track,
+#last-track {
   height: 30px;
   margin-bottom: 20px;
 }
