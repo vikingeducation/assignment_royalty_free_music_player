@@ -22,6 +22,63 @@
 </head>
 
 <body>
+    <div class="player">
+
+        <div class="header navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <i class="fa fa-music fa-4x navbar-brand" aria-hidden="true"></i>
+                    <h1 class="title navbar-brand">Royalty Free Music Player</h1>
+                </div>
+            </div>
+
+        </div>
+        <div class="container  player-body">
+
+
+            <div class="row list-group">
+                <div class="col-xs-12 songs">
+                    <div class="list-group-item active">
+                        <i class="fa fa-play fa-3x" aria-hidden="true"></i>
+                        <h4 class="title" data-source="brando.mp3">An Offer He Can't Refuse</h4>
+                        <h6 class="artist">Marlon Brando</h6>
+                    </div>
+                    <div class="list-group-item">
+                        <i class="fa fa-play fa-3x" aria-hidden="true"></i>
+                        <h4 class="title" data-source="hal.mp3">I'm Sorry Dave</h4>
+                        <h6 class="artist">Hal 9000</h6>
+                    </div>
+                    <div class="list-group-item">
+                        <i class="fa fa-play fa-3x" aria-hidden="true"></i>
+                        <h4 class="title" data-source="pacino.mp3">Balls</h4>
+                        <h6 class="artist">Al Pacino</h6>
+                    </div>
+                    <div class="list-group-item">
+                        <i class="fa fa-play fa-3x" aria-hidden="true"></i>
+                        <h4 class="title" data-source="fight_club.mp3">Fight Club Rules</h4>
+                        <h6 class="artist">Brad Pitt</h6>
+                    </div>
+                    <div class="list-group-item">
+                        <i class="fa fa-play fa-3x" aria-hidden="true"></i>
+                        <h4 class="title" data-source="pulp_fiction.mp3">Jimmy's Coffee</h4>
+                        <h6 class="artist">Pulp Fiction</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid footer navbar navbar-inverse navbar-fixed-bottom">
+            <div class="row current-song">
+                <div class="xs-col-12">
+                    <i class="fa fa-step-backward fa-3x navbar-brand" aria-hidden="true"></i>
+                    <i class="playing-status fa fa-play-circle fa-3x navbar-brand" aria-hidden="true"></i>
+                    <i class="fa fa-step-forward fa-3x navbar-brand" aria-hidden="true"></i>
+                    <span class="playing-title navbar-text navbar-left">An Offer He Can't Refuse</span>
+                    <span class="playing-artist navbar-text navbar-left">Marlon Brando</span>
+                    <audio id="audio" src="./assets/brando.mp3" type="audio/mpeg"> </audio>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -33,6 +90,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/59976f4619.js"></script>
     <script type="text/javascript" src="scripts.js"></script>
 </body>
 
