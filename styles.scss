@@ -1,0 +1,135 @@
+/* POSITIONING */
+
+#container {
+	margin-left: 350px;
+	margin-top: 200px;
+	width: 600px;
+	height: 600px;
+	border: 1px solid black;
+	position: relative;
+}
+
+header {
+	height: 80px;
+	width: 100%;
+	border-bottom: 1px solid black;
+	position: absolute;
+	top: 0px;
+	h1 {
+		margin-left: 70px;
+	}
+}
+
+footer {
+	height: 100px;
+	width: 100%;
+	border-top: 1px solid black;
+	position: absolute;
+	bottom: 0px;
+}
+
+main {
+	height: 420px;
+	position: relative;
+	top: 80px;
+}
+
+.song {
+	height: 60px;
+	border-bottom: 1px solid grey;
+}
+
+.song-info {
+	float: left;
+	margin-left: 25px;
+}
+
+.song-name {
+	margin: 0px;
+	font-size: 17px;
+	padding-top: 12px;
+	padding-bottom: 2px;
+}
+
+.band-name {
+	font-size: 13px;
+	color: #7a7a7a;
+	padding: 0px;
+	margin: 0px;
+}
+
+.song-info-footer {
+	float: left;
+	margin-left: 25px;
+}
+
+.song-name-footer {
+	margin: 0px;
+	font-size: 25px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	color: white;
+}
+
+.band-name-footer {
+	font-size: 18px;
+	color: #7a7a7a;
+	padding: 0px;
+	margin: 0px;
+}
+
+.song-icon {
+	height: 25px;
+	width: 25px;	
+}
+
+.song-icon-div {
+	float: left;
+	margin-left: 15px;
+	margin-top: 15px;
+}
+
+.footer-icon {
+	height: 40px;
+	width: 40px;	
+}
+
+.footer-prev-icon {
+	float:left;
+	margin-left: 20px;
+	margin-top: 30px;
+}
+
+.footer-play-icon {
+	float:left;
+	margin-left: 20px;
+	margin-top: 30px;
+}
+
+.footer-next-icon {
+	float:left;
+	margin-left: 20px;
+	margin-top: 30px;
+}
+
+
+
+/* BACKGROUND */
+
+header {
+	background-color: #E8E8E8;
+	background-image: url("./icons/royalty-icon.jpeg");
+	background-size: 40px;
+	background-position: 20px 20px;
+	background-repeat: no-repeat;
+}
+
+.footer-paused {
+	background-color: #2F2F2F;
+}
+
+
+
+body {
+	font-family: "Open Sans", sans-serif;
+}
