@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+	<head>
+		<title> Royalty Free Music Player </title>
+		
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/pure-min.css" rel="stylesheet">
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+		
+		<script src="js/jquery.min.js"></script>
+		<script src="js/script.js"></script>
+	</head>
+	<body>
+		<div class="header">
+			<h1>
+				<i class="fa fa-music" aria-hidden="true"></i> Royalty Free Music Player 
+				<button title="Add Songs" id="add-button" class="pure-button"> Add songs </button>
+			</h1>
+		</div>
+		<div class="content">
+			<div id="song-list">
+			</div>
+			<div id="add-panel" >
+				<form class="pure-form pure-form-stacked">
+					<legend>
+						<div class="add-panel-header"> 
+							Song Details
+							<button id="hide-panel-button" class="pure-button fa fa-arrow-right"></button>								
+						</div>							
+					</legend>
+					<fieldset class="pure-group">
+						<label for="song-title">Title</label>
+						<input id="song-title" class="pure-input-1" type="text" value="My Girl">
+					</fieldset>
+					<fieldset class="pure-group">
+						<label for="song-artist">Artist</label>
+						<input id="song-artist" class="pure-input-1" type="text" value="Temptations">
+					</fieldset>
+					<fieldset class="pure-group">
+						<label for="song-url">MP3 URL</label>
+						<textarea id="song-url" class="pure-input-1" rows="4">http://www.stephaniequinn.com/Music/Commercial%20DEMO%20-%2009.mp3</textarea>
+					</fieldset>
+					<a hre="#" id="add-song-button" class="pure-button pure-button-primary">Add song</a>
+				</form>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="player-buttons">
+				<button class="fa fa-step-backward fa-4 player-button"></button>
+				<button class="fa fa-play-circle-o fa-4 player-button"></button>
+				<button class="fa fa-step-forward fa-4 player-button"></button>
+			</div>
+			<div class="playing-song-details">
+				<b id="playing-song-title"></b><br/>
+				<i id="playing-song-artist"></i>
+			</div>
+		</div>
+	</body>
+</html>
