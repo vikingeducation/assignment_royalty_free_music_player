@@ -1,0 +1,5 @@
+@mixin main-borders() {
+    border-left: solid 1px $color-primary-text;
+    border-right: solid 1px $color-primary-text;
+}
+
