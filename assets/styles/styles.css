@@ -544,6 +544,8 @@ main {
   header {
     width: 100%;
     margin: 0%; }
+    header h1 {
+      font-size: 1.5em; }
 
   main {
     width: 100%;
