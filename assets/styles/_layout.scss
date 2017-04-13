@@ -84,6 +84,15 @@ main {
             color: $color-secondary-text;
             font-size: .8em;
         }
+
+        .currently-playing-list {
+            background-color: $color-secondary-light;
+        }
+
+        .currently-playing-list p {
+            font-weight: 700;
+            color: $color-alternate-text;
+        }
     }
 
     #audio-controls-container {

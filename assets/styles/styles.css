@@ -447,6 +447,11 @@ main {
       margin-left: 60px;
       color: #757575;
       font-size: .8em; }
+    main ul#track-list .currently-playing-list {
+      background-color: #FF764B; }
+    main ul#track-list .currently-playing-list p {
+      font-weight: 700;
+      color: #FFFFFF; }
   main #audio-controls-container {
     display: flex;
     flex-direction: row;
