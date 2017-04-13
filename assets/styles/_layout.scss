@@ -1,3 +1,7 @@
+$button-track-gutter: 60px;
+$audio-controls-height: 100px;
+$main-width: 50%;
+
 * {
     font-size: $main-font-size;
 }
@@ -5,13 +9,16 @@
 header {
     box-sizing: border-box;
 
-    background: $color-primary-dark;
+    background: $color-primary;
     @include header-typography();
 
-    width: 50%;
+    width: $main-width;
     margin-left: 25%;
     margin-right: 25%;
     padding: .5em 0em;
+
+    border: solid 1px $color-primary-borders;
+    border-top: none;
 
     h1 {
         font-size: $header-font-size;
@@ -23,12 +30,111 @@ header {
 
 main {
     box-sizing: border-box;
-
     @include main-borders();
-    padding: 1.5em 1em;
+
     font-family: $main-font;
-    width: 50%;
-    height: 100vh; // Temporary, please remove once more content is on page.
+
+    width: $main-width;
+    padding: 0em 0em;
     margin-left: 25%;
     margin-right: 25%;
+
+    ul#track-list {
+        clear: left;
+        list-style-type: none;
+        padding: 10px 0px $audio-controls-height 0px;
+        margin: 0px;
+
+
+        li {
+            @include track-list-styles();
+        }
+
+        li:first-of-type {
+            padding-top: .5em;
+        }
+
+        .track-play-button {
+            @include track-play-button("play", 2.5em);
+        }
+
+        .track-play-button:hover {
+            @include track-play-button("pause", 2.5em);
+        }
+
+        .track-pause-button {
+            @include track-play-button("pause", 2.5em);
+        }
+
+        .track-pause-button:hover {
+            @include track-play-button("play", 2.5em);
+        }
+
+        .track-title {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            margin-left: $button-track-gutter;
+
+            color: $color-primary-text;
+            font-size: 1.2em;
+        }
+        
+        .track-artist {
+            margin-left: $button-track-gutter;
+            color: $color-secondary-text;
+            font-size: .8em;
+        }
+    }
+
+    #audio-controls-container {
+        @include audio-controls-styles();
+        min-height: $audio-controls-height;
+        width: $main-width;
+        background-color: $color-audio-controls-bg;
+        color: $color-audio-controls;
+
+        div {
+            margin: 0px .3em;
+
+            &#audio-controls-prev-button {
+                @include track-play-button("prev", 1.5em);
+            }
+            &#audio-controls-play-button {
+                @include track-play-button("play-white", 3.7em);
+            }
+            &#audio-controls-pause-button {
+                @include track-play-button("pause-white", 3.7em);
+            }
+            &#audio-controls-play-button:hover {
+                @include track-play-button("pause-white", 3.7em);
+            }
+            &#audio-controls-pause-button:hover {
+                @include track-play-button("play-white", 3.7em);
+            }
+            &#audio-controls-next-button {
+                @include track-play-button("next", 1.5em);
+            }
+        }
+
+        div:first-of-type {
+            margin-left: 1em;
+        }
+
+        div.currently-playing {
+            display: block;
+            margin-left: 1em;
+            font-family: $secondary-font;
+            letter-spacing: 1px;
+            
+            h2 {
+                color: $color-secondary;
+                font-size: 1.8em;
+                margin: 0px 0px 10px 0px;
+            }
+
+            h3 {
+                margin: 0px;
+            }
+        }
+    }
 }

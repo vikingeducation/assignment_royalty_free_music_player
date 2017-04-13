@@ -358,14 +358,16 @@ th {
 
 header {
   box-sizing: border-box;
-  background: #00786A;
+  background: #009587;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   letter-spacing: 2px;
   width: 50%;
   margin-left: 25%;
   margin-right: 25%;
-  padding: .5em 0em; }
+  padding: .5em 0em;
+  border: solid 1px #212121;
+  border-top: none; }
   header h1 {
     font-size: 41.888px;
     color: #FFFFFF;
@@ -376,11 +378,179 @@ main {
   box-sizing: border-box;
   border-left: solid 1px #212121;
   border-right: solid 1px #212121;
-  padding: 1.5em 1em;
   font-family: "Open Sans", sans-serif;
   width: 50%;
-  height: 100vh;
+  padding: 0em 0em;
   margin-left: 25%;
   margin-right: 25%; }
+  main ul#track-list {
+    clear: left;
+    list-style-type: none;
+    padding: 10px 0px 100px 0px;
+    margin: 0px; }
+    main ul#track-list li {
+      border-bottom: solid 1px #212121;
+      padding: 1em 1em 0em 1em; }
+    main ul#track-list li:first-of-type {
+      padding-top: .5em; }
+    main ul#track-list .track-play-button {
+      background-image: url("../icons/play.svg");
+      height: 2.5em;
+      width: 2.5em;
+      margin-top: .5em;
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      background-position: center;
+      float: left;
+      cursor: pointer; }
+    main ul#track-list .track-play-button:hover {
+      background-image: url("../icons/pause.svg");
+      height: 2.5em;
+      width: 2.5em;
+      margin-top: .5em;
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      background-position: center;
+      float: left;
+      cursor: pointer; }
+    main ul#track-list .track-pause-button {
+      background-image: url("../icons/pause.svg");
+      height: 2.5em;
+      width: 2.5em;
+      margin-top: .5em;
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      background-position: center;
+      float: left;
+      cursor: pointer; }
+    main ul#track-list .track-pause-button:hover {
+      background-image: url("../icons/play.svg");
+      height: 2.5em;
+      width: 2.5em;
+      margin-top: .5em;
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      background-position: center;
+      float: left;
+      cursor: pointer; }
+    main ul#track-list .track-title {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      margin-left: 60px;
+      color: #212121;
+      font-size: 1.2em; }
+    main ul#track-list .track-artist {
+      margin-left: 60px;
+      color: #757575;
+      font-size: .8em; }
+  main #audio-controls-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    bottom: 0px;
+    min-height: 100px;
+    width: 50%;
+    background-color: #212121;
+    color: #FFFFFF; }
+    main #audio-controls-container div {
+      margin: 0px .3em; }
+      main #audio-controls-container div#audio-controls-prev-button {
+        background-image: url("../icons/prev.svg");
+        height: 1.5em;
+        width: 1.5em;
+        margin-top: .5em;
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-position: center;
+        float: left;
+        cursor: pointer; }
+      main #audio-controls-container div#audio-controls-play-button {
+        background-image: url("../icons/play-white.svg");
+        height: 3.7em;
+        width: 3.7em;
+        margin-top: .5em;
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-position: center;
+        float: left;
+        cursor: pointer; }
+      main #audio-controls-container div#audio-controls-pause-button {
+        background-image: url("../icons/pause-white.svg");
+        height: 3.7em;
+        width: 3.7em;
+        margin-top: .5em;
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-position: center;
+        float: left;
+        cursor: pointer; }
+      main #audio-controls-container div#audio-controls-play-button:hover {
+        background-image: url("../icons/pause-white.svg");
+        height: 3.7em;
+        width: 3.7em;
+        margin-top: .5em;
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-position: center;
+        float: left;
+        cursor: pointer; }
+      main #audio-controls-container div#audio-controls-pause-button:hover {
+        background-image: url("../icons/play-white.svg");
+        height: 3.7em;
+        width: 3.7em;
+        margin-top: .5em;
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-position: center;
+        float: left;
+        cursor: pointer; }
+      main #audio-controls-container div#audio-controls-next-button {
+        background-image: url("../icons/next.svg");
+        height: 1.5em;
+        width: 1.5em;
+        margin-top: .5em;
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-position: center;
+        float: left;
+        cursor: pointer; }
+    main #audio-controls-container div:first-of-type {
+      margin-left: 1em; }
+    main #audio-controls-container div.currently-playing {
+      display: block;
+      margin-left: 1em;
+      font-family: "Montserrat", sans-serif;
+      letter-spacing: 1px; }
+      main #audio-controls-container div.currently-playing h2 {
+        color: #FE5621;
+        font-size: 1.8em;
+        margin: 0px 0px 10px 0px; }
+      main #audio-controls-container div.currently-playing h3 {
+        margin: 0px; }
+
+@media (max-width: 1024px) {
+  header {
+    width: 100%;
+    margin: 0%; }
+
+  main {
+    width: 100%;
+    margin: 0%; }
+
+  main #audio-controls-container {
+    width: 100%;
+    margin: 0%; } }
 
 /*# sourceMappingURL=styles.css.map */
