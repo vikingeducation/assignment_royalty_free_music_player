@@ -465,7 +465,7 @@ main {
     color: #FFFFFF; }
     main #audio-controls-container div {
       margin: 0px .3em; }
-      main #audio-controls-container div#audio-controls-prev-button {
+      main #audio-controls-container div.audio-controls-prev-button {
         background-image: url("../icons/prev.svg");
         height: 1.5em;
         width: 1.5em;
@@ -476,7 +476,7 @@ main {
         background-position: center;
         float: left;
         cursor: pointer; }
-      main #audio-controls-container div#audio-controls-play-button {
+      main #audio-controls-container div.audio-controls-play-button {
         background-image: url("../icons/play-white.svg");
         height: 3.7em;
         width: 3.7em;
@@ -487,7 +487,7 @@ main {
         background-position: center;
         float: left;
         cursor: pointer; }
-      main #audio-controls-container div#audio-controls-pause-button {
+      main #audio-controls-container div.audio-controls-pause-button {
         background-image: url("../icons/pause-white.svg");
         height: 3.7em;
         width: 3.7em;
@@ -498,7 +498,7 @@ main {
         background-position: center;
         float: left;
         cursor: pointer; }
-      main #audio-controls-container div#audio-controls-play-button:hover {
+      main #audio-controls-container div.audio-controls-play-button:hover {
         background-image: url("../icons/pause-white.svg");
         height: 3.7em;
         width: 3.7em;
@@ -509,7 +509,7 @@ main {
         background-position: center;
         float: left;
         cursor: pointer; }
-      main #audio-controls-container div#audio-controls-pause-button:hover {
+      main #audio-controls-container div.audio-controls-pause-button:hover {
         background-image: url("../icons/play-white.svg");
         height: 3.7em;
         width: 3.7em;
@@ -520,7 +520,7 @@ main {
         background-position: center;
         float: left;
         cursor: pointer; }
-      main #audio-controls-container div#audio-controls-next-button {
+      main #audio-controls-container div.audio-controls-next-button {
         background-image: url("../icons/next.svg");
         height: 1.5em;
         width: 1.5em;

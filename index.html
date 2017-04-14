@@ -8,6 +8,9 @@
 
     <link rel="stylesheet" href="assets/styles/styles.css">
 
+    <script src="assets/scripts/jquery-3.2.0.js"></script>
+    <script src="assets/scripts/scripts.js"></script>
+
     <!-- Icons courtesy of www.iconfinder.com -->
     <title>Royalty Free Music Player</title>
 </head>
@@ -34,7 +37,7 @@
                     <p class="track-artist">LOREM</p>
                 </li>
                 <li>
-                    <div class="track-play-button"></div>
+                    <div class="track-controls track-play-button"></div>
                     <p class="track-title">Ipsum, Lorem</p>
                     <p class="track-artist">Merol Muspi</p>
                 </li>
@@ -54,16 +57,16 @@
                     <p class="track-artist">LOREM</p>
                 </li>
                 <li>
-                    <div class="track-play-button"></div>
+                    <div class="track-controls track-play-button"></div>
                     <p class="track-title">Ipsum, Lorem</p>
                     <p class="track-artist">Merol Muspi</p>
                 </li>
             </ul>
         </section>
         <section id="audio-controls-container">
-            <div id="audio-controls-prev-button"></div>
-            <div id="audio-controls-play-button"></div>
-            <div id="audio-controls-next-button"></div>
+            <div class="audio-controls-prev-button"></div>
+            <div class="audio-controls-play-button" id="audio-controls-main-button"></div>
+            <div class="audio-controls-next-button"></div>
             <div class="currently-playing">
                 <h2>Lorem Ipsum</h2>
                 <h3>The Lorem Ipsums</h3>
