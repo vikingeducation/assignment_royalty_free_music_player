@@ -34,6 +34,7 @@
                     // 'https://files.freemusicarchive.org/music%2FWFMU%2FAlfred_Cortot%2FVictor_78rpm_Album_M-399_013663_-_013670_Recorded_July_6-7_1933%2FAlfred_Cortot_-_03_-_Chopin_Ballade_No_3_in_A-Flat_Major_Op_47.mp3',
                     // 'https://files.freemusicarchive.org/music%2FWFMU%2FAlfred_Cortot%2FVictor_78rpm_Album_M-399_013663_-_013670_Recorded_July_6-7_1933%2FAlfred_Cortot_-_04_-_Chopin_Ballade_No_4_in_F_Minor_Op_52.mp3'
                 ],
+                enabledSrcs: [],
                 audioContext: new AudioContext()
             }
             rfmPlayer.setup();
@@ -110,6 +111,15 @@
         },
 
         enableAudioPlayback: function(bufferList) {
+            bufferList.forEach(function(element) {
+                var source = rfmPlayer.config.audioContext.createBufferSource();
+                source.buffer = element;
+                source.connect(rfmPlayer.config.audioContext.destination);
+                rfmPlayer.config.enabledSrcs.push(source);
+            });
+
+            rfmPlayer.config.enabledSrcs[0].start(0);
+
             var source1 = rfmPlayer.config.audioContext.createBufferSource();
             var source2 = rfmPlayer.config.audioContext.createBufferSource();
             source1.buffer = bufferList[0];
@@ -118,7 +128,7 @@
             source1.connect(rfmPlayer.config.audioContext.destination);
             source2.connect(rfmPlayer.config.audioContext.destination);
             // source1.start(0);
-            // source2.start(0);
+            source2.start(0);
             console.log(source1);
         }
     };
