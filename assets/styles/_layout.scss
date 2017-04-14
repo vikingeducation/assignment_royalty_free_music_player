@@ -58,16 +58,8 @@ main {
             @include track-play-button("play", 2.5em);
         }
 
-        .track-play-button:hover {
-            @include track-play-button("pause", 2.5em);
-        }
-
         .track-pause-button {
             @include track-play-button("pause", 2.5em);
-        }
-
-        .track-pause-button:hover {
-            @include track-play-button("play", 2.5em);
         }
 
         .track-title {

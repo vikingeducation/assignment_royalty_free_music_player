@@ -21,7 +21,9 @@
         },
 
         enableTrackPlay: function() {
-            rfmPlayer.config.$trackControlBtns.on("click.trackControlBtns", function() {
+            rfmPlayer.config.$trackControlBtns.on("mouseup.trackControlBtns", function() {
+                $(this).toggleClass("track-play-button");
+                $(this).toggleClass("track-pause-button");
                 console.log('You clicked a play/pause button. Good job!');
             });
         }

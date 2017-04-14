@@ -404,30 +404,8 @@ main {
       background-position: center;
       float: left;
       cursor: pointer; }
-    main ul#track-list .track-play-button:hover {
-      background-image: url("../icons/pause.svg");
-      height: 2.5em;
-      width: 2.5em;
-      margin-top: .5em;
-      display: inline-block;
-      background-repeat: no-repeat;
-      background-size: 100% auto;
-      background-position: center;
-      float: left;
-      cursor: pointer; }
     main ul#track-list .track-pause-button {
       background-image: url("../icons/pause.svg");
-      height: 2.5em;
-      width: 2.5em;
-      margin-top: .5em;
-      display: inline-block;
-      background-repeat: no-repeat;
-      background-size: 100% auto;
-      background-position: center;
-      float: left;
-      cursor: pointer; }
-    main ul#track-list .track-pause-button:hover {
-      background-image: url("../icons/play.svg");
       height: 2.5em;
       width: 2.5em;
       margin-top: .5em;
