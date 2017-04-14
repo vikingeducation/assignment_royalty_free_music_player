@@ -386,14 +386,14 @@ main {
   main ul#track-list {
     clear: left;
     list-style-type: none;
-    padding: 10px 0px 100px 0px;
+    padding: 0px 0px 100px 0px;
     margin: 0px; }
     main ul#track-list li {
       border-bottom: solid 1px #212121;
       padding: 1em 1em 0em 1em;
       transition: background-color .6s ease; }
     main ul#track-list li:first-of-type {
-      padding-top: .5em; }
+      padding-top: .8em; }
     main ul#track-list .track-play-button {
       background-image: url("../icons/play.svg");
       height: 2.5em;

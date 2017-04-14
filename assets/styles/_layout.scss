@@ -42,17 +42,16 @@ main {
     ul#track-list {
         clear: left;
         list-style-type: none;
-        padding: 10px 0px $audio-controls-height 0px;
+        padding: 0px 0px $audio-controls-height 0px;
         margin: 0px;
-
-
+        
         li {
             @include track-list-styles();
             transition: background-color .6s ease;
         }
 
         li:first-of-type {
-            padding-top: .5em;
+            padding-top: .8em;
         }
 
         .track-play-button {
