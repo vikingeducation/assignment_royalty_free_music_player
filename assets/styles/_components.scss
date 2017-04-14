@@ -22,8 +22,8 @@
     } @else if $icon-type == "next" {
         background-image: url("../icons/next.svg");
     }
-    height: $button-size;
-    width: $button-size;
+    min-height: $button-size;
+    min-width: $button-size;
     margin-top: .5em;
     display: inline-block;
     background-repeat: no-repeat;

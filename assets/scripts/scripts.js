@@ -1,6 +1,8 @@
 (function init() {
     'use strict';
 
+
+
     var rfmPlayer = {
         init: function() {
             rfmPlayer.config = {
@@ -38,36 +40,40 @@
         },
 
         setup: function() {
+            rfmPlayer.populateTrackList();
             rfmPlayer.enableTrackPlay();
             rfmPlayer.enableNextBtn();
             rfmPlayer.enablePrevBtn();
-            rfmPlayer.populateTrackList();
         },
 
         enableTrackPlay: function() {
             rfmPlayer.config.$trackControlBtns.on("click.trackControlBtns", function() {
                 var $controlBtn = $(this).find('div.track-controls');
+                var isHighlighted = $(this).hasClass('currently-playing-list')
 
                 rfmPlayer.changeCurrentHighlight($(this));
-                rfmPlayer.playTrack($(this));
-                $controlBtn.toggleClass("track-play-button");
-                $controlBtn.toggleClass("track-pause-button");
+                rfmPlayer.playTrack($(this), isHighlighted);
             });
         },
 
         // Takes <li> element in jQuery object as input
-        playTrack: function($track) {
+        // Notes: Find a way to clean up button changing
+        playTrack: function($track, isHighlighted) {
             var $controlBtn = $track.find('div.track-controls');
             var $audioDOM = $track.find('audio');
 
-            if ($controlBtn.hasClass('track-play-button') && !$track.hasClass('currently-playing-list')) {
+            if ($controlBtn.hasClass('track-play-button') && isHighlighted) {
+                $audioDOM.trigger('play');
+                $controlBtn.toggleClass("track-play-button");
+                $controlBtn.toggleClass("track-pause-button");
+            } else if ($controlBtn.hasClass('track-play-button')){
                 $audioDOM.trigger('play');
                 $audioDOM[0].currentTime = 0;
                 rfmPlayer.pauseOtherAudio($track);
-            } else if ($controlBtn.hasClass('track-play-button')){
-                $audioDOM.trigger('play');
             } else {
                 $audioDOM.trigger('pause');
+                $controlBtn.toggleClass("track-play-button");
+                $controlBtn.toggleClass("track-pause-button");
             }
         },
 
@@ -88,12 +94,21 @@
                 .addClass("track-pause-button");
         },
 
+        //Takes <li> element in jQuery object as input
         changeCurrentHighlight: function($newCurrent) {
             var $formerCurrent =  $('.currently-playing-list');
             if ($formerCurrent.get(0) !== $newCurrent.get(0)) {
                 $formerCurrent.removeClass('currently-playing-list');
                 $newCurrent.addClass('currently-playing-list');
             }
+            rfmPlayer.changeCurrentInfo($newCurrent);
+        },
+
+        changeCurrentInfo: function($newCurrent) {
+            var currentTitle = $newCurrent.find("p.track-title").text();
+            var currentArtist = $newCurrent.find("p.track-artist").text();
+            rfmPlayer.config.$audioCurrentTitle.text(currentTitle);
+            rfmPlayer.config.$audioCurrentArtist.text(currentArtist);
         },
 
         enableNextBtn: function() {
@@ -121,8 +136,12 @@
                 if ($prev.length === 0) {
                     $prev = $current;
                 }
-                $current.toggleClass('currently-playing-list');
-                $prev.toggleClass('currently-playing-list');
+                rfmPlayer.changeCurrentHighlight($prev);
+                rfmPlayer.pauseOtherAudio($prev, $prev.closest('ul'));
+
+                var $audioDOM = $prev.find('audio');
+                $audioDOM.trigger("play");
+                $audioDOM[0].currentTime = 0;
             });
         },
 

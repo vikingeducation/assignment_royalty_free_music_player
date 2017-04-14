@@ -110,14 +110,6 @@ main {
             &.audio-controls-pause-button {
               @include track-play-button("pause-white", 3.7em);
             }
-            
-            &.audio-controls-play-button:hover {
-              @include track-play-button("pause-white", 3.7em);
-            }
-            
-            &.audio-controls-pause-button:hover {
-              @include track-play-button("play-white", 3.7em);
-            }
 
             &.audio-controls-next-button {
                 @include track-play-button("next", 1.5em);

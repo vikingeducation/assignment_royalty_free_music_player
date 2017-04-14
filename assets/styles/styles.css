@@ -397,8 +397,8 @@ main {
       padding-top: .8em; }
     main ul#track-list .track-play-button {
       background-image: url("../icons/play.svg");
-      height: 2.5em;
-      width: 2.5em;
+      min-height: 2.5em;
+      min-width: 2.5em;
       margin-top: .5em;
       display: inline-block;
       background-repeat: no-repeat;
@@ -408,8 +408,8 @@ main {
       cursor: pointer; }
     main ul#track-list .track-pause-button {
       background-image: url("../icons/pause.svg");
-      height: 2.5em;
-      width: 2.5em;
+      min-height: 2.5em;
+      min-width: 2.5em;
       margin-top: .5em;
       display: inline-block;
       background-repeat: no-repeat;
@@ -448,8 +448,8 @@ main {
       margin: 0px .3em; }
       main #audio-controls-container div.audio-controls-prev-button {
         background-image: url("../icons/prev.svg");
-        height: 1.5em;
-        width: 1.5em;
+        min-height: 1.5em;
+        min-width: 1.5em;
         margin-top: .5em;
         display: inline-block;
         background-repeat: no-repeat;
@@ -459,8 +459,8 @@ main {
         cursor: pointer; }
       main #audio-controls-container div.audio-controls-play-button {
         background-image: url("../icons/play-white.svg");
-        height: 3.7em;
-        width: 3.7em;
+        min-height: 3.7em;
+        min-width: 3.7em;
         margin-top: .5em;
         display: inline-block;
         background-repeat: no-repeat;
@@ -470,30 +470,8 @@ main {
         cursor: pointer; }
       main #audio-controls-container div.audio-controls-pause-button {
         background-image: url("../icons/pause-white.svg");
-        height: 3.7em;
-        width: 3.7em;
-        margin-top: .5em;
-        display: inline-block;
-        background-repeat: no-repeat;
-        background-size: 100% auto;
-        background-position: center;
-        float: left;
-        cursor: pointer; }
-      main #audio-controls-container div.audio-controls-play-button:hover {
-        background-image: url("../icons/pause-white.svg");
-        height: 3.7em;
-        width: 3.7em;
-        margin-top: .5em;
-        display: inline-block;
-        background-repeat: no-repeat;
-        background-size: 100% auto;
-        background-position: center;
-        float: left;
-        cursor: pointer; }
-      main #audio-controls-container div.audio-controls-pause-button:hover {
-        background-image: url("../icons/play-white.svg");
-        height: 3.7em;
-        width: 3.7em;
+        min-height: 3.7em;
+        min-width: 3.7em;
         margin-top: .5em;
         display: inline-block;
         background-repeat: no-repeat;
@@ -503,8 +481,8 @@ main {
         cursor: pointer; }
       main #audio-controls-container div.audio-controls-next-button {
         background-image: url("../icons/next.svg");
-        height: 1.5em;
-        width: 1.5em;
+        min-height: 1.5em;
+        min-width: 1.5em;
         margin-top: .5em;
         display: inline-block;
         background-repeat: no-repeat;
