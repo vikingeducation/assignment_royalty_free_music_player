@@ -390,7 +390,8 @@ main {
     margin: 0px; }
     main ul#track-list li {
       border-bottom: solid 1px #212121;
-      padding: 1em 1em 0em 1em; }
+      padding: 1em 1em 0em 1em;
+      transition: background-color .6s ease; }
     main ul#track-list li:first-of-type {
       padding-top: .5em; }
     main ul#track-list .track-play-button {
@@ -429,7 +430,8 @@ main {
       background-color: #FF764B; }
     main ul#track-list .currently-playing-list p {
       font-weight: 700;
-      color: #FFFFFF; }
+      color: #FFFFFF;
+      transition: color .5s ease; }
   main #audio-controls-container {
     display: flex;
     flex-direction: row;

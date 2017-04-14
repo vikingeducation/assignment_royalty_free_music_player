@@ -48,6 +48,7 @@ main {
 
         li {
             @include track-list-styles();
+            transition: background-color .6s ease;
         }
 
         li:first-of-type {
@@ -84,6 +85,7 @@ main {
         .currently-playing-list p {
             font-weight: 700;
             color: $color-alternate-text;
+            transition: color .5s ease;
         }
     }
 
