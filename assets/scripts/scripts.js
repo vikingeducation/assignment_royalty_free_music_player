@@ -10,10 +10,11 @@
                 $tracksAll: $('ul#track-list li'),
                 $trackControlBtns: $('ul#track-list li'),
                 $audioPrevBtn: $('.audio-controls-prev-button'),
-                $audioMainBtn: $('.audio-controls-main-button'),
+                $audioMainBtn: $('#audio-controls-main-button'),
                 $audioNextBtn: $('.audio-controls-next-button'),
                 $audioCurrentTitle: $('.currently-playing h2'),
                 $audioCurrentArtist: $('.currently-playing h3'),
+                $currentAudioNode: "",
                 trackList: [
                     {
                         'title': 'Chopin: Ballade No. 1 in G Minor, Op. 23',
@@ -44,6 +45,7 @@
             rfmPlayer.enableTrackPlay();
             rfmPlayer.enableNextBtn();
             rfmPlayer.enablePrevBtn();
+            rfmPlayer.enableMainCtrlBtn();
         },
 
         enableTrackPlay: function() {
@@ -60,25 +62,32 @@
         // Notes: Find a way to clean up button changing
         playTrack: function($track, isHighlighted) {
             var $controlBtn = $track.find('div.track-controls');
-            var $audioDOM = $track.find('audio');
+            var $mainBtn = rfmPlayer.config.$audioMainBtn;
+            var $audioNode = $track.find('audio');
+            rfmPlayer.config.$currentAudioNode = $audioNode;
 
             if ($controlBtn.hasClass('track-play-button') && isHighlighted) {
-                $audioDOM.trigger('play');
+                $audioNode.trigger('play');
                 $controlBtn.toggleClass("track-play-button");
                 $controlBtn.toggleClass("track-pause-button");
+                $mainBtn.toggleClass("audio-controls-play-button");
+                $mainBtn.toggleClass("audio-controls-pause-button");
+
             } else if ($controlBtn.hasClass('track-play-button')){
-                $audioDOM.trigger('play');
-                $audioDOM[0].currentTime = 0;
-                rfmPlayer.pauseOtherAudio($track);
+                $audioNode.trigger('play');
+                $audioNode[0].currentTime = 0;
+                rfmPlayer.pauseOtherAudio($track, $mainBtn);
             } else {
-                $audioDOM.trigger('pause');
+                $audioNode.trigger('pause');
                 $controlBtn.toggleClass("track-play-button");
                 $controlBtn.toggleClass("track-pause-button");
+                $mainBtn.toggleClass("audio-controls-play-button");
+                $mainBtn.toggleClass("audio-controls-pause-button");
             }
         },
 
         // Takes <li> element in jQuery object as input
-        pauseOtherAudio: function($current) {
+        pauseOtherAudio: function($current, $mainBtn) {
             var $notCurrent = $current.closest('ul')
                 .find('li')
                 .not($current);
@@ -92,6 +101,9 @@
             $current.find('div.track-controls')
                 .removeClass("track-play-button")
                 .addClass("track-pause-button");
+            $mainBtn
+                .removeClass('audio-controls-play-button')
+                .addClass('audio-controls-pause-button');
         },
 
         //Takes <li> element in jQuery object as input
@@ -120,11 +132,12 @@
                     $next = $current;
                 }
                 rfmPlayer.changeCurrentHighlight($next);
-                rfmPlayer.pauseOtherAudio($next, $next.closest('ul'));
+                rfmPlayer.pauseOtherAudio($next, rfmPlayer.config.$audioMainBtn);
 
                 var $audioDOM = $next.find('audio');
                 $audioDOM.trigger("play");
                 $audioDOM[0].currentTime = 0;
+                rfmPlayer.config.$currentAudioNode = $audioDOM;
             });
         },
 
@@ -137,11 +150,36 @@
                     $prev = $current;
                 }
                 rfmPlayer.changeCurrentHighlight($prev);
-                rfmPlayer.pauseOtherAudio($prev, $prev.closest('ul'));
+                rfmPlayer.pauseOtherAudio($prev, rfmPlayer.config.$audioMainBtn);
 
                 var $audioDOM = $prev.find('audio');
                 $audioDOM.trigger("play");
                 $audioDOM[0].currentTime = 0;
+                rfmPlayer.config.$currentAudioNode = $audioDOM;
+            });
+        },
+
+        enableMainCtrlBtn: function() {
+            rfmPlayer.config.$audioMainBtn.on("click.mainBtn", function() {
+                var $currentAudioNode = rfmPlayer.config.$currentAudioNode;
+                var $currentPlayStatus = $currentAudioNode.siblings('div.track-controls');
+                if ($currentPlayStatus.hasClass('track-pause-button')) {
+                    $currentAudioNode.trigger('pause');
+                    $(this)
+                        .removeClass('audio-controls-pause-button')
+                        .addClass('audio-controls-play-button');
+                    $currentPlayStatus
+                        .removeClass('track-pause-button')
+                        .addClass('track-play-button');
+                } else if ($currentPlayStatus.hasClass('track-play-button')) {
+                    $currentAudioNode.trigger('play');
+                    $(this)
+                        .removeClass('audio-controls-play-button')
+                        .addClass('audio-controls-pause-button');
+                    $currentPlayStatus 
+                        .removeClass('track-play-button')
+                        .addClass('track-pause-button');
+                }
             });
         },
 

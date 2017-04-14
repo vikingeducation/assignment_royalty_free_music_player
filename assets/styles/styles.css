@@ -379,6 +379,7 @@ main {
   border-left: solid 1px #212121;
   border-right: solid 1px #212121;
   font-family: "Open Sans", sans-serif;
+  min-height: 100vh;
   width: 50%;
   padding: 0em 0em;
   margin-left: 25%;
