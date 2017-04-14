@@ -6,7 +6,7 @@
             rfmPlayer.config = {
                 $trackListContainer: $('#track-list-container'),
                 $tracksAll: $('ul#track-list li'),
-                $trackControlBtns: $('ul#track-list .track-controls'),
+                $trackControlBtns: $('ul#track-list li'),
                 $audioPrevBtn: $('.audio-controls-prev-button'),
                 $audioMainBtn: $('.audio-controls-main-button'),
                 $audioNextBtn: $('.audio-controls-next-button'),
@@ -31,11 +31,9 @@
                 trackSources: [
                     'https://files.freemusicarchive.org/music%2FWFMU%2FAlfred_Cortot%2FVictor_78rpm_Album_M-399_013663_-_013670_Recorded_July_6-7_1933%2FAlfred_Cortot_-_01_-_Chopin_Ballade_No_1_in_G_Minor_Op_23.mp3',
                     'https://files.freemusicarchive.org/music%2FWFMU%2FAlfred_Cortot%2FVictor_78rpm_Album_M-399_013663_-_013670_Recorded_July_6-7_1933%2FAlfred_Cortot_-_02_-_Chopin_Ballade_No_2_in_F_Major_Op_38.mp3',
-                    // 'https://files.freemusicarchive.org/music%2FWFMU%2FAlfred_Cortot%2FVictor_78rpm_Album_M-399_013663_-_013670_Recorded_July_6-7_1933%2FAlfred_Cortot_-_03_-_Chopin_Ballade_No_3_in_A-Flat_Major_Op_47.mp3',
-                    // 'https://files.freemusicarchive.org/music%2FWFMU%2FAlfred_Cortot%2FVictor_78rpm_Album_M-399_013663_-_013670_Recorded_July_6-7_1933%2FAlfred_Cortot_-_04_-_Chopin_Ballade_No_4_in_F_Minor_Op_52.mp3'
+                    'https://files.freemusicarchive.org/music%2FWFMU%2FAlfred_Cortot%2FVictor_78rpm_Album_M-399_013663_-_013670_Recorded_July_6-7_1933%2FAlfred_Cortot_-_03_-_Chopin_Ballade_No_3_in_A-Flat_Major_Op_47.mp3',
+                    'https://files.freemusicarchive.org/music%2FWFMU%2FAlfred_Cortot%2FVictor_78rpm_Album_M-399_013663_-_013670_Recorded_July_6-7_1933%2FAlfred_Cortot_-_04_-_Chopin_Ballade_No_4_in_F_Minor_Op_52.mp3'
                 ],
-                enabledSrcs: [],
-                audioContext: new AudioContext()
             }
             rfmPlayer.setup();
         },
@@ -45,15 +43,51 @@
             rfmPlayer.enableNextBtn();
             rfmPlayer.enablePrevBtn();
             rfmPlayer.populateTrackList();
-            rfmPlayer.loadAudio();
         },
 
         enableTrackPlay: function() {
             rfmPlayer.config.$trackControlBtns.on("click.trackControlBtns", function() {
-                $(this).toggleClass("track-play-button");
-                $(this).toggleClass("track-pause-button");
-                console.log('You clicked a play/pause button. Good job!');
+                var $controlBtn = $(this).find('div.track-controls');
+                var $containerParent = $(this).closest('ul');
+                var $audioDOM = $(this).find('audio');
+
+                if ($controlBtn.hasClass('track-play-button') && 
+                    $(this).hasClass('currently-playing-list')) {
+                    $audioDOM.trigger('play');
+                } else if ($controlBtn.hasClass('track-play-button')){
+                    $audioDOM.trigger('play');
+                    $audioDOM[0].currentTime = 0;
+                } else {
+                    $audioDOM.trigger('pause');
+                }
+
+                if (!$(this).hasClass('.currently-playing-list')) {
+                    rfmPlayer.pauseOtherAudio($(this), $containerParent);
+                }
+
+                rfmPlayer.changeCurrentTrack($(this));
+                $controlBtn.toggleClass("track-play-button");
+                $controlBtn.toggleClass("track-pause-button");
             });
+        },
+
+        pauseOtherAudio: function($current, $parent) {
+            var $notCurrent = $parent
+                .find('li')
+                .not($current);
+            $notCurrent
+                .find('audio')
+                .trigger("pause");
+            $notCurrent
+                .find('div.track-controls')
+                .removeClass('track-pause-button')
+                .addClass('track-play-button');
+        },
+
+        changeCurrentTrack: function($newCurrent) {
+            var $formerCurrent =  $('.currently-playing-list');
+            $formerCurrent.removeClass('currently-playing-list');
+            $newCurrent.addClass('currently-playing-list');
         },
 
         enableNextBtn: function() {
@@ -98,38 +132,6 @@
                 var $audioDOM = $(element).find('audio');
                 $audioDOM.attr('src', sources[i]);
             });
-        },
-
-        loadAudio: function() {
-            rfmPlayer.config.buffer = new BufferLoader(
-                rfmPlayer.config.audioContext,
-                rfmPlayer.config.trackSources,
-                rfmPlayer.enableAudioPlayback
-            );
-
-            rfmPlayer.config.buffer.load();
-        },
-
-        enableAudioPlayback: function(bufferList) {
-            bufferList.forEach(function(element) {
-                var source = rfmPlayer.config.audioContext.createBufferSource();
-                source.buffer = element;
-                source.connect(rfmPlayer.config.audioContext.destination);
-                rfmPlayer.config.enabledSrcs.push(source);
-            });
-
-            rfmPlayer.config.enabledSrcs[0].start(0);
-
-            var source1 = rfmPlayer.config.audioContext.createBufferSource();
-            var source2 = rfmPlayer.config.audioContext.createBufferSource();
-            source1.buffer = bufferList[0];
-            source2.buffer = bufferList[1];
-
-            source1.connect(rfmPlayer.config.audioContext.destination);
-            source2.connect(rfmPlayer.config.audioContext.destination);
-            // source1.start(0);
-            source2.start(0);
-            console.log(source1);
         }
     };
 

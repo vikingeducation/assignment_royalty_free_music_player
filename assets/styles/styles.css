@@ -391,7 +391,8 @@ main {
     main ul#track-list li {
       border-bottom: solid 1px #212121;
       padding: 1em 1em 0em 1em;
-      transition: background-color .6s ease; }
+      transition: background-color .6s ease;
+      cursor: pointer; }
     main ul#track-list li:first-of-type {
       padding-top: .8em; }
     main ul#track-list .track-play-button {

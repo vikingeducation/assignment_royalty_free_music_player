@@ -48,6 +48,7 @@ main {
         li {
             @include track-list-styles();
             transition: background-color .6s ease;
+            cursor: pointer;
         }
 
         li:first-of-type {
