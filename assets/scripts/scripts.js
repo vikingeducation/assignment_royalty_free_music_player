@@ -10,7 +10,7 @@
                 $tracksAll: $('ul#track-list li'),
                 $trackControlBtns: $('ul#track-list li'),
                 $audioPrevBtn: $('.audio-controls-prev-button'),
-                $audioMainBtn: $('#audio-controls-main-button'),
+                $audioMainBtn: $('.audio-controls-main-button'),
                 $audioNextBtn: $('.audio-controls-next-button'),
                 $audioCurrentTitle: $('.currently-playing h2'),
                 $audioCurrentArtist: $('.currently-playing h3'),
@@ -68,10 +68,8 @@
 
             if ($controlBtn.hasClass('track-play-button') && isHighlighted) {
                 $audioNode.trigger('play');
-                $controlBtn.toggleClass("track-play-button");
-                $controlBtn.toggleClass("track-pause-button");
-                $mainBtn.toggleClass("audio-controls-play-button");
-                $mainBtn.toggleClass("audio-controls-pause-button");
+                rfmPlayer.switchBtnDisplay($controlBtn, "pause");
+                rfmPlayer.switchBtnDisplay($mainBtn, "pause");
 
             } else if ($controlBtn.hasClass('track-play-button')){
                 $audioNode.trigger('play');
@@ -79,10 +77,28 @@
                 rfmPlayer.pauseOtherAudio($track, $mainBtn);
             } else {
                 $audioNode.trigger('pause');
-                $controlBtn.toggleClass("track-play-button");
-                $controlBtn.toggleClass("track-pause-button");
-                $mainBtn.toggleClass("audio-controls-play-button");
-                $mainBtn.toggleClass("audio-controls-pause-button");
+                rfmPlayer.switchBtnDisplay($controlBtn, "play");
+                rfmPlayer.switchBtnDisplay($mainBtn, "play");
+            }
+        },
+
+        switchBtnDisplay: function($btn, display) {
+            var playClass = "";
+            var pauseClass = "";
+            if ($btn.hasClass('audio-controls-main-button')) {
+                playClass = "audio-controls-play-button";
+                pauseClass = "audio-controls-pause-button";
+            } else if ($btn.hasClass('track-controls')) {
+                playClass = "track-play-button";
+                pauseClass = "track-pause-button";
+            }
+
+            if (display === "play") {
+                $btn.removeClass(pauseClass);
+                $btn.addClass(playClass);
+            } else if (display === "pause") {
+                $btn.removeClass(playClass);
+                $btn.addClass(pauseClass);
             }
         },
 
@@ -91,19 +107,15 @@
             var $notCurrent = $current.closest('ul')
                 .find('li')
                 .not($current);
+            var $notCurrentBtns = $notCurrent.find('div.track-controls');
+            var $currentBtns = $current.find('div.track-controls');
+
             $notCurrent
                 .find('audio')
                 .trigger("pause");
-            $notCurrent
-                .find('div.track-controls')
-                .removeClass('track-pause-button')
-                .addClass('track-play-button');
-            $current.find('div.track-controls')
-                .removeClass("track-play-button")
-                .addClass("track-pause-button");
-            $mainBtn
-                .removeClass('audio-controls-play-button')
-                .addClass('audio-controls-pause-button');
+            rfmPlayer.switchBtnDisplay($notCurrentBtns, "play");
+            rfmPlayer.switchBtnDisplay($currentBtns, "pause");
+            rfmPlayer.switchBtnDisplay($mainBtn, "pause");
         },
 
         //Takes <li> element in jQuery object as input
@@ -165,27 +177,19 @@
                 var $currentPlayStatus = $currentAudioNode.siblings('div.track-controls');
                 if ($currentPlayStatus.hasClass('track-pause-button')) {
                     $currentAudioNode.trigger('pause');
-                    $(this)
-                        .removeClass('audio-controls-pause-button')
-                        .addClass('audio-controls-play-button');
-                    $currentPlayStatus
-                        .removeClass('track-pause-button')
-                        .addClass('track-play-button');
+                    rfmPlayer.switchBtnDisplay($(this), "play");
+                    rfmPlayer.switchBtnDisplay($currentPlayStatus, "play");
                 } else if ($currentPlayStatus.hasClass('track-play-button')) {
                     $currentAudioNode.trigger('play');
-                    $(this)
-                        .removeClass('audio-controls-play-button')
-                        .addClass('audio-controls-pause-button');
-                    $currentPlayStatus 
-                        .removeClass('track-play-button')
-                        .addClass('track-pause-button');
+                    rfmPlayer.switchBtnDisplay($(this), "pause");
+                    rfmPlayer.switchBtnDisplay($currentPlayStatus, "pause");
                 }
             });
         },
 
         populateTrackList: function() {
             var trackList = rfmPlayer.config.trackList;
-            var sources = rfmPlayer.config.trackSources
+            var sources = rfmPlayer.config.trackSources;
 
             rfmPlayer.config.$tracksAll.each(function(i, element) {
                 var $title = $(element).find('p.track-title');
