@@ -1,0 +1,107 @@
+* {
+  list-style: none;
+  font-family: 'Cabin', sans-serif;
+}
+
+html {
+  width: 60%;
+}
+
+.title {
+  display: flex;
+  background-color: #E8E8E8;
+  border: 1px solid black;
+  align-items: center;
+}
+
+.title span {
+  margin: 20px;
+  font-size: 35px;
+}
+
+.title h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/*** BODY ***/
+
+#playlist {
+  margin: inherit;
+  padding-left: 0px;
+}
+
+.active-song {
+  border: 1px solid gray;
+  display: flex;
+  padding: 25px;
+  background-color: #3484c9;
+  color: white;
+}
+
+span {
+  align-self: center;
+  font-size: 20px;
+}
+
+.playlist-songs {
+  border: 1px solid gray;
+  display: flex;
+  padding: 25px;
+}
+
+.song-name {
+  font-size: 16px;
+}
+
+.song-artist {
+  font-size: 14px;
+}
+
+/*** CONTROL BAR ***/
+.control-bar {
+  background-color: black;
+  display: flex;
+}
+
+#control-buttons {
+  align-self: center;
+  font-size: 40px;
+  color: #E8E8E8;
+  margin-left: 20px;
+  padding: 20px;
+}
+
+#control-buttons span {
+  padding: 12px;
+  font-size: 40px;
+}
+
+#control-play {
+  border: solid white;
+  border-radius: 50%;
+}
+
+#control-pause {
+  border: solid white;
+  border-radius: 50%;
+}
+
+#control-display ul {
+  color: white;
+  padding: 20px 20px;
+  margin: auto;
+}
+
+#current-song {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px 5px;
+}
+
+#current-artist {
+  color: gray;
+  font-size: 18px;
+  padding: 5px 5px;
+}
