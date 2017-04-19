@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Royalty Free Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+
+  <body>
+
+    <div class="container">
+
+      <div class="title">
+        <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+        <h1>Royalty Free Music Player</h1>
+      </div>
+
+      <div id="playlist">
+        <div class="playlist-songs" song="sound1.wav" artist="123" title="sound1">
+          <span class="glyphicon glyphicon-play song-play" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-pause song-pause" aria-hidden="true"></span>
+          <ul>
+            <li class="song-name">sound1</li>
+            <li class="song-artist">123</li>
+          </ul>
+        </div>
+
+        <div class="playlist-songs" song="sound2.wav" artist="456" title="sound2">
+          <span class="glyphicon glyphicon-play song-play" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-pause song-pause" aria-hidden="true"></span>
+          <ul>
+            <li class="song-name">sound2</li>
+            <li class="song-artist">456</li>
+          </ul>
+        </div>
+
+        <div class="playlist-songs" song="sound3.wav" artist="789" title="sound3">
+          <span class="glyphicon glyphicon-play song-play" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-pause song-pause" aria-hidden="true"></span>
+          <ul>
+            <li class="song-name">sound3</li>
+            <li class="song-artist">789</li>
+          </ul>
+        </div>
+
+        <div class="playlist-songs" song="sound4.wav" artist="012" title="sound4">
+          <span class="glyphicon glyphicon-play song-play" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-pause song-pause" aria-hidden="true"></span>
+          <ul>
+            <li class="song-name">sound4</li>
+            <li class="song-artist">012</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="control-bar">
+
+        <div id="control-buttons">
+          <span id="control-previous" class="glyphicon glyphicon-backward" aria-hidden="true"></span>
+          <span id="control-play" class="glyphicon glyphicon-play" aria-hidden="true"></span>
+          <span id="control-pause" class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+          <span id="control-next" class="glyphicon glyphicon-forward" aria-hidden="true"></span>
+        </div>
+
+        <div id="control-display">
+          <ul>
+            <li id="current-song"></li>
+            <li id="current-artist"></li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script type="text/javascript" src="scripts.js"></script>
+  </body>
+
+</html>
