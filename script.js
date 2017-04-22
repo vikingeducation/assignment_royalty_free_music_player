@@ -29,6 +29,7 @@ const _pageObjects = {
   songName(song) { return song.find('.js-song__info__name') },
   songArtist(song) { return song.find('.js-song__info__artist') },
   songStatus(song) { return song.find('.js-song__button') },
+  audio(song) { return song.children('audio').get(0) }
 }
 
 const _playerListener = (tagName) => {
@@ -43,6 +44,15 @@ const _playerListener = (tagName) => {
 const _playSong = $songItem => {
   _togglePauseButton($songItem);
   _updatePlayerStatus($songItem);
+  _toggleAudio($songItem)
+}
+
+const _toggleAudio = $songItem => {
+  if($songItem.children(`.${_pageObjects.pauseButtonClassName}`).length) {
+    _pageObjects.audio($songItem).play();
+  } else {
+    _pageObjects.audio($songItem).pause();
+  }
 }
 
 const _togglePauseButton = $songItem => {
