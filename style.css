@@ -1,0 +1,112 @@
+/* RESETS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* NORMALIZE */
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  width: 500px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+}
+
+/* UTILITIES */
+.hide {
+  display: none;
+}
+
+
+/* HEADER */
+.site__header {
+  -moz-box-shadow:0px 1px 5px #555;
+  box-shadow:0px 1px 5px #555;
+
+  background-color: #ccc;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: .5rem;
+  margin-bottom: 1rem;
+}
+
+.logo {
+  width: 100px;
+  margin: 0 .5rem;
+}
+
+.site__title {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 2rem;
+  margin: 0 .5rem;
+}
+
+/* SONGS CONTAINER */
+.songs__container {
+  min-height: 450px;
+}
+
+/* SONGS */
+.songs__list__item {
+  border-bottom: 1px solid #ccc;
+  padding: .5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.song__info {
+  margin: 0 .5rem;
+}
+
+.song__info__name {
+  font-size: 1.5rem;
+}
+
+.song__info__name--large {
+  font-size: 1.75rem;
+}
+
+.song__info__artist {
+  font-size: 1rem;
+  color: #999;
+}
+
+.song__info__artist--large {
+  font-size: 1.5rem;
+}
+
+/* PLAYER */
+.player__subcontainer {
+  display: flex;
+  align-items: center;
+  border: 1px solid #777;
+}
+
+.player__buttons__list {
+  display: flex;
+  align-items: center;
+  margin: 0 .5rem;
+}
+
+.player__button {
+  width: 60px;
+  height: 60px;
+  margin: 0 .5rem;
+  background-image: url("assets/images/play-button.jpg");
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.player__button--pause {
+  background-image: url("assets/images/pause-button.jpg");
+}
