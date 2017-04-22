@@ -2,6 +2,13 @@
 <html lang = "en-US">
   <head>
     <meta charset = "UTF-8">
+
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+
+    <script src = "script.js"></script>
+
     <link href = "https://fonts.googleapis.com/css?family=Lato" rel = "stylesheet">
     <link rel = "stylesheet" type = "text/css" href = "style.css" />
   </head>
@@ -17,72 +24,83 @@
     <section class = "songs__container">
       <h2 class = "section__header hide">Song List</h2>
 
-      <ul class = "songs__list">
-        <li class = "songs__list__item">
-          <img src = "assets/images/play-button.jpg" class = "player__icon">
+      <ul class = "songs__list js-songs__list">
+        <li class = "songs__list__item js-play-song">
+          <div class = "player__button js-song__button"></div>
 
           <div class = "song__info">
-            <p class = "song__info__name">
-              On Hold
+            <p class = "song__info__name js-song__info__name">
+              1234
             </p>
 
-            <p class = "song__info__artist">
-              Edith Frost
+            <p class = "song__info__artist js-song__info__artist">
+              Black Eye Peas
             </p>
           </div>
         </li>
 
-        <li class = "songs__list__item">
-          <img src = "assets/images/play-button.jpg" class = "player__icon">
+        <li class = "songs__list__item js-play-song">
+          <div class = "player__button js-song__button"></div>
 
           <div class = "song__info">
-            <p class = "song__info__name">
-              On Hold
+            <p class = "song__info__name js-song__info__name">
+              OMGGGGGGG
             </p>
 
-            <p class = "song__info__artist">
-              Edith Frost
+            <p class = "song__info__artist js-song__info__artist">
+              WINNNNER
             </p>
           </div>
         </li>
 
-        <li class = "songs__list__item">
-          <img src = "assets/images/play-button.jpg" class = "player__icon">
+        <li class = "songs__list__item js-play-song">
+          <div class = "player__button js-song__button"></div>
 
           <div class = "song__info">
-            <p class = "song__info__name">
-              On Hold
+            <p class = "song__info__name js-song__info__name">
+              teest
             </p>
 
-            <p class = "song__info__artist">
-              Edith Frost
+            <p class = "song__info__artist js-song__info__artist">
+              nooooo
             </p>
           </div>
         </li>
       </ul>
     </section>
 
-    <section class = "player__container">
+    <section class = "player__container js-player">
       <h2 class = "section__header hide">Audio Player</h2>
 
       <article class = "player__subcontainer">
-        <ul class = "player__icons__list">
+        <ul class = "player__buttons__list js-player-buttons">
           <li>
-            <img src = "assets/images/rewind-button.jpg" class = "player__icon">
+            <img src = "assets/images/rewind-button.jpg"
+              class = "player__button js-rewind">
           </li>
 
           <li>
-            <img src = "assets/images/play-button.jpg" class = "player__icon">
+            <div class = "player__button js-play js-player__song__button"></div>
           </li>
 
           <li>
-            <img src = "assets/images/fast-forward.jpg" class = "player__icon">
+            <img src = "assets/images/fast-forward.jpg"
+              class = "player__button js-fast-forward">
           </li>
         </ul>
 
         <div class = "song__info">
-          <p class = "song__info__name--large">On Hold</p>
-          <p class = "song__info__artist song__info__artist--large">Edith Frost</p>
+          <p class = "song__info__name song__info__name--large
+            js-player__song__name">
+
+            On Hold
+          </p>
+
+          <p class = "song__info__artist song__info__artist--large
+            js-player__song__artist ">
+
+            Edith Frost
+          </p>
         </div>
       </article>
     </section>
