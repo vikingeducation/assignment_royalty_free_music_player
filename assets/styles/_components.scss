@@ -1,0 +1,43 @@
+@mixin main-borders() {
+    border-left: solid 1px $color-primary-borders;
+    border-right: solid 1px $color-primary-borders;
+}
+
+@mixin track-list-styles () {
+    border-bottom: solid 1px $color-primary-borders;
+    padding: 1em 1em 0em 1em;
+}
+
+@mixin track-play-button ($icon-type, $button-size: 26px) {
+    @if $icon-type == "play" {
+        background-image: url("../icons/play.svg");
+    } @else if $icon-type == "play-white" {
+        background-image: url("../icons/play-white.svg");
+    } @else if $icon-type == "pause" {
+        background-image: url("../icons/pause.svg");
+    } @else if $icon-type == "pause-white" {
+        background-image: url("../icons/pause-white.svg");
+    } @else if $icon-type == "prev" {
+        background-image: url("../icons/prev.svg");
+    } @else if $icon-type == "next" {
+        background-image: url("../icons/next.svg");
+    }
+    min-height: $button-size;
+    min-width: $button-size;
+    margin-top: .5em;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    float: left;
+    cursor: pointer;
+}
+
+@mixin audio-controls-styles () {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    bottom: 0px;
+}
