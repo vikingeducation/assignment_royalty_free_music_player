@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="stylesheets/styles.css">
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="script.js"></script>
     <title>Royalty Free Music Player</title>
   </head>
   <body>
@@ -16,9 +18,12 @@
         <div class="song">
           <img src="images/glyphicons-174-play.png">
           <div class="song-info">
-            <h3>Song Title</h3>
-            <h4>Artist</h4>
+            <h3>Brandenburg Concerto No. 1</h3>
+            <h4>J.S. Bach</h4>
           </div>
+          <audio id="test-audio">
+            <source src="music/Bach_Brandenburg.mp3" type="audio/mpeg">
+          </audio>
         </div>
 
         <div class="song">
@@ -73,5 +78,6 @@
       </footer>
 
     </section>
+
   </body>
 </html>

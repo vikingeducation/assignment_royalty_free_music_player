@@ -42,8 +42,13 @@ main {
   }
 }
 
+.song:hover {
+  background-color: #a4a4a4;
+}
+
 .song-info {
   padding: 5px;
+  align-content: stretch;
 }
 
 footer {

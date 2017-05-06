@@ -35,8 +35,12 @@ main {
     height: 15px;
     margin: 22px 10px; }
 
+.song:hover {
+  background-color: #a4a4a4; }
+
 .song-info {
-  padding: 5px; }
+  padding: 5px;
+  align-content: stretch; }
 
 footer {
   border: 1px solid black;
