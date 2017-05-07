@@ -36,7 +36,8 @@ main {
     margin: 22px 10px; }
 
 .song:hover {
-  background-color: #a4a4a4; }
+  background-color: #a4a4a4;
+  cursor: pointer; }
 
 .song-info {
   padding: 5px;
