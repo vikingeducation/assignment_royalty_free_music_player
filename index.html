@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Royalty Free Music Player</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+  <!-- Custom bootstrap build with glyphicons only -->
+  <link rel="stylesheet"
+        href="style/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style/css/style.css">
+</head>
+<body>
+  <div id="MusicPlayer">
+    <header id="main-header">
+      <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+      <h1>Royalty Free Music Player <small>- Viking Code School</small></h1>
+    </header>
+    <main>
+      <section id="playlist"></section>
+    </main>
+    <footer id="main-footer">
+      <div id="player-controls" class="hidden">
+        <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
+        <div class="song-info"></div>
+      </div>
+      <div class="hidden">
+        <audio id="audio-element" src=""></audio>
+      </div>
+    </footer>
+  </div>
+  <!-- Load Javascript at bottom -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

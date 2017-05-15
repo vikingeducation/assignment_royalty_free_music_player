@@ -1,0 +1,144 @@
+@import '_colors';
+
+/* Import fonts from Google */
+@import url("https://fonts.googleapis.com/css?family=Roboto|Ubuntu");
+
+/* Mixins */
+@mixin fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+@mixin fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+@mixin flex($type: row, $jcon: flex-start, $acon: flex-start, $aite: flex-start) {
+  display: flex;
+  flex-flow: #{$type};
+  justify-content: #{$jcon};
+  align-content: #{$acon};
+  align-items: #{$aite};
+}
+
+/* Generic styles */
+html * {
+  color: $default-text-color;
+  font-family: 'Ubuntu', 'Roboto', Helvetica, sans-serif;
+}
+body, header#main-header, .player-row, footer#main-footer {
+  overflow-x: hidden;
+  min-width: 768px;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+.player-row {
+  @include flex;
+  min-height: 4em;
+  padding: 0 1em;
+}
+
+/* Specific styles */
+header#main-header {
+  @extend .player-row;
+  @include fixed-top;
+  align-items: center;
+  background-color: $color-header-bg;
+  border-bottom: 1px solid $color-header-border;
+  box-shadow: 0 2px 4px $color-box-shadow;
+  span {
+    font-size: 2em;
+  }
+  h1 {
+    padding-left: .5em;
+    margin: 0;
+    small {
+      color: $color-qa-btn;
+    }
+  }
+}
+div.song-info {
+  @include flex("column");
+  flex-grow: 1;
+  align-self: center;
+  min-height: 100%;
+  padding-left: 1em;
+  * {
+    font-size: 90%;
+    margin: 0;
+  }
+  h3 {
+    font-weight: 600;
+  }
+  p {
+    color: $color-qa-btn;
+  }
+}
+section#playlist {
+  margin: 4em 0 6em 0;
+  article.playlist-item {
+    /* IMPORTANT FOR CLICK FUNCTIONS IN SCRIPT */
+    cursor: pointer;
+    border-bottom: 1px solid $color-playlist-item-border;
+    * {
+      pointer-events: none;
+    }
+    div.song-quick-action {
+      align-self: center;
+      padding: .75em 0;
+      span {
+        font-size: 1.5em;
+        color: $color-qa-btn;
+      }
+    }
+  }
+  article.playlist-item:hover {
+    background-color: $color-playlist-item-hover;
+    div.song-quick-action {
+      span {
+        color: $action-hover-color;
+      }
+    }
+  }
+}
+footer#main-footer {
+  @extend .player-row;
+  @include fixed-bottom;
+  @include flex;
+  min-height: 6em;
+  background-color: $color-footer-bg;
+  div#player-controls {
+    @include flex;
+    flex-grow: 1;
+    align-items: center;
+    align-self: center;
+    * {
+      color: $inverse-text-color;
+    }
+    span {
+      cursor: pointer;
+      padding: 0 .1em;
+      font-size: 2em;
+    }
+    span:nth-child(2) {
+      font-size: 3.5em;
+    }
+    span:hover {
+      color: $action-hover-color;
+    }
+    div.song-info {
+      padding-left: 1.5em;
+      * {
+      font-size: 125%;
+      }
+      p {
+        color: $color-qa-btn;
+      }
+    }
+  }
+}
