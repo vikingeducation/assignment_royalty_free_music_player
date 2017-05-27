@@ -1,0 +1,131 @@
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}
+
+body {
+  width:400px;
+  margin:auto;
+  margin-top: 5px;
+}
+
+header {
+  background: lightgrey;
+  border: 1px solid black;
+  border-bottom: none;
+  cursor:default;
+}
+
+.glyphicon-king{
+  margin-left: 10px;
+  padding: 5px;
+  margin-right: 10px;
+  font-size: 21px;
+
+  border: 2px solid grey;
+  border-radius: 90px;
+
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+}
+
+h1{
+      margin-top: 10px;
+      margin-bottom: 10px;
+      display: inline-block;
+      font-size: 22px;
+      font-weight: bold;
+}
+
+.song-container{
+  border: 1px solid black;
+  border-bottom: none;
+  cursor:pointer;
+
+  .glyphicon {
+    font-size: 23px;
+    top: -5px;
+    color:grey;
+  }
+
+  .playing{
+    background-color: pink;
+  }
+}
+
+.song-container:hover{
+    background-color: lightsteelblue;
+
+    .glyphicon {
+      color:rgb(42,42,42);
+    }
+}
+
+.song-info{
+  display:inline-block;
+  line-height: 1.2;
+
+  .title {
+    font-size: 16px;
+  }
+
+  .artist {
+    font-weight: 300;
+  }
+
+  p {
+    margin: 0 0 2px;
+  }
+}
+
+.player-controls {
+  background-color: rgb(44,44,44);
+  color: white;
+  padding-left: 10px;
+
+  .glyphicon {
+    font-size: 34px;
+    top:-2px;
+    cursor:pointer;
+  }
+
+  .glyphicon:hover{
+    color:lightsteelblue;
+  }
+
+  .song-info {
+    cursor: default;
+    margin-left: 10px
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .artist {
+    font-size: 16px;
+    font-weight: 300;
+  }
+}
+
+.notransition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important;
+}
+
+.progress {
+  margin-bottom: 0px;
+  border: 1px solid black;
+  border-radius: 0px;
+  border-top: none;
+  border-bottom: none;
+}
+
+.glyphicon-pause {
+  display:none;
+}

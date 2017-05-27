@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>jQuery Jukebox</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="./public/favicon.ico">
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+  </head>
+
+  <body>
+      <header>
+        <span class="glyphicon glyphicon-king"></span>
+        <h1>jQuery Jukebox</h1>
+      </header>
+
+      <body>
+        <div class="song-container">
+          <span class="glyphicon glyphicon-play"></span>
+          <span class="glyphicon glyphicon-pause"></span>
+          <div class="song-info">
+            <p class="title">A New Beginning</p>
+            <p class="artist">Bensound</p>
+          </div>
+          <audio>
+            <source src="songs/mp3/bensound-anewbeginning.mp3" type="audio/mpeg">
+            <source src="songs/ogg/bensound-anewbeginning.ogg" type="audio/ogg">
+          </audio>
+        </div>
+        <div class="song-container">
+          <span class="glyphicon glyphicon-play"></span>
+          <span class="glyphicon glyphicon-pause "></span>
+          <div class="song-info">
+            <p class="title">Memories</p>
+            <p class="artist">Bensound.com</p>
+          </div>
+          <audio>
+            <source src="songs/mp3/bensound-memories.mp3" type="audio/mpeg">
+            <source src="songs/ogg/bensound-memories.ogg" type="audio/ogg">
+          </audio>
+        </div>
+        <div class="song-container">
+          <span class="glyphicon glyphicon-play"></span>
+          <span class="glyphicon glyphicon-pause "></span>
+          <div class="song-info">
+            <p class="title">Moose</p>
+            <p class="artist">Bensound.com</p>
+          </div>
+          <audio>
+            <source src="songs/mp3/bensound-moose.mp3" type="audio/mpeg">
+            <source src="songs/ogg/bensound-moose.ogg" type="audio/ogg">
+          </audio>
+        </div>
+        <div class="song-container">
+          <span class="glyphicon glyphicon-play"></span>
+          <span class="glyphicon glyphicon-pause "></span>
+          <div class="song-info">
+            <p class="title">Pop Dance</p>
+            <p class="artist">Bensound.com</p>
+          </div>
+          <audio>
+            <source src="songs/mp3/bensound-popdance.mp3" type="audio/mpeg">
+            <source src="songs/ogg/bensound-popdance.ogg" type="audio/ogg">
+          </audio>
+        </div>
+        <div class="song-container">
+          <span class="glyphicon glyphicon-play"></span>
+          <span class="glyphicon glyphicon-pause "></span>
+          <div class="song-info">
+            <p class="title">Ukulele</p>
+            <p class="artist">Bensound.com</p>
+          </div>
+          <audio>
+            <source src="songs/mp3/bensound-ukulele.mp3" type="audio/mpeg">
+            <source src="songs/ogg/bensound-ukulele.ogg" type="audio/ogg">
+          </audio>
+        </div>
+
+      </body>
+
+      <footer>
+        <div class="progress">
+          <div class="progress-bar progress-bar-info notransition" style="width: 0%"></div>
+        </div>
+        <div class="player-controls">
+          <span class="glyphicon glyphicon-step-backward"></span>
+          <span class="glyphicon glyphicon-play"></span>
+          <span class="glyphicon glyphicon-pause "></span>
+          <span class="glyphicon glyphicon-step-forward"></span>
+          <div class="song-info">
+            <p class="title player-title">A New Beginning</p>
+            <p class="artist player-artist">Bensound.com</p>
+          </div>
+        </div>
+      </footer>
+    </body>
+
+    <footer>
+      <span>By Nicholas Romeo</span>
+      <span style="float:right">
+        <a href="https://github.com/Throw22">GitHub</a>
+        <a href="http://www.linkedin.com/in/romeonicholas/">LinkedIn</a>
+        <a href="https://throw22.github.io/">Portfolio</a>
+      </span>
+
+    </footer>
+  </html>
