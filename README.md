@@ -4,7 +4,7 @@ Is Spotify down? Has your Zune died? Here's a handful of songs bundled up togeth
 
 ## See it in action
 
-Check it out [here](https://throw22.github.io/jQuery-Jukebox/)!
+Check it out [here](excited-purpose.surge.sh)!
 
 ## Built With
 

@@ -129,12 +129,10 @@ $(document).ready(function() {
   //////////////////////////////////////
 
   $backBtn.click(function(event) {
-    progressBar.addClass('notransition');
     stepBack();
   });
 
   $forwardBtn.click(function(event) {
-    progressBar.addClass('notransition');
     stepForward();
   });
 
@@ -147,12 +145,10 @@ $(document).ready(function() {
   });
 
   var resetTrack = function() {
-    progressBar.addClass('notransition');
     $currentSong[0].currentTime = 0;
   };
 
   $allSongs.on('ended', function() {
-    progressBar.addClass('notransition');
     stepForward();
   });
 
