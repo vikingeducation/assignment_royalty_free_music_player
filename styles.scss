@@ -1,0 +1,58 @@
+html, body {
+  font-family: "Open Sans";
+  height: 100%;
+}
+.page-header {
+  background-color: #E8E8E8;
+  padding: 10px;
+  border-bottom: 1px solid black;
+  border-radius: 2px;
+  h1 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1.5em;
+    color: #444;
+    .glyphicon {
+      padding: 10px;
+    }
+  }
+}
+li {
+  .glyphicon {
+    font-size: 2.5em;
+    color: #aaa;
+    line-height: 1.5em;
+    cursor: pointer;
+  }
+}
+
+.song {
+  display: inline-block;
+  h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  h5 {
+    margin-top: 0;
+    color: #aaa;
+   }
+}
+
+.footer {
+  background-color: #2C2C2C;
+  color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 2px;
+  .glyphicon {
+    font-size: 2.5em;
+    padding-left: 10px;
+    cursor: pointer;
+  }
+  .song {
+    padding-left: 20px;
+  }
+}
+
+
