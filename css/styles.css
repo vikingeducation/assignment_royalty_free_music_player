@@ -1,0 +1,103 @@
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html, body, h1, h2, h3, h4, h5, h6 {
+  margin: 0px;
+  padding: 0px;
+  font-family: helvetica, arial, sans-serif, serif; }
+
+.clearfix:before {
+  display: table;
+  content: ""; }
+.clearfix:after {
+  clear: both; }
+
+.container {
+  width: 100%; }
+
+#player {
+  position: relative;
+  left: 20%;
+  width: 60%;
+  border: 1px solid #000;
+  float: left; }
+
+header {
+  width: 100%;
+  height: 75px;
+  background-color: #ccc;
+  color: #000;
+  border-bottom: 1px solid #000;
+  float: left; }
+  header h1 {
+    margin-left: 20px;
+    margin-top: 15px; }
+
+.logo {
+  width: 75px;
+  height: 100%;
+  float: left; }
+
+.brand {
+  height: 100%;
+  width: calc(100% - $header-height);
+  float: left; }
+
+section {
+  width: 100%;
+  height: 500px;
+  float: left; }
+  section h3, section h5 {
+    margin-left: 10px; }
+
+.song-box {
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid #000;
+  float: left; }
+
+.song-box-controls {
+  width: 50px;
+  height: 100%;
+  float: left; }
+
+.song-box-details {
+  width: calc(100% - $song-box-height);
+  height: 100%;
+  float: left; }
+
+footer {
+  width: 100%;
+  height: 75px;
+  background-color: #444;
+  border-top: 1px solid #000;
+  float: left; }
+  footer h2, footer h4 {
+    margin-left: 10px; }
+  footer h2 {
+    margin-top: 5px; }
+
+.controls-back {
+  width: 50px;
+  height: 100%;
+  float: left; }
+
+.controls-play {
+  width: 75px;
+  height: 100%;
+  float: left; }
+
+.controls-forward {
+  width: 50px;
+  height: 100%;
+  float: left; }
+
+.song-details {
+  width: 50%;
+  height: 100%;
+  float: left; }
+
+/*# sourceMappingURL=styles.css.map */
