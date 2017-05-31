@@ -82,6 +82,11 @@ section {
   height: 100%;
   float: left; }
 
+progress {
+  position: relative;
+  left: 150%;
+  top: -50%; }
+
 footer {
   width: 100%;
   height: 75px;

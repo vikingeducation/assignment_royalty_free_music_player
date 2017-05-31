@@ -57,6 +57,17 @@ function listen(obj) {
     }
   });
 }
+// increase the progress bar when song is playing
+function timeProgress(obj) {
+  obj.addEventListener("timeupdate", function() {
+    progress = document.getElementById("p" + obj
+    .previousSibling
+    .previousSibling
+    .id);
+    progress.setAttribute("max", obj.duration);
+    progress.setAttribute("value", obj.currentTime);
+  });
+}
 /*  create elements to display song information
     this includes a button that will be used to
     play and pause the song, it will also hold the
@@ -74,9 +85,13 @@ for( var i = 0; i < musicList.length; i++) {
   songBoxDetails.setAttribute("class", "song-box-details");
   var songName = document.createElement("h3");
   var artistName = document.createElement("h5");
+  var progress = document.createElement("progress");
   songName.innerHTML = musicList[i].name;
   artistName.innerHTML = musicList[i].artist;
-
+  progress.id = "p" + i.toString();
+  progress.setAttribute("value", 0);
+  progress.setAttribute("max", musicList[i].src.duration);
+  timeProgress(song);
   var section = document.getElementById("main");
   section.append(songBox);
   songBox.append(songBoxControls);
@@ -84,6 +99,7 @@ for( var i = 0; i < musicList.length; i++) {
   songBox.append(song);
   songBoxDetails.append(songName);
   songBoxDetails.append(artistName);
+  songBoxDetails.append(progress);
 }
 
 // add events to all buttons in main section
