@@ -127,7 +127,8 @@ footer {
 .controls-back {
   background-image: url("../assets/images/back.png");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: auto;
+  background-position: center;
   width: 50px;
   height: 100%;
   float:left;
@@ -144,7 +145,8 @@ footer {
 .controls-forward {
   background-image: url("../assets/images/next.png");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: auto;
+  background-position: center;
   width: 50px;
   height: 100%;
   float:left;
