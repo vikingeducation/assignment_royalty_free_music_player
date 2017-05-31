@@ -37,6 +37,9 @@ header {
     margin-top: 15px; }
 
 .logo {
+  background-image: url("../assets/images/logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
   width: 75px;
   height: 100%;
   float: left; }
@@ -63,6 +66,16 @@ section {
   width: 50px;
   height: 100%;
   float: left; }
+
+.stop {
+  background-image: url("../assets/images/box-stop.png");
+  background-repeat: no-repeat;
+  background-size: contain; }
+
+.play {
+  background-image: url("../assets/images/box-play.png");
+  background-repeat: no-repeat;
+  background-size: contain; }
 
 .song-box-details {
   width: calc(100% - $song-box-height);

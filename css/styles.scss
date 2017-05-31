@@ -56,6 +56,9 @@ header {
 }
 
 .logo {
+  background-image: url("../assets/images/logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
   width: $header-height;
   height: 100%;
   float:left;
@@ -83,6 +86,16 @@ section {
   width: $song-box-height;
   height: 100%;
   float: left;
+}
+.stop {
+  background-image: url("../assets/images/box-stop.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.play {
+  background-image: url("../assets/images/box-play.png");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .song-box-details {
   width: calc(100% - $song-box-height);

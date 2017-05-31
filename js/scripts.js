@@ -11,12 +11,31 @@ var musicList = [
     song dependent on the objects id */
 function listen(obj) {
   obj.addEventListener("click", function() {
-    song = document.getElementById("song" + obj.id);
-    play(song);
+    // get a list of elements that holds songs and song controls
+    var songBoxes = obj.parentNode.parentNode.children;
+    for ( var i = 0; i < songBoxes.length; i++) {
+      // pause all songs that were not clicked
+      if (songBoxes[i].firstChild != obj) {
+        songBoxes[i]
+          .firstChild
+          .setAttribute("class", "song-box-controls stop");
+        document.getElementById("song" + songBoxes[i].firstChild.id).pause();
+      }
+      /*  check if song that was clicked is playing or paused
+          and toggle it between play/pause */
+      else {
+        song = document.getElementById("song" + obj.id);
+        if ( song.paused ) {
+          obj.setAttribute("class", "song-box-controls play");
+          song.play();
+        }
+        else {
+          obj.setAttribute("class", "song-box-controls stop");
+          song.pause();
+        }
+      }
+    }
   });
-}
-function play(song) {
-  song.play();
 }
 /*  create elements to display song information
     this includes a button that will be used to
@@ -29,7 +48,7 @@ for( var i = 0; i < musicList.length; i++) {
   var songBox = document.createElement("div");
   songBox.setAttribute("class", "song-box");
   var songBoxControls = document.createElement("div");
-  songBoxControls.setAttribute("class", "song-box-controls");
+  songBoxControls.setAttribute("class", "song-box-controls stop");
   songBoxControls.id = i.toString();
   var songBoxDetails = document.createElement("div");
   songBoxDetails.setAttribute("class", "song-box-details");
