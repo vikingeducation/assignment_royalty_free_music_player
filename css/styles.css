@@ -16,19 +16,21 @@ html, body, h1, h2, h3, h4, h5, h6 {
   clear: both; }
 
 .container {
-  width: 100%; }
+  width: 100%;
+  padding-top: 25px; }
 
 #player {
   position: relative;
-  left: 20%;
-  width: 60%;
+  left: 30%;
+  width: 40%;
   border: 1px solid #000;
   float: left; }
 
 header {
   width: 100%;
   height: 75px;
-  background-color: #ccc;
+  background: #ccc;
+  background: linear-gradient(#ccc, #888);
   color: #000;
   border-bottom: 1px solid #000;
   float: left; }
@@ -51,7 +53,7 @@ header {
 
 section {
   width: 100%;
-  height: 500px;
+  height: 400px;
   float: left; }
   section h3, section h5 {
     margin-left: 10px; }
@@ -84,14 +86,15 @@ section {
 
 progress {
   position: relative;
-  width: 300px;
-  left: 25%;
+  width: 250px;
+  left: 40%;
   top: -50%; }
 
 footer {
   width: 100%;
   height: 75px;
   background-color: #444;
+  background: linear-gradient(#888, #ccc);
   border-top: 1px solid #000;
   float: left; }
   footer h2, footer h4 {
@@ -110,7 +113,8 @@ footer {
 .controls-play {
   background-image: url("../assets/images/fplay.png");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: auto;
+  background-position: center;
   width: 75px;
   height: 100%;
   float: left; }
