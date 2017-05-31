@@ -129,7 +129,7 @@ footer.append(controlsForward);
 footer.append(songDetails);
 songDetails.append(songName);
 songDetails.append(artist);
-
+// toggle play/pause current song
 controlsPlay.addEventListener("click", function() {
   if ( currentAudio.paused ) {
     btn = document.getElementById(currentId);
@@ -140,6 +140,36 @@ controlsPlay.addEventListener("click", function() {
     btn = document.getElementById(currentId);
     btn.setAttribute("class", "song-box-controls stop")
     currentAudio.pause();
+  }
+});
+// play previous song in the list
+controlsBack.addEventListener("click", function() {
+  if( currentId > 0) {
+    currentAudio.pause();
+    btn = document.getElementById(currentId);
+    btn.setAttribute("class", "song-box-controls stop");
+    currentId--;
+    btn = document.getElementById(currentId);
+    btn.setAttribute("class", "song-box-controls play");
+    currentAudio = document.getElementById("song" + currentId);
+    currentAudio.play();
+    currentSong = musicList[currentId];
+    update();
+  }
+});
+// play next song in the list
+controlsForward.addEventListener("click", function() {
+  if( currentId < musicList.length -1) {
+    currentAudio.pause();
+    btn = document.getElementById(currentId);
+    btn.setAttribute("class", "song-box-controls stop");
+    currentId++;
+    btn = document.getElementById(currentId);
+    btn.setAttribute("class", "song-box-controls play");
+    currentAudio = document.getElementById("song" + currentId);
+    currentAudio.play();
+    currentSong = musicList[currentId];
+    update();
   }
 });
 
