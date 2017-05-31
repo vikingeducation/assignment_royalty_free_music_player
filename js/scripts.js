@@ -1,10 +1,30 @@
 // List of available music
-var musicList = [
-  "assets/music/a.mp3",
-  "assets/music/b.mp3",
-  "assets/music/c.mp3",
-  "assets/music/d.mp3"];
+var musicList = [];
 
+var a = {
+  src: "assets/music/a.mp3",
+  name: "Gathering Stasis",
+  artist: "Blue Dot Sessions"
+};
+var b = {
+  src: "assets/music/b.mp3",
+  name: "Night Owl",
+  artist: "Broke For Free"
+};
+var c = {
+  src: "assets/music/c.mp3",
+  name: "A Gentleman",
+  artist: "Podington Bear"
+};
+var d = {
+  src: "assets/music/d.mp3",
+  name: "Arise",
+  artist: "Podington Bear"
+};
+musicList.push(a)
+musicList.push(b)
+musicList.push(c)
+musicList.push(d)
 /*  plays song dependent on which object was passed
     by adding a click listener to the object
     this waits for the object to be clicked and plays a
@@ -43,7 +63,7 @@ function listen(obj) {
     song name and artist */
 for( var i = 0; i < musicList.length; i++) {
   var song = document.createElement("audio");
-  song.setAttribute("src", musicList[i]);
+  song.setAttribute("src", musicList[i].src);
   song.id = "song" + i.toString();
   var songBox = document.createElement("div");
   songBox.setAttribute("class", "song-box");
@@ -52,12 +72,18 @@ for( var i = 0; i < musicList.length; i++) {
   songBoxControls.id = i.toString();
   var songBoxDetails = document.createElement("div");
   songBoxDetails.setAttribute("class", "song-box-details");
+  var songName = document.createElement("h3");
+  var artistName = document.createElement("h5");
+  songName.innerHTML = musicList[i].name;
+  artistName.innerHTML = musicList[i].artist;
 
   var section = document.getElementById("main");
   section.append(songBox);
   songBox.append(songBoxControls);
   songBox.append(songBoxDetails);
   songBox.append(song);
+  songBoxDetails.append(songName);
+  songBoxDetails.append(artistName);
 }
 
 // add events to all buttons in main section
