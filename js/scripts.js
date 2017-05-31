@@ -25,16 +25,20 @@ musicList.push(a)
 musicList.push(b)
 musicList.push(c)
 musicList.push(d)
+var currentSong; // song object
+var currentAudio; // audio media object
+var currentId; // ID for song/button
 /*  plays song dependent on which object was passed
     by adding a click listener to the object
     this waits for the object to be clicked and plays a
     song dependent on the objects id */
-var currentSong;
 function listen(obj) {
   obj.addEventListener("click", function() {
     // set song and make it the current playing song
     song = document.getElementById("song" + obj.id);
+    currentAudio = song;
     currentSong = musicList[obj.id];
+    currentId = obj.id;
     update();
     // get a list of elements that holds songs and song controls
     var songBoxes = obj.parentNode.parentNode.children;
@@ -125,6 +129,19 @@ footer.append(controlsForward);
 footer.append(songDetails);
 songDetails.append(songName);
 songDetails.append(artist);
+
+controlsPlay.addEventListener("click", function() {
+  if ( currentAudio.paused ) {
+    btn = document.getElementById(currentId);
+    btn.setAttribute("class", "song-box-controls play")
+    currentAudio.play();
+  }
+  else {
+    btn = document.getElementById(currentId);
+    btn.setAttribute("class", "song-box-controls stop")
+    currentAudio.pause();
+  }
+});
 
 function update() {
   songName.innerHTML = currentSong.name;
