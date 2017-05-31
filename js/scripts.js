@@ -29,8 +29,13 @@ musicList.push(d)
     by adding a click listener to the object
     this waits for the object to be clicked and plays a
     song dependent on the objects id */
+var currentSong;
 function listen(obj) {
   obj.addEventListener("click", function() {
+    // set song and make it the current playing song
+    song = document.getElementById("song" + obj.id);
+    currentSong = musicList[obj.id];
+    update();
     // get a list of elements that holds songs and song controls
     var songBoxes = obj.parentNode.parentNode.children;
     for ( var i = 0; i < songBoxes.length; i++) {
@@ -44,7 +49,6 @@ function listen(obj) {
       /*  check if song that was clicked is playing or paused
           and toggle it between play/pause */
       else {
-        song = document.getElementById("song" + obj.id);
         if ( song.paused ) {
           obj.setAttribute("class", "song-box-controls play");
           song.play();
@@ -101,6 +105,30 @@ for( var i = 0; i < musicList.length; i++) {
   songBoxDetails.append(songName);
   songBoxDetails.append(artistName);
   songBoxDetails.append(progress);
+}
+
+var footer = document.getElementById("footer");
+var controlsBack = document.createElement("div");
+var controlsPlay = document.createElement("div");
+var controlsForward = document.createElement("div");
+var songDetails = document.createElement("div");
+var songName = document.createElement("h2");
+var artist = document.createElement("h4");
+
+controlsBack.setAttribute("class", "controls-back");
+controlsPlay.setAttribute("class", "controls-play");
+controlsForward.setAttribute("class", "controls-forward");
+songDetails.setAttribute("class", "song-details");
+footer.append(controlsBack);
+footer.append(controlsPlay);
+footer.append(controlsForward);
+footer.append(songDetails);
+songDetails.append(songName);
+songDetails.append(artist);
+
+function update() {
+  songName.innerHTML = currentSong.name;
+  artist.innerHTML = currentSong.artist;
 }
 
 // add events to all buttons in main section
