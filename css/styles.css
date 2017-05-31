@@ -46,7 +46,7 @@ header {
 
 .brand {
   height: 100%;
-  width: calc(100% - $header-height);
+  width: calc(100% - 75px);
   float: left; }
 
 section {
@@ -78,13 +78,14 @@ section {
   background-size: contain; }
 
 .song-box-details {
-  width: calc(100% - $song-box-height);
+  width: calc(100% - 50px);
   height: 100%;
   float: left; }
 
 progress {
   position: relative;
-  left: 150%;
+  width: 300px;
+  left: 25%;
   top: -50%; }
 
 footer {

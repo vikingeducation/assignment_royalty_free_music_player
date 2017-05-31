@@ -1,6 +1,6 @@
-// List of available music
+// List of songs
 var musicList = [];
-
+// song objects
 var a = {
   src: "assets/music/a.mp3",
   name: "Gathering Stasis",
@@ -91,6 +91,7 @@ for( var i = 0; i < musicList.length; i++) {
   progress.id = "p" + i.toString();
   progress.setAttribute("value", 0);
   progress.setAttribute("max", musicList[i].src.duration);
+  // add event listener to the song
   timeProgress(song);
   var section = document.getElementById("main");
   section.append(songBox);
