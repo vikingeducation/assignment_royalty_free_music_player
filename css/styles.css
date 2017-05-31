@@ -100,16 +100,25 @@ footer {
     margin-top: 5px; }
 
 .controls-back {
+  background-image: url("../assets/images/back.png");
+  background-repeat: no-repeat;
+  background-size: contain;
   width: 50px;
   height: 100%;
   float: left; }
 
 .controls-play {
+  background-image: url("../assets/images/fplay.png");
+  background-repeat: no-repeat;
+  background-size: contain;
   width: 75px;
   height: 100%;
   float: left; }
 
 .controls-forward {
+  background-image: url("../assets/images/next.png");
+  background-repeat: no-repeat;
+  background-size: contain;
   width: 50px;
   height: 100%;
   float: left; }
