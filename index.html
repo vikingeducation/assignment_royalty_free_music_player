@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="music.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-grey.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+    .song-title {
+      font-size:16px;
+      text-indent: 20px;
+    }
+    .song-artist {
+      font-size:12px;
+      text-indent: 22px;
+      color:#808080;
+    }
+
+    footer {
+      position: absolute;
+      left: 0;
+      height: auto;
+      width: 100%;
+      bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="w3-card-4">
+      <div class="w3-container w3-theme w3-card-2">
+        <h3 style="text-shadow:1px 1px 0 #444;">
+          <span class="glyphicon glyphicon-music">
+          </span>
+          &nbsp;&nbsp;Royalty Free Music Player
+        </h3>
+      </div>
+    </header>
+    <div class"w3-container">
+      <ul class="w3-ul w3-border-top" id="song-list">
+        <li class="w3-theme-l5" src="https://freemusicarchive.org/music/download/6511356847022accb680abf1304658ac6f866118">
+          <table>
+            <tr>
+              <td rowspan="2"><span class="glyphicon glyphicon-play"></span></td>
+              <td class="song-title">Hope</td>
+            </tr>
+            <tr>
+              <td class="song-artist">by Borrtex</td>
+            </tr>
+          </table>
+        </li>
+        <li class="w3-theme-l5" src="https://freemusicarchive.org/music/download/5ab866a492668a4fbf5c605a0ed01d52b455797b">
+          <table>
+            <tr>
+              <td rowspan="2"><span class="glyphicon glyphicon-play"></span></td>
+              <td class="song-title">Endless Emotions</td>
+            </tr>
+            <tr>
+              <td class="song-artist">by Lobo Loco</td>
+            </tr>
+          </table>
+        </li>
+        <li class="w3-theme-l5" src="https://freemusicarchive.org/music/download/bf1de0c91ca45ba62f0ef6b4fa5e9abb856919a4">
+          <table>
+            <tr>
+              <td rowspan="2"><span class="glyphicon glyphicon-play"></span></td>
+              <td class="song-title">Celtic Warrior</td>
+            </tr>
+            <tr>
+              <td class="song-artist">by Damiano Baldoni</td>
+            </tr>
+          </table>
+        </li>
+        <li class="w3-theme-l5" src="http://popplers5.bandcamp.com/download/track?enc=mp3-128&fsig=2a3d12f2f023168102e9c12820f421e5&id=3886088546&stream=1&ts=1496880845.0">
+          <table>
+            <tr>
+              <td rowspan="2"><span class="glyphicon glyphicon-play"></span></td>
+              <td class="song-title">Hornet</td>
+            </tr>
+            <tr>
+              <td class="song-artist">by Christopher Larkin</td>
+            </tr>
+          </table>
+        </li>
+        <li class="w3-theme-l5" src="https://freemusicarchive.org/music/download/5e8d518da187ae9e1a34018dfa85764f615ec8c3">
+          <table>
+            <tr>
+              <td rowspan="2"><span class="glyphicon glyphicon-play"></span></td>
+              <td class="song-title">Rythme Gitan</td>
+            </tr>
+            <tr>
+              <td class="song-artist">by Latché Swing </td>
+            </tr>
+          </table>
+        </li>
+      </ul>
+    </div>
+
+
+    <footer class="w3-theme-d5" style="font-size:36px;">
+      <div>
+        <table>
+          <tr>
+          <td rowspan="2"><button id="prev-button" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-step-backward"></span></button></td>
+          <td rowspan="2"><button id="play-button" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-play"></span></button></td>
+          <td rowspan="2"><button id="next-button" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-step-forward"></span></button></td>
+          <td id="song-title" style="font-size:20px; text-indent: 10px; padding-top: 10px;">Song Title</td>
+        </tr>
+        <tr>
+          <td id="song-artist" style="font-size:16px; text-indent: 10px; padding-bottom: 10px;">Song Artist</td>
+        </tr>
+        </table>
+      </div>
+    </footer>
+  </body>
+</html>
