@@ -1,0 +1,135 @@
+/* RESET DA SCRIPT */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* RESET COMPLETE */
+header {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 80px;
+  background-color: #E6E6E6;
+  border: 1px solid black; }
+  header img {
+    display: inline-block;
+    padding: 10px;
+    margin-top: 5px;
+    -ms-transform: rotate(-30deg);
+    /* IE 9 */
+    -webkit-transform: rotate(-30deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(-30deg); }
+  header h1 {
+    display: inline-block;
+    font-size: 40px;
+    color: black;
+    padding: 10px;
+    vertical-align: top;
+    margin-top: 5px;
+    font-weight: bold; }
+
+article:first-of-type {
+  margin-top: 80px; }
+
+article {
+  background-color: #FFFFFF;
+  border: 1px solid #ABADAE;
+  border-top: 0px;
+  height: auto; }
+  article img {
+    margin: 10px 5px 5px 5px;
+    display: inline-block; }
+  article div {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    vertical-align: top; }
+    article div h2, article div h3 {
+      clear: left; }
+    article div h2 {
+      padding: 10px 0px 5px 0px;
+      color: black;
+      font-size: 16px;
+      top: 2px; }
+    article div h3 {
+      font-size: 12px;
+      color: #8F9294;
+      padding-bottom: 10px; }
+
+footer {
+  background-color: black;
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  bottom: 0px; }
+  footer img {
+    color: white;
+    background-color: black;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 20px; }
+  footer .previousTrack {
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1); }
+  footer div {
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: top; }
+    footer div h2, footer div h3 {
+      clear: left;
+      padding: 5px; }
+    footer div h2 {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      padding-top: 14px; }
+    footer div h3 {
+      font-size: 18px;
+      color: #626262; }
+
+/*# sourceMappingURL=styles.css.map */
