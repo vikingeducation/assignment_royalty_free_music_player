@@ -1,46 +1,52 @@
 musicControllerOptionHandlers = {
-  previousTrackHandler: function(){
+  previousTrackHandler: function(audio){
     let currTrackNum = findCurrTrackNum();
     let lastTrackNum = findLastTrackNum();
 
     if(currTrackNum == 0){
-      switch2Track(lastTrackNum);
+      switch2Track(lastTrackNum, audio);
     } else {
-      switch2Track(currTrackNum - 1);
+      switch2Track(currTrackNum - 1, audio);
     }
   },
 
-  nextTrackHandler: function(){
+  nextTrackHandler: function(audio){
     let currTrackNum = findCurrTrackNum();
     let lastTrackNum = findLastTrackNum();
 
     if(currTrackNum == lastTrackNum){
-      switch2Track(0);
+      switch2Track(0, audio);
     } else {
-      switch2Track(currTrackNum + 1);
+      switch2Track(currTrackNum + 1, audio);
     }
   },
 
   // make change for hitting pause and play
-  mainPlayStateHandler: function(){
+  mainPlayStateHandler: function(audio){
     let playingState = $(".trackOptions").attr("playing");
 
     if(playingState === "true"){
-      // Change state of trackOptions to not playing and change image to play
-      $(".trackOptions").attr("playing", "false");
-      $(".trackOptions .mainState").attr("src", "./assets/images/bottomPlayButton.png");
+      pauseTrack(audio);
 
-      // Find currentTrack and set pause to play
-      let currTrackNum = findCurrTrackNum();
-      $(".track" + currTrackNum + " img.buttonState").attr("src", "./assets/images/playButtonInd.png");
     } else {
-      // Change state of trackOptions to playing and change image to pause
-      $(".trackOptions").attr("playing", "true");
-      $(".trackOptions .mainState").attr("src", "./assets/images/bottomPauseButton.png");
+      playTrack(audio);
+    }
+  },
 
-      // Find currentTrack and set play to pause
-      let currTrackNum = findCurrTrackNum();
-      $(".track" + currTrackNum + " img.buttonState").attr("src", "./assets/images/stopButton.png");
+  switchSongsHandler: function(eventObj, audio){
+    let newTrack = $(eventObj.target).parent().attr("class");
+    if(newTrack == $(".trackOptions").attr("trackNum")){
+      // Not switching tracks, actually just want to pause or play
+      if($(".trackOptions").attr("playing") === "true"){
+        pauseTrack(audio);
+      } else {
+        playTrack(audio);
+      }
+
+    } else {
+      switch2Track(parseInt(newTrack[newTrack.length - 1]), audio);
+      playTrack(audio);
+
     }
   }
 }
@@ -55,7 +61,32 @@ function findLastTrackNum(){
   return (parseInt(lastTrack[lastTrack.length - 1]));
 }
 
-function switch2Track(trackNum){
+function pauseTrack(audio){
+  $(".trackOptions").attr("playing", "false");
+  $(".trackOptions .mainState").attr("src", "./assets/images/bottomPlayButton.png");
+
+  // Find currentTrack and set pause to play button
+  let currTrackNum = findCurrTrackNum();
+  $(".track" + currTrackNum + " img.buttonState").attr("src", "./assets/images/playButtonInd.png");
+
+  // PAUSE DAT AUDIO!!!
+  audio.pause();
+}
+
+function playTrack(audio) {
+  // Change state of trackOptions to playing and change image to pause
+  $(".trackOptions").attr("playing", "true");
+  $(".trackOptions .mainState").attr("src", "./assets/images/bottomPauseButton.png");
+
+  // Find currentTrack and set play to pause
+  let currTrackNum = findCurrTrackNum();
+  $(".track" + currTrackNum + " img.buttonState").attr("src", "./assets/images/stopButton.png");
+
+  // PLAY DAT AUDIO!!!!
+  audio.play();
+}
+
+function switch2Track(trackNum, audio){
 
   // Get previous track class and playing state
   let prevTrack = $(".trackOptions").attr("trackNum");
@@ -80,7 +111,15 @@ function switch2Track(trackNum){
   $(".trackOptions").attr("trackNum", "track" + trackNum);
   $(".songInfoBottom h2").text(songTitle);
   $(".songInfoBottom h3").text(songArtist);
+
+  // Now we switch the audio and audio state
+  audio.src = $(trackClass + " audio source").attr("src");
+  if(songState === "true"){
+    audio.play();
+  }
 }
+
+
 
 
 
@@ -88,14 +127,25 @@ $(document).ready(function() {
 
   // assign track numbers to each respective music track
   $("article").each(function(key, value){
-    //console.log("track" + key);
     $(this).addClass("track" + key);
   });
 
-  $(".previousTrack").on("click", musicControllerOptionHandlers.previousTrackHandler);
+  let audio = new Audio($(".track0 audio source").attr("src"));
 
-  $(".nextTrack").on("click", musicControllerOptionHandlers.nextTrackHandler);
+  $(".previousTrack").on("click", function() {
+    musicControllerOptionHandlers.previousTrackHandler(audio);
+  });
 
-  $(".trackOptions .mainState").on("click", musicControllerOptionHandlers.mainPlayStateHandler);
+  $(".nextTrack").on("click", function() {
+    musicControllerOptionHandlers.nextTrackHandler(audio);
+  });
+
+  $(".trackOptions .mainState").on("click", function() {
+    musicControllerOptionHandlers.mainPlayStateHandler(audio);
+  });
+
+  $(".buttonState").on("click", function(eventObj){
+    musicControllerOptionHandlers.switchSongsHandler(eventObj, audio);
+  });
 
 });
