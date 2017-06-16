@@ -45,6 +45,12 @@ table {
 }
 
 /* RESET COMPLETE */
+// Font stuff
+@font-face {
+	font-family: BlackChancery;
+	src: url("./assets/fonts/BlackChancery.TTF");
+}
+
 header {
 	position: fixed;
 	top: 0px;
@@ -63,10 +69,11 @@ header {
 	}
 
 	h1 {
+		font-family: BlackChancery, sans-serif;
 		display: inline-block;
 		font-size: 40px;
 		color: black;
-		padding: 10px;
+		padding: 15px 10px 5px 10px;
 		vertical-align: top;
 		margin-top: 5px;
 		font-weight: bold;
@@ -100,6 +107,7 @@ article {
 
 		h2, h3 {
 			clear: left;
+			font-family: sans-serif;
 		}
 
 		h2 {
@@ -107,6 +115,7 @@ article {
 			color: black;
 			font-size: 16px;
 			top: 2px;
+			font-weight: bold;
 		}
 
 		h3 {
@@ -147,6 +156,7 @@ footer {
 		vertical-align: top;
 
 		h2, h3 {
+			font-family: sans-serif;
 			clear: left;
 			padding: 5px;
 		}
