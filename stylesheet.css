@@ -49,22 +49,28 @@ html, body, div, span, h1, main, img, h3, h4, h5 {
 }
 
 .songs img {
-  height: 50px;
+  height: 40px;
   display: inline-block;
   position: absolute;
   font-size: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 5px;
 }
 
 .songs h4{
   display: inline;
   position:absolute;
   left:60px
+
 }
 
 .songs h5{
   left: 60px;
   top: 20px;
   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /* footer */
