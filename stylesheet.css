@@ -1,0 +1,94 @@
+html, body, div, span, h1, main, img, h3, h4, h5 {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+.container {
+  border: 1px solid black;
+}
+
+/*  header styles*/
+.header {
+  position: relative;
+  background-color: lightgray;
+  height: 10vh;
+  font-size: 2.5em;
+  font-weight: 600;
+  border: 1px solid black;
+}
+
+.header h1 {
+  display: inline;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+}
+
+.header img {
+  height:10vh;
+}
+
+/*queue*/
+
+.queue {
+  height: 65vh;
+  border: 1px solid black;
+}
+
+.songs {
+  /*display: inline;*/
+  border: 1px solid black;
+  height:50px;
+  width: 100%;
+  position: relative;
+}
+
+.songs img {
+  height: 50px;
+  display: inline-block;
+  position: absolute;
+  font-size: 1em;
+}
+
+.songs h4{
+  display: inline;
+  position:absolute;
+  left:60px
+}
+
+.songs h5{
+  left: 60px;
+  top: 20px;
+  position: absolute;
+}
+
+/* footer */
+
+.footer {
+  background-color: black;
+  height:25vh;
+  position: relative;
+}
+
+.footer img {
+  height: 50px;
+  display: inline-block;
+  background-color: white;
+}
+
+.footer h2, h3 {
+  color:white;
+}
+
+.footer h2 {
+  display:inline-block;
+}
+
+.footer h3 {
+  display: inline-block;
+}
