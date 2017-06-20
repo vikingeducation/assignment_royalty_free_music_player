@@ -48,20 +48,31 @@ var init = function(){
     var target;
     element ? target = element : target = $(e.currentTarget)
     var index = target.attr('data-song-id')
-    setPlayingIndex(state, index)
-    state.playing && target.hasClass('playing') ? _pauseSong(target) : _playSong(target);
+    var sameSong = _handleSameSong(target.attr('data-song-id'))
+    state.playing && target.hasClass('playing') ? _pauseSong(target, sameSong) : _playSong(target, sameSong);
   }
 
-  var _playSong = function(target){
-    console.log(target)
+  var _handleSameSong = function(index){
+    var oldIndex = state.songIndex;
+    setPlayingIndex(state,index);
+    var newIndex = state.songIndex;
+    var sameSong;
+    oldIndex === newIndex ? sameSong = true : sameSong = false
+    return sameSong
+  }
+
+  var _playSong = function(target, sameSong){
     target.toggleClass('playing')
     $('.footer-background').addClass('playing')
     setPlaying(state, true);
     $(target).siblings().removeClass('playing')
-    var audio = $('audio source')
-    audio[0].attributes[0].value = state.songs[state.songIndex].url;
-    $('audio')[0].load();
-    $('audio')[0].play();
+    $('audio source').attr('src', state.songs[state.songIndex].url)
+    if (sameSong) {
+      $('audio')[0].play();
+    } else {
+      $('audio')[0].load();
+      $('audio')[0].play();
+    }
   }
 
   var _pauseSong = function(target){
@@ -72,7 +83,6 @@ var init = function(){
   }
 
   var _updatePlayer = function(e, target){
-    console.log(e)
     e ? $target = $(e.currentTarget) : $target = target
     var newName = $target.children('h4').html();
     var newArtist = $target.children('h5').html();
@@ -91,14 +101,23 @@ var init = function(){
   }
 
   var _nextSong = function(num){
-    num = parseInt(num)
-    var length = songs.length -1
-    num === length ? num = 0 : num++;
+    num === songs.length-1 ? num = 0 : num++;
     return num
   }
 
   var _lastSong = function(num){
-    return num === 0 ? num === songs.length-1 : num--
+    num === 0 ? num = songs.length -1 : num--
+    return num
+  }
+
+  var _handleSkip = function(callback){
+    var currentSongIndex = parseInt($('.footer-background').attr('data-song-id'))
+    var newIndex = callback(currentSongIndex)
+    setPlayingIndex(state, newIndex);
+    _playSong($('.footer-background'));
+    $('.footer-background').attr('data-song-id', newIndex)
+    var target = $(`.songs[data-song-id*=${newIndex}]`)
+    _updatePlayer(false, target)
   }
 
   var _registerEventHandlers = function(){
@@ -108,15 +127,8 @@ var init = function(){
       setPlayingIndex(state, $(this).attr('data-song-id'))
       _handleSong(e, $(this))
     });
-    $('#forward').on('click', function(e){
-      var currentSongIndex = $('.footer-background').attr('data-song-id')
-      var newIndex = _nextSong(currentSongIndex)
-      setPlayingIndex(state, _nextSong(currentSongIndex));
-      _playSong($('.footer-background'));
-      $('.footer-background').attr('data-song-id', _nextSong(currentSongIndex))
-      var test = $(`.songs[data-song-id*=${newIndex}]`)
-      _updatePlayer(false, test)
-    })
+    $('#forward').on('click', function(){ _handleSkip(_nextSong) })
+    $('#backwards').on('click', function(){ _handleSkip(_lastSong) })
   }
 
 
@@ -137,6 +149,5 @@ const setPlaying = (state, playing=false)=>{
 }
 
 $(document).ready(function(){
-
   init();
 })
