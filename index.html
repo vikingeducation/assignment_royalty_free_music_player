@@ -1,27 +1,42 @@
 <!doctype html>
 <html>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="scripts.js"></script>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<head>
 
-  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="scripts.js"></script>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+<div class="wrapper">
+  <div class="CurrentlyPlaying">
+
+    Currently Playing
+    <div id="currentTrackText"> this track</div>
+<audio src="Lupe Fiasco - Kick Push.mp3" class="TrackPlaying" id="currentTrackAudio" onended="SongOver()">
+<!-- <embed  src="Lupe Fiasco - Kick Push.mp3" autoplay=false loop=false> -->
 
 
+  </div>
+<div class="CurrentlyPlaying">
+  <img class="TrackBack" height="30" width="30" onclick="TrackSkip(-1)">
+  <img src="PlayButton.png" id="MainPlayButton" class="MainPlayButton" height="40" width="40" onclick="PlayToggle()">
+<img class="TrackForward" height="30" width="30" onclick="TrackSkip(1)">
 
-
-<div>
-
-      <textarea id="area" class="counter"  onkeyup="CountAreaChar()" > text area</textarea>
-      <p id="areaCounterText"class="counterText" >counter</p>
-      <input id="field" class="counter" type="text"  onkeyup="CountFieldChar()" placeholder="username"/>
-      <p id="fieldCounterText" class="counterText">counter</p>
-      <input id="pass" class="counter" type="password" maxlength="16" onkeyup="CountPasswordChar()" placeholder="password"/>
-      <p id="passCounterText"  class="counterText">counter</p>
-
-      <p id = "validate" class="counterText">ss </p>
-<button onclick="ValidateLogIn()">login</button>
 </div>
 
+</head>
 
+
+ <p class="TrackBox" onclick="PlayThisTrack(this)"><img class="PlayButton" height="30" width="30">Lupe Fiasco - Kick Push</p>
+<p class="TrackBox" onclick="PlayThisTrack(this)"><img class="PlayButton" height="30" width="30">Suicide - Ghost Rider</p>
+<p class="TrackBox" onclick="PlayThisTrack(this)"><img class="PlayButton" height="30" width="30">Janelle Monae feat. Miguel - Primetime</p>
+
+
+
+
+
+
+  <div class="TrackBox"><p id="LastPlayed" onclick="PlayThisTrack(this)"> Last Track</p></div>
+
+</div>
 
 
 </html>
