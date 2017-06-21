@@ -1,0 +1,120 @@
+$border: 1px solid black;
+@mixin center {
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+}
+
+html, body, div, span, h1, main, img, h3, h4, h5 {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+div.playing .button-background {
+  background-image: url('../assets/pause.png');
+}
+
+.button-background {
+  background-image: url('../assets/play.jpg');
+  background-size: 40px;
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  font-size: 1em;
+  left: 5px;
+  @include center;
+}
+
+.footer-background {
+  background-image: url('../assets/play.jpg');
+  background-size: 50px;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+}
+
+.footer-background.playing {
+  background-color:white;
+  background-image: url('../assets/pause.png');
+}
+
+.container {
+  border: $border;
+}
+
+.header {
+  position: relative;
+  background-color: lightgray;
+  height: 10vh;
+  font-size: 2.5em;
+  font-weight: 600;
+  border: $border;
+  h1{
+    display: inline;
+    // position: absolute;
+    // top: 50%;
+    // transform: translateY(-50%);
+    @include center
+  }
+  img {
+    height:10vh;
+  }
+}
+
+.queue {
+  height: 65vh;
+  border: $border;
+}
+
+.songs {
+  /*display: inline;*/
+  border: $border;
+  height:50px;
+  width: 100%;
+  position: relative;
+  img {
+    height: 40px;
+    display: inline-block;
+    // position: absolute;
+    font-size: 1em;
+    // top: 50%;
+    // transform: translateY(-50%);
+    left: 5px;
+    @include center;
+  }
+  h4{
+    display: inline;
+    position:absolute;
+    left:60px
+  }
+  h5{
+    left: 60px;
+    top: 20px;
+    // position: absolute;
+    // top: 50%;
+    // transform: translateY(-50%);
+    @include center;
+  }
+}
+
+
+.footer {
+  background-color: black;
+  height:25vh;
+  position: relative;
+  img {
+    height: 50px;
+    display: inline-block;
+    background-color: white;
+  }
+  h2, h3 {
+    color:white;
+    display: inline-block;
+  }
+}
