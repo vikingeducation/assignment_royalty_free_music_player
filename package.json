@@ -1,0 +1,24 @@
+{
+  "name": "assignment_royalty_free_music_player",
+  "version": "1.0.0",
+  "description": "Ushering in the reign of Royalty Free Music w/ JavaScript.",
+  "main": "script.js",
+  "dependencies": {
+    "gulp-sass": "^3.1.0",
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bsoung/assignment_royalty_free_music_player.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bsoung/assignment_royalty_free_music_player/issues"
+  },
+  "homepage": "https://github.com/bsoung/assignment_royalty_free_music_player#readme"
+}
