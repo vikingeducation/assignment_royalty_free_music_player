@@ -91,6 +91,8 @@ body {
       margin-left: 15px;
       border: 2px solid white;
       border-radius: 99px; }
+      .music-player .player-controls .main-play-btn .fa-play {
+        margin-left: 5px; }
     .music-player .player-controls .main-forward-btn {
       display: flex;
       justify-content: center;
