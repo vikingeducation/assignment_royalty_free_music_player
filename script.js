@@ -14,6 +14,8 @@ $(() => {
 				let currentButton = $(this).children(':first');
 				let currentTrack = $(currentButton).children()[0];
 
+				let trackBox = $(this).parents()[0];
+
 				// update global song tracker
 				SELECTED_SONG_BTN = currentButton
 
@@ -38,6 +40,8 @@ $(() => {
 					mainPlayerButton.removeClass('fa-play');
 					mainPlayerButton.addClass('fa-pause');
 
+					$(trackBox).addClass('active');
+
 				} else {
 					$(currentTrack).get(0).pause();
 
@@ -46,6 +50,8 @@ $(() => {
 
 					mainPlayerButton.removeClass('fa-pause');
 					mainPlayerButton.addClass('fa-play');
+
+					$(trackBox).removeClass('active');
 				}
 
 				// make sure tracks update and pause correctly when one track is playing
@@ -53,13 +59,17 @@ $(() => {
 
 				$(tracks).each(function(index) {
 					let playButton = $(this).children(":first").children(":first");
-					let otherTrack = $(playButton).children()[0]
+					let otherTrack = $(playButton).children()[0];
+					let otherTrackBox = $(playButton).parents()[1];
+
 
 					if (playButton[0] !== currentButton[0]) {
 						$(otherTrack).get(0).pause();
 
 						playButton.addClass('fa-play');
 						playButton.removeClass('fa-pause');
+
+						$(otherTrackBox).removeClass('active');
 					} 
 				});
 			});
@@ -75,6 +85,8 @@ $(() => {
 				let currentButton = $(this).children(':first');
 				let currentTrack = $(SELECTED_SONG_BTN).children()[0];
 
+				let trackBox = $(SELECTED_SONG_BTN).parents()[1];
+
 				if (currentButton.hasClass('fa-play')) {
 					$(currentTrack).get(0).play();
 
@@ -84,6 +96,8 @@ $(() => {
 					SELECTED_SONG_BTN.removeClass('fa-play');
 					SELECTED_SONG_BTN.addClass('fa-pause');
 
+					$(trackBox).addClass('active');
+
 				} else {
 					$(currentTrack).get(0).pause();
 
@@ -92,6 +106,8 @@ $(() => {
 
 					SELECTED_SONG_BTN.removeClass('fa-pause');
 					SELECTED_SONG_BTN.addClass('fa-play');
+
+					$(trackBox).removeClass('active');
 				}
 			});
 		},
@@ -125,6 +141,9 @@ $(() => {
 
 					let mainPlayerButton = $('.main-play-btn').children(':first');
 
+					let nextTrackBox = $(previousTrack).parents()[0];
+					let currentTrackBox = $(SELECTED_SONG_BTN).parents()[1];
+					
 					// update player display info
 					$(displayedTitle).html(previousTrackTitle);
 					$(displayedArtist).html(previousTrackArtist);
@@ -133,10 +152,12 @@ $(() => {
 					$(currentSong).get(0).pause();
 					$(currentBtnClasses).removeClass('fa-pause');
 					$(currentBtnClasses).addClass('fa-play');
+					$(currentTrackBox).removeClass('active');
 
 					$(nextSong).get(0).play();
 					$(nextBtnClasses).removeClass('fa-play');
 					$(nextBtnClasses).addClass('fa-pause');
+					$(nextTrackBox).addClass('active');
 
 					if ($(mainPlayerButton).hasClass('fa-play')) {
 						$(mainPlayerButton).removeClass('fa-play');
@@ -182,6 +203,12 @@ $(() => {
 
 					let mainPlayerButton = $('.main-play-btn').children(':first');
 
+					let nextTrackBox = $(nextTrack).parents()[0];
+					let currentTrackBox = $(SELECTED_SONG_BTN).parents()[1];
+
+					console.log(nextTrackBox, 'nextTrackBox');
+					console.log(currentTrackBox, 'currentTrackBox');
+
 					// update player display info
 					$(displayedTitle).html(nextTrackTitle);
 					$(displayedArtist).html(nextTrackArtist);
@@ -190,10 +217,12 @@ $(() => {
 					$(currentSong).get(0).pause();
 					$(currentBtnClasses).removeClass('fa-pause');
 					$(currentBtnClasses).addClass('fa-play');
+					$(currentTrackBox).removeClass('active');
 
 					$(nextSong).get(0).play();
 					$(nextBtnClasses).removeClass('fa-play');
 					$(nextBtnClasses).addClass('fa-pause');
+					$(nextTrackBox).addClass('active');
 
 					if ($(mainPlayerButton).hasClass('fa-play')) {
 						$(mainPlayerButton).removeClass('fa-play');
