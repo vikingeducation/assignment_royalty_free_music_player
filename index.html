@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Royalty Free Music Player</title>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://use.fontawesome.com/a7fa9b4d51.js"></script>
+
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  
+  
+</head>
+<body>
+<div class="player-body">
+
+  <!--Title Bar-->
+  <div id="title-bar">
+    <h2><i class="fa fa-music" aria-hidden="true"></i>   Royalty Free Music Player</h2>
+  </div>
+
+  <!--Play List-->
+  <div id="play-list">
+
+    <div class="song">
+      <i class="fa fa-play btn-play-small" aria-hidden="true"></i>
+      <span class="song-info">
+        <div class="song-name">On Hold</div>
+        <div class="song-artist">Edith Frost</div>
+      </span>
+    </div>
+
+    <div class="song">
+      <i class="fa fa-play btn-play-small" aria-hidden="true"></i>
+      <span class="song-info">
+        <div class="song-name">How Can I Be So Thirsty Today?</div>
+        <div class="song-artist">The Meat Purveyors</div>
+      </span>
+    </div>
+
+    <div class="song">
+      <i class="fa fa-play btn-play-small" aria-hidden="true"></i>
+      <span class="song-info">
+        <div class="song-name">18 Wheels</div>
+        <div class="song-artist">Moonshine Willy</div>
+      </span>
+    </div>
+
+    <div class="song playing">
+      <i class="fa fa-pause btn-pause-small" aria-hidden="true"></i>
+      <span class="song-info">
+        <div class="song-name">Hold the Woodpile Down</div>
+        <div class="song-artist">The Holy Modal Rounders</div>
+      </span>
+    </div>
+
+    <div class="song">
+      <i class="fa fa-play btn-play-small" aria-hidden="true"></i>
+      <span class="song-info">
+        <div class="song-name">'Til My Teardrops Turn to Gold</div>
+        <div class="song-artist">Rex Hobart & the Misery Boys</div>
+      </span>
+    </div>
+  </div>
+
+  <!--Status Bar-->
+  <div id="status-bar">
+      <i class="fa fa-step-backward fa-3x btn-backward" aria-hidden="true"></i>
+      <i class="fa fa-play-circle-o fa-3x btn-play" aria-hidden="true"></i>
+      <i class="fa fa-pause-circle-o fa-3x btn-pause" aria-hidden="true"></i>
+      <i class="fa fa-step-forward fa-3x btn-forward" aria-hidden="true"></i>
+      <span class="status-song-info">
+        <div class="song-active">
+          Hold the Woodpile Down
+        </div>
+        <div class="artist-active">
+          Edith Frost
+        </div>
+      </span>
+  </div>
+
+</div>
+
+</body>
+</html>
