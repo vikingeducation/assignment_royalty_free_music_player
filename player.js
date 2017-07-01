@@ -31,7 +31,7 @@ let musicPlayer = {
     });
 
     // grab the playback container for easy toggling
-    musicPlayer.status.plackBack = $('.playback-container')
+    musicPlayer.status.playBack = $('.playback-container');
   },
 
   toggleButtons: function() {
@@ -44,7 +44,7 @@ let musicPlayer = {
         .closest('.song')
         .toggleClass('playing');
       
-      musicPlayer.status.plackBack.toggleClass('playing');
+      musicPlayer.status.playBack.toggleClass('playing');
     }
 
   },
@@ -59,6 +59,15 @@ let musicPlayer = {
     musicPlayer.toggleButtons();
     // clear paused states
     $('.song').removeClass('paused')
+
+    // update display
+    let $info = $(musicPlayer.status.currentSong).siblings('.info');
+    let artist = $info.children('.artist').text();
+    let title = $info.children('.title').text();
+
+    let $target = musicPlayer.status.playBack.children('.playback-info');
+    $target.children('.artist').text(artist);
+    $target.children('.title').text(title);
 
   },
 
