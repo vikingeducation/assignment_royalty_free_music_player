@@ -143,7 +143,8 @@ let musicPlayer = {
     }
   },
 
-  clickNext: function(event) {
+  prepareToJump: function() {
+    // stop any playback, return the current .song element if any
 
     if (musicPlayer.status.playing) {
 
@@ -155,15 +156,29 @@ let musicPlayer = {
     // clear all paws
     musicPlayer.clearPaused();
 
-    if (musicPlayer.status.currentSong) {
-      // if we're in the playlist
+    // try to get parent
+    let $parent = null;
 
+    if (musicPlayer.status.currentSong) {
       // reset current song time
       musicPlayer.status.currentSong.currentTime = 0;
 
-      // get the next song to play
-      let $parent = $(musicPlayer.status.currentSong).closest('.song');
-      let $nextParent = $parent.next();
+      // get the current song's parent
+      $parent = $(musicPlayer.status.currentSong).closest('.song');
+    }
+
+    return $parent;
+  },
+
+  clickNext: function(event) {
+
+    // prepare
+    let $currentParent = musicPlayer.prepareToJump();
+
+    if ($currentParent) {
+      // we're in the playlist
+
+      let $nextParent = $currentParent.next();
 
       if ($nextParent.length) {
 
@@ -178,12 +193,6 @@ let musicPlayer = {
         musicPlayer.displayInfo('', '');
       }
 
-
-    } else {
-
-      // not playing, start from the top of the playlist
-      musicPlayer.ensureSong();
-      musicPlayer.playCurrentSong();
     }
 
   },
