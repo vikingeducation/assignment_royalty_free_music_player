@@ -144,29 +144,28 @@ let musicPlayer = {
   },
 
   prepareToJump: function() {
-    // stop any playback, return the current .song element if any
 
-    if (musicPlayer.status.playing) {
+    let $parent = [];
+
+    if (musicPlayer.status.currentSong) {
 
       // pause current song
       musicPlayer.clickPause();
 
-    }
+      // clear all paws
+      musicPlayer.clearPaused();
 
-    // clear all paws
-    musicPlayer.clearPaused();
-
-    // try to get parent
-    let $parent = null;
-
-    if (musicPlayer.status.currentSong) {
       // reset current song time
       musicPlayer.status.currentSong.currentTime = 0;
+
+      // clear song display
+      musicPlayer.displayInfo('', '');
 
       // get the current song's parent
       $parent = $(musicPlayer.status.currentSong).closest('.song');
     }
 
+    // return the current song's parent or empty array, as appropriate
     return $parent;
   },
 
@@ -175,22 +174,21 @@ let musicPlayer = {
     // prepare
     let $currentParent = musicPlayer.prepareToJump();
 
-    if ($currentParent) {
+    if ($currentParent.length) {
       // we're in the playlist
 
       let $nextParent = $currentParent.next();
 
       if ($nextParent.length) {
 
-        // there is another song in the playlist
+        // there is a suitable song in the playlist
         musicPlayer.status.currentSong = $nextParent.children('audio')[0];
         musicPlayer.playCurrentSong();
 
       } else {
 
-        // playlist over
+        // no next song, stopping
         musicPlayer.status.currentSong = null;
-        musicPlayer.displayInfo('', '');
       }
 
     }
@@ -198,8 +196,33 @@ let musicPlayer = {
   },
 
   clickPrev: function(event) {
-    console.log(event.target)
-  },
+
+    // prepare
+
+    let $currentParent = musicPlayer.prepareToJump();
+
+    if ($currentParent.length) {
+      // we're in the playlist
+
+      let $prevParent = $currentParent.prev();
+
+      if ($prevParent.length) {
+
+        // there is a suitable song in the playlist
+        musicPlayer.status.currentSong = $prevParent.children('audio')[0];
+        musicPlayer.playCurrentSong();
+
+      } else {
+
+        // no prev song, stopping
+        musicPlayer.status.currentSong = null;
+      }
+
+    }
+
+  }
+
+
 }
 
 $(
