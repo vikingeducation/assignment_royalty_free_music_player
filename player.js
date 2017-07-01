@@ -49,6 +49,35 @@ let musicPlayer = {
 
   },
 
+  setPaused: function() {
+      // display the current song as paused
+      $(musicPlayer.status.currentSong)
+        .parent()
+        .addClass('paused');
+  },
+
+  clearPaused: function() {
+    // remove all paws
+    $('.song').removeClass('paused')
+  },
+
+  ensureSong: function() {
+
+    if (!musicPlayer.status.currentSong) {
+      // we're stopped, grabbing the first song
+      musicPlayer.status.currentSong = $('audio')[0];
+    }
+
+  },
+
+  displayInfo: function(artist, title) {
+
+    // update the currently playing display
+    let $target = musicPlayer.status.playBack.children('.playback-info');
+    $target.children('.artist').text(artist);
+    $target.children('.title').text(title);
+  },
+
   playCurrentSong: function() {
 
     // play!
@@ -58,25 +87,22 @@ let musicPlayer = {
     // toggle play/pause buttons
     musicPlayer.toggleButtons();
     // clear paused states
-    $('.song').removeClass('paused')
+    musicPlayer.clearPaused();
 
     // update display
     let $info = $(musicPlayer.status.currentSong).siblings('.info');
     let artist = $info.children('.artist').text();
     let title = $info.children('.title').text();
 
-    let $target = musicPlayer.status.playBack.children('.playback-info');
-    $target.children('.artist').text(artist);
-    $target.children('.title').text(title);
+    musicPlayer.displayInfo(artist, title);
 
   },
 
   clickPlay: function(event) {
-    if (!musicPlayer.status.currentSong) {
-      // we're stopped, grabbing the first song
-      musicPlayer.status.currentSong = $('audio')[0];
+    // make sure we've got a song to play
+    musicPlayer.ensureSong();
 
-    } else if (musicPlayer.status.playing){
+    if (musicPlayer.status.playing){
 
       // we're already playing, pause first
       musicPlayer.clickPause();
@@ -112,15 +138,54 @@ let musicPlayer = {
       // toggle the play/pause buttons
       musicPlayer.toggleButtons();
 
-      // enable the paused state
-      $(musicPlayer.status.currentSong)
-        .parent()
-        .addClass('paused');
+      // show the song as paused
+      musicPlayer.setPaused();
     }
   },
 
   clickNext: function(event) {
-    console.log(event.target)
+
+    if (musicPlayer.status.playing) {
+
+      // pause current song
+      musicPlayer.clickPause();
+
+    }
+
+    // clear all paws
+    musicPlayer.clearPaused();
+
+    if (musicPlayer.status.currentSong) {
+      // if we're in the playlist
+
+      // reset current song time
+      musicPlayer.status.currentSong.currentTime = 0;
+
+      // get the next song to play
+      let $parent = $(musicPlayer.status.currentSong).closest('.song');
+      let $nextParent = $parent.next();
+
+      if ($nextParent.length) {
+
+        // there is another song in the playlist
+        musicPlayer.status.currentSong = $nextParent.children('audio')[0];
+        musicPlayer.playCurrentSong();
+
+      } else {
+
+        // playlist over
+        musicPlayer.status.currentSong = null;
+        musicPlayer.displayInfo('', '');
+      }
+
+
+    } else {
+
+      // not playing, start from the top of the playlist
+      musicPlayer.ensureSong();
+      musicPlayer.playCurrentSong();
+    }
+
   },
 
   clickPrev: function(event) {
