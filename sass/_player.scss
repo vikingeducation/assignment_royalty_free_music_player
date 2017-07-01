@@ -33,7 +33,7 @@ header {
     }
 }
 
-footer {
+.controls {
     @include play-swap;
 
     background-color: $secondary-color;
