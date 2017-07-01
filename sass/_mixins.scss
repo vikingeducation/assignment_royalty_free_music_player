@@ -1,0 +1,21 @@
+@mixin play-swap {
+
+    // hide pause by default
+    .pause-button {
+        display: none;
+    }
+
+    .playing {
+        // highlight colors
+        color: white;
+        background-color: $highlight-color;
+
+        // swap buttons
+        .pause-button {
+            display: block;
+        }
+        .play-button {
+            display: none;
+        }
+    } 
+}
