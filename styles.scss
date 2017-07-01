@@ -1,3 +1,33 @@
+$secondary: #2C2C2C;
+$highlight: #357;
+$song-height: 85px;
+$heading-font: 'Montserrat', sans-serif;
+$artist-font: 'Bellefair', serif;
+
+@mixin play-swap {
+
+    // hide pause by default
+    .pause-button {
+        display: none;
+    }
+
+    .playing {
+        // highlight colors
+        color: white;
+        background-color: $highlight;
+
+        // swap buttons
+        .pause-button {
+            display: block;
+        }
+        .play-button {
+            display: none;
+        }
+    } 
+
+}
+
+
 html {
     box-sizing: border-box;
 }
@@ -5,5 +35,62 @@ html {
     box-sizing: inherit;
 }
 
-// font-family: 'Bellefair', serif;
-// font-family: 'Montserrat', sans-serif;
+i, h1 {
+    padding: 10px;
+}
+
+.container {
+    & h1, & h2, & h3 {
+        font-family: $heading-font;
+    }
+    .artist {
+        font-family: $artist-font;
+    }
+}
+
+header {
+    border: 2px solid black;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    h1 {
+        display: inline-block;
+    }
+}
+
+.playlist {
+    @include play-swap;
+
+    border-left: 1px solid $secondary;
+    border-right: 1px solid $secondary;
+    min-height: $song-height * 8;
+
+    .song {
+        border-bottom: 1px solid $secondary;
+    }
+
+    .status { 
+        height: $song-height;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+footer {
+    @include play-swap;
+
+    background-color: $secondary;
+    color: white;
+
+    .playback-buttons {
+        min-height: 110px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+}
+

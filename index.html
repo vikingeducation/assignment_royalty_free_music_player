@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="styles.css">
 
     <!--Scripts-->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://use.fontawesome.com/03a2c909eb.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Bellefair|Montserrat" rel="stylesheet">
@@ -32,42 +32,45 @@
           <h1>Royalty-Free Music Player</h1>
         </header>
 
-        <section id="playlist" class="col-xs-12 col-med-6">
+        <section class="playlist col-xs-12 col-med-6">
 
           <article class="song row">
             <section class="status col-xs-2">
               <i class="play-button fa fa-play fa-2x" aria-hidden="true"></i>
+              <i class="pause-button fa fa-pause fa-2x" aria-hidden="true"></i>
             </section>
             <section class="info col-xs-10">
               <h3>On Hold</h3>
-              <h4>Edith Frost</h4>
+              <h4 class="artist">Edith Frost</h4>
             </section>
           </article>
 
           <article class="song row">
             <section class="status col-xs-2">
               <i class="play-button fa fa-play fa-2x" aria-hidden="true"></i>
+              <i class="pause-button fa fa-pause fa-2x" aria-hidden="true"></i>
             </section>
             <section class="info col-xs-10">
               <h3>How Can I Be So Thirsty Today?</h3>
-              <h4>The Meat Purveyors</h4>
+              <h4 class="artist">The Meat Purveyors</h4>
             </section>
           </article>
 
         </section>
 
         <footer class="col-xs-12 col-med-6">
-          <div class="row">
+          <div class="playback-container row">
 
             <section class="playback-buttons col-xs-4">
               <i class="fa fa-fast-backward fa-2x" aria-hidden="true"></i>
-              <i class="fa fa-play-circle fa-5x" aria-hidden="true"></i>
+              <i class="play-button fa fa-play-circle fa-5x" aria-hidden="true"></i>
+              <i class="pause-button fa fa-pause-circle fa-5x" aria-hidden="true"></i>
               <i class="fa fa-fast-forward fa-2x" aria-hidden="true"></i>
             </section>
 
             <section class="playback-info col-xs-8">
               <h2>On Hold</h2>
-              <h3>Edith Frost</h3>
+              <h3 class="artist">Edith Frost</h3>
             </section>
 
           </div>
