@@ -1,0 +1,19 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+i, h1 {
+    padding: 10px;
+}
+
+.container {
+    & h1, & h2, & h3 {
+        font-family: $heading-font;
+    }
+    .artist {
+        font-family: $artist-font;
+    }
+}

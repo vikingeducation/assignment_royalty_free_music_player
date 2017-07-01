@@ -1,0 +1,48 @@
+header {
+    @include flex-center;
+
+    margin-top: 20px;
+    border: 2px solid black;
+
+    h1 {
+        display: inline-block;
+    }
+}
+
+.playlist {
+    @include play-swap;
+
+    border-left: 1px solid $secondary-color;
+    border-right: 1px solid $secondary-color;
+    min-height: $song-height * 8;
+
+    .song {
+        border-bottom: 1px solid $secondary-color;
+    }
+
+    .song:hover {
+        border-bottom: 4px solid $highlight-color;
+        border-top: 3px solid $highlight-color;
+    }
+
+    .status { 
+        height: $song-height;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.controls {
+    @include play-swap;
+
+    background-color: $secondary-color;
+    color: white;
+
+    .playback-buttons {
+      @include flex-center;
+        min-height: 110px;
+    }
+
+}
+

@@ -1,0 +1,39 @@
+@mixin play-swap {
+
+    // highlight hover
+    .fa:hover {
+        color: $highlight-color;
+        cursor: pointer;
+    }
+
+    // hide pause by default
+    .pause-button {
+        display: none;
+    }
+
+    .playing, .paused {
+        // highlight colors
+        color: white;
+        background-color: $highlight-color;
+
+        & .fa:hover {
+            color: $secondary-color;
+        }
+    }
+
+    .playing {
+        // swap buttons
+        .pause-button {
+            display: block;
+        }
+        .play-button {
+            display: none;
+        }
+    }
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
