@@ -1,5 +1,7 @@
 header {
     @include flex-center;
+
+    margin-top: 20px;
     border: 2px solid black;
 
     h1 {
@@ -16,6 +18,11 @@ header {
 
     .song {
         border-bottom: 1px solid $secondary-color;
+    }
+
+    .song:hover {
+        border-bottom: 4px solid $highlight-color;
+        border-top: 3px solid $highlight-color;
     }
 
     .status { 
