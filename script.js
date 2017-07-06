@@ -1,11 +1,4 @@
 
-
-//SONG IMAGE[i].on("click", if paused, CHANGEIMAGE SRC, CHANGE NP INFO, CHANGE FOOTER PLAYPAUSE, CHANGE CLASS)
-
-//SONG IMAGE[i].on("click", if playing, CHANGEIMAGE SRC, CHANGE FOOTER PLAYPAUSE, CHANGE CLASS)
-
-//FOOTER IMAGE.on("click", if paused, CHANGEIMAGE SRC, PLAY SELECTED)
-
 $(document).ready(function() {
 
 var i = 0;
