@@ -1,8 +1,6 @@
 
 $(document).ready(function() {
 
-var i = 0;
-
 var q = {
   nowPlaying: $(".playing-now"),
   nowPlayingSong: $(".playing-now audio"),
