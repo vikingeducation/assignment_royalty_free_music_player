@@ -1,13 +1,6 @@
-
-
-
-
-
 function eventListeners() {
 	$(document).on({
 		click: function(){ 
-			// console.log(this); 
-			// console.log(event.target);
 			play.main(event.target);
 		},
 	});
@@ -18,8 +11,6 @@ var play = {
 	currentSong: [],
 
 	main: function(target){
-
-		// console.log(target);
 
 		var $target = $(target);
 
@@ -43,10 +34,16 @@ var play = {
 			this.footerPause($target);
 		}
 
+		if ($target.attr('id') === 'skip-back') {
+			this.skipBack();
+		}
+
+		if ($target.attr('id') === 'skip-forward') {
+			this.skipForward();
+		}
 	},
 
 	playPause: function($target){ // accepts the jQuery pause/play icons
-		// console.log($target);
 
 		if ($target.hasClass('play') === true) {
 			// hide the play button next to the song title/artist
@@ -87,11 +84,14 @@ var play = {
 		}
 	},
 
-	// play the song associated with the play button that is selected
-	play: function(target){
-		
-		// console.log('play function');
-		// console.log(target);
+	play: function(target){ // target accepts the i.play button next to the song
+
+	// if a song is already playing, it needs to be paused first
+		if ( $('main').find('.playing').length === 1) {
+			var pauseIcon = $('main').find('.playing').parent().siblings('.pause').get(0);
+			this.pause(pauseIcon);
+			this.playPause( $(pauseIcon) );
+		}
 
 		if ( target.nodeName === "DIV" ) {
 			var song = target.childNodes[5].childNodes[5];
@@ -107,15 +107,12 @@ var play = {
 
 		// fires an alert when the song is ended
 		song.onended = function(){
-			alert('audio ended');
+			play.skipForward();
 		}
 		
 	},
-
-	pause: function(target){
-
-		// console.log('pause function');
-		// console.log(target);
+ 
+	pause: function(target){ // accepts the i.pause button next to the .playing song
 
 		var parent =  target.parentElement;
 		var song = parent.childNodes[5].childNodes[5];
@@ -128,8 +125,6 @@ var play = {
 	},
 
 	footerShowSong: function($target){
-
-		// console.log($target);
 
 	// get the text of the song and artist
 		var songTitle = $target.siblings('.artist-info').find('.song-title').text();
@@ -169,13 +164,15 @@ var play = {
 
 		} else { // action: pressing the footer play button when a song has already been played and paused
 
-		// get the song to send to the pause funtion to pause the song
-			var $pausedSong = $('main').find('.paused');
-			// var pauseIcon = $pausedSong.parent().siblings('.pause').get(0);
-			// this.pause(pauseIcon);
+		// get the song id of the most recently played song
+			var lastSong = this.currentSong;
+			var lastSongDiv = document.getElementById(lastSong);
+			var $lastSongDiv = $(lastSongDiv);
 
-		// get the song-container play icon to send to the playpause function
-			var playIcon = $pausedSong.parent().siblings('.play').get(0);
+		// get the i.play icon next to the paused song
+			var playIcon = $lastSongDiv.find('.play').get(0);
+			
+		// pass that icon to the play function
 			this.play(playIcon);
 
 		// change the footer and respective song play buttons to pause
@@ -197,44 +194,57 @@ var play = {
 		this.playPause( $(pauseIcon) );
 
 	},
+
+	skipForward: function(){
+
+	// pause the current song
+	// get the pause button for the .playing song
+		var $playingSong = $('main').find('.playing');
+		var $pauseBtn = $playingSong.parent().siblings('.pause');
+		var pauseBtn = $pauseBtn.get(0);
+
+	// pass that button to the pause and playPause functions
+		this.playPause($pauseBtn);
+		this.pause(pauseBtn);
+
+	// get the playing song and traverse to the next .song-container
+		var $next = $playingSong.parent().parent().next();
+
+	// get the file of that .song-container
+		var $nextSong = $next.find('i.play');
+		var nextSong = $nextSong.get(0);
+
+	// pass that song to the 
+		this.playPause($nextSong);
+		this.play(nextSong);
+
+	},
+
+	skipBack: function(){
+
+	// pause the current song
+	// get the pause button for the .playing song
+		var $playingSong = $('main').find('.playing');
+		var $pauseBtn = $playingSong.parent().siblings('.pause');
+		var pauseBtn = $pauseBtn.get(0);
+
+	// pass that button to the pause and playPause functions
+		this.playPause($pauseBtn);
+		this.pause(pauseBtn);
+
+	// get the playing song and traverse to the next .song-container
+		var $next = $playingSong.parent().parent().prev();
+
+	// get the file of that .song-container
+		var $nextSong = $next.find('i.play');
+		var nextSong = $nextSong.get(0);
+
+	// pass that song to the 
+		this.playPause($nextSong);
+		this.play(nextSong);
+	},
+
 }
-
-
-
-// show current songs/artist on the footer
-
-// when the pause buttong is pushed stop song playback
-
-// if the pause button is pushed all pause buttons turn to play button
-
-// if the skip buttons are used cycle to the next or previous song
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 $(document).ready(function(){ eventListeners() });

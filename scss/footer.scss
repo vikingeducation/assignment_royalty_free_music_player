@@ -1,0 +1,51 @@
+$font-color: #EEEEEE;
+
+#footer {
+	background: #2E2E2E;
+	color: white;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	height: 80px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	box-shadow: 0px -5px 5px 0px #878787;
+	#controls {
+		display: flex;
+		align-items: center;
+		margin: .5rem;
+		i {
+			margin: .5rem;
+			cursor: pointer;
+		}
+		#footer-play, #footer-pause {
+			font-size: 3rem;
+		}
+		#footer-play {
+			color: #ff8d72;
+			&:hover {
+				color: $fa-music;
+			}
+		}
+	}
+	#song-info {
+		margin: 1rem;
+		#played-song {
+			color: $font-color;
+			margin-bottom: .33rem;
+			font: {
+				weight: 900;
+				size: 1.8rem;
+			}
+		}
+		#played-artist {
+			color: #C2C2C2;
+			font: {
+				weight: 100;
+			}
+		}
+	}
+}
