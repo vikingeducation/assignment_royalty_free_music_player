@@ -51,8 +51,6 @@ Player = function() {
       .addClass("track")
       .addClass('off')
 
-    //$wrapper.on("click", this.)
-
       //create our play button
     var $play = $("<button></button>")
       .addClass("btn play-button")
@@ -79,30 +77,16 @@ Player = function() {
       .text( element['artist'] )
       .appendTo( $info );
 
-
-    //$wrapper.before( $( "#play-bar") )
     $( "#play-bar" ).before( $wrapper )
     return $wrapper
   })
-/*
-      <div class="track">
-        <button class="btn play-button"><span class="glyphicon glyphicon-play"></span></button>
-        <div class="track-info">
-          <p class="track-title">Dank</p>
-          <p class="track-artist">Memez</p>
-        </div>
-      </div>
-*/
-  //display them
 
   //this is the audio file
   this.now_playing = this.tracks[0]['audio'];
 
   //play next song
   this.next = function(){
-    //console.log("NEXT SONG PLZ")
     var _this = window.player;
-    console.log(_this)
     var index = _this.get_track_index( _this.now_playing ) + 1
     if ( _this.tracks.length - 1 < index ){
       index = 0;
@@ -161,7 +145,7 @@ Player = function() {
     $("#play-bar .track-artist").text( artist_string );
 
 
-    //console.log(index)
+
     _this.tracks[index]['audio'].play();
     _this.now_playing = _this.tracks[index]['audio'];
     _this.now_playing.addEventListener('ended', _this.next, "once")
@@ -202,15 +186,13 @@ Player = function() {
   }
 
   //setup click listeners for the tracks
-    //do to
+
   this.setup_click_listeners = function(){
-    //console.log(this)
+
     this.$tracks.forEach( function( $track, i ){
         $track.on("click", function( e ){
             var _this = window.player;
-            //console.log( $track )
             _this.clicked( e, $track )
-            //_this.play( $track )
         })
     })
     $("#last").on("click", function(){
@@ -229,16 +211,10 @@ Player = function() {
     }else{
       this.pause();
     }
-  //  this.toggle_track( this.get_track_index(this.now_playing) );
-    //this.toggle_play_bar();
   }
 
   //the user clicked a track
   this.clicked = function( e, $track ){
-    //console.log( e );
-    //console.log( $track );
-    //console.log( this );
-
     //match the track
     var index = 0;
     for( var i = 0; i < this.$tracks.length; i++ ){
