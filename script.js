@@ -129,7 +129,16 @@ Player = function() {
     //change the buttons
 
     //update the play-bar
+    var $track_wrapper = _this.$tracks[index]
+    var title_string = $track_wrapper.children().children().filter(".track-title").text();
+    var artist_string = $track_wrapper.children().children().filter(".track-artist").text();
+    //$("#play-bar .track-title").text( _this.$tracks[index].children().filter(".track-title").text() )
 
+    $("#play-bar .track-title").text( title_string );
+    $("#play-bar .track-artist").text( artist_string );
+
+
+    console.log(index)
     _this.tracks[index]['audio'].play();
     _this.now_playing = _this.tracks[index]['audio'];
     _this.now_playing.addEventListener('ended', _this.next, "once")
@@ -139,22 +148,28 @@ Player = function() {
   this.pause = function(){
     var _this = window.player;
     _this.now_playing.pause();
+
+    //change buttons
+
   }
   //resume playing
   this.resume = function(){
     var _this = window.player;
     _this.now_playing.play();
+
+    //change buttons
+
   }
   this.get_track_index = function( song ) {
     var _this = window.player;
     for( var i = 0; i < _this.tracks.length; i++){
-      if ( _this.tracks[i]['audio'] == _this.now_playing['audio'] ){
+      if ( _this.tracks[i]['audio'] == song ){
         return i;
       }
     }
   }
 
-  //setup click listeners
+  //setup click listeners for the tracks
     //do to
   this.setup_click_listeners = function(){
     //console.log(this)
@@ -167,11 +182,12 @@ Player = function() {
         })
     })
   }
+
+  //the user clicked a track
   this.clicked = function( e, $track ){
     console.log( e );
     console.log( $track );
-    console.log( this )
-    //set $track to playing
+    console.log( this );
 
     //match the track
     var index = 0;
@@ -182,6 +198,10 @@ Player = function() {
       }
     }
 
+    //find out if that track is playing
+    if ( this.now_playing == this.tracks[i]['audio'] ){
+      
+    }
     //play the track
     this.play( index );
   }
