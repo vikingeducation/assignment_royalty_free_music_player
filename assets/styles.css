@@ -1,0 +1,56 @@
+#top {
+  background-color: grey; }
+  #top * {
+    margin: 0;
+    padding: 10px; }
+
+.play-button {
+  background-color: white;
+  color: grey; }
+
+.track {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center; }
+  .track button {
+    margin-right: 10px; }
+  .track div {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start; }
+  .track p {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    display: inline; }
+
+.track-title {
+  font-size: 18px; }
+
+.track-artist {
+  font-size: 12px;
+  color: grey; }
+
+#play-bar {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center; }
+  #play-bar .controls {
+    margin-right: 10px; }
+  #play-bar span {
+    font-size: 18px; }
+  #play-bar * {
+    background-color: black;
+    color: white; }
+  #play-bar button {
+    border: 0;
+    padding: 5px; }
+  #play-bar #play span {
+    font-size: 24px; }
+
+/*# sourceMappingURL=styles.css.map */
