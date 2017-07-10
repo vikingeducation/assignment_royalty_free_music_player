@@ -2,6 +2,7 @@ var player;
 $(document).ready(function() {
   player = new Player();
   player.play(4);
+  player.setup_click_listeners();
 });
 
 
@@ -43,9 +44,13 @@ Player = function() {
 
   //make the track elements
 
-  this.$track = this.tracks.map( function( element, i ) {
+  this.$tracks = this.tracks.map( function( element, i ) {
+
     var $wrapper = $("<div></div>")
       .addClass("track")
+      .addClass('off')
+
+    //$wrapper.on("click", this.)
 
       //create our play button
     var $play = $("<button></button>")
@@ -76,6 +81,7 @@ Player = function() {
 
     //$wrapper.before( $( "#play-bar") )
     $( "#play-bar" ).before( $wrapper )
+    return $wrapper
   })
 /*
       <div class="track">
@@ -88,51 +94,97 @@ Player = function() {
 */
   //display them
 
-  this.now_playing;
+  //this is the audio file
+  this.now_playing = this.tracks[0]['audio'];
 
   //play next song
   this.next = function(){
     //console.log("NEXT SONG PLZ")
-    console.log(this)
-    var index = this.get_track_index( this.now_playing ) + 1
-    if ( this.tracks.length < index ){
+    var _this = window.player;
+    console.log(_this)
+    var index = _this.get_track_index( _this.now_playing ) + 1
+    if ( _this.tracks.length < index ){
       index = 0;
     }
-    this.play( index );
+    _this.play( index );
   }
   //play previous song
   this.previous = function(){
-    var index = this.get_track_index( this.now_playing ) - 1
+    var _this = window.player;
+    var index = _this.get_track_index( _this.now_playing ) - 1
     if ( index < 0 ){
       index = 0;
     }
-    this.play( index );
+    _this.play( index );
   }
 
   //start a specific song
   this.play = function(index){
-    this.tracks[index]['audio'].play();
-    this.now_playing = this.tracks[index]['audio'];
-    this.now_playing.addEventListener('ended', this.next, "once")
+    var _this = window.player;
+
+    //stop the last track
+    this.now_playing.pause()
+    player.now_playing.currentTime = 0;
+
+    //change the buttons
+
+    //update the play-bar
+
+    _this.tracks[index]['audio'].play();
+    _this.now_playing = _this.tracks[index]['audio'];
+    _this.now_playing.addEventListener('ended', _this.next, "once")
 
   }
   //pause song
   this.pause = function(){
-    this.now_playing.pause();
+    var _this = window.player;
+    _this.now_playing.pause();
   }
   //resume playing
   this.resume = function(){
-    this.now_playing.play();
+    var _this = window.player;
+    _this.now_playing.play();
   }
   this.get_track_index = function( song ) {
-    for( var i = 0; i < tracks.length; i++){
-      if ( this.tracks[i]['audio'] == this.now_playing['audio'] ){
+    var _this = window.player;
+    for( var i = 0; i < _this.tracks.length; i++){
+      if ( _this.tracks[i]['audio'] == _this.now_playing['audio'] ){
         return i;
       }
     }
   }
 
   //setup click listeners
+    //do to
+  this.setup_click_listeners = function(){
+    //console.log(this)
+    this.$tracks.forEach( function( $track, i ){
+        $track.on("click", function( e ){
+            var _this = window.player;
+            //console.log( $track )
+            _this.clicked( e, $track )
+            //_this.play( $track )
+        })
+    })
+  }
+  this.clicked = function( e, $track ){
+    console.log( e );
+    console.log( $track );
+    console.log( this )
+    //set $track to playing
+
+    //match the track
+    var index = 0;
+    for( var i = 0; i < this.$tracks.length; i++ ){
+      if ( this.$tracks[i] == $track ){
+        index = i;
+        break;
+      }
+    }
+
+    //play the track
+    this.play( index );
+  }
 
 
 
