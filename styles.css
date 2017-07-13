@@ -1,0 +1,92 @@
+/* todo: actually use scss to reformat this */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */ }
+
+html, body {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  color: black; }
+
+#title-bar {
+  border-style: solid;
+  padding-left: 10px;
+  border-width: 0.5px;
+  background-color: lightgray; }
+
+#status-bar {
+  border-style: solid;
+  border-width: 0.5px;
+  display: grid;
+  grid-template-columns: 40px 40px 40px 60%;
+  grid-gap: 10px;
+  background-color: black;
+  color: white; }
+
+.song {
+  border-left-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-width: 0.5px;
+  border-color: darkgray;
+  cursor: pointer;
+  height: 50px;
+  display: grid;
+  grid-template-columns: 30px 50%;
+  padding-left: 10px; }
+
+.song-info {
+  display: flex;
+  align-items: flex-start;
+  flex-flow: column nowrap;
+  justify-content: center; }
+
+.song-name {
+  font-size: medium; }
+
+.song-artist {
+  font-size: small;
+  color: gray; }
+
+.btn-play-small, .btn-pause-small {
+  line-height: 50px;
+  width: 40px;
+  height: 50px; }
+
+.status-song-info {
+  height: 65px;
+  display: flex;
+  align-items: flex-start;
+  flex-flow: column nowrap;
+  justify-content: center;
+  padding-left: 15px; }
+
+.btn-play, .btn-forward, .btn-backward,
+.btn-pause {
+  line-height: 65px;
+  height: 65px; }
+
+.active {
+  background-color: orange; }
+
+.btn-backward, .btn-forward, .btn-pause, .btn-play {
+  cursor: pointer; }
+
+.song-active {
+  font-size: large; }
+
+.artist-active {
+  font-size: medium;
+  color: lightgray; }
+
+/*# sourceMappingURL=styles.css.map */
