@@ -1,3 +1,5 @@
+/* todo: actually use scss to reformat this */
+
 *,
 *:before,
 *:after {
@@ -44,7 +46,6 @@ body {
   height: 50px;
   display: grid;
   grid-template-columns: 30px 50%;
-  //grid-gap: 10px;
   padding-left: 10px;
 }
 
@@ -85,23 +86,12 @@ body {
   height: 65px
 }
 
-.playing {
-}
-
-.paused {
-
-}
-
 .active {
   background-color: orange;
 }
 
 .btn-backward, .btn-forward, .btn-pause, .btn-play {
   cursor: pointer;
-}
-
-.btn-pause {
-  //display: none;
 }
 
 .song-active {
