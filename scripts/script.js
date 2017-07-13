@@ -24,96 +24,126 @@ musicPlayer.player = {
     var $activeSong = $(event.currentTarget);
     var songId = $activeSong.attr('id');
     var $selectedSong = $('#' + songId + ' i');
-    var audio = $activeSong.children('audio').get(0);
+
+    if(songId !== musicPlayer.player.activeSong) {
+      // pause active song
+      var $oldSong = $(".song[id='" + musicPlayer.player.activeSong + "'] ");
+      $oldSong.removeClass('active');
+      musicPlayer.player.pauseSong();
+    }
+
+    musicPlayer.player.activeSong = songId;
+    var audio = musicPlayer.player.getAudioForActiveSong();
 
     if($selectedSong.hasClass('fa-play')) {
       audio.play();
       $('.btn-pause').show();
       $('.btn-play').hide();
+      musicPlayer.player.updateSongButtonStyle(songId, musicPlayer.player.buttonStyleEnum.pause);
     }
     else if($selectedSong.hasClass('fa-pause')) {
       audio.pause();
       $('.btn-pause').hide();
       $('.btn-play').show();
+      musicPlayer.player.updateSongButtonStyle(songId, musicPlayer.player.buttonStyleEnum.play);
     }
-    musicPlayer.player.toggleSongButtonStyle(songId);
 
-    var $oldSong = $(".song[id='" + musicPlayer.player.activeSong + "'] ");
-    $oldSong.removeClass('active');
-    musicPlayer.player.activeSong = songId;
     $activeSong.addClass('active');
+    musicPlayer.player.updateSongStatusBar();
   },
 
   // plays the song previous to the active song
-  playPrevSong: function(event) {
+  playPrevSong: function() {
     if(musicPlayer.player.activeSong === 0) {
       return;
     }
 
     var $oldSong = $(".song[id='" + musicPlayer.player.activeSong + "'] ");
     $oldSong.removeClass('active');
-    // musicPlayer.player.toggleSongButtonStyle(musicPlayer.player.activeSong);
     musicPlayer.player.pauseSong();
 
-    musicPlayer.player.activeSong = musicPlayer.player.activeSong - 1;
+    // todo: how to ensure activeSong is an integer?
+    musicPlayer.player.activeSong--;
     var $prevSong = $(".song[id='" + musicPlayer.player.activeSong + "'] ");
     $prevSong.addClass('active');
-    // musicPlayer.player.toggleSongButtonStyle(musicPlayer.player.activeSong);
     musicPlayer.player.playSong();
+
+    musicPlayer.player.updateSongStatusBar();
   },
 
   // plays the song following the active song
-  playNextSong: function (event) {
+  playNextSong: function () {
     if(musicPlayer.player.activeSong === musicPlayer.songs.length - 1) {
       return;
     }
 
     var $oldSong = $(".song[id='" + musicPlayer.player.activeSong + "'] ");
     $oldSong.removeClass('active');
-    // musicPlayer.player.toggleSongButtonStyle(musicPlayer.player.activeSong);
     musicPlayer.player.pauseSong();
 
-    musicPlayer.player.activeSong = musicPlayer.player.activeSong + 1;
+    // todo: how to ensure activeSong is an integer?
+    musicPlayer.player.activeSong++;
     var $nextSong = $(".song[id='" + musicPlayer.player.activeSong + "'] ");
     $nextSong.addClass('active');
-    // musicPlayer.player.toggleSongButtonStyle(musicPlayer.player.activeSong);
     musicPlayer.player.playSong();
+
+    musicPlayer.player.updateSongStatusBar();
+  },
+
+  getAudioForActiveSong: function() {
+    var $activeSong = $(".song[id='" + musicPlayer.player.activeSong + "'] ");
+    var audio = $activeSong.children('audio').get(0);
+
+    return audio;
   },
 
   // pauses the active song
   pauseSong: function() {
-    var $activeSong = $(".song[id='" + musicPlayer.player.activeSong + "'] ");
-    var audio = $activeSong.children('audio').get(0);
+    var audio = musicPlayer.player.getAudioForActiveSong();
     if(audio) {
       audio.pause();
       $('.btn-pause').hide();
       $('.btn-play').show();
-      musicPlayer.player.toggleSongButtonStyle(musicPlayer.player.activeSong);
+      musicPlayer.player.updateSongButtonStyle(musicPlayer.player.activeSong, musicPlayer.player.buttonStyleEnum.play);
     }
   },
 
   // plays the active song
   playSong: function() {
-    var $activeSong = $(".song[id='" + musicPlayer.player.activeSong + "'] ");
-    var audio = $activeSong.children('audio').get(0);
+    var audio = musicPlayer.player.getAudioForActiveSong();
     if(audio) {
       audio.play();
       $('.btn-pause').show();
       $('.btn-play').hide();
-      musicPlayer.player.toggleSongButtonStyle(musicPlayer.player.activeSong);
+      musicPlayer.player.updateSongButtonStyle(musicPlayer.player.activeSong, musicPlayer.player.buttonStyleEnum.pause);
     }
   },
 
-  // toggles the song's button style (play to pause and vice versa)
-  toggleSongButtonStyle: function(songId) {
+  buttonStyleEnum: {
+    play: 1,
+    pause: 2
+  },
+
+  updateSongStatusBar: function() {
+    var $songActive = $('#song-active');
+    var $artistActive = $('#artist-active');
+
+    if(musicPlayer.player.activeSong >= 0 && musicPlayer.player.activeSong < musicPlayer.songs.length) {
+      $songActive.text(musicPlayer.songs[musicPlayer.player.activeSong].name);
+      $artistActive.text(musicPlayer.songs[musicPlayer.player.activeSong].artist);
+    }
+  },
+
+  // updates the song's button style (play to pause and vice versa)
+  updateSongButtonStyle: function(songId, buttonStyle) {
     // select the song's <i> element
     var $selectedSong = $('#' + songId + ' i');
 
     // now toggle the button style (play to pause or pause to play)
-    if($selectedSong.hasClass('fa-pause')) {
+    if(buttonStyle === this.buttonStyleEnum.play && $selectedSong.hasClass('fa-pause')) {
       $selectedSong.removeClass('fa-pause').addClass('fa-play');
     }
-    else if($selectedSong.hasClass('fa-play')) {
+    else if(buttonStyle === this.buttonStyleEnum.pause && $selectedSong.hasClass('fa-play')) {
       $selectedSong.removeClass('fa-play').addClass('fa-pause');
     }
   },
