@@ -7,6 +7,9 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://use.fontawesome.com/a7fa9b4d51.js"></script>
 
+  <script src="/scripts/script.js"></script>
+  <script src="/scripts/songs.js"></script>
+
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   
@@ -17,46 +20,46 @@
 
   <!--Title Bar-->
   <div id="title-bar">
-    <h2><i class="fa fa-music" aria-hidden="true"></i>   Royalty Free Music Player</h2>
+    <h2><i class="fa fa-music"></i>   Royalty Free Music Player</h2>
   </div>
 
   <!--Play List-->
   <div id="play-list">
 
-    <div class="song">
-      <i class="fa fa-play btn-play-small" aria-hidden="true"></i>
+    <div class="song" id="1">
+      <i class="fa fa-play btn-play-small"></i>
       <span class="song-info">
         <div class="song-name">On Hold</div>
         <div class="song-artist">Edith Frost</div>
       </span>
     </div>
 
-    <div class="song">
-      <i class="fa fa-play btn-play-small" aria-hidden="true"></i>
+    <div class="song" id="2">
+      <i class="fa fa-play btn-play-small"></i>
       <span class="song-info">
         <div class="song-name">How Can I Be So Thirsty Today?</div>
         <div class="song-artist">The Meat Purveyors</div>
       </span>
     </div>
 
-    <div class="song">
-      <i class="fa fa-play btn-play-small" aria-hidden="true"></i>
+    <div class="song" id="3">
+      <i class="fa fa-play btn-play-small"></i>
       <span class="song-info">
         <div class="song-name">18 Wheels</div>
         <div class="song-artist">Moonshine Willy</div>
       </span>
     </div>
 
-    <div class="song playing">
-      <i class="fa fa-pause btn-pause-small" aria-hidden="true"></i>
+    <div class="song playing active" id="4">
+      <i class="fa fa-pause btn-pause-small"></i>
       <span class="song-info">
         <div class="song-name">Hold the Woodpile Down</div>
         <div class="song-artist">The Holy Modal Rounders</div>
       </span>
     </div>
 
-    <div class="song">
-      <i class="fa fa-play btn-play-small" aria-hidden="true"></i>
+    <div class="song" id="5">
+      <i class="fa fa-play btn-play-small"></i>
       <span class="song-info">
         <div class="song-name">'Til My Teardrops Turn to Gold</div>
         <div class="song-artist">Rex Hobart & the Misery Boys</div>
@@ -66,19 +69,23 @@
 
   <!--Status Bar-->
   <div id="status-bar">
-      <i class="fa fa-step-backward fa-3x btn-backward" aria-hidden="true"></i>
-      <i class="fa fa-play-circle-o fa-3x btn-play" aria-hidden="true"></i>
-      <i class="fa fa-pause-circle-o fa-3x btn-pause" aria-hidden="true"></i>
-      <i class="fa fa-step-forward fa-3x btn-forward" aria-hidden="true"></i>
+      <i class="fa fa-step-backward fa-3x fa-fw btn-backward"></i>
+      <i class="fa fa-play-circle-o fa-3x  fa-fw btn-play"></i>
+      <i class="fa fa-pause-circle-o fa-3x fa-fw btn-pause"></i>
+      <i class="fa fa-step-forward fa-3x fa-fw btn-forward"></i>
       <span class="status-song-info">
-        <div class="song-active">
+        <div id="song-active">
           Hold the Woodpile Down
         </div>
-        <div class="artist-active">
+        <div id="artist-active">
           Edith Frost
         </div>
       </span>
   </div>
+
+ <!-- <audio id="player-audio">
+    <p>Your browser doesn't support HTML5 audio.</p>
+  </audio>-->
 
 </div>
 

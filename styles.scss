@@ -21,15 +21,17 @@ body {
   border-style: solid;
   padding-left: 10px;
   border-width: 0.5px;
+  background-color: lightgray
 }
 
 #status-bar {
   border-style: solid;
   border-width: 0.5px;
   display: grid;
-  grid-template-columns: 40px 40px 40px 40px 50%;
+  grid-template-columns: 40px 40px 40px 60%;
   grid-gap: 10px;
-  padding-left: 10px;
+  background-color: black;
+  color: white;
 }
 
 .song {
@@ -41,8 +43,8 @@ body {
   cursor: pointer;
   height: 50px;
   display: grid;
-  grid-template-columns: 40px 50%;
-  grid-gap: 10px;
+  grid-template-columns: 30px 50%;
+  //grid-gap: 10px;
   padding-left: 10px;
 }
 
@@ -74,6 +76,7 @@ body {
   align-items: flex-start;
   flex-flow: column nowrap;
   justify-content: center;
+  padding-left: 15px;
 }
 
 .btn-play, .btn-forward, .btn-backward,
@@ -85,8 +88,20 @@ body {
 .playing {
 }
 
+.paused {
+
+}
+
+.active {
+  background-color: orange;
+}
+
 .btn-backward, .btn-forward, .btn-pause, .btn-play {
   cursor: pointer;
+}
+
+.btn-pause {
+  //display: none;
 }
 
 .song-active {
@@ -95,6 +110,6 @@ body {
 
 .artist-active {
   font-size: medium;
-  color: gray;
+  color: lightgray;
 }
 
