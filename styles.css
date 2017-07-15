@@ -1,0 +1,76 @@
+ @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+ body {
+ 	width: 500px;
+ 	height: 650px;
+ 	border: 1px solid grey;
+ 	color: black;
+ }
+
+ 	header {
+ 	position: fixed;
+ 	background-color: #62706F;
+ 	width: 500px;
+ 	height: 80px;
+ }
+
+ h1 {
+ 	padding: 10px 30px;
+ }
+i {
+	position: static;
+	left: 0;
+}
+
+ .container {
+ 	margin-top: 80px;
+ 	width: 500px;
+ 	height: 300px;
+ 	border-bottom: none;
+ 	overflow-y: scroll;
+ }
+
+ .playing {
+ 	width: 500px;
+ 	height: 80px;
+ 	background-color: black;
+ 	color: white;
+ 	position: fixed;
+ 	display: inline-flex;
+ 	bottom: 40px;
+ 	}
+
+ 	.icon {
+ 		width: 30px;
+ 		height: 80px;
+ 		font-size: 30px;
+ 		padding: 15px;
+ 	}
+
+ 	.big-icon {
+ 		width: 100px;
+ 		font-size: 30px;
+ 		padding: 15px;
+ 	}
+
+ 	div#outline {
+ 		width: 480px;
+ 		margin-top: 0;
+ 		display: flex;
+ 		height: 80px;
+ 		border-bottom: 1px solid #62706F;
+ 	}
+
+ 	div#song {
+ 		margin-left: 20px;
+ 		line-height: 10px;
+ 	}
+
+ 	h3 {
+ 		: none;
+ 	}
+
+ 	p {
+ 		color: #62706F;
+ 		margin: none;
+ 	}
