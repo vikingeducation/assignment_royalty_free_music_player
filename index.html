@@ -1,72 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title></title>
-</head>
+<script src="jquery.js"></script>
+<script src="script.js"></script>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE-edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="styles.css">
+	<title></title>
+</head>
 <body>
-  <header> 
-    <h1>Royalty Free Music Player</h1>
-  </header>
-  <div class="container">
-  	<div id="outline">
-  	  <div class="icon">
-  	    <i class="fa fa-play"></i>
-  	  </div>
-  	    <div id="song">
-  		<h3> On Hold </h3>
-  		<p>Edit Frost</p>
-  		</div>
-  	</div>
-  	<div id="outline">
-  	  <div class="icon">
-  	    <i class="fa fa-play"></i>
-  	  </div>
-  	  <div id="song">
-  		  <h3>How Can I Be So Thirsty Today?</h3>
-  		  <p>The Meat Purveyors</p>
-  	   </div>
-  	</div>
-  	<div id="outline">
-  	  <div class="icon">
-  	    <i class="fa fa-play"></i>
-  	  </div>
-  	    <div id="song">
-  		<h3>18 Wheels</h3>
-  		<p>Moonshine Willy</p>
-  		</div>
-  	</div>
-  	<div id="outline">
-  	  <div class="icon">
-  	    <i class="fa fa-play"></i>
-  	  </div>
-  	    <div id="song">
-  		<h3>Hold The Woodpile Down</h3>
-  		<p>The Holy Modal Rounders</p>
-  		</div>
-  	</div>
-  	<div id="outline">
-  	  <div class="icon">
-  	    <i class="fa fa-play"></i>
-  	  </div>
-  	    <div id="song">
-  		<h3>'Til My  Teardrops Turn To Gold</h3>
-  		<p>Rex Hobart &  the Misery Boys</p>
-  		</div>
-  	</div>
-  </div>
-
-  <div class="playing">
-  	<div class="big-icon"> 
-  	    <i class="fa fa-step-backward"></i>  <i class="fa fa-play"></i>  <i class="fa fa-step-forward"></i>
-  	</div>
-  	<div id="song">
-  		<h2>On Hold</h2>
-  		<p>Edit Frost</p>
-  	</div>
-  </div>
+  <main>
+	<div class="header"> 
+	<h1><i class="fa fa-diamond"></i>Royalty Free Music Player</h1>
+	</div>
+	<div class="container">
+	<div class="outline">
+	    <div class="song" data-panelid = "song0">
+		  <h3> Energy</h3>
+		  <p>Drake</p>
+		  <audio  id ="play" src="audio/0.mp3" type="audio/mp3"></audio>
+		</div>
+	</div>
+	<div class="outline">
+	  <div class ="song" data-panelid = "song1">
+		  <h3>Bounce Back</h3>
+		  <p>Big Sean</p>
+		  <audio id ='play2' src="audio/1.mp3" type="audio/mp3">
+		  </audio>
+	   </div>
+	</div>
+	<div class="outline">
+	    <div class ="song" data-panelid = 'song2'>
+		<h3>IF</h3>
+		<p>Davido</p>
+		<audio>
+		  	<source src="audio/2.mp3" type="audio/mp3">
+		</audio>
+		</div>
+	</div>
+	<div class ="outline">
+	    <div class="song" data-panelid = 'song3'>
+		<h3>My Nigga</h3>
+		<p>YG (ft Lil Wayne, Nicki Minaj & Meek Mill)</p>
+		</div>
+	</div>
+	<div class="outline">
+	    <div class="song" data-panelid = 'audio/4.mp3'>
+		<h3>Juice</h3>
+		<p>YCEE (ft Maleek Berry)</p>
+		</div>
+	</div>
+	</div>
+	<div class= "footer">
+	  <div class="big-icon">
+	    <button>
+	     <i class="fa fa-step-backward"></i>
+	    </button>
+	    <button>
+	      <i class="fa fa-play-circle-o"></i>
+	    </button>
+	    <button>
+	      <i class="fa fa-step-forward"></i>
+	    </button>
+	  </div>
+	<div id="current">	
+	</div>
+	</div>
+  </main>
 </body>
 </html>
