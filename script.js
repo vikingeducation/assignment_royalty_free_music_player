@@ -1,22 +1,21 @@
-$(function () {
+$(function() {
 	"use strict";
-	var playlist = ['audio/0.mp3', 'audio/1.mp3', 'audio/2.mp3', 'audio/3.mp3', 'audio/4.mp3'];
+	const playlist = ['audio/Energy.mp3', 'audio/Bounce.mp3', 'audio/IF.mp3', 'audio/My_Nigga.mp3', 'audio/Juice.mp3'];
 	 var song = new Audio();
+	 var i = 0;
 		song.preload = 'auto';
-		song.addEventListener('ended', function() {
-			var i = Math.floor(Math.random() * 4);
-			$('#current').html($(i).html());
+		song.addEventListener('ended',function() {
+			i = ++i < playlist.length ? i : 0;
 			console.log(i);
 			song.src = playlist[i];
-			song.play();
+			play();
 		}, true);
 		song.loop = false;
     
 		/*alert(identifier);*/
 
-    var nextSong = null;
-    var prevSong = null;
-	function play() {
+    var identifier = null;
+	function play () {
     	if (song.paused) {
     		song.play();
     		song.currentTime = 0;
@@ -29,12 +28,12 @@ $(function () {
 
     //CONTROLS
 
-    function pause() {
+     function pause() {
     	song.pause();
     	song.currentTime = 0;
     }
 
-    function toggleControl() {
+    function toggleControl()  {
     	if (song.paused) {
     		song.play();
     	}else {
@@ -43,15 +42,18 @@ $(function () {
     }
 
 	//CLICK EVENT & TOGGLE ICONS
-	$('.song').click( function() {
-		var identifier = $(this).attr('data-panelid');
+	$('.song').click(function() {
+	    var identifier = $(this).attr('data-panelid');
 		song.src = playlist[identifier];
+		console.log(i);
 		play();
 		$('#current').html($(this).html());
+		console.log($(this).html());
     	$('.fa-play-circle-o').addClass( 'fa-pause-circle-o');
     });
 
-	$('.fa-play-circle-o').click( function() {
+	$('.fa-play-circle-o').click(function() {
+		
 		if( song.src == "" ) {
 			alert('select a song first!');
 		} else {
@@ -60,28 +62,29 @@ $(function () {
 		}
 	});
 
-	$('.fa-step-backward').click(function() {
-		$('.current').html($(this).html());
+	$('.fa-step-backward').click(function(){
 		$('.fa-play-circle-o').addClass( 'fa-pause-circle-o');
-		song.src = playlist[identifier - 1];
-		pause();
-		play();
+		
+			song.src = playlist[identifier];
+			console.log(identifier);
+			song.currentTime = 0;
+			song.play();
 	});
 
 	$('.fa-step-forward').click(function() {
-		$('.current').html($(this).html());
+		$('#current').html($(this).html());
 		$('.fa-play-circle-o').addClass( 'fa-pause-circle-o');
 	});
 
 
 	//HOVER EFFECTS 
-	$('.song').mousemove( function() {
+	$('.song').mousemove(function() {
 		$(this)
 		.css('font-size', '18px');
 	});
 
 
-	$('.song').mouseout( function() {
+	$('.song').mouseout(function() {
 		$(this).css('font-size', '16px');
 	});
 	
