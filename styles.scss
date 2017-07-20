@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing:border-box;
+  font-family: 'Roboto Slab';
+ 
+}
+#main-container {
+	width: 47%;
+	height:900px;
+	margin-left: 30%;
+	margin-top: 30px;
+}
+
+
+header {
+	background-color: #e8e8e8;
+	padding: 0;
+	
+	width: 80%;
+
+	border: 1px solid black;
+
+
+	font-size: 25px;
+	vertical-align: center;
+    
+}
+#header-txt {
+	
+	margin-left: 30px;
+	font-family: 'Roboto Slab';
+}
+
+#tracklist-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#select-song {
+	width: 80%;
+	height: 65px;
+	border: 0.7px solid #C8C8C8;
+	display: flex;
+
+}
+.selection-play-btn {
+	margin-top: 6px;
+	margin-left: 5px;
+}
+
+.selection-pause-btn {
+	margin-top: 6px;
+	margin-left: 5px;
+}
+
+
+.song-info {
+	margin-left:20px;
+	display: flex;
+	flex-direction:column;
+	align-items:baseline;
+	justify-content:space-around;
+
+
+}
+
+.track-title {
+	font-size: 17px;
+}
+
+.track-artist {
+	color: grey;
+	font-size: 13.5px;
+}
+
+
+#boxspace {
+	width: 80%;
+	height: 200px;
+	border: 1px solid #C8C8C8;
+}
+
+#boxplayer {
+	width: 80%;
+	height: 80px;
+	border: 2px solid black;
+	background-color: black;
+	display: flex;
+}
+#player-controls {
+	display: flex;
+	justify-content:flex-start;
+}
+
+#player-play-btn {
+	margin-top:17px;
+	margin-left: 10px;
+}
+
+#player-pause-btn {
+	margin-top:17px;
+	margin-left: 10px;
+}
+
+#player-next-btn {
+	margin-left: 14px;
+	margin-bottom: 12px;
+}
+
+#player-prev-btn {
+	margin-left: 20px;
+	margin-bottom: 10px;
+
+	
+}
+
+
+#playing-now-title, #playing-now-artist {
+	color: white;
+}
+
+#playing-info {
+	margin-left: 30px;
+	display: flex;
+	flex-direction:column;
+	justify-content:space-around;
+}
+
+#playing-now-title {
+	font-size: 20px;
+}
+
+#playing-now-artist {
+	color: darkgray;
+}
+
+
+
