@@ -3,6 +3,10 @@ body {
   font-family: arial;
 }
 
+i {
+  cursor: pointer;
+}
+
 #brand-img {
   height: 40px;
   padding: 0;
@@ -59,7 +63,7 @@ body {
   color: #777;
 }
 
-.icon {
+.icon, .icon-control {
   display: flex;
   align-items: center;
   font-size: 30px;
@@ -67,7 +71,6 @@ body {
 }
 
 .circle {
-  padding-left: 5px;
   width: 50px;
   height: 50px;
   border: 1px solid white;
@@ -75,4 +78,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+audio {
+  display: none;
 }
