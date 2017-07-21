@@ -44,12 +44,42 @@ $(function() {
 	//CLICK EVENT & TOGGLE ICONS
 	$('.song').click(function() {
 	    var identifier = $(this).attr('data-panelid');
-		song.src = playlist[identifier];
-		console.log(i);
-		play();
 		$('#current').html($(this).html());
 		console.log($(this).html());
     	$('.fa-play-circle-o').addClass( 'fa-pause-circle-o');
+
+    	$('.fa-step-forward').click(function() {
+			$('.fa-play-circle-o').addClass( 'fa-pause-circle-o');
+				identifier = identifier + 1;
+				if(identifier === 5){
+					identifier = 0;
+				}
+				song.src = playlist[identifier];
+				play();
+		});
+
+		$('.fa-step-backward').click( function() {
+			$('.fa-play-circle-o').addClass( 'fa-pause-circle-o');
+				identifier = identifier - 1;
+				if(identifier === -1){
+					identifier = 4;
+				}
+
+				song.src = playlist[identifier];
+				play();
+		});
+
+		identifier = identifier;
+		song.src = playlist[identifier];
+		console.log(identifier);
+		play();
+
+    });
+
+    $('.footer').click( function() {
+    	if( song.src == "" ) {
+    		alert('select a song first!');
+    	}
     });
 
 	$('.fa-play-circle-o').click(function() {
@@ -62,19 +92,6 @@ $(function() {
 		}
 	});
 
-	$('.fa-step-backward').click(function(){
-		$('.fa-play-circle-o').addClass( 'fa-pause-circle-o');
-		
-			song.src = playlist[identifier];
-			console.log(identifier);
-			song.currentTime = 0;
-			song.play();
-	});
-
-	$('.fa-step-forward').click(function() {
-		$('#current').html($(this).html());
-		$('.fa-play-circle-o').addClass( 'fa-pause-circle-o');
-	});
 
 
 	//HOVER EFFECTS 
