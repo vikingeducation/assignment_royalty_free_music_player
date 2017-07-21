@@ -39,67 +39,87 @@ $(document).ready(function() {
     $("#" + idName + " audio").attr('src', audioTracks[i].src);
   }
 
-  var currentlyPlayingID;
+  var currentlyPlayingID,
+      clickedID,
+      clickedSong,
+      clickedArtist,
+      $clickedAudio;
 
-  //when clicking a play/pause button
-  $('i').click(function() {
-    var clickedID = $(this).closest(".row").prop("id");
-    var clickedSong = $('#' + clickedID + ' .song').text();
-    var clickedArtist = $('#' + clickedID + ' .artist').text();
-    var $clickedAudio = $('#' + clickedID + " audio");
-    //if the user clicks a play button
-    if ($(this).hasClass('fa-play')) {
-      //first pause all audio files playing
-      $('audio').each(function() {
-        var song = $(this);
-        song[0].pause();
-      });
-      //then make all icons into play buttons
-      $('.icon i').addClass('fa-play').removeClass('fa-pause');
-      //play clicked audio and adjust icons/names as necessary
-      $clickedAudio[0].play();
-      $(this).addClass('fa-pause').removeClass('fa-play');
-      $("#bottom-nav #nav-icon i").addClass('fa-pause').removeClass('fa-play');
-      $("#bottom-nav .song").text(clickedSong);
-      $("#bottom-nav .artist").text(clickedArtist);
-      currentlyPlayingID = clickedID;
-      //if the user clicks a pause button
-    } else if ($(this).hasClass('fa-pause')) {
-      $clickedAudio[0].pause();
-      $(this).addClass('fa-play').removeClass('fa-pause');
-      $("#bottom-nav #nav-icon i").addClass('fa-play').removeClass('fa-pause');
-      //if the user clicks the back button
-    } else if ($(this).hasClass('fa-step-backward')) {
-      //I defined currentlyPlayingID above when a user played a track,
-      //I'll take that to adjust which track is playing
-      var trackToPlay;
-      var currentTrackNum = parseInt(currentlyPlayingID[currentlyPlayingID.length - 1]);
-      if (currentlyPlayingID[currentlyPlayingID.length - 1] > 1) {
-        trackToPlay = currentlyPlayingID.slice(0, -1) + (currentTrackNum + 1);
-      } else if (currentlyPlayingID[currentlyPlayingID.length - 1] == 1){
-        trackToPlay = currentlyPlayingID.slice(0, -1) + (audioTracks.length - 1);
-      }
-      //first pause all audio files playing
-      $('audio').each(function() {
-        var song = $(this);
-        song[0].pause();
-      });
-      //then make all icons into play buttons
-      $('.icon i').addClass('fa-play').removeClass('fa-pause');
-      //play clicked audio and adjust icons/names as necessary
-      var $previousAudio = $('#' + trackToPlay + " audio");
-      var previousSong = $('#' + trackToPlay + ' .song').text();
-      var previousArtist = $('#' + trackToPlay + ' .artist').text();
-      $previousAudio[0].play();
-      $('#' + trackToPlay + " i").addClass('fa-pause').removeClass('fa-play');
-      $("#bottom-nav #nav-icon i").addClass('fa-pause').removeClass('fa-play');
-      $("#bottom-nav .song").text(previousSong);
-      $("#bottom-nav .artist").text(previousArtist);
-      currentlyPlayingID = clickedID;
-      //if user clicks button to move forward
-    } else if ($(this).hasClass('fa-step-forward')) {
+  //when clicking a play button
+  $('.icon').on('click', '.fa-play', function() {
 
+    console.log('playing');
+    clickedID = $(this).closest(".row").prop("id");
+    clickedSong = $('#' + clickedID + ' .song').text();
+    clickedArtist = $('#' + clickedID + ' .artist').text();
+    $clickedAudio = $('#' + clickedID + " audio");
+
+    //first pause all audio files playing, in case user clicks other track than currently playing
+    $('audio').each(function() {
+      var song = $(this);
+      song[0].pause();
+    });
+
+    //then make all icons into play buttons
+    $('.icon i').addClass('fa-play').removeClass('fa-pause');
+
+    //play clicked audio and adjust icons/names as necessary
+    $clickedAudio[0].play();
+    $('#' + clickedID + ' i').removeClass('fa-play').addClass('fa-pause');
+    $("#bottom-nav #nav-icon i").removeClass('fa-play').addClass('fa-pause');
+    $("#bottom-nav .song").text(clickedSong);
+    $("#bottom-nav .artist").text(clickedArtist);
+    currentlyPlayingID = clickedID;
+
+  });
+
+  //if the user clicks a pause button
+  $('.icon').on('click', '.fa-pause', function() {
+
+    console.log('paused');
+    $clickedAudio[0].pause();
+    $(this).addClass('fa-play').removeClass('fa-pause');
+    $("#bottom-nav #nav-icon i").addClass('fa-play').removeClass('fa-pause');
+
+  });
+
+  //if the user clicks the back button
+  $('.fa-step-backward').click(function() {
+
+    //I defined currentlyPlayingID above when a user played a track,
+    //I'll take that to adjust which track is playing
+    var trackToPlay;
+    var currentTrackNum = parseInt(currentlyPlayingID[currentlyPlayingID.length - 1]);
+    if (currentlyPlayingID[currentlyPlayingID.length - 1] > 1) {
+      trackToPlay = currentlyPlayingID.slice(0, -1) + (currentTrackNum + 1);
+    } else if (currentlyPlayingID[currentlyPlayingID.length - 1] == 1){
+      trackToPlay = currentlyPlayingID.slice(0, -1) + (audioTracks.length - 1);
     }
+    //first pause all audio files playing
+    $('audio').each(function() {
+      var song = $(this);
+      song[0].pause();
+    });
+    //then make all icons into play buttons
+    $('.icon i').addClass('fa-play').removeClass('fa-pause');
+    //play clicked audio and adjust icons/names as necessary
+    var $previousAudio = $('#' + trackToPlay + " audio");
+    var previousSong = $('#' + trackToPlay + ' .song').text();
+    var previousArtist = $('#' + trackToPlay + ' .artist').text();
+    $previousAudio[0].play();
+    $('#' + trackToPlay + " i").addClass('fa-pause').removeClass('fa-play');
+    $("#bottom-nav #nav-icon i").addClass('fa-pause').removeClass('fa-play');
+    $("#bottom-nav .song").text(previousSong);
+    $("#bottom-nav .artist").text(previousArtist);
+    currentlyPlayingID = clickedID;
+
+  });
+
+  //if user clicks button to move forward
+  $('.fa-step-forward').click(function() {
+
+
+
   });
 
 });

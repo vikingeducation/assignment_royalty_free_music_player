@@ -83,3 +83,7 @@ i {
 audio {
   display: none;
 }
+
+#bottom-nav .fa-play {
+  margin-left: 5px;
+}
