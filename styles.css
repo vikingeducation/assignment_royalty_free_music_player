@@ -1,0 +1,130 @@
+ @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+ @import url("https://fonts.googleapis.com/css?family=Crimson+Text");
+
+ body {
+ 	background-image: url(wolverine.jpg);
+ 	z-index: -1;
+ 	background-position: center;
+ 	background-size: cover;
+ 	background-repeat: no-repeat;
+ 	width: auto;
+ 	height: 600px;
+ }
+
+ main {
+ 	z-index: 1;
+ 	display: block;
+ 	margin: auto;
+ 	background-color: white;
+    width: 500px;
+ 	font-family: 'Crimson Text', serif;
+ 	height: 650px;
+ 	border: 1px solid grey;
+ 	color: black;	
+ }
+
+.farewell {
+	position: absolute;
+	bottom: 10px;
+	right: 5px;
+}
+
+
+ .different {
+	color: white;
+	
+}
+
+ 	.header {
+ 	position: fixed;
+ 	background-color: #62706F;
+ 	width: 500px;
+ 	height: 80px;
+ }
+
+ h1 {
+ 	padding: 10px 30px;
+ }
+i {
+	position: static;
+	left: 0;
+}
+
+ .container {
+ 	position: relative;
+ 	margin-top: 80px;
+ 	width: 500px;
+ 	height: 300px;
+ 	border-bottom: none;
+ }
+
+ .footer {
+ 	width: 500px;
+ 	height: 80px;
+ 	background-color: black;
+ 	color: white;
+ 	position: fixed;
+ 	display: inline-flex;
+ 	bottom: 40px;
+ 	}
+
+ 	.icon {
+ 		display: none;
+ 		width: 30px;
+ 		height: 80px;
+ 		font-size: 30px;
+ 		padding: 15px;
+ 	}
+
+ 	.big-icon {
+ 		width: 200px;
+ 		font-size: 30px;
+ 		padding: 15px;
+ 	}
+
+ 	div.outline {
+ 		width: 50	0px;
+ 		margin-top: 0;
+ 		display: block
+ 		height: 80px;
+ 		border-bottom: 1px solid #62706F;
+ 	}
+
+ 	div.song {
+ 		cursor: pointer;
+ 		background-color: white;
+ 		width: 490px;
+ 		padding-top: 5px;
+ 		padding-bottom: 5px;
+ 		padding-left: 10px;
+ 		line-height: 10px;
+ 	}
+
+ 	div#current {
+
+ 		cursor: pointer;
+ 		background-color: transparent;
+ 		width: 460px;
+ 		margin-left: 20px;
+ 		line-height: 10px;
+ 	}
+
+ 	h3 {
+ 		: none;
+ 	}
+
+ 	p {
+ 		color: #62706F;
+ 		margin: none;
+ 	}
+
+
+ 	button {
+ 		display: inline;
+ 		text-align: center;
+ 		width: 40px;
+ 		background-color: transparent;
+ 		color: #F9FCFF;
+ 		border: none; 
+ 		font-size: 30px;
+ 	}
