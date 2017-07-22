@@ -1,9 +1,9 @@
+"use strict";
+
 $(function() {
-	"use strict";
 	const playlist = ['audio/Energy.mp3', 'audio/Bounce.mp3', 'audio/IF.mp3', 'audio/My_Nigga.mp3', 'audio/Juice.mp3'];
-	 var song = new Audio();
-	 var i = 0;
-		song.preload = 'auto';
+	var song = new Audio();
+	song.preload = 'auto';
 
 
     //CONTROLS
@@ -32,9 +32,8 @@ $(function() {
 
 	//CLICK EVENT & TOGGLE ICONS
 	$('.song').click(function() {
-	    var identifier = $(this).attr('data-panelid');
-	    identifier = identifier;
-	    var newIdentifier = parseInt(identifier);
+	    let identifier = $(this).attr('data-panelid');
+	    let newIdentifier = parseInt(identifier);
 		song.src = playlist[newIdentifier];
 		play();
 		$('#current').html($(this).html());
@@ -120,8 +119,7 @@ $(function() {
 
 	//HOVER EFFECTS 
 	$('.song').mousemove(function() {
-		$(this)
-		.css('font-size', '18px');
+		$(this).css('font-size', '18px');
 	});
 
 
