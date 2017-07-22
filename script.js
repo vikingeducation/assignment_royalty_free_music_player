@@ -4,18 +4,10 @@ $(function() {
 	 var song = new Audio();
 	 var i = 0;
 		song.preload = 'auto';
-		song.addEventListener('ended',function() {
-			i = ++i < playlist.length ? i : 0;
-			console.log(i);
-			song.src = playlist[i];
-			play();
-		}, true);
-		song.loop = false;
-    
-		/*alert(identifier);*/
 
-    var identifier = null;
-	function play () {
+
+    //CONTROLS
+    function play () {
     	if (song.paused) {
     		song.play();
     		song.currentTime = 0;
@@ -24,9 +16,6 @@ $(function() {
     		song.currentTime = 0;
     	}
     }
-
-
-    //CONTROLS
 
      function pause() {
     	song.pause();
@@ -44,38 +33,73 @@ $(function() {
 	//CLICK EVENT & TOGGLE ICONS
 	$('.song').click(function() {
 	    var identifier = $(this).attr('data-panelid');
+	    identifier = identifier;
+	    var newIdentifier = parseInt(identifier);
+		song.src = playlist[newIdentifier];
+		play();
 		$('#current').html($(this).html());
-		console.log($(this).html());
+		let currentSong = newIdentifier;
     	$('.fa-play-circle-o').addClass( 'fa-pause-circle-o');
 
+    	// NEXT CONTROL BUTTON
     	$('.fa-step-forward').click(function() {
+    		currentSong = newIdentifier + 1;
+			if(currentSong === 5){
+				currentSong = 0;
+			}
+			let testing = $('div .song').get(currentSong);
+
+			$('#current').html($(testing).html());
 			$('.fa-play-circle-o').addClass( 'fa-pause-circle-o');
-				identifier = identifier + 1;
-				if(identifier === 5){
-					identifier = 0;
+				newIdentifier = newIdentifier + 1;
+				if(newIdentifier === 5){
+					newIdentifier = 0;
 				}
-				song.src = playlist[identifier];
+				song.src = playlist[newIdentifier];
 				play();
 		});
 
+		//PREVIOUS CONTROL BUTTON
 		$('.fa-step-backward').click( function() {
+			currentSong = newIdentifier - 1;
+			if(currentSong  === - 1) {
+				currentSong = 4;
+			}
+			let testing = $('div .song').get(currentSong);
+			$('#current').html($(testing).html());
 			$('.fa-play-circle-o').addClass( 'fa-pause-circle-o');
-				identifier = identifier - 1;
-				if(identifier === -1){
-					identifier = 4;
-				}
-
-				song.src = playlist[identifier];
-				play();
+			newIdentifier = newIdentifier - 1;
+			if(newIdentifier === - 1){
+				newIdentifier = 4;
+			}
+			song.src = playlist[newIdentifier];
+			play();
 		});
 
-		identifier = identifier;
-		song.src = playlist[identifier];
-		console.log(identifier);
-		play();
+		//CONTINUE PLAY
+		song.addEventListener('ended',function() {
+			currentSong = newIdentifier + 1;
+			if(currentSong === 5){
+				currentSong = 0;
+			}
 
+			let testing = $('div .song').get(currentSong);
+			$('#current').html($(testing).html());
+			if( newIdentifier === - 1){
+				newIdentifier = 4;
+			}
+			newIdentifier = newIdentifier + 1;
+			if(newIdentifier === 5){
+				newIdentifier = 0;
+			}
+    		song.currentTime = 0;
+			song.src = playlist[newIdentifier];
+			play();
+		}, true);
+		song.loop = false;
     });
 
+    //ERROR HANDLING 
     $('.footer').click( function() {
     	if( song.src == "" ) {
     		alert('select a song first!');

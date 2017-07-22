@@ -23,6 +23,18 @@
  	color: black;	
  }
 
+.farewell {
+	position: absolute;
+	bottom: 10px;
+	right: 5px;
+}
+
+
+ .different {
+	color: white;
+	
+}
+
  	.header {
  	position: fixed;
  	background-color: #62706F;
