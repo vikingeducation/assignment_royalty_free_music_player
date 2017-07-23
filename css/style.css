@@ -1,0 +1,123 @@
+body {
+  background-color: #E4FDE1; }
+
+h3, .fa, p {
+  color: #0F110C; }
+
+/*Global styles*/
+.playing {
+  border-left: 6px solid #0F110C; }
+
+.horizontal-align {
+  list-style: none;
+  display: flex; }
+
+.not-playing {
+  background-color: #BABABA; }
+
+.list-align {
+  list-style: none;
+  display: flex; }
+
+.list {
+  list-style: none; }
+
+.align-right {
+  display: flex;
+  justify-content: flex-end; }
+
+.view-options {
+  display: none; }
+
+#shuffle-on {
+  font-size: 1.8em;
+  color: #FF2C28; }
+
+.form-error {
+  background-color: #FF2C28;
+  box-shadow: 0 0 18px 4px;
+  padding: 15px; }
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px; }
+  nav #add-song {
+    margin-right: 50px; }
+  nav #add-song-form label {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px; }
+  nav #add-song-form li {
+    margin: 0 10px; }
+  nav #add-song-form #button-container {
+    display: flex;
+    align-items: flex-end; }
+
+.header {
+  background-color: #FF2C28;
+  color: #E4FDE1;
+  padding: 35px 0;
+  margin-bottom: -3px; }
+  .header #title {
+    font-family: "Lato", sans-serif; }
+    .header #title .fa-music {
+      padding-right: 15px; }
+
+.music-display {
+  padding: 3px 0;
+  height: 300px;
+  overflow: auto; }
+  .music-display .display-row {
+    border-style: solid;
+    border-width: 0px 1px 1px 1px;
+    padding: 4px 0 0 10px;
+    height: 50px; }
+    .music-display .display-row .fa-play, .music-display .display-row .fa-pause {
+      font-size: 2em;
+      padding: 5px 15px 0px 10px;
+      float: left; }
+      .music-display .display-row .fa-play:hover, .music-display .display-row .fa-pause:hover {
+        padding-right: 50px;
+        font-size: 2.2em; }
+    .music-display .display-row p {
+      display: block;
+      margin: 0;
+      font-size: 13px; }
+    .music-display .display-row:first-child {
+      border-top: 1px solid black; }
+  .music-display #options .fa-trash {
+    color: #FF2C28; }
+
+.currently-playing {
+  margin-top: -3px;
+  padding: 10px 20px;
+  background-color: #0F110C;
+  color: #E4FDE1;
+  display: flex;
+  justify-content: center; }
+  .currently-playing p {
+    margin: 0px;
+    color: #E4FDE1; }
+  .currently-playing .facontainer {
+    margin: 8px 15px 0 0;
+    float: left; }
+  .currently-playing i {
+    color: #E4FDE1; }
+  .currently-playing .fa-play, .currently-playing .fa-pause {
+    font-size: 2em;
+    padding: 0 10px; }
+  .currently-playing .fa-backward, .currently-playing .fa-forward {
+    font-size: 1em;
+    position: relative;
+    top: -5px; }
+  .currently-playing .artist {
+    font-size: 12px; }
+  .currently-playing ul {
+    margin: 0px; }
+  .currently-playing .fa-random {
+    font-size: 1.5em;
+    padding: 10px;
+    margin-left: 10px; }
+
+/*# sourceMappingURL=style.css.map */
