@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>A Pen by  Brandon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"</link>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.0/css/foundation.min.css'>
+  <link rel="stylesheet" href="css/style.css">
+
+  <!--font-->
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+
+<body>
+  
+<main>
+
+  <nav>
+    <ul class="list">
+        <li class="align-right">
+          <button id="add-song-button" class="button">Add a Song</button>
+        </li>
+            <ul id="add-song-form" class="list-align">
+              <li>
+                <label for="title"> Song Title </label>
+                <input text="title" id="title" type="text">
+              </li>
+              <li>
+                <label for="artist">Artist</label>
+                <input id="artist" type="text">
+              </li>
+              <li>
+                <label for="song-url">URL</label>
+                <input type="text" id="song-url"> 
+              </li>
+              <li id="button-container">
+                <button id="submit-song" class="button"> Add Song </button>
+              </li>
+            </ul>
+      </ul>
+  </nav>
+
+  <section class="row">
+    <div class="large-6 large-offset-3 column header">
+      <h3 class="text-center" id="title">
+        <i class="fa fa-music"></i> Royalty Free Music Player
+      </h3>
+    </div>
+  </section>
+  
+  <section class="row">
+    <div class="medium-8 medium-offset-2 large-6 large-offset-3 column music-display">
+      <!-- song list -->
+
+    </div>
+  </section>
+  
+  <section>
+    <div class="medium-8 medium-offset-2 large-6 large-offset-3 column currently-playing">
+    <ul class="list-align">
+      <li>
+        <div class="facontainer">
+        <i class="fa fa-backward"></i>
+        <i id="playing" class="fa fa-play"></i>
+        <i class="fa fa-forward"></i>
+        </div>
+      </li>
+      <li>
+        <p class="title"></p>
+        <p class="artist"></p>
+      </li>
+      <li>
+        <i id="shuffle" class="fa fa-random"></i>
+      </li>
+    </ul>
+    </div>
+  </section>
+</main>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script src="js/song_data.json"></script>
+  <script src="js/index.js"></script>
+
+</body>
+</html>

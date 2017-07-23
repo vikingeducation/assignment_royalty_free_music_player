@@ -1,0 +1,49 @@
+song_information =  [{
+    "title": "Progressive Rock",
+    "artist": "Images",
+    "id": 1,
+    "url": "https://s3-us-west-1.amazonaws.com/freemusicpublicdomain/Images+-+Lost+European.mp3"
+  },
+  {
+    "title": "Beautiful Sunset",
+    "artist": "Instrumentals",
+    "id": 2,
+    "url": "https://s3-us-west-1.amazonaws.com/freemusicpublicdomain/What+a+Beautiful+Sunset!+Radio+Mix+-+Angelwing.mp3"
+  },
+  {
+    "title": "New Age Music",
+    "artist": "The Calling",
+    "id": 3,
+    "url": "https://s3-us-west-1.amazonaws.com/freemusicpublicdomain/The+Calling++-+Angelwing.mp3"
+  },
+  {
+    "title": "Female Vocal Music",
+    "artist": "Forever",
+    "id": 4,
+    "url": "https://s3-us-west-1.amazonaws.com/freemusicpublicdomain/Forever+-+The+Lemming+Shepherds.mp3"
+  },
+  {
+    "title": "Blue's Music",
+    "artist": "Tammy",
+    "id": 5,
+    "url": "https://s3-us-west-1.amazonaws.com/freemusicpublicdomain/TAMMY+-+Stan+Devereaux.mp3"
+  },
+  {
+    "title": "The Experiment",
+    "artist": "The Lemming Shepherds",
+    "id": 6,
+    "url": "https://s3-us-west-1.amazonaws.com/freemusicpublicdomain/The+Experiment+-+The+Lemming+Shepherds.mp3"
+  },
+  {
+    "title": "Dewey's Ditty",
+    "artist": "JB Skeleton",
+    "id": 7,
+    "url": "https://s3-us-west-1.amazonaws.com/freemusicpublicdomain/DEWEY'S+DITTY+-JB+Skelton.mp3"
+  },
+  {
+    "title": "LunchTime Blues",
+    "artist": "Lost European",
+    "id": 8,
+    "url": "https://s3-us-west-1.amazonaws.com/freemusicpublicdomain/LUNCHTIME+BLUES+'+Lost+European.mp3"
+  }
+  ]

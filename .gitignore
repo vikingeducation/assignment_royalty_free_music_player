@@ -1,0 +1,7 @@
+scss
+.sass-cache
+css/style.css.map
+assets
+package.json
+package-lock.json
+node_modules
