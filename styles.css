@@ -14,6 +14,20 @@ header {
     padding: 0;
     font-size: 23px; }
 
+/* Global Song Details Styles */
+.song-details {
+  float: left; }
+  .song-details p {
+    margin: 0;
+    padding: 0; }
+
+/* Global Icon Styles */
+.material-icons {
+  vertical-align: middle; }
+
+.material-icons.large {
+  font-size: 40px; }
+
 /* Song List */
 section.song-list {
   /* li */ }
@@ -32,16 +46,11 @@ section.song-list {
       section.song-list li i:hover {
         color: #727272;
         cursor: pointer; }
-    section.song-list li .song-info {
-      float: left; }
-      section.song-list li .song-info p {
-        margin: 0;
-        padding: 0; }
-      section.song-list li .song-info .title {
-        font-size: 12px; }
-      section.song-list li .song-info .artist {
-        color: #A5A5A5;
-        font-size: 9px; }
+    section.song-list li .title {
+      font-size: 12px; }
+    section.song-list li .artist {
+      color: #A5A5A5;
+      font-size: 9px; }
 
 /* section#song-list */
 /* Bootstrap overrides */
