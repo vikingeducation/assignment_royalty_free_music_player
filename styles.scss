@@ -1,6 +1,7 @@
 /* Colors */
 $lightgray: #f1f1f1;
 $darkgray: #A5A5A5;
+$charcoal: #2c2c2c;
 
 
 /* Header Styles */
@@ -69,6 +70,26 @@ section.song-list {
   } /* li */
 } /* section#song-list */
 
+
+/* Player */
+section.player {
+  background-color: $charcoal;
+  overflow: auto;
+  padding: 8px 5px;
+  .buttons {
+    float: left;
+    color: white;
+    margin-right: 10px;
+  }
+  .title {
+    color: $lightgray;
+    font-size: 18px;
+  }
+  .artist {
+    color: $darkgray;
+    font-size: 14px;
+  }
+} /* section.player */
 
 
 /* Bootstrap overrides */

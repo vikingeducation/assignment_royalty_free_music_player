@@ -53,6 +53,23 @@ section.song-list {
       font-size: 9px; }
 
 /* section#song-list */
+/* Player */
+section.player {
+  background-color: #2c2c2c;
+  overflow: auto;
+  padding: 8px 5px; }
+  section.player .buttons {
+    float: left;
+    color: white;
+    margin-right: 10px; }
+  section.player .title {
+    color: #f1f1f1;
+    font-size: 18px; }
+  section.player .artist {
+    color: #A5A5A5;
+    font-size: 14px; }
+
+/* section.player */
 /* Bootstrap overrides */
 .container {
   border: 1px solid #A5A5A5;
