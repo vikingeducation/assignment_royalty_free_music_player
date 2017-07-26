@@ -21,7 +21,42 @@ header {
   }
 }
 
-
+/* Song List */
+section.song-list {
+  ul {
+    padding: 0px;
+  }
+  li {
+    list-style-type: none;
+    padding: 5px 5px;
+    margin: 0;
+    border-bottom: 1px solid $lightgray;
+    overflow: auto;
+    i {
+      color: $darkgray;
+      float: left;
+      margin-right: 10px;
+      &:hover {
+        color: darken($darkgray, 20%);
+        cursor: pointer;
+      }
+    }
+    .song-info {
+      float: left;
+      p {
+        margin: 0;
+        padding: 0;
+      }
+      .title {
+        font-size: 12px;
+      }
+      .artist {
+        color: $darkgray;
+        font-size: 9px;
+      }
+    }
+  } /* li */
+} /* section#song-list */
 
 /* Bootstrap overrides */
 .container {

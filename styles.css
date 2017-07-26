@@ -14,6 +14,36 @@ header {
     padding: 0;
     font-size: 23px; }
 
+/* Song List */
+section.song-list {
+  /* li */ }
+  section.song-list ul {
+    padding: 0px; }
+  section.song-list li {
+    list-style-type: none;
+    padding: 5px 5px;
+    margin: 0;
+    border-bottom: 1px solid #f1f1f1;
+    overflow: auto; }
+    section.song-list li i {
+      color: #A5A5A5;
+      float: left;
+      margin-right: 10px; }
+      section.song-list li i:hover {
+        color: #727272;
+        cursor: pointer; }
+    section.song-list li .song-info {
+      float: left; }
+      section.song-list li .song-info p {
+        margin: 0;
+        padding: 0; }
+      section.song-list li .song-info .title {
+        font-size: 12px; }
+      section.song-list li .song-info .artist {
+        color: #A5A5A5;
+        font-size: 9px; }
+
+/* section#song-list */
 /* Bootstrap overrides */
 .container {
   border: 1px solid #A5A5A5;
