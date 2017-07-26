@@ -30,6 +30,8 @@ header {
 
 /* Song List */
 section.song-list {
+  height: 400px;
+  overflow-y: scroll;
   /* li */ }
   section.song-list ul {
     padding: 0px; }
@@ -73,6 +75,7 @@ section.player {
 /* Bootstrap overrides */
 .container {
   border: 1px solid #A5A5A5;
-  width: 600px; }
+  width: 600px;
+  margin-top: 50px; }
 
 /*# sourceMappingURL=styles.css.map */
