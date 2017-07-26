@@ -1,3 +1,22 @@
+/* Colors */
+/* Header Styles */
+header {
+  background-color: #f1f1f1;
+  border-bottom: 2px solid black;
+  padding: 8px 5px;
+  box-shadow: 0px 5px 15px #f1f1f1; }
+  header i {
+    float: left;
+    font-size: 25px;
+    margin-right: 10px; }
+  header h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 23px; }
 
+/* Bootstrap overrides */
+.container {
+  border: 1px solid #A5A5A5;
+  width: 600px; }
 
 /*# sourceMappingURL=styles.css.map */
