@@ -62,15 +62,15 @@ section.song-list {
     margin: 0;
     border-bottom: 1px solid $lightgray;
     overflow: auto;
-    &:hover { @include gradient(lighten($lightgray, 2%), white, $lightgray);}
+    &:hover {
+      @include gradient(lighten($lightgray, 2%), white, $lightgray);
+      cursor: pointer;
+    }
     i {
       color: $darkgray;
       float: left;
       margin-right: 10px;
-      &:hover {
-        color: darken($darkgray, 20%);
-        cursor: pointer;
-      }
+      &:hover { color: darken($darkgray, 20%); }
     }
     .title {
       font-size: 12px;

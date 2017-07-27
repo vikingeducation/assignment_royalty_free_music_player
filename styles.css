@@ -50,14 +50,14 @@ section.song-list {
       background: -moz-linear-gradient(#f6f6f6, white, #f1f1f1);
       /* For Firefox 3.6 to 15 */
       background: linear-gradient(#f6f6f6, white, #f1f1f1);
-      /* Standard syntax */ }
+      /* Standard syntax */
+      cursor: pointer; }
     section.song-list li i {
       color: #A5A5A5;
       float: left;
       margin-right: 10px; }
       section.song-list li i:hover {
-        color: #727272;
-        cursor: pointer; }
+        color: #727272; }
     section.song-list li .title {
       font-size: 12px; }
     section.song-list li .artist {
