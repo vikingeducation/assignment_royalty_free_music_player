@@ -16,8 +16,6 @@ $( document ).ready(function() {
 
     // When the song is over, reset the styles back to the 'play' state
     $currentSong.on('ended', function(){
-      $('#jqchanger').css('border', '1px solid red');
-      console.log($(this));
       $(this).closest('li').removeClass('active');
       $(this).closest('li').find('i')
              .text('play_arrow')
