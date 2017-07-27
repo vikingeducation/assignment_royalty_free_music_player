@@ -37,7 +37,9 @@ $( document ).ready(function() {
   });
 
   // Put the current song details in the player on the bottom
-  $('.song-list ul').on('click', 'li:not(.active)', function(e){
+  $('.container').on('click', '.song-list ul li.active', function(e){
+    console.log('clicked a song thats not playing');
+
     var $currentSongDetails = $(this).find('.song-details');
     var $currentTitle = $currentSongDetails.find('.title').text();
     var $currentArtist = $currentSongDetails.find('.artist').text();
@@ -47,6 +49,12 @@ $( document ).ready(function() {
     $playerSongDetails.find('.title').text($currentTitle);
     $playerSongDetails.find('.artist').text($currentArtist);
 
+
+    // Change the Player play button to a pause button
+    var $playerButtons = $(this).closest('.container').find('section.player .buttons');
+    $playerButtons.find('#play-button')
+                         .attr('id', '#pause-button')
+                         .text('pause_circle_outline');
   });
 
 
