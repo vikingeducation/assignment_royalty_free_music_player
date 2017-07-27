@@ -4,24 +4,7 @@ $( document ).ready(function() {
 
 // -----------sandbox-------------------------------------------
 
-  // document.getElementById('bg_audio').play();
 
-  // $('#playButton').on('click', function(e){
-  //   $('#bg_audio').trigger("play");
-  // });
-
-  // $('#pauseButton').on('click', function(e){
-  //   $('#bg_audio').trigger("pause");
-  // });
-
-
-  // document.getElementById('bg_audio').addEventListener('ended', function(){
-  //     $('#jschanger').css('border', '1px solid blue');
-  // });
-
-  // $('#bg_audio').on('ended', function(){
-  //     $('#jqchanger').css('border', '1px solid red');
-  // });
 
 // ------------------------------------------------------
 
