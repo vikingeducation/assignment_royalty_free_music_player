@@ -23,7 +23,11 @@ header {
 
 /* Global Icon Styles */
 .material-icons {
-  vertical-align: middle; }
+  vertical-align: middle;
+  cursor: pointer; }
+
+.material-icons.brand {
+  cursor: default; }
 
 .material-icons.large {
   font-size: 40px; }

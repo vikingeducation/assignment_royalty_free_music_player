@@ -42,6 +42,11 @@ header {
 /* Global Icon Styles */
 .material-icons {
   vertical-align: middle;
+  cursor: pointer;
+}
+
+.material-icons.brand {
+  cursor: default;
 }
 
 .material-icons.large {
