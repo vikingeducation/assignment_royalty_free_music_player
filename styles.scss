@@ -50,8 +50,9 @@ header {
 
 /* Song List */
 section.song-list {
-  height: 400px;
-  overflow-y: scroll;
+  // height: 400px;
+  // overflow-y: scroll;
+  overflow: auto;
   ul {
     padding: 0px;
   }
@@ -108,5 +109,5 @@ section.player {
 .container {
   border: 1px solid $darkgray;
   width: 600px;
-  margin-top: 50px;
+  margin-top: 25px;
 }
