@@ -30,34 +30,31 @@ $( document ).ready(function() {
     var $currentSong = $(this).find('.song-details audio');
 
     $currentSong.trigger('play');
-    $(this).addClass('active')
-           .removeClass('play')
-           .addClass('pause');
+    $(this).addClass('active');
     $(this).find('i').text('pause');
 
     // When the song is over, reset the styles back to the 'play' state
     $currentSong.on('ended', function(){
       $(this).closest('li')
-             .removeClass('active')
-             .removeClass('pause')
-             .addClass('play');
+             .removeClass('active');
       $(this).closest('li').find('i')
              .text('play_arrow');
     });
   });
 
   // Pause the song when the pause button is clicked
-  $('.song-list ul').on('click', 'li.pause', function(e){
+  $('.song-list ul').on('click', 'li.active', function(e){
     var $currentSong = $(this).find('.song-details audio');
 
     $currentSong.trigger('pause');
     $(this).closest('li')
-           .removeClass('active')
-           .removeClass('pause')
-           .addClass('play');
+           .removeClass('active');
     $(this).closest('li').find('i')
            .text('play_arrow');
   });
+
+  // Put the current song in the player on the bottom
+
 
 
 });
