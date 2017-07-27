@@ -2,6 +2,7 @@
 $lightgray: #f1f1f1;
 $darkgray: #A5A5A5;
 $charcoal: #2c2c2c;
+$playing: #d9ffb3;
 
 @mixin gradient($top, $middle, $bottom) {
   background: $middle; /* For browsers that do not support gradients */
@@ -60,6 +61,7 @@ section.song-list {
     margin: 0;
     border-bottom: 1px solid $lightgray;
     overflow: auto;
+    &:hover { @include gradient(lighten($lightgray, 2%), white, $lightgray);}
     i {
       color: $darkgray;
       float: left;
@@ -77,10 +79,7 @@ section.song-list {
       font-size: 9px;
     }
   } /* li */
-  li.active {
-    @include gradient(lighten($lightgray, 2%), white, $lightgray);
-    // background-color: pink;
-  }
+  li.active { @include gradient($playing, lighten($playing, 10%), $playing); }
 } /* section#song-list */
 
 

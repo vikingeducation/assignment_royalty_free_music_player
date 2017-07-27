@@ -41,6 +41,17 @@ section.song-list {
     margin: 0;
     border-bottom: 1px solid #f1f1f1;
     overflow: auto; }
+    section.song-list li:hover {
+      background: white;
+      /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient(#f6f6f6, white, #f1f1f1);
+      /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(#f6f6f6, white, #f1f1f1);
+      /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(#f6f6f6, white, #f1f1f1);
+      /* For Firefox 3.6 to 15 */
+      background: linear-gradient(#f6f6f6, white, #f1f1f1);
+      /* Standard syntax */ }
     section.song-list li i {
       color: #A5A5A5;
       float: left;
@@ -54,15 +65,15 @@ section.song-list {
       color: #A5A5A5;
       font-size: 9px; }
   section.song-list li.active {
-    background: white;
+    background: #f3ffe6;
     /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(#f6f6f6, white, #f1f1f1);
+    background: -webkit-linear-gradient(#d9ffb3, #f3ffe6, #d9ffb3);
     /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#f6f6f6, white, #f1f1f1);
+    background: -o-linear-gradient(#d9ffb3, #f3ffe6, #d9ffb3);
     /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#f6f6f6, white, #f1f1f1);
+    background: -moz-linear-gradient(#d9ffb3, #f3ffe6, #d9ffb3);
     /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#f6f6f6, white, #f1f1f1);
+    background: linear-gradient(#d9ffb3, #f3ffe6, #d9ffb3);
     /* Standard syntax */ }
 
 /* section#song-list */
