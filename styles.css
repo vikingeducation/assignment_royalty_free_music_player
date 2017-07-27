@@ -53,11 +53,31 @@ section.song-list {
     section.song-list li .artist {
       color: #A5A5A5;
       font-size: 9px; }
+  section.song-list li.active {
+    background: white;
+    /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#f6f6f6, white, #f1f1f1);
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#f6f6f6, white, #f1f1f1);
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#f6f6f6, white, #f1f1f1);
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#f6f6f6, white, #f1f1f1);
+    /* Standard syntax */ }
 
 /* section#song-list */
 /* Player */
 section.player {
-  background-color: #2c2c2c;
+  background: #2c2c2c;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(black, #2c2c2c, black);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(black, #2c2c2c, black);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(black, #2c2c2c, black);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(black, #2c2c2c, black);
+  /* Standard syntax */
   overflow: auto;
   padding: 8px 5px; }
   section.player .buttons {

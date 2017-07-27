@@ -3,6 +3,13 @@ $lightgray: #f1f1f1;
 $darkgray: #A5A5A5;
 $charcoal: #2c2c2c;
 
+@mixin gradient($top, $middle, $bottom) {
+  background: $middle; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient($top, $middle, $bottom); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient($top, $middle, $bottom); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient($top, $middle, $bottom); /* For Firefox 3.6 to 15 */
+  background: linear-gradient($top, $middle, $bottom); /* Standard syntax */
+}
 
 /* Header Styles */
 header {
@@ -70,12 +77,16 @@ section.song-list {
       font-size: 9px;
     }
   } /* li */
+  li.active {
+    @include gradient(lighten($lightgray, 2%), white, $lightgray);
+    // background-color: pink;
+  }
 } /* section#song-list */
 
 
 /* Player */
 section.player {
-  background-color: $charcoal;
+  @include gradient(black, $charcoal, black);
   overflow: auto;
   padding: 8px 5px;
   .buttons {
