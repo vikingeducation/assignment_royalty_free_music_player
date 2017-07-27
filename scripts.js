@@ -53,8 +53,22 @@ $( document ).ready(function() {
            .text('play_arrow');
   });
 
-  // Put the current song in the player on the bottom
+  // Put the current song details in the player on the bottom
+  $('.song-list ul').on('click', 'li:not(.active)', function(e){
+    var $currentSongDetails = $(this).find('.song-details');
+    var $currentTitle = $currentSongDetails.find('.title').text();
+    var $currentArtist = $currentSongDetails.find('.artist').text();
+    var $currentSong = $currentSongDetails.find('audio');
 
+    var $playerSongDetails = $('section.player .song-details')
+    $playerSongDetails.find('.title').text($currentTitle);
+    $playerSongDetails.find('.artist').text($currentArtist);
+
+  });
 
 
 });
+
+
+
+
