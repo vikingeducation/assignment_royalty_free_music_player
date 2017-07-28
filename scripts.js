@@ -8,44 +8,68 @@ $( document ).ready(function() {
 // ------------------------------------------------------
 
 
-// Set up songs data
-var songs = [
-{ id: 1,
-  title: "Water",
-  artist: "SoudBible",
-  mp3File: "water.mp3",
-  oggFile: "water.ogg"
-},
-{ id: 2,
-  title: "Robot Blip",
-  artist: "SoudBible",
-  mp3File: "robot_blip.mp3",
-  oggFile: "robot_blip.ogg"
-},
-{ id: 3,
-  title: "Chime",
-  artist: "YogaAlbum",
-  mp3File: "chime.mp3",
-  oggFile: "chime.ogg"
-},
-{ id: 4,
-  title: "Springish",
-  artist: "Gillicuddy",
-  mp3File: "Gillicuddy_-_05_-_Springish.mp3",
-  oggFile: "Gillicuddy_-_05_-_Springish.ogg"
-},
-{ id: 5,
-  title: "Estampe Galactus Barbere Epaul Giraffe Ennui",
-  artist: "Monplaisir Cie",
-  mp3File: "Monplaisir__Cie_-_37_-_Monplaisir_-_Estampe_Galactus_Barbere_Epaul_Giraffe_Ennui.mp.mp3",
-  oggFile: "Monplaisir__Cie_-_37_-_Monplaisir_-_Estampe_Galactus_Barbere_Epaul_Giraffe_Ennui.mp.ogg"
-},
-{ id: 6,
-  title: "Amsterdam",
-  artist: "Lasers",
-  mp3File: "LASERS_-_01_-_Amsterdam.mp3",
-  oggFile: "LASERS_-_01_-_Amsterdam.ogg"
-}];
+  // Set up songs data
+  var songs = [
+  { id: 1,
+    title: "Water",
+    artist: "SoudBible",
+    mp3File: "water.mp3",
+    oggFile: "water.ogg"
+  },
+  { id: 2,
+    title: "Robot Blip",
+    artist: "SoudBible",
+    mp3File: "robot_blip.mp3",
+    oggFile: "robot_blip.ogg"
+  },
+  { id: 3,
+    title: "Chime",
+    artist: "YogaAlbum",
+    mp3File: "chime.mp3",
+    oggFile: "chime.ogg"
+  },
+  { id: 4,
+    title: "Springish",
+    artist: "Gillicuddy",
+    mp3File: "Gillicuddy_-_05_-_Springish.mp3",
+    oggFile: "Gillicuddy_-_05_-_Springish.ogg"
+  },
+  { id: 5,
+    title: "Estampe Galactus Barbere Epaul Giraffe Ennui",
+    artist: "Monplaisir Cie",
+    mp3File: "Monplaisir__Cie_-_37_-_Monplaisir_-_Estampe_Galactus_Barbere_Epaul_Giraffe_Ennui.mp.mp3",
+    oggFile: "Monplaisir__Cie_-_37_-_Monplaisir_-_Estampe_Galactus_Barbere_Epaul_Giraffe_Ennui.mp.ogg"
+  },
+  { id: 6,
+    title: "Amsterdam",
+    artist: "Lasers",
+    mp3File: "LASERS_-_01_-_Amsterdam.mp3",
+    oggFile: "LASERS_-_01_-_Amsterdam.ogg"
+  }];
+
+  // Set up Player class
+  function Player(songs) {
+
+    this.initialize = function(songs) {
+      var songSet = {};
+      songs.forEach(function(song){
+        songSet[song.id] = song;
+      });
+      this.songs = songSet;
+    };
+    this.currentSong = {};
+    this.set_currentSong = function(id) {
+      this.currentSong = this.findSong(id);
+      //this.renderSong ?
+      return true;
+    };
+    this.initialize(songs);
+  }//close Player
+
+  var player = new Player(songs);
+
+
+
 
 
 
