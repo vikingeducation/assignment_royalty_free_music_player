@@ -10,37 +10,37 @@ $( document ).ready(function() {
 
   // Set up songs data
   var songs = [
-  { id: 1,
+  { id: 10,
     title: "Water",
-    artist: "SoudBible",
+    artist: "SoundBible",
     mp3File: "water.mp3",
     oggFile: "water.ogg"
   },
-  { id: 2,
+  { id: 20,
     title: "Robot Blip",
-    artist: "SoudBible",
+    artist: "SoundBible",
     mp3File: "robot_blip.mp3",
     oggFile: "robot_blip.ogg"
   },
-  { id: 3,
+  { id: 30,
     title: "Chime",
     artist: "YogaAlbum",
     mp3File: "chime.mp3",
     oggFile: "chime.ogg"
   },
-  { id: 4,
+  { id: 40,
     title: "Springish",
     artist: "Gillicuddy",
     mp3File: "Gillicuddy_-_05_-_Springish.mp3",
     oggFile: "Gillicuddy_-_05_-_Springish.ogg"
   },
-  { id: 5,
+  { id: 50,
     title: "Estampe Galactus Barbere Epaul Giraffe Ennui",
     artist: "Monplaisir Cie",
     mp3File: "Monplaisir__Cie_-_37_-_Monplaisir_-_Estampe_Galactus_Barbere_Epaul_Giraffe_Ennui.mp.mp3",
     oggFile: "Monplaisir__Cie_-_37_-_Monplaisir_-_Estampe_Galactus_Barbere_Epaul_Giraffe_Ennui.mp.ogg"
   },
-  { id: 6,
+  { id: 60,
     title: "Amsterdam",
     artist: "Lasers",
     mp3File: "LASERS_-_01_-_Amsterdam.mp3",
