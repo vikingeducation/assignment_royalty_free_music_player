@@ -153,23 +153,26 @@ $( document ).ready(function() {
     $playerSongDetails.find('.artist').text($currentSong.artist);
 
 
-    // Change the Player play button to a pause button
+    // Change the player play button to a pause button
     var $playerButtons = $(this).closest('.container').find('section.player .buttons');
     $playerButtons.find('#play-button')
-                         .attr('id', '#pause-button')
+                         .attr('id', 'pause-button')
                          .text('pause_circle_outline');
 
 
-     // Pause the song when the pause button is clicked
-    $playerButtons.on('click', 'i', function(e){ //THIS IS NOT BINDING RIGHT
-      console.log('player pause icon');
-      // var $currentSong = $(this).find('.song-details audio');
+    // Pause the song when the player pause button is clicked
+    $playerButtons.on('click', 'i#pause-button', function(e){
+      console.log('clicked player pause button');
 
-      // $currentSong.trigger('pause');
-      // $(this).closest('li')
-      //        .removeClass('active');
-      // $(this).closest('li').find('i')
-      //        .text('play_arrow');
+      $('audio#'+$currentSong.id).trigger('pause')
+                                .closest('li')
+                                .removeClass('active')
+                                .find('i')
+                                .text('play_arrow');
+
+      $(this).attr('id', 'play-button')
+             .text('play_circle_outline');
+
     });
 
 
