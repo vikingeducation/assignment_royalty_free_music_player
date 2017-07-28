@@ -69,9 +69,48 @@ $( document ).ready(function() {
   var player = new Player(songs);
 
 
+  // Build out HTML elements for songs
+  var renderSong = function(song) {
+    var $songTitle = $('<p></p>')
+              .addClass('title')
+              .text(song.title);
+
+    var $songArtist = $('<p></p>')
+              .addClass('artist')
+              .text(song.artist);
+
+    var $songMp3 = $('<source></source>')
+              .attr('src', 'music/' + song.mp3File)
+              .attr('type', 'audio/mpeg');
+
+    var $songOgg = $('<source></source>')
+              .attr('src', 'music/' + song.oggFile)
+              .attr('type', 'audio/ogg');
+
+    var $songAudioSection = $('<audio></audio>')
+              .attr('preload','none')
+              .text('Your browser does not support HTML5 audio.')
+              .prepend($songOgg)
+              .prepend($songMp3);
+
+    var $songDetails = $('<div></div>')
+              .addClass('song-details')
+              .append($songTitle)
+              .append($songArtist)
+              .append($songAudioSection);
+
+    var $songLi = $('<li></li>')
+              .append('<i class="material-icons">play_arrow</i>')
+              .append($songDetails);
+
+    $('.song-list ul').append($songLi);
+  };//close renderSong
 
 
-
+  // Load all songs into the song-list
+  songs.forEach(function(song){
+    renderSong(song);
+  });
 
 
   // Play the song when the play button is clicked.
