@@ -37,8 +37,8 @@ $( document ).ready(function() {
   { id: 50,
     title: "Estampe Galactus Barbere Epaul Giraffe Ennui",
     artist: "Monplaisir Cie",
-    mp3File: "Monplaisir__Cie_-_37_-_Monplaisir_-_Estampe_Galactus_Barbere_Epaul_Giraffe_Ennui.mp.mp3",
-    oggFile: "Monplaisir__Cie_-_37_-_Monplaisir_-_Estampe_Galactus_Barbere_Epaul_Giraffe_Ennui.mp.ogg"
+    mp3File: "Monplaisir__Cie_-_37_-_Monplaisir_-_Estampe_Galactus_Barbere_Epaul_Giraffe_Ennui.mp3",
+    oggFile: "Monplaisir__Cie_-_37_-_Monplaisir_-_Estampe_Galactus_Barbere_Epaul_Giraffe_Ennui.ogg"
   },
   { id: 60,
     title: "Amsterdam",
