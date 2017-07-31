@@ -113,6 +113,14 @@ $( document ).ready(function() {
     renderSong(song);
   });
 
+  // Load the first song into the player
+  var songToPlayer = function(song){
+    var $playerSongDetails = $('section.player .song-details')
+    $playerSongDetails.find('.title').text(song.title);
+    $playerSongDetails.find('.artist').text(song.artist);
+  };
+  songToPlayer(songs[0]);
+
 
   // Play the song when the li is clicked.
   var resetSongStyles = function(song){
