@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Royalty Free Music Player</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Local Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="row">
+    <header>
+      <i class="material-icons brand">library_music</i>
+      <h1>Royalty Free Music Player</h1>
+    </header>
+    </div> <!-- row -->
+    <div class="row">
+      <section class="song-list">
+        <ul>
+          <!-- <li>
+            <i class="material-icons">play_arrow</i>
+            <div class="song-details">
+              <p class="title">Water</p>
+              <p class="artist">SoundBible</p>
+              <audio preload="none">
+                <source src="music/water.mp3" type="audio/mpeg">
+                <source src="music/water.ogg" type="audio/ogg">
+                Your browser does not support HTML5 audio.
+              </audio>
+            </div>
+          </li> -->
+        </ul>
+      </section> <!-- player-window -->
+    </div> <!-- row -->
+    <div class="row">
+      <section class="player">
+        <div class="buttons">
+          <i class="material-icons">skip_previous</i>
+          <i class="material-icons large" id="play-button">play_circle_outline</i>
+          <!-- <i class="material-icons large" id="pause-button">pause_circle_outline</i> -->
+          <i class="material-icons">skip_next</i>
+        </div> <!-- buttons -->
+        <div class="song-details">
+          <p class="title"></p>
+          <p class="artist"></p>
+          <input type="hidden">
+        </div> <!-- song-details -->
+      </section>
+    </div> <!-- row -->
+  </div> <!-- container -->
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Local Scripts -->
+    <script type="text/javascript" src="scripts.js"></script>
+  </body>
+</html>

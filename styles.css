@@ -1,0 +1,115 @@
+/* Colors */
+/* Header Styles */
+header {
+  background-color: #f1f1f1;
+  border-bottom: 2px solid black;
+  padding: 8px 5px;
+  box-shadow: 0px 5px 15px #f1f1f1; }
+  header i {
+    float: left;
+    font-size: 25px;
+    margin-right: 10px; }
+  header h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 23px; }
+
+/* Global Song Details Styles */
+.song-details {
+  float: left; }
+  .song-details p {
+    margin: 0;
+    padding: 0; }
+
+/* Global Icon Styles */
+.material-icons {
+  vertical-align: middle;
+  cursor: pointer; }
+
+.material-icons.brand {
+  cursor: default; }
+
+.material-icons.large {
+  font-size: 40px; }
+
+/* Song List */
+section.song-list {
+  overflow: auto;
+  /* li */ }
+  section.song-list ul {
+    padding: 0px; }
+  section.song-list li {
+    list-style-type: none;
+    padding: 5px 5px;
+    margin: 0;
+    border-bottom: 1px solid #f1f1f1;
+    overflow: auto; }
+    section.song-list li:hover {
+      background: white;
+      /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient(#f6f6f6, white, #f1f1f1);
+      /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(#f6f6f6, white, #f1f1f1);
+      /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(#f6f6f6, white, #f1f1f1);
+      /* For Firefox 3.6 to 15 */
+      background: linear-gradient(#f6f6f6, white, #f1f1f1);
+      /* Standard syntax */
+      cursor: pointer; }
+    section.song-list li i {
+      color: #A5A5A5;
+      float: left;
+      margin-right: 10px; }
+      section.song-list li i:hover {
+        color: #727272; }
+    section.song-list li .title {
+      font-size: 12px; }
+    section.song-list li .artist {
+      color: #A5A5A5;
+      font-size: 9px; }
+  section.song-list li.active {
+    background: #f3ffe6;
+    /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#d9ffb3, #f3ffe6, #d9ffb3);
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#d9ffb3, #f3ffe6, #d9ffb3);
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#d9ffb3, #f3ffe6, #d9ffb3);
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#d9ffb3, #f3ffe6, #d9ffb3);
+    /* Standard syntax */ }
+
+/* section#song-list */
+/* Player */
+section.player {
+  background: #2c2c2c;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(black, #2c2c2c, black);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(black, #2c2c2c, black);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(black, #2c2c2c, black);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(black, #2c2c2c, black);
+  /* Standard syntax */
+  overflow: auto;
+  padding: 8px 5px; }
+  section.player .buttons {
+    float: left;
+    color: white;
+    margin-right: 10px; }
+  section.player .title {
+    color: #f1f1f1;
+    font-size: 18px; }
+  section.player .artist {
+    color: #A5A5A5;
+    font-size: 14px; }
+
+/* section.player */
+/* Bootstrap overrides */
+.container {
+  border: 1px solid #A5A5A5;
+  width: 600px;
+  margin-top: 25px; }
+
+/*# sourceMappingURL=styles.css.map */

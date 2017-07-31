@@ -1,0 +1,118 @@
+/* Colors */
+$lightgray: #f1f1f1;
+$darkgray: #A5A5A5;
+$charcoal: #2c2c2c;
+$playing: #d9ffb3;
+
+@mixin gradient($top, $middle, $bottom) {
+  background: $middle; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient($top, $middle, $bottom); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient($top, $middle, $bottom); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient($top, $middle, $bottom); /* For Firefox 3.6 to 15 */
+  background: linear-gradient($top, $middle, $bottom); /* Standard syntax */
+}
+
+/* Header Styles */
+header {
+  background-color: $lightgray;
+  border-bottom: 2px solid black;
+  padding: 8px 5px;
+  box-shadow: 0px 5px 15px $lightgray;
+  i {
+    float: left;
+    font-size: 25px;
+    margin-right: 10px;
+  }
+  h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 23px;
+  }
+}
+
+/* Global Song Details Styles */
+.song-details {
+  float: left;
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* Global Icon Styles */
+.material-icons {
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.material-icons.brand {
+  cursor: default;
+}
+
+.material-icons.large {
+  font-size: 40px;
+}
+
+/* Song List */
+section.song-list {
+  // height: 400px;
+  // overflow-y: scroll;
+  overflow: auto;
+  ul {
+    padding: 0px;
+  }
+  li {
+    list-style-type: none;
+    padding: 5px 5px;
+    margin: 0;
+    border-bottom: 1px solid $lightgray;
+    overflow: auto;
+    &:hover {
+      @include gradient(lighten($lightgray, 2%), white, $lightgray);
+      cursor: pointer;
+    }
+    i {
+      color: $darkgray;
+      float: left;
+      margin-right: 10px;
+      &:hover { color: darken($darkgray, 20%); }
+    }
+    .title {
+      font-size: 12px;
+    }
+    .artist {
+      color: $darkgray;
+      font-size: 9px;
+    }
+  } /* li */
+  li.active { @include gradient($playing, lighten($playing, 10%), $playing); }
+} /* section#song-list */
+
+
+/* Player */
+section.player {
+  @include gradient(black, $charcoal, black);
+  overflow: auto;
+  padding: 8px 5px;
+  .buttons {
+    float: left;
+    color: white;
+    margin-right: 10px;
+  }
+  .title {
+    color: $lightgray;
+    font-size: 18px;
+  }
+  .artist {
+    color: $darkgray;
+    font-size: 14px;
+  }
+} /* section.player */
+
+
+/* Bootstrap overrides */
+.container {
+  border: 1px solid $darkgray;
+  width: 600px;
+  margin-top: 25px;
+}
