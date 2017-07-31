@@ -162,11 +162,7 @@ $( document ).ready(function() {
   // Put the clicked song details in the player on the bottom
   $('.container').on('click', '.song-list ul li.active', function(e){
     console.log('clicked a song thats not playing');
-
-    var $currentSong = player.currentSong;
-    var $playerSongDetails = $('section.player .song-details')
-    $playerSongDetails.find('.title').text($currentSong.title);
-    $playerSongDetails.find('.artist').text($currentSong.artist);
+    songToPlayer(player.currentSong);
 
 
     // Change the player play button to a pause button
