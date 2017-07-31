@@ -164,7 +164,9 @@ $( document ).ready(function() {
   // Put the clicked song details in the player on the bottom
   $('.container').on('click', '.song-list ul li.active', function(e){
     console.log('clicked a song thats not playing');
-    songToPlayer(player.currentSong);
+
+    var $currentSong = player.currentSong;
+    songToPlayer($currentSong);
 
 
     // Change the player play button to a pause button
@@ -183,7 +185,6 @@ $( document ).ready(function() {
 
       $(this).attr('id', 'play-button')
              .text('play_circle_outline');
-
     });
 
     // Unpause the song when the player play button is clicked
