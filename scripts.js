@@ -172,17 +172,28 @@ $( document ).ready(function() {
     $playerButtons.on('click', 'i#pause-button', function(e){
       console.log('clicked player pause button');
 
-      $('audio#'+$currentSong.id).trigger('pause')
-                                .closest('li')
-                                .removeClass('active')
-                                .find('i')
-                                .text('play_arrow');
+      $('audio#'+$currentSong.id).trigger('pause');
+      resetSongStyles($('audio#'+$currentSong.id));
 
       $(this).attr('id', 'play-button')
              .text('play_circle_outline');
 
     });
 
+    // Unpause the song when the player play button is clicked
+    $playerButtons.on('click', 'i#play-button', function(e){
+      console.log('clicked player play button');
+
+      $('audio#'+$currentSong.id).trigger('play')
+                                .closest('li')
+                                .addClass('active')
+                                .find('i')
+                                .text('pause');
+
+      $(this).attr('id', 'pause-button')
+             .text('pause_circle_outline');
+
+    });
 
   });
 
