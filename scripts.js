@@ -115,6 +115,13 @@ $( document ).ready(function() {
 
 
   // Play the song when the li is clicked.
+  var resetSongStyles = function(song){
+    song.closest('li')
+           .removeClass('active');
+    song.closest('li').find('i')
+           .text('play_arrow');
+  };
+
   $('.song-list ul').on('click', 'li', function(e){
     var $clickedSong = $(this).find('.song-details audio');
     player.setCurrentSong($clickedSong.get(0).id);
@@ -125,10 +132,7 @@ $( document ).ready(function() {
 
     // When the song is over, reset the styles back to the 'play' state
     $clickedSong.on('ended', function(){
-      $(this).closest('li')
-             .removeClass('active');
-      $(this).closest('li').find('i')
-             .text('play_arrow');
+      resetSongStyles($(this));
     });
   });
 
@@ -137,10 +141,7 @@ $( document ).ready(function() {
     var $clickedSong = $(this).find('.song-details audio');
 
     $clickedSong.trigger('pause');
-    $(this).closest('li')
-           .removeClass('active');
-    $(this).closest('li').find('i')
-           .text('play_arrow');
+    resetSongStyles($(this));
   });
 
   // Put the clicked song details in the player on the bottom
