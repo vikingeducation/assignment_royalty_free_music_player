@@ -126,6 +126,13 @@ $( document ).ready(function() {
     var $clickedSong = $(this).find('.song-details audio');
     player.setCurrentSong($clickedSong.get(0).id);
 
+    // First, pause any other songs that may be currently playing
+    $.each($('audio'), function(index, element) {
+      $(element).trigger('pause');
+      resetSongStyles($(element));
+    });
+
+    // Then play the clicked song
     $clickedSong.trigger('play');
     $(this).addClass('active');
     $(this).find('i').text('pause');
