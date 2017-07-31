@@ -202,7 +202,25 @@ $( document ).ready(function() {
 
     });
 
-  });
+  });//closes loading clicked li's song into player
+
+
+  // Retrieve current song from player
+  // var currentPlayerSongId = Number( $('section.player input').text() );
+  // var currentPlayerSong = songs.find(x => x.id === currentPlayerSongId );
+
+  // Play song directly from player play button
+  // $('.container').on('click', 'i#play-button', function(e){
+  //   var currentSongId = player.currentSong['id'];
+
+  //   $('audio#'+currentSongId).trigger('play');
+  //   resetSongStyles( $('audio#'+currentSongId) );
+  // });
+
+  // Play next song when player next button is clicked
+
+
+  // Play previous song when player previous button is clicked
 
 
 });
