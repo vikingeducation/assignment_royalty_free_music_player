@@ -118,6 +118,8 @@ $( document ).ready(function() {
     var $playerSongDetails = $('section.player .song-details')
     $playerSongDetails.find('.title').text(song.title);
     $playerSongDetails.find('.artist').text(song.artist);
+    $playerSongDetails.find('input').attr('type', 'hidden').text(song.id);
+    player.setCurrentSong(song['id']);
   };
   songToPlayer(songs[0]);
 
