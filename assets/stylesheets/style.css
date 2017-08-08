@@ -1,6 +1,5 @@
 .navbar-header {
-  font-size: 25px;
-  background-color: #DDDDDD; }
+  font-size: 25px; }
   .navbar-header .navbar-text {
     color: #111111;
     font-weight: bold;
@@ -12,8 +11,14 @@
 .navbar {
   border: 2px solid #111111; }
 
+.navbar-gray {
+  background-color: #DDDDDD; }
+
 .navbar-default {
   margin-bottom: 0px; }
+
+.list-group .glyphicon {
+  font-size: 24px; }
 
 .glyphicon {
   margin-top: 10px; }

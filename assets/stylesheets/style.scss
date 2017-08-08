@@ -1,6 +1,5 @@
 .navbar-header {
   font-size:25px;
-  background-color: #DDDDDD;
   .navbar-text{
     color:#111111;
     font-weight: bold;
@@ -16,24 +15,33 @@
   border: 2px solid #111111;
 }
 
+.navbar-gray {
+  background-color: #DDDDDD;
+  
+}
+
 .navbar-default {
   margin-bottom:0px;
 }
 
-
+.list-group {
+  .glyphicon {
+    font-size: 24px;
+  }
+}
 
 .glyphicon {
   margin-top:10px;
 }
 
 .navbar-inverse{
+  color:#EEEEEE;
+  font-size:20px;
+
   .glyphicon-play, .glyphicon-pause {
     border: 2px solid white;
     border-radius: 40px;
   }
-
-  color:#EEEEEE;
-  font-size:20px;
   .glyphicon {
     color:red;
     font-size:25px;
