@@ -3,3 +3,19 @@
 span.glyphicon-headphones {
   font-size: 4em;
 }
+
+.navbar-color {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#eeeeee+54,cccccc+98,cccccc+100 */
+  background: #eeeeee; /* Old browsers */
+  background: -moz-linear-gradient(left, #eeeeee 54%, #cccccc 98%, #cccccc 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #eeeeee 54%,#cccccc 98%,#cccccc 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #eeeeee 54%,#cccccc 98%,#cccccc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=1 ); /* IE6-9 */
+
+  margin-bottom: 0px;
+}
+
+.song-body {
+  padding-left: 0px;
+  padding-right: 0px;
+}
