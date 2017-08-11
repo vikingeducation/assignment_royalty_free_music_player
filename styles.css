@@ -19,3 +19,27 @@ span.glyphicon-headphones {
   padding-left: 0px;
   padding-right: 0px;
 }
+
+.song-body-fix {
+  margin-bottom: 0px;
+}
+
+footer {
+  color: white;
+  font-size: 30px;
+}
+
+.player .glyphicon {
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.player .glyphicon:hover {
+  color: grey;
+  font-size: 35px;
+}
+
+.song .glyphicon {
+  font-size: 20px;
+  padding: 10px;
+}
