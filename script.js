@@ -1,3 +1,5 @@
+//has some help from here https://github.com/bradtraversy/html5audioplayer/blob/master/js/main.js
+
 //song Data
 const tracks = [{
     title: 'Epic Song',
