@@ -20,6 +20,7 @@
   <!--my styles-->
   <link rel="stylesheet" href="styles.css">
 
+
 </head>
 
 <body>
@@ -41,82 +42,83 @@
     <div class="container-fluid song-body">
       <div class="list-group song-body-fix">
 
-
         <!--song-->
-        <button type="button" class="list-group-item song">
+        <button  song="BoxCat_Games_-_10_-_Epic_Song.mp3" type="button" class="list-group-item song">
             <div class="row">
-              <div class="col-xs-2">
-                <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-                <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+              <div class="col-xs-2 0">
+                <span class="glyphicon glyphicon-play 0" id="0"  aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-pause 0" aria-hidden="true"></span>
               </div>
               <div class="col-xs-10">
                 <dl class="">
-                  <dt>Song</dt>
-                  <dd>artist</dd>
+                  <dt>Epic Song</dt>
+                  <dd>BoxCat Games</dd>
                 </dl>
               </div>
             </div>
           </button>
 
         <!--song-->
-        <button type="button" class="list-group-item song">
+        <button song="Broke_For_Free_-_01_-_Night_Owl.mp3" type="button" class="list-group-item song">
             <div class="row">
-              <div class="col-xs-2">
-                <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-                <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+              <div class="col-xs-2 1">
+                <span class="glyphicon glyphicon-play 1" id='1' aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-pause 1" aria-hidden="true"></span>
               </div>
               <div class="col-xs-10">
                 <dl class="">
-                  <dt>Song</dt>
-                  <dd>artist</dd>
+                  <dt>Night Owl</dt>
+                  <dd>Broke For Free</dd>
+                </dl>
+              </div>
+            </div>
+          </button>
+
+
+
+        <!--song-->
+        <button  song="Jahzzar_-_05_-_Siesta.mp3" type="button" class="list-group-item song">
+            <div class="row">
+              <div class="col-xs-2 2">
+                <span class="glyphicon glyphicon-play 2" id='2' aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-pause 2" aria-hidden="true"></span>
+              </div>
+              <div class="col-xs-10">
+                <dl class="">
+                  <dt>Siesta</dt>
+                  <dd>Jahzzar</dd>
                 </dl>
               </div>
             </div>
           </button>
 
         <!--song-->
-        <button type="button" class="list-group-item song">
+        <button song="Monk_Turner__Fascinoma_-_01_-_Its_Your_Birthday.mp3" type="button" class="list-group-item song">
             <div class="row">
-              <div class="col-xs-2">
-                <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-                <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+              <div class="col-xs-2 3">
+                <span class="glyphicon glyphicon-play 3" id="3" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-pause 3" aria-hidden="true"></span>
               </div>
               <div class="col-xs-10">
                 <dl class="">
-                  <dt>Song</dt>
-                  <dd>artist</dd>
+                  <dt>Its Your Birthday!</dt>
+                  <dd>Monk Turner</dd>
                 </dl>
               </div>
             </div>
           </button>
 
         <!--song-->
-        <button type="button" class="list-group-item song">
+        <button song="Tours_-_01_-_Enthusiast.mp3" type="button" class="list-group-item song">
             <div class="row">
-              <div class="col-xs-2">
-                <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-                <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+              <div class="col-xs-2 4">
+                <span class="glyphicon glyphicon-play 4" id="4" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-pause 4" aria-hidden="true"></span>
               </div>
               <div class="col-xs-10">
                 <dl class="">
-                  <dt>Song</dt>
-                  <dd>artist</dd>
-                </dl>
-              </div>
-            </div>
-          </button>
-
-        <!--song-->
-        <button type="button" class="list-group-item song">
-            <div class="row">
-              <div class="col-xs-2">
-                <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-                <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-              </div>
-              <div class="col-xs-10">
-                <dl class="">
-                  <dt>Song</dt>
-                  <dd>artist</dd>
+                  <dt>Enthusiast</dt>
+                  <dd>Tours</dd>
                 </dl>
               </div>
             </div>
@@ -127,13 +129,14 @@
     </div><!--song body-->
 
     <!--player-->
-    <footer class="navbar navbar-inverse">
+    <footer class="navbar navbar-inverse songPlayer">
       <div class="container-fluid">
         <div class="row">
           <!--player controls-->
           <div class="col-xs-4 player">
               <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-play playControl" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-pause pauseControl" aria-hidden="true"></span>
               <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
           </div>
           <dl class="col-xs-8">
@@ -153,6 +156,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!--my scripts-->
+  <script type="text/javascript" src="script.js"></script>
 </body>
 
 </html>
