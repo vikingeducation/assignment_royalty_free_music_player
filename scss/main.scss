@@ -1,0 +1,75 @@
+@import 'header', 'footer';
+
+:root {
+	font:{
+		size: 18px;
+		family: Helvetica;
+	}
+
+}
+
+// Changing classes
+.hide {
+	display: none;
+}
+
+.footer-artist-style {
+	text-decoration: none;
+	color:  #C2C2C2;
+	font-weight: 100;
+}
+
+.control-btn {
+	color: $font-color;
+	&:hover {
+		color: $fa-music;
+	}
+}
+
+// Main html tag styles
+#main {
+	position: relative;
+	z-index: 1;
+	margin-top: 85px;
+	margin-bottom: 85px;
+	.song-container {
+		display: flex;
+		align-items: center;
+		padding-left: 1rem;
+		color: #2E2E2E;
+		border-top: 2px solid #878787;
+		&:last-child {
+			border-bottom: 2px solid #878787;
+		}
+		.fa-play, .fa-pause {
+			color: #2E2E2E;
+			cursor: pointer;
+		}
+		.fa-pause {
+			color: $fa-music;
+		}
+		.fa-play:hover {
+			color: $fa-music;
+		}
+		.artist-info {
+			position: relative;
+			margin: .5rem 0 .5rem 1rem;
+			.song-title {
+				margin-bottom: .2rem;
+			}
+			.artist-name {
+				font: {
+					size: .75rem;
+				}
+			}
+			a {
+				text-decoration: none;
+				color: #2E2E2E;
+			}
+		}
+	}
+
+}
+
+
+
