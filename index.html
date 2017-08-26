@@ -30,13 +30,13 @@
           <div class="col-sm-12">
             <div class="media">
               <div class="media-left">
-                <button type="button" class="btn btn-link">
+                <button type="button" class="btn btn-link play-btn">
                   <span class="glyphicon glyphicon-play"></span>
                 </button>
               </div>
               <div class="media-body">
-                  <h4 class="media-heading song-title">On Hold</h4>
-                  <span class="artist faded">Edith Frost</span>
+                <h4 class="media-heading track-title">Subzero</h4>
+                <span class="artist faded">Ben Klock</span>
               </div>
             </div>
           </div>
@@ -46,13 +46,13 @@
           <div class="col-sm-12">
             <div class="media">
               <div class="media-left">
-                <button type="button" class="btn btn-link">
+                <button type="button" class="btn btn-link play-btn">
                   <span class="glyphicon glyphicon-play"></span>
                 </button>
               </div>
               <div class="media-body">
-                  <h4 class="media-heading song-title">How Can I Be So Thirsty Today?</h4>
-                  <span class="artist faded">The Meat Purveyors</span>
+                <h4 class="media-heading track-title">Higher Level (Bicep Remix)</h4>
+                <span class="artist faded">Isaac Tichauer</span>
               </div>
             </div>
           </div>
@@ -62,13 +62,13 @@
           <div class="col-sm-12">
             <div class="media">
               <div class="media-left">
-                <button type="button" class="btn btn-link">
+                <button type="button" class="btn btn-link play-btn">
                   <span class="glyphicon glyphicon-play"></span>
                 </button>
               </div>
               <div class="media-body">
-                  <h4 class="media-heading song-title">18 Wheels</h4>
-                  <span class="artist faded">Moonshine Willy</span>
+                <h4 class="media-heading track-title">Sometimes (Original Mix)</h4>
+                <span class="artist faded">Detroit Swindle</span>
               </div>
             </div>
           </div>
@@ -78,13 +78,13 @@
           <div class="col-sm-12">
             <div class="media">
               <div class="media-left">
-                <button type="button" class="btn btn-link">
+                <button type="button" class="btn btn-link play-btn">
                   <span class="glyphicon glyphicon-play"></span>
                 </button>
               </div>
               <div class="media-body">
-                  <h4 class="media-heading song-title">Hold The Woodpile Down</h4>
-                  <span class="artist faded">The Holy Modal Rounders</span>
+                <h4 class="media-heading track-title">B.F.O.D.A.A.S</h4>
+                <span class="artist faded">Mall Grab</span>
               </div>
             </div>
           </div>
@@ -94,13 +94,13 @@
           <div class="col-sm-12">
             <div class="media">
               <div class="media-left">
-                <button type="button" class="btn btn-link">
+                <button type="button" class="btn btn-link play-btn">
                   <span class="glyphicon glyphicon-play"></span>
                 </button>
               </div>
               <div class="media-body">
-                  <h4 class="media-heading song-title">'Til My Teardrops Turn To Gold</h4>
-                  <span class="artist faded">Rex Hobart &amp; the Misery Boys</span>
+                <h4 class="media-heading track-title">German Winter (Original Mix)</h4>
+                <span class="artist faded">andhim</span>
               </div>
             </div>
           </div>
@@ -113,19 +113,22 @@
       <nav class="navbar navbar-inverse navbar-fixed-bottom">
         <div class="container-fluid">
           <div class="navbar-header navbar-left">
-            <button type="button" class="btn btn-lg btn-link navbar-btn">
+            <button type="button" id="previous" class="btn btn-lg btn-link navbar-btn">
               <span class="glyphicon glyphicon-step-backward"></span>
             </button>
-            <button type="button" class="btn btn-lg btn-xlg navbar-btn">
+            <button type="button" class="btn btn-lg btn-xlg navbar-btn play-btn">
               <span class="glyphicon glyphicon-play"></span>
             </button>
-            <button type="button" class="btn btn-lg btn-link navbar-btn">
+            <button type="button" id="next" class="btn btn-lg btn-link navbar-btn">
               <span class="glyphicon glyphicon-step-forward"></span>
             </button>
-            <div class="navbar-right song-selected">
-              <h3 class="song-title">On Hold</h3>
-              <span class="artist faded">Edith Frost</span>
+            <div class="navbar-right track-selected">
+              <h3 class="track-title">Subzero</h3>
+              <span class="artist faded">Ben Klock</span>
             </div>
+            <audio id="audio">
+              <source src="">
+            </audio>
           </div>
         </div>
       </nav>
