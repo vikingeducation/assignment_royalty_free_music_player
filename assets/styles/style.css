@@ -1,0 +1,18 @@
+.col-sm-12 {
+  border-bottom: 1px solid #bababa;
+  padding-top: 7px;
+  padding-bottom: 7px; }
+
+.faded {
+  font-weight: 200; }
+
+footer {
+  color: white; }
+  footer .glyphicon {
+    color: white; }
+  footer .btn-xlg {
+    border: 1px solid white;
+    border-radius: 50%;
+    background-color: inherit; }
+
+/*# sourceMappingURL=style.css.map */
