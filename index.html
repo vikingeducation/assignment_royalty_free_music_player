@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://use.fontawesome.com/12522b9cea.js"></script>
+    <script type="text/javascript" src="script.js"></script>
   </head>
   <body>
     <div class="container">
@@ -19,56 +20,76 @@
             <div class="song row">
               <i class="fa fa-play text-muted" aria-hidden="true"></i>
               <div class="song-info">
-                <p class="song-name">On Hold</p>
-                <small class="artist text-muted">Edith Frost</small>
+                <p class="song-name">Good Bye</p>
+                <small class="artist text-muted">Dee Yan-Key</small>
               </div>
             </div>
+            <audio controls class="invisible">
+              <source src="audio/Dee_Yan-Key_-_12_-_Good_Bye.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
             <hr class="song-divider">
 
             <div class="song row">
               <i class="fa fa-play text-muted" aria-hidden="true"></i>
               <div class="song-info">
-                <p class="song-name">How Can I Be So Thirsty Today?</p>
-                <small class="artist text-muted">The Meat Purveyors</small>
+                <p class="song-name">Desperado</p>
+                <small class="artist text-muted">Pistol Jazz</small>
               </div>
             </div>
+            <audio controls class="invisible">
+              <source src="audio/Pistol_Jazz_-_01_-_Desperado.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
             <hr class="song-divider">
 
             <div class="song row">
               <i class="fa fa-play text-muted" aria-hidden="true"></i>
               <div class="song-info">
-                <p class="song-name">18 Wheels</p>
-                <small class="artist text-muted">Moonshine Willy</small>
+                <p class="song-name">Dancing on the Seafloor</p>
+                <small class="artist text-muted">KieLoBot</small>
               </div>
             </div>
+            <audio controls class="invisible">
+              <source src="audio/KieLoBot_-_03_-_Dancing_on_the_Seafloor_KieLoKaz_ID_110.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
             <hr class="song-divider">
 
             <div class="song row">
               <i class="fa fa-play text-muted" aria-hidden="true"></i>
               <div class="song-info">
-                <p class="song-name">Hold The Woodpile Down</p>
-                <small class="artist text-muted">The Holy Modal Rounders</small>
+                <p class="song-name">Another legend</p>
+                <small class="artist text-muted">Fantastic Swimmers</small>
               </div>
             </div>
+            <audio controls class="invisible">
+              <source src="audio/Fantastic_Swimmers_-_08_-_Another_legend.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
             <hr class="song-divider">
 
             <div class="song row">
               <i class="fa fa-play text-muted" aria-hidden="true"></i>
               <div class="song-info">
-                <p class="song-name">'Till My Teardrops Turn To Gold</p>
-                <small class="artist text-muted">Rex Hobart &amp; The Misery Boys</small>
+                <p class="song-name">Jetstar Rollercoaster</p>
+                <small class="artist text-muted">Roger Plexico</small>
               </div>
             </div>
+            <audio controls class="invisible">
+              <source src="audio/Roger_Plexico_-_03_-_Jetstar_Rollercoaster.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
             <hr class="song-divider">
           </div>
           <div class="card-footer">
             <div class="row">
-              <i class="fa fa-step-backward" aria-hidden="true"></i>
-              <i class="fa fa-play-circle-o" aria-hidden="true"></i>
-              <i class="fa fa-step-forward" aria-hidden="true"></i>
-              <div class="song-info">
-                <p class="song-name">On Hold</p>
-                <small class="artist text-muted">Edith Frost</small>
+              <i id="prev-icon" class="fa fa-step-backward" aria-hidden="true"></i>
+              <i id="currently-playing-icon" class="fa fa-play-circle-o" aria-hidden="true"></i>
+              <i id="next-icon" class="fa fa-step-forward" aria-hidden="true"></i>
+              <div id="current-song-info">
+                <p class="song-name">Good Bye</p>
+                <small class="artist text-muted">Dee Yan-Key</small>
               </div>
             </div>
           </div>

@@ -21,7 +21,11 @@
   margin-bottom: 0;
 }
 
-.fa.fa-play {
+.fa, .song {
+  cursor: pointer;
+}
+
+.fa.fa-play, .fa.fa-pause {
   font-size: 1.4em;
   margin-left: 15px;
   position: relative;
@@ -40,8 +44,14 @@
   top: -5px;
 }
 
+audio {
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
 .song-divider {
-  margin-top: 0;
+  margin-top: -25px;
 }
 
 .card-footer {
@@ -50,7 +60,7 @@
   height: 85px;
 }
 
-.card-footer .fa-play-circle-o {
+.card-footer .fa-play-circle-o, .card-footer .fa-pause-circle-o {
   font-size: 60px;
 }
 
@@ -61,7 +71,7 @@
   margin: 0 16px;
 }
 
-.card-footer .song-info {
+.card-footer #current-song-info {
   margin-left: 0;
   font-size: 1.4em;
   top: 1px;
