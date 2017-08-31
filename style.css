@@ -1,0 +1,71 @@
+.container {
+  margin-top: 50px;
+}
+
+.main-content {
+  min-height: 600px;
+}
+
+#crown-image {
+  width: 35px;
+  position: relative;
+  top: -2px;
+}
+
+.card-block {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.song-name {
+  margin-bottom: 0;
+}
+
+.fa.fa-play {
+  font-size: 1.4em;
+  margin-left: 15px;
+  position: relative;
+  left: 20px;
+}
+
+.song-info {
+  margin-left: 25px;
+  position: relative;
+  top: -7px;
+  left: 15px;
+}
+
+.artist {
+  position: relative;
+  top: -5px;
+}
+
+.song-divider {
+  margin-top: 0;
+}
+
+.card-footer {
+  background-color: #2c2c2c;
+  color: #fff;
+  height: 85px;
+}
+
+.card-footer .fa-play-circle-o {
+  font-size: 60px;
+}
+
+.card-footer .fa-step-backward, .card-footer .fa-step-forward {
+  font-size: 25px;
+  position: relative;
+  top: 18px;
+  margin: 0 16px;
+}
+
+.card-footer .song-info {
+  margin-left: 0;
+  font-size: 1.4em;
+  top: 1px;
+}
+
+
+
