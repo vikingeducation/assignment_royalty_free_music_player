@@ -29,11 +29,14 @@ img {
 .song:last-child {
   border-bottom: solid black 1px; }
 
-.prev {
+#prev {
   margin: 5px; }
 
-.next {
+#next {
   margin: 5px 10px 5px 5px; }
+
+#pause {
+  margin: 5px; }
 
 .title {
   padding-top: 10px; }
@@ -46,7 +49,7 @@ img {
   bottom: 0;
   border-top: solid black 1px;
   width: 100%; }
-  .now-playing .play {
+  .now-playing #play {
     margin: 5px; }
 
 /*# sourceMappingURL=styles.css.map */
