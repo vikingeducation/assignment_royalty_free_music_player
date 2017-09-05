@@ -52,4 +52,7 @@ img {
   .now-playing #play {
     margin: 5px; }
 
+.active {
+  background-color: #cfffcd; }
+
 /*# sourceMappingURL=styles.css.map */
