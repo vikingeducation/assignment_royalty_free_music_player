@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
+
+  <title>Royalty-Free Music Player</title>
+  <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+  <link rel="stylesheet" href="assets\stylesheets\reset.css">
+  <link rel="stylesheet" href="assets\stylesheets\styles.css">
+</head>
+
+<body>
+  <header>
+    <h1>Royalty-Free Music Player</h1>
+  </header>
+  <div id="song-list">
+    <div class="song" song-info="On Hold - Edith Frost.mp3">
+      <img src="assets\images\play.svg" class="song-play" alt="play">
+      <img src="assets\images\pause.svg" class="song-pause" alt="pause">
+      <div class="title">On Hold</div>
+      <div class="artist">Edith Frost</div>
+    </div>
+    <div class="song" song-info="How Can I Be So Thirsty Today - The Meat Purveyors.mp3">
+      <img src="assets\images\play.svg" class="song-play" alt="play">
+      <img src="assets\images\pause.svg" class="song-pause" alt="pause">
+      <div class="title">How Can I Be So Thirsty Today?</div>
+      <div class="artist">The Meat Purveyors</div>
+    </div>
+    <div class="song" song-info="18 Wheels - Moonshine Willy.mp3">
+      <img src="assets\images\play.svg" class="song-play" alt="play">
+      <img src="assets\images\pause.svg" class="song-pause" alt="pause">
+    <div class="title">18 Wheels</div>
+      <div class="artist">Moonshine Willy</div>
+    </div>
+    <div class="song" song-info="Hold the Woodpile Down - The Holy Modal Rounders.mp3">
+      <img src="assets\images\play.svg" class="song-play" alt="play">
+      <img src="assets\images\pause.svg" class="song-pause" alt="pause">
+    <div class="title">Hold the Woodpile Down</div>
+      <div class="artist">The Holy Modal Rounders</div>
+    </div>
+    <div class="song" song-info="'Til My Teardrops Turn To Gold - Rex Hobart and the Misery Boys.mp3">
+      <img src="assets\images\play.svg" class="song-play" alt="play">
+      <img src="assets\images\pause.svg" class="song-pause" alt="pause">
+      <div class="title">'Til My Teardrops Turn To Gold</div>
+      <div class="artist">Rex Hobart and the Misery Boys</div>
+    </div>
+  </div>
+
+    <div class="now-playing">
+      <img src="assets\images\prev.svg" id="prev" alt="prev">
+      <img src="assets\images\play.svg" id="play" alt="play">
+      <img src="assets\images\pause.svg" id="pause" alt="pause">
+      <img src="assets\images\next.svg" id="next" alt="next">
+      <div class="title active"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
