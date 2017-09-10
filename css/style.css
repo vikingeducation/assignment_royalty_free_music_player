@@ -1,0 +1,119 @@
+:root {
+  --green: #1db954;
+  --grey: #a2a2a2;
+}
+
+body {
+    font-family: sans-serif;
+    background: darkgrey;
+}	
+
+.flex-outer-container {
+	display: flex;
+	flex-flow: row nowrap;	
+	justify-content: center;
+}
+
+.flex-inner-container {
+	display: flex;
+	flex-flow: column nowrap;
+	margin-top: 50px;
+	width: 800px;
+}
+
+/* header */
+header {
+	font-weight: bolder;
+	font-size: xx-large;
+	border: 1px solid var(--grey);
+	background: var(--green);
+	color: white;
+	height: 65px;
+	flex: 0 0 0;
+}
+
+header img {
+	float: left;
+	margin: 11px 15px 0 15px;
+}
+
+header h1 {
+	margin-top: 15px;
+}
+
+/* main */
+main ul li {
+	border: 1px solid var(--grey);
+	background: white;
+}
+
+main li img {
+	float: left;
+	margin-left: 15px;
+	margin-top: 5px;
+	margin-right: 5px;
+}
+
+main li p {
+	margin-top: 5px;
+}
+
+main li p.song {
+	color: black;
+	font-size: large;
+}
+
+main li p.artist {
+	margin-top: 5px;
+	color: var(--grey);
+	font-size: 15px;
+}
+
+.flex-songs {
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+/* footer */
+footer {
+	border: 1px solid var(--grey);
+	color: black;
+	height: 90px;
+	background: black;
+	color: white;
+}
+
+footer img.back {
+	margin-top: 30px;
+	margin-left: 25px;
+	float: left;
+}
+
+footer img.play {
+	margin-top: 15px;
+	margin-left: 9px;
+	float: left;
+}
+
+footer img.forward {
+	margin-top: 30px;
+	margin-left: 10px;
+	float: left;
+}
+
+footer p {
+	margin-left: 190px;
+}
+
+footer p.footer-song {
+	font-size: xx-large;
+	font-weight: bolder;
+	margin-top: 10px;
+}
+
+footer p.footer-artist {
+	font-size: large;
+	font-weight: bold;
+	margin-top: 7px;
+	color: var(--grey);
+}
