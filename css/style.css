@@ -21,6 +21,14 @@ body {
 	width: 800px;
 }
 
+.hide {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
 /* header */
 header {
 	font-weight: bolder;
@@ -45,13 +53,7 @@ header h1 {
 main ul li {
 	border: 1px solid var(--grey);
 	background: white;
-}
-
-main li img {
-	float: left;
-	margin-left: 15px;
-	margin-top: 5px;
-	margin-right: 5px;
+	cursor: pointer;
 }
 
 main li p {
@@ -74,6 +76,17 @@ main li p.artist {
 	flex-flow: column nowrap;
 }
 
+main li span.main-play-icon {
+	background-image:url('/images/main_play_grey.png');
+	background-size: 50px;
+	height: 50px;
+	width: 50px;
+	float: left;
+	margin-left: 15px;
+	margin-top: 5px;
+	margin-right: 5px;
+}
+
 /* footer */
 footer {
 	border: 1px solid var(--grey);
@@ -83,22 +96,36 @@ footer {
 	color: white;
 }
 
-footer img.back {
+footer span {
+	cursor: pointer;
+	float: left;
+}
+
+footer span.footer-back-icon {
+	background-image:url('/images/footer_left_white.png');
+	background-size: 28px;
+	height: 28px;
+	width: 28px;
 	margin-top: 30px;
 	margin-left: 25px;
-	float: left;
 }
 
-footer img.play {
+footer span.footer-play-icon {
+	background-image:url('/images/footer_play_white.png');
+	background-size: 65px;
+	height: 65px;
+	width: 65px;
 	margin-top: 15px;
 	margin-left: 9px;
-	float: left;
 }
 
-footer img.forward {
+footer span.footer-forward-icon {
+	background-image:url('/images/footer_right_white.png');
+	background-size: 28px;
+	height: 28px;
+	width: 28px;
 	margin-top: 30px;
 	margin-left: 10px;
-	float: left;
 }
 
 footer p {

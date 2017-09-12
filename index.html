@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Royalty Free Music Player</title>
+	<title>DC</title>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+			integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+			crossorigin="anonymous"></script>
 
 	<!-- the below three lines are a fix to get HTML5 semantic elements working in old versions of Internet Explorer-->
     <!--[if lt IE 9]>
@@ -25,39 +29,55 @@
 			<main>
 				<ul class="flex-songs">
 					<li>
-						<img src="images/main_play_grey.png" height="50" width="50">
-						<p class="song">song1</p>
-						<p class="artist">artist1</p>
+						<span class="main-play-icon"></span>
+						<p class="song">Applause</p>
+						<p class="artist">The People</p>
 					</li>
 					<li>
-						<img src="images/main_play_grey.png" height="50" width="50">
-						<p class="song">song2</p>
-						<p class="artist">artist2</p>
+						<span class="main-play-icon"></span>
+						<p class="song">Birds</p>
+						<p class="artist">The Eagles</p>
 					</li>
 					<li>
-						<img src="images/main_play_grey.png" height="50" width="50">
-						<p class="song">song3</p>
-						<p class="artist">artist3</p>
+						<span class="main-play-icon"></span>
+						<p class="song">Dog</p>
+						<p class="artist">The Canines</p>
 					</li>
 					<li>
-						<img src="images/main_play_grey.png" height="50" width="50">
-						<p class="song">song4</p>
-						<p class="artist">artist4</p>
+						<span class="main-play-icon"></span>
+						<p class="song">Integrales Disko Them</p>
+						<p class="artist">Keith Jars</p>
 					</li>
 					<li>
-						<img src="images/main_play_grey.png" height="50" width="50">
-						<p class="song">song5</p>
-						<p class="artist">artist5</p>
+						<span class="main-play-icon"></span>
+						<p class="song">Dem Druck Erlieget Die Natur</p>
+						<p class="artist">MIT Concert Choir</p>
+					</li>
+					<li>
+						<span class="main-play-icon"></span>
+						<p class="song">Seashore</p>
+						<p class="artist">The Atlantic</p>
 					</li>
 				</ul>
+
+<audio controls class="hide">
+	<source src="songs/Dog.mp3" type="audio/mpeg">
+	<source src="songs/Dog.ogg" type="audio/mpeg">
+</audio>	
+
 			</main>
 
 			<footer>
+				<span class="footer-back-icon"></span>
+				<span class="footer-play-icon"></span>
+				<span class="footer-forward-icon"></span>
+				<!--
 				<img class="back" src="images/footer_left_white.png" height="28" width="28">
 				<img class="play" src="images/footer_play_white.png" height="65" width="65">
 				<img class="forward" src="images/footer_right_white.png" height="28" width="28">
-				<p class="footer-song">song1</p>
-				<p class="footer-artist">artist1</p>
+				-->
+				<p class="footer-song">Dem Druck Erlieget Die Natur</p>
+				<p class="footer-artist">MIT Concert Choir</p>
 			</footer>
 		</div>	<!-- flex-inner-container -->
 	</div>	<!-- flex-outer-container -->
