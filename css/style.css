@@ -79,16 +79,27 @@ main li p.artist {
 	flex-flow: column nowrap;
 }
 
+main li span {
+	float: left;
+	margin-left: 15px;
+	margin-top: 5px;
+	margin-right: 5px;	
+}
+
 main li span.main-play-icon {
 	background-image:url('/images/main_play_grey.png');
 	background-size: 50px;
 	height: 50px;
 	width: 50px;
-	float: left;
-	margin-left: 15px;
-	margin-top: 5px;
-	margin-right: 5px;
+
 }
+
+main li span.main-pause-icon {
+	background-image:url('/images/main_pause_grey.png');
+	background-size: 50px;
+	height: 50px;
+	width: 50px;
+}	
 
 /* footer */
 footer {
