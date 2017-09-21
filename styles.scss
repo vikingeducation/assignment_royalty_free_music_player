@@ -40,7 +40,7 @@ section {
 
 	ul {
 		display: flex;
-		flex-flow: row nowrap;
+		flex-flow: column nowrap;
 		list-style: none;
 		width: 100%;
 		max-width: 700px;
@@ -50,6 +50,8 @@ section {
 
 	.song {
 		display: flex;
+		box-sizing: border-box;
+		height: 50px;
 		flex-flow: row nowrap;
 		align-items: center;
 		width: 100%;
@@ -148,7 +150,8 @@ section {
 	}
 
 	a {
-		font-size: 12px;
+		font-size: 10px;
+		font-family: sans-serif;
 		padding-left: 3px;
 	}
 }
