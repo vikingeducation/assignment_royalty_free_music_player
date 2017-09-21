@@ -30,21 +30,26 @@ section {
   background: #fff;
   width: 100%;
   max-width: 700px;
-  justify-content: flex-start;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #12438c; }
+  justify-content: flex-start; }
   section ul {
     display: flex;
     flex-flow: row nowrap;
     list-style: none;
+    width: 100%;
+    max-width: 700px;
     padding: 0;
     margin: 0; }
   section .song {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    padding: 5px 0 5px 15px; }
+    width: 100%;
+    max-width: 700px;
+    margin: -1px 0 -1px 0;
+    padding: 8px 0 8px 15px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #12438c; }
     section .song .list-pause-icon {
       display: none;
       cursor: pointer; }
@@ -96,5 +101,20 @@ section {
     margin: 0;
     padding: 0 0 0 10px;
     color: #898989; }
+
+.music-credit {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+  max-width: 700px; }
+  .music-credit h6 {
+    font-family: sans-serif;
+    font-size: 10px; }
+  .music-credit a {
+    font-size: 12px;
+    padding-left: 3px; }
 
 /*# sourceMappingURL=styles.css.map */
