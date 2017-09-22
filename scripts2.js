@@ -1,7 +1,6 @@
 'use strict';
 
 //create song list
-
 const SongList = {
 	song1: {
 		artist: "bensound",
@@ -36,7 +35,6 @@ const SongList = {
 }
 
 //create player object
-
 let player = {
 
 	//declare player variables
@@ -120,26 +118,18 @@ let player = {
 	toggleButtons: function() {
 		$('.play.' + this.currentSong).toggleClass('hide');
 		$('.pause.' + this.currentSong).toggleClass('hide');
-		// if (this.songPlaying) {
-		// 	$('.play').toggleClass('hide');
-		// } else {
-		// 	$('.pause').toggleClass('hide');
-		// };
 	},
 
 	playSong: function() {
 		//WORKS ON CURRENT SONG DISPLAY!
 		document.getElementById("song-url").play();
 		this.toggleButtons();
-		//console.log(data);
-
 	}, //playSong
 
 	pauseSong: function() {
 		//WORKS ON CURRENT SONG DISPLAY!
 		document.getElementById("song-url").pause();
 		this.toggleButtons();
-
 	}, //pauseSong
 
 	
@@ -149,11 +139,32 @@ let player = {
 player.populateSongs(SongList);
 player.currentSongDisplay();
 
+//list play button is clicked
 setTimeout(function() {
 	$('.fa-play').click(function(event) {
 		let $targetSong = $(event.target)
-			.parent(); //YOUAREHERE
-		console.log($targetSong);
+			.parent()
+			.attr('class')
+			.match(player.songRegEx)
+			.toString();
+
+		//toggle list play/pause buttons
+		$('.list-pause-icon.' + player.currentSong)
+			.addClass('hide');
+		$('.list-play-icon.' + player.currentSong)
+			.removeClass('hide');
+
+		player.currentSong = $targetSong;
+		player.currentSongDisplay();
+		player.playSong();
+
+	});
+}, 0);
+
+//list pause button is clicked
+setTimeout(function() {
+	$('.fa-pause').click(function(event) {
+		player.pauseSong();		
 	});
 }, 0);
 
