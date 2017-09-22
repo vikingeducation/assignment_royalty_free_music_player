@@ -112,6 +112,9 @@ section {
     padding: 0 0 0 10px;
     color: #898989; }
 
+.song-url {
+  display: none; }
+
 .music-credit {
   display: flex;
   flex-flow: row nowrap;

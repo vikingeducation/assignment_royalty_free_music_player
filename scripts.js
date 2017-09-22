@@ -42,7 +42,7 @@ let player = {
 	//declare player variables
 	$songList: $('.song-list'),
 
-	currentSong: "",
+	currentSong: "song1",
 
 	//loop through all songs in songList & populate eac one into player
 	populateSongs: function(songs) {
@@ -51,7 +51,7 @@ let player = {
 		
 		for (var song in songs) {
 			this.$songList
-				.append('<li class="song song-' + songNumber + '">\
+				.append('<li class="song song' + songNumber + '">\
 					<div class="list-play-icon">\
 						<i class="fa fa-play" aria-hidden="true"></i>\
 					</div>\
@@ -69,15 +69,26 @@ let player = {
 
 	}, //populateSongs
 
-	currentSongDisplay: function() {
-		if (this.currentSong === "") {
-			this.currentSong = "song-1";
+	currentSongDisplay: function(songString) {
+		let $footerDiv = $('.current-track-info'),
+			songObject = SongList[songString];
+
+		if (songString === "") {
+			return;
+		} else {
+			this.currentSong = songString;
+			$footerDiv
+				.children()
+				.first()
+				.text(songObject.artist)
+				.next()
+				.text(songObject.title)
+				.next()
+				.attr("href", songObject.url);
+
 		}
-		console.log(this.currentSong);
-
-
-
-	}, //currentSong
+		
+	}, //currentSongDisplay
 
 
 
@@ -114,18 +125,25 @@ let player = {
 
 
 player.populateSongs(SongList);
-player.currentSongDisplay();
+//player.currentSongDisplay();
 
 setTimeout(function() {
 	$('.song').click(function(event) {
 		event.preventDefault();
-		let songReg = /song-\d+/;
+		let songReg = /song\d+/; //regex pattern to pull song number from class
+		let songString = "";
 		let $selectedSong = $(event.target)
 			.parent()
-			.parent(); // MAYBE A PROBLEM - if user clicks .song, but not an element within, this selects way up the DOM chain & throws an error
-		let songClass = $selectedSong.attr('class');
-		let thisSong = songClass.match(songReg).toString();
-		console.log(thisSong); //YOUAREHERE - grabbed the song number; need to use it to insert the selected song info into the footer
+			.parent();
+		
+		if ($selectedSong.hasClass("song")) { //only assign songString if user clicks on play button or artist/title
+			songString = $selectedSong
+				.attr('class')
+				.match(songReg)
+				.toString();
+		}
+		
+		player.currentSongDisplay(songString);
 	});
 }, 0);
 
