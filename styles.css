@@ -62,13 +62,15 @@ section {
       padding: 0 0 0 15px;
       font-size: 18px;
       font-family: sans-serif;
-      color: #fc6d00; }
+      color: #fc6d00;
+      cursor: pointer; }
     section .song p {
       margin: 0;
       padding: 0 0 0 15px;
       font-size: 14px;
       font-family: sans-serif;
-      color: #12438c; }
+      color: #12438c;
+      cursor: pointer; }
 
 .footer-box {
   margin: auto;

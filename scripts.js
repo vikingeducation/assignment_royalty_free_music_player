@@ -42,8 +42,10 @@ let player = {
 	//declare player variables
 	$songList: $('.song-list'),
 
+	currentSong: "",
+
 	//loop through all songs in songList & populate eac one into player
-	populateSong: function(songs) {
+	populateSongs: function(songs) {
 			
 		let songNumber = 1
 		
@@ -61,12 +63,21 @@ let player = {
 					<p class="title">' + (songs[song]).title + '</p>\
 				</div>\
 			</li>');
-				
-
+			
 			songNumber += 1;
 		}
 
-	} //populateSongs
+	}, //populateSongs
+
+	currentSongDisplay: function() {
+		if (this.currentSong === "") {
+			this.currentSong = "song-1";
+		}
+		console.log(this.currentSong);
+
+
+
+	}, //currentSong
 
 
 
@@ -102,7 +113,20 @@ let player = {
 } //player
 
 
-player.populateSong(SongList);
+player.populateSongs(SongList);
+player.currentSongDisplay();
+
+setTimeout(function() {
+	$('.list-play-icon').click(function(event) {
+		let songReg = /song-\d+/;
+		let $selectedSong = $(event.target)
+			.parent()
+			.parent();
+		let songClass = $selectedSong.attr('class');
+		let thisSong = songClass.match(songReg).toString();
+		console.log(thisSong);
+	});
+}, 0);
 
 
 
