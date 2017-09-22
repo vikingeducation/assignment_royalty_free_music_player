@@ -44,18 +44,36 @@ let player = {
 
 	$listDiv: "",
 
-	currentSong: "song1",
+	currentSong: "",
 
-	songPlaying: false,
+	songPlaying: "paused",
 
 	playToggle: function() {
-		if (this.songPlaying) {
+		if (this.songPlaying === "playing") {
 				document.getElementById("song-url").pause();
+				this.$listDiv
+					.children()
+					.first()
+					.toggleClass('hide')
+					.next()
+					.toggleClass('hide');
+				$('.the-play-button').toggleClass('hide');
+				$('.the-pause-button').toggleClass('hide');
+				this.songPlaying = "paused";
 			} else {
 				document.getElementById("song-url").play();
+				this.$listDiv
+					.children()
+					.first()
+					.toggleClass('hide')
+					.next()
+					.toggleClass('hide');
+				$('.the-play-button').toggleClass('hide');
+				$('.the-pause-button').toggleClass('hide');
+				this.songPlaying = "playing";
 			}
 
-			this.songPlaying = !this.songPlaying;
+		//this.songPlaying = !this.songPlaying;
 	},
 
 	buttonToggle: function() {
@@ -95,8 +113,8 @@ let player = {
 	}, //populateSongs
 
 	currentSongDisplay: function(songString) {
-		let $footerDiv = $('.current-track-info'),
-			songObject = SongList[songString];
+		let $footerDiv = $('.current-track-info');
+			
 
 		this.$listDiv = $('.' + songString);
 
@@ -106,8 +124,9 @@ let player = {
 			//this.buttonToggle();
 			return;
 		} else {
-			this.buttonToggle();
+
 			this.currentSong = songString;
+			let songObject = SongList[this.currentSong];
 			$footerDiv
 				.children()
 				.first()
@@ -129,14 +148,14 @@ let player = {
 	}, //currentSongDisplay
 
 	playSong: function() {
-		this.buttonToggle();
+		//this.buttonToggle();
 		this.playToggle();
 		//document.getElementById("song-url").play();
 	}, //playSong
 
 	pauseSong: function() {
 		this.playToggle();
-		this.buttonToggle();
+		//this.buttonToggle();
 	}, //playSong
 
 
@@ -193,13 +212,13 @@ setTimeout(function() {
 		}
 		
 		player.currentSongDisplay(songString);
-		player.buttonToggle();
+		//player.buttonToggle();
 		player.playToggle();
 	});
 }, 0);
 
 
-
+//YOUAREHERE  - when user clicks on a new song in the list while the old one is playing, shit breaks. FIX IT!!!
 
 
 
