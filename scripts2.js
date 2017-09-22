@@ -132,6 +132,33 @@ let player = {
 		this.toggleButtons();
 	}, //pauseSong
 
+	nextSong: function() {
+		//grab the current song & add 1
+		let nextNum = parseInt(this.currentSong.match(/\d+/).toString()) + 1;
+		
+		//loop back to 1st song if next button is clicked while on last song
+		if (nextNum > Object.keys(SongList).length) {
+			nextNum = 1;
+		}
+
+		//toggle list play/pause buttons
+		$('.list-pause-icon.' + player.currentSong)
+			.addClass('hide');
+		$('.list-play-icon.' + player.currentSong)
+			.removeClass('hide');
+
+		let nextSong = "song" + nextNum;
+		player.currentSong = nextSong;
+
+		player.currentSongDisplay();
+		player.playSong();
+		
+	}, //nextSong
+
+	prevSong: function() {
+
+	}, //prevSong
+
 	
 } //player
 
