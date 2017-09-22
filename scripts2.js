@@ -156,7 +156,25 @@ let player = {
 	}, //nextSong
 
 	prevSong: function() {
+		//grab the current song & subtract 1
+		let nextNum = parseInt(this.currentSong.match(/\d+/).toString()) - 1;
+		
+		//loop to last song if next button is clicked while on last song
+		if (nextNum < 1) {
+			nextNum = Object.keys(SongList).length;
+		}
 
+		//toggle list play/pause buttons
+		$('.list-pause-icon.' + player.currentSong)
+			.addClass('hide');
+		$('.list-play-icon.' + player.currentSong)
+			.removeClass('hide');
+
+		let nextSong = "song" + nextNum;
+		player.currentSong = nextSong;
+
+		player.currentSongDisplay();
+		player.playSong();
 	}, //prevSong
 
 	
