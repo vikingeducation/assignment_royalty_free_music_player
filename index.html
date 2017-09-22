@@ -25,15 +25,17 @@
 		<footer class="footer-box">
 			<div class="footer-buttons">
 				<i class="fa fa-step-backward fa-2x" aria-hidden="true"></i>
-				<i class="fa fa-play-circle-o fa-3x the-play-button" aria-hidden="true"></i>
-				<i class="fa fa-pause-circle-o fa-3x the-pause-button" aria-hidden="true"></i>
+				<button class="fa fa-play-circle-o fa-3x the-play-button" onclick="player.playSong()" aria-hidden="true"></button>
+				<button class="fa fa-pause-circle-o fa-3x the-pause-button hide" onclick="player.pauseSong()" aria-hidden="true"></button>
 				<i class="fa fa-step-forward fa-2x" aria-hidden="true"></i>
 
 			</div>
 			<div class="current-track-info">
 				<h2 class="artist">Mott the Hoople</h2>
 				<h4 class="title">Everything About Us Sucks</h4>
-				<a href="" class="song-url"></a>
+				<audio id="song-url">
+					<source src="" type="audio/mpeg">
+				</audio>
 
 			</div>
 

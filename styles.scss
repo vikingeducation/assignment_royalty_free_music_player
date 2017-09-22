@@ -2,6 +2,10 @@ body {
 	background: #f7f8f9;
 }
 
+.hide {
+	display: none;
+}
+
 .header-box {
 	margin: auto;
 	display: flex;
@@ -70,7 +74,6 @@ section {
 		}
 
 		.list-pause-icon {
-			display: none;
 			cursor: pointer;
 		}
 
@@ -119,12 +122,18 @@ section {
 		padding: 0 10px 0 10px;
 
 		.the-pause-button {
-			display: none;
+			
 		}
 
 	}
 
 	i {
+		padding: 10px 5px 10px 10px;
+		color: #fc6d00;
+		cursor: pointer;
+	}
+
+	button {
 		padding: 10px 5px 10px 10px;
 		color: #fc6d00;
 		cursor: pointer;

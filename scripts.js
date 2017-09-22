@@ -31,7 +31,7 @@ const SongList = {
 	song6: {
 		artist: "bensound",
 		title: "Ukulele",
-		url: "/music/bensound-uklulele.mp3"
+		url: "/music/bensound-ukulele.mp3"
 	}
 }
 
@@ -42,7 +42,32 @@ let player = {
 	//declare player variables
 	$songList: $('.song-list'),
 
+	$listDiv: "",
+
 	currentSong: "song1",
+
+	songPlaying: false,
+
+	playToggle: function() {
+		if (this.songPlaying) {
+				document.getElementById("song-url").pause();
+			} else {
+				document.getElementById("song-url").play();
+			}
+
+			this.songPlaying = !this.songPlaying;
+	},
+
+	buttonToggle: function() {
+		this.$listDiv
+				.children()
+				.first()
+				.toggleClass('hide')
+				.next()
+				.toggleClass('hide');
+			$('.the-play-button').toggleClass('hide');
+			$('.the-pause-button').toggleClass('hide');
+	},
 
 	//loop through all songs in songList & populate eac one into player
 	populateSongs: function(songs) {
@@ -55,7 +80,7 @@ let player = {
 					<div class="list-play-icon">\
 						<i class="fa fa-play" aria-hidden="true"></i>\
 					</div>\
-					<div class="list-pause-icon">\
+					<div class="list-pause-icon hide">\
 						<i class="fa fa-pause" aria-hidden="true"></i>\
 					</div>\
 					<div class="song-info">\
@@ -73,9 +98,15 @@ let player = {
 		let $footerDiv = $('.current-track-info'),
 			songObject = SongList[songString];
 
-		if (songString === "") {
+		this.$listDiv = $('.' + songString);
+
+		console.log(songString + " " + this.currentSong);
+
+		if (songString === "" || this.currentSong === songString) {
+			//this.buttonToggle();
 			return;
 		} else {
+			this.buttonToggle();
 			this.currentSong = songString;
 			$footerDiv
 				.children()
@@ -84,11 +115,29 @@ let player = {
 				.next()
 				.text(songObject.title)
 				.next()
-				.attr("href", songObject.url);
+				.children()
+				.attr("src", songObject.url);
+
+			//this.buttonToggle();
+
+			document.getElementById("song-url").load(); //load the song as soon as it's selected so that pause function works correctly
+			
+			
 
 		}
 		
 	}, //currentSongDisplay
+
+	playSong: function() {
+		this.buttonToggle();
+		this.playToggle();
+		//document.getElementById("song-url").play();
+	}, //playSong
+
+	pauseSong: function() {
+		this.playToggle();
+		this.buttonToggle();
+	}, //playSong
 
 
 
@@ -135,7 +184,7 @@ setTimeout(function() {
 		let $selectedSong = $(event.target)
 			.parent()
 			.parent();
-		
+
 		if ($selectedSong.hasClass("song")) { //only assign songString if user clicks on play button or artist/title
 			songString = $selectedSong
 				.attr('class')
@@ -144,6 +193,8 @@ setTimeout(function() {
 		}
 		
 		player.currentSongDisplay(songString);
+		player.buttonToggle();
+		player.playToggle();
 	});
 }, 0);
 

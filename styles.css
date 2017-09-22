@@ -1,6 +1,9 @@
 body {
   background: #f7f8f9; }
 
+.hide {
+  display: none; }
+
 .header-box {
   margin: auto;
   display: flex;
@@ -58,7 +61,6 @@ section {
       align-items: center;
       flex-basis: content; }
     section .song .list-pause-icon {
-      display: none;
       cursor: pointer; }
     section .song .list-play-icon {
       cursor: pointer; }
@@ -95,9 +97,11 @@ section {
     display: flex;
     align-items: center;
     padding: 0 10px 0 10px; }
-    .footer-box .footer-buttons .the-pause-button {
-      display: none; }
   .footer-box i {
+    padding: 10px 5px 10px 10px;
+    color: #fc6d00;
+    cursor: pointer; }
+  .footer-box button {
     padding: 10px 5px 10px 10px;
     color: #fc6d00;
     cursor: pointer; }
