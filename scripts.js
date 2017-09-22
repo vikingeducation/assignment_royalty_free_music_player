@@ -1,7 +1,6 @@
 'use strict';
 
 //create song list
-
 const SongList = {
 	song1: {
 		artist: "bensound",
@@ -36,72 +35,38 @@ const SongList = {
 }
 
 //create player object
-
 let player = {
 
 	//declare player variables
 	$songList: $('.song-list'),
 
-	$listDiv: "",
+	songRegEx: /song\d+/,
 
 	currentSong: "",
 
-	songString: "",
+	currentSongObject: {},
 
-	songPlaying: "paused",
-
-	playToggle: function() {
-		if (this.songPlaying === "playing") {
-				document.getElementById("song-url").pause();
-				this.songPlaying = "paused";
-				this.buttonToggle();
-			} else {
-				document.getElementById("song-url").play();
-				this.songPlaying = "playing";
-				this.buttonToggle();
-			}
-		console.log(this.songPlaying);
-	},
-
-	buttonToggle: function() {
-		if (this.songPlaying === "paused") {	
-			this.$listDiv
-					.children()
-					.first()
-					.removeClass('hide')
-					.next()
-					.addClass('hide');
-			$('.the-play-button').removeClass('hide');
-			$('.the-pause-button').addClass('hide');
-		} else {
-			this.$listDiv
-					.children()
-					.first()
-					.addClass('hide')
-					.next()
-					.removeClass('hide');
-			$('.the-play-button').addClass('hide');
-			$('.the-pause-button').removeClass('hide');
-		}
-	},
+	songPlaying: false,
 
 	//loop through all songs in songList & populate eac one into player
 	populateSongs: function(songs) {
 			
-		let songNumber = 1
+		let songNumber = 1;
 		
 		for (var song in songs) {
+			let fullSongId = "song" + songNumber;
+			console.log(fullSongId);
 			this.$songList
 				.append('<li class="song song' + songNumber + '">\
-					<div class="list-play-icon">\
-						<i class="fa fa-play" aria-hidden="true"></i>\
+					<div class="list-play-icon play song' + songNumber + '">\
+						<button class="fa fa-play" onclick="" aria-hidden="true"></button>\
 					</div>\
-					<div class="list-pause-icon hide">\
-						<i class="fa fa-pause" aria-hidden="true"></i>\
+					<div class="list-pause-icon pause song' + songNumber + ' hide">\
+						<button class="fa fa-pause" onclick="" aria-hidden="true"></button>\
 					</div>\
 					<div class="song-info">\
-						<h5 class="artist">' + (songs[song]).artist + '</h5>\
-						<a href="' + (songs[song]).url + '" class="title">' + (songs[song]).title + '\
+						<h5 class="list-artist">' + (songs[song]).artist + '</h5>\
+						<a href="' + (songs[song]).url + '" class="list-title">' + (songs[song]).title + '\
 					</div>\
 			</li>');
 			
@@ -110,134 +75,140 @@ let player = {
 
 	}, //populateSongs
 
-	currentSongDisplay: function(startingSong) {
-		let $footerDiv = $('.current-track-info');
-		
+	setSong: function(song) {
+		console.log(song);
+		this.currentSong = song;
+		this.currentSongDisplay();
+		this.playSong();
+	},
+
+	currentSongDisplay: function() {
+
+		//if no currentSong, populate with song1
 		if (this.currentSong === "") {
-			this.currentSong = startingSong;
-		}
+			this.currentSong = "song1"
+		};
+		//grab player.currentSong & use it to get relevant song info to display
+		this.currentSongObject = SongList[this.currentSong];
+		let currentArtist = this.currentSongObject.artist,
+			currentTitle = this.currentSongObject.title,
+			currentUrl = this.currentSongObject.url;
 
-		// this.$listDiv = $('.' + this.songString);
+		//display current song in footer
+		$('.footer-artist').text(currentArtist);
+		$('.footer-title').text(currentTitle);
+		$('#song-url')
+			.children()
+			.attr('src', currentUrl);
 
-		console.log(this.songString + " " + this.currentSong);
+		//add class for current songs to play/pause buttons
+		$('#footer-play')
+			.removeClass() //remove all classes
+			.addClass('fa fa-play-circle-o fa-3x the-play-button play ' + this.currentSong)
 
-		if (this.songString === "" || this.currentSong === this.songString) { //do nothing if same song is clicked
-			//this.buttonToggle();
-			this.$listDiv = $('.' + this.currentSong); 
-			return;
-		} else {
+		$('#footer-pause')
+			.removeClass() //remove all classes
+			.addClass('fa fa-pause-circle-o fa-3x the-pause-button pause hide ' + this.currentSong)
 
-			this.currentSong = this.songString; //set currentSong to song that was just clicked
-			this.$listDiv = $('.' + this.currentSong); //assign song# class to jQuery list selector
-			let songObject = SongList[this.currentSong]; //select the correct song from the catalog
-			$footerDiv
-				.children()
-				.first()
-				.text(songObject.artist)
-				.next()
-				.text(songObject.title)
-				.next()
-				.children()
-				.attr("src", songObject.url);
+		//load the song as soon as it's selected so that pause function works correctly
+		document.getElementById("song-url").load();
 
-			//this.buttonToggle();
-
-			document.getElementById("song-url").load(); //load the song as soon as it's selected so that pause function works correctly
-			
-			
-
-		}
-		
 	}, //currentSongDisplay
 
+	toggleButtons: function() {
+		$('.play.' + this.currentSong).toggleClass('hide');
+		$('.pause.' + this.currentSong).toggleClass('hide');
+	},
+
 	playSong: function() {
-		//this.buttonToggle();
-		this.playToggle();
-		//document.getElementById("song-url").play();
+		//WORKS ON CURRENT SONG DISPLAY!
+		document.getElementById("song-url").play();
+		this.toggleButtons();
 	}, //playSong
 
 	pauseSong: function() {
-		this.playToggle();
-		//this.buttonToggle();
-	}, //playSong
+		//WORKS ON CURRENT SONG DISPLAY!
+		document.getElementById("song-url").pause();
+		this.toggleButtons();
+	}, //pauseSong
 
-	clickPlayPause: function(event) {
+	nextSong: function() {
+		//grab the current song & add 1
+		let nextNum = parseInt(this.currentSong.match(/\d+/).toString()) + 1;
 		
-		event.preventDefault();
-		let songReg = /song\d+/; //regex pattern to pull song number from class
-		let thisSong = "";
-		let $selectedSong = $(event.target)
-			.parent()
-			.parent();
-
-		if ($selectedSong.hasClass("song")) { //only assign songString if user clicks on play button or artist/title
-			thisSong = $selectedSong
-				.attr('class')
-				.match(songReg)
-				.toString();
+		//loop back to 1st song if next button is clicked while on last song
+		if (nextNum > Object.keys(SongList).length) {
+			nextNum = 1;
 		}
+
+		//toggle list play/pause buttons
+		$('.list-pause-icon.' + player.currentSong)
+			.addClass('hide');
+		$('.list-play-icon.' + player.currentSong)
+			.removeClass('hide');
+
+		let nextSong = "song" + nextNum;
+		player.currentSong = nextSong;
+
+		player.currentSongDisplay();
+		player.playSong();
 		
-		if (thisSong !== this.songString) {
-			this.songString = thisSong;
-			this.currentSongDisplay();
-			//this.buttonToggle();
-			this.playToggle();
-			//player.buttonToggle();
-		} else {
-			this.currentSongDisplay();
-			//player.buttonToggle();
-			this.playToggle();
+	}, //nextSong
+
+	prevSong: function() {
+		//grab the current song & subtract 1
+		let nextNum = parseInt(this.currentSong.match(/\d+/).toString()) - 1;
+		
+		//loop to last song if next button is clicked while on last song
+		if (nextNum < 1) {
+			nextNum = Object.keys(SongList).length;
 		}
-	} //clickPlayPause
 
+		//toggle list play/pause buttons
+		$('.list-pause-icon.' + player.currentSong)
+			.addClass('hide');
+		$('.list-play-icon.' + player.currentSong)
+			.removeClass('hide');
 
+		let nextSong = "song" + nextNum;
+		player.currentSong = nextSong;
 
+		player.currentSongDisplay();
+		player.playSong();
+	}, //prevSong
 
-
-	//when song/play is clicked
-		//icon turns to pause
-		//song plays
-		//song populates into footer
-		//song name in list changes color
-
-	//when song/pause is clicked
-		//icon turns to play
-		//song pauses
-		//song stays in footer
-		//song name in list changes color
-
-	//when next button is clicked
-		//next song is selected & populates into footer
-		//next song plays
-		//song name in list changes color
-		//if at last song, go to first
-
-	//when previous button is clicked
-		//previous song is selected & populates into footer
-		//previous song plays
-		//song name in list changes color
-		//if at first song, go to last
-
-
-
+	
 } //player
 
 
 player.populateSongs(SongList);
-player.currentSongDisplay("song1");
+player.currentSongDisplay();
 
+//list play button is clicked
 setTimeout(function() {
-	$('.song').click(function(event) {
-		player.clickPlayPause(event);
+	$('.fa-play').click(function(event) {
+		let $targetSong = $(event.target)
+			.parent()
+			.attr('class')
+			.match(player.songRegEx)
+			.toString();
+
+		//toggle list play/pause buttons
+		$('.list-pause-icon.' + player.currentSong)
+			.addClass('hide');
+		$('.list-play-icon.' + player.currentSong)
+			.removeClass('hide');
+
+		player.currentSong = $targetSong;
+		player.currentSongDisplay();
+		player.playSong();
+
 	});
 }, 0);
 
-
-//YOUAREHERE  - when user clicks on a new song in the list while the old one is playing, shit breaks. FIX IT!!!
-
-
-
-
-
-
-
+//list pause button is clicked
+setTimeout(function() {
+	$('.fa-pause').click(function(event) {
+		player.pauseSong();		
+	});
+}, 0);
