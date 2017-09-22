@@ -46,45 +46,43 @@ let player = {
 
 	currentSong: "",
 
+	songString: "",
+
 	songPlaying: "paused",
 
 	playToggle: function() {
 		if (this.songPlaying === "playing") {
 				document.getElementById("song-url").pause();
-				this.$listDiv
-					.children()
-					.first()
-					.toggleClass('hide')
-					.next()
-					.toggleClass('hide');
-				$('.the-play-button').toggleClass('hide');
-				$('.the-pause-button').toggleClass('hide');
 				this.songPlaying = "paused";
+				this.buttonToggle();
 			} else {
 				document.getElementById("song-url").play();
-				this.$listDiv
-					.children()
-					.first()
-					.toggleClass('hide')
-					.next()
-					.toggleClass('hide');
-				$('.the-play-button').toggleClass('hide');
-				$('.the-pause-button').toggleClass('hide');
 				this.songPlaying = "playing";
+				this.buttonToggle();
 			}
-
-		//this.songPlaying = !this.songPlaying;
+		console.log(this.songPlaying);
 	},
 
 	buttonToggle: function() {
-		this.$listDiv
-				.children()
-				.first()
-				.toggleClass('hide')
-				.next()
-				.toggleClass('hide');
-			$('.the-play-button').toggleClass('hide');
-			$('.the-pause-button').toggleClass('hide');
+		if (this.songPlaying === "paused") {	
+			this.$listDiv
+					.children()
+					.first()
+					.removeClass('hide')
+					.next()
+					.addClass('hide');
+			$('.the-play-button').removeClass('hide');
+			$('.the-pause-button').addClass('hide');
+		} else {
+			this.$listDiv
+					.children()
+					.first()
+					.addClass('hide')
+					.next()
+					.removeClass('hide');
+			$('.the-play-button').addClass('hide');
+			$('.the-pause-button').removeClass('hide');
+		}
 	},
 
 	//loop through all songs in songList & populate eac one into player
@@ -112,21 +110,26 @@ let player = {
 
 	}, //populateSongs
 
-	currentSongDisplay: function(songString) {
+	currentSongDisplay: function(startingSong) {
 		let $footerDiv = $('.current-track-info');
-			
+		
+		if (this.currentSong === "") {
+			this.currentSong = startingSong;
+		}
 
-		this.$listDiv = $('.' + songString);
+		// this.$listDiv = $('.' + this.songString);
 
-		console.log(songString + " " + this.currentSong);
+		console.log(this.songString + " " + this.currentSong);
 
-		if (songString === "" || this.currentSong === songString) {
+		if (this.songString === "" || this.currentSong === this.songString) { //do nothing if same song is clicked
 			//this.buttonToggle();
+			this.$listDiv = $('.' + this.currentSong); 
 			return;
 		} else {
 
-			this.currentSong = songString;
-			let songObject = SongList[this.currentSong];
+			this.currentSong = this.songString; //set currentSong to song that was just clicked
+			this.$listDiv = $('.' + this.currentSong); //assign song# class to jQuery list selector
+			let songObject = SongList[this.currentSong]; //select the correct song from the catalog
 			$footerDiv
 				.children()
 				.first()
@@ -158,6 +161,34 @@ let player = {
 		//this.buttonToggle();
 	}, //playSong
 
+	clickPlayPause: function(event) {
+		
+		event.preventDefault();
+		let songReg = /song\d+/; //regex pattern to pull song number from class
+		let thisSong = "";
+		let $selectedSong = $(event.target)
+			.parent()
+			.parent();
+
+		if ($selectedSong.hasClass("song")) { //only assign songString if user clicks on play button or artist/title
+			thisSong = $selectedSong
+				.attr('class')
+				.match(songReg)
+				.toString();
+		}
+		
+		if (thisSong !== this.songString) {
+			this.songString = thisSong;
+			this.currentSongDisplay();
+			//this.buttonToggle();
+			this.playToggle();
+			//player.buttonToggle();
+		} else {
+			this.currentSongDisplay();
+			//player.buttonToggle();
+			this.playToggle();
+		}
+	} //clickPlayPause
 
 
 
@@ -193,27 +224,11 @@ let player = {
 
 
 player.populateSongs(SongList);
-//player.currentSongDisplay();
+player.currentSongDisplay("song1");
 
 setTimeout(function() {
 	$('.song').click(function(event) {
-		event.preventDefault();
-		let songReg = /song\d+/; //regex pattern to pull song number from class
-		let songString = "";
-		let $selectedSong = $(event.target)
-			.parent()
-			.parent();
-
-		if ($selectedSong.hasClass("song")) { //only assign songString if user clicks on play button or artist/title
-			songString = $selectedSong
-				.attr('class')
-				.match(songReg)
-				.toString();
-		}
-		
-		player.currentSongDisplay(songString);
-		//player.buttonToggle();
-		player.playToggle();
+		player.clickPlayPause(event);
 	});
 }, 0);
 
