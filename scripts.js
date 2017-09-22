@@ -52,16 +52,16 @@ let player = {
 		for (var song in songs) {
 			this.$songList
 				.append('<li class="song song-' + songNumber + '">\
-				<div class="list-play-icon">\
-					<i class="fa fa-play" aria-hidden="true"></i>\
-				</div>\
-				<div class="list-pause-icon">\
-					<i class="fa fa-pause" aria-hidden="true"></i>\
-				</div>\
-				<div class="song-info">\
-					<h5 class="artist">' + (songs[song]).artist + '</h5>\
-					<p class="title">' + (songs[song]).title + '</p>\
-				</div>\
+					<div class="list-play-icon">\
+						<i class="fa fa-play" aria-hidden="true"></i>\
+					</div>\
+					<div class="list-pause-icon">\
+						<i class="fa fa-pause" aria-hidden="true"></i>\
+					</div>\
+					<div class="song-info">\
+						<h5 class="artist">' + (songs[song]).artist + '</h5>\
+						<a href="' + (songs[song]).url + '" class="title">' + (songs[song]).title + '\
+					</div>\
 			</li>');
 			
 			songNumber += 1;
@@ -117,14 +117,15 @@ player.populateSongs(SongList);
 player.currentSongDisplay();
 
 setTimeout(function() {
-	$('.list-play-icon').click(function(event) {
+	$('.song').click(function(event) {
+		event.preventDefault();
 		let songReg = /song-\d+/;
 		let $selectedSong = $(event.target)
 			.parent()
-			.parent();
+			.parent(); // MAYBE A PROBLEM - if user clicks .song, but not an element within, this selects way up the DOM chain & throws an error
 		let songClass = $selectedSong.attr('class');
 		let thisSong = songClass.match(songReg).toString();
-		console.log(thisSong);
+		console.log(thisSong); //YOUAREHERE - grabbed the song number; need to use it to insert the selected song info into the footer
 	});
 }, 0);
 
