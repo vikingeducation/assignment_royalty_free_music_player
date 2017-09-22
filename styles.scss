@@ -75,9 +75,17 @@ section {
 
 		.list-pause-icon {
 			cursor: pointer;
+			width: 26px;
 		}
 
 		.list-play-icon {
+			cursor: pointer;
+			width: 26px;
+		}
+
+		button {
+			border: none;
+			background: none;
 			cursor: pointer;
 		}
 
@@ -100,6 +108,11 @@ section {
 			cursor: pointer;
 		}
 	}
+
+	.playing {
+		background: #e5e5e5;
+	}
+
 }
 
 .footer-box {
@@ -134,6 +147,8 @@ section {
 	}
 
 	button {
+		border: none;
+		background: #edf3fc;
 		padding: 10px 5px 10px 10px;
 		color: #fc6d00;
 		cursor: pointer;

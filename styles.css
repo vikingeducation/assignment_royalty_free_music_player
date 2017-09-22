@@ -61,8 +61,14 @@ section {
       align-items: center;
       flex-basis: content; }
     section .song .list-pause-icon {
-      cursor: pointer; }
+      cursor: pointer;
+      width: 26px; }
     section .song .list-play-icon {
+      cursor: pointer;
+      width: 26px; }
+    section .song button {
+      border: none;
+      background: none;
       cursor: pointer; }
     section .song h5 {
       margin: 0;
@@ -79,6 +85,8 @@ section {
       font-family: sans-serif;
       color: #12438c;
       cursor: pointer; }
+  section .playing {
+    background: #e5e5e5; }
 
 .footer-box {
   margin: auto;
@@ -102,6 +110,8 @@ section {
     color: #fc6d00;
     cursor: pointer; }
   .footer-box button {
+    border: none;
+    background: #edf3fc;
     padding: 10px 5px 10px 10px;
     color: #fc6d00;
     cursor: pointer; }
