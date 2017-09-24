@@ -2,8 +2,54 @@ body {
   font: 100% Helvetica, sans-serif;
   color: #333; }
 
+div.title-wrapper {
+  background-color: #ccc;
+  padding-left: 5px;
+  padding-top: 4px;
+  border-bottom: 1px solid #333; }
+  div.title-wrapper h2 {
+    max-width: 300px;
+    display: inline; }
+  div.title-wrapper img {
+    width: 30px;
+    margin-bottom: 14px; }
+
 div.music-wrapper {
   width: 600px;
-  margin: 150px auto; }
+  margin: 150px auto;
+  border: 1px solid #333; }
+
+div.song {
+  padding: 5px;
+  font-size: 14px;
+  border-bottom: 1px solid #333; }
+  div.song a span.glyphicon {
+    font-size: 40px;
+    color: #ccc; }
+  div.song a {
+    text-decoration: none; }
+  div.song a span.glyphicon:hover {
+    color: #000; }
+
+div.song-title {
+  max-width: 120px;
+  display: inline-block;
+  margin-left: 15px; }
+
+div.player {
+  background-color: #333;
+  color: #fff; }
+  div.player a span.glyphicon {
+    font-size: 30px;
+    color: #fff; }
+  div.player a {
+    text-decoration: none; }
+  div.player a span.glyphicon:hover {
+    color: #666; }
+
+div.controls {
+  display: inline-block;
+  margin-top: -15px;
+  margin-left: 20px; }
 
 /*# sourceMappingURL=out_master.css.map */
