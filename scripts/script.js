@@ -1,7 +1,7 @@
 // Notes: 
 // (1)
 //    The main song section is completed
-//    The footer section's button do not have functionality yet
+//    The footer section's buttons do not have functionality yet
 //    However the footer's text is fully functional and matches main's song selection
 // (2)
 //    Need to run node.js' http-server (or ruby's version) for all the code to work in the browser

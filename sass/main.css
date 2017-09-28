@@ -1,7 +1,3 @@
-:root {
-  --green: #1db954;
-  --grey: #a2a2a2; }
-
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -49,6 +45,16 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+/*******************
+ Color Palette
+********************/
+:root {
+  --green: #1db954;
+  --grey: #a2a2a2; }
+
+/*******************
+ My music player CSS
+********************/
 body {
   font-family: sans-serif;
   background: darkgrey; }
@@ -64,12 +70,11 @@ body {
   margin-top: 50px;
   width: 800px; }
 
-audio .hide {
+audio.hide {
   display: none;
-  /*
-  visibility: hidden;
-  */ }
-audio .show {
+  /* visibility: hidden; */ }
+
+audio.show {
   display: block; }
 
 /* header */
@@ -88,17 +93,16 @@ header {
     margin-top: 15px; }
 
 /* main */
-main ul li {
+main li {
   border: 1px solid var(--grey);
   background: white;
   cursor: pointer; }
-
-main li p {
-  margin-top: 5px; }
-  main li p .song {
+  main li p {
+    margin-top: 5px; }
+  main li .song {
     color: black;
     font-size: large; }
-  main li p .artist {
+  main li .artist {
     margin-top: 5px;
     color: var(--grey);
     font-size: 15px; }
@@ -112,16 +116,16 @@ main li span {
   margin-left: 15px;
   margin-top: 5px;
   margin-right: 5px; }
-  main li span .main-play-icon {
-    background-image: url("/images/main_play_grey.png");
-    background-size: 50px;
-    height: 50px;
-    width: 50px; }
-  main li span .main-pause-icon {
-    background-image: url("/images/main_pause_grey.png");
-    background-size: 50px;
-    height: 50px;
-    width: 50px; }
+main li .main-play-icon {
+  background-image: url("/images/main_play_grey.png");
+  background-size: 50px;
+  height: 50px;
+  width: 50px; }
+main li .main-pause-icon {
+  background-image: url("/images/main_pause_grey.png");
+  background-size: 50px;
+  height: 50px;
+  width: 50px; }
 
 /* footer */
 footer {
@@ -133,38 +137,38 @@ footer {
   footer span {
     cursor: pointer;
     float: left; }
-    footer span #footer-back-icon {
-      background-image: url("/images/footer_left_white.png");
-      background-size: 28px;
-      height: 28px;
-      width: 28px;
-      margin-top: 30px;
-      margin-left: 25px; }
-    footer span #footer-play-icon {
-      background-image: url("/images/footer_play_white.png");
-      background-size: 65px;
-      height: 65px;
-      width: 65px;
-      margin-top: 15px;
-      margin-left: 9px; }
-    footer span #footer-forward-icon {
-      background-image: url("/images/footer_right_white.png");
-      background-size: 28px;
-      height: 28px;
-      width: 28px;
-      margin-top: 30px;
-      margin-left: 10px; }
+  footer #footer-back-icon {
+    background-image: url("/images/footer_left_white.png");
+    background-size: 28px;
+    height: 28px;
+    width: 28px;
+    margin-top: 30px;
+    margin-left: 25px; }
+  footer #footer-play-icon {
+    background-image: url("/images/footer_play_white.png");
+    background-size: 65px;
+    height: 65px;
+    width: 65px;
+    margin-top: 15px;
+    margin-left: 9px; }
+  footer #footer-forward-icon {
+    background-image: url("/images/footer_right_white.png");
+    background-size: 28px;
+    height: 28px;
+    width: 28px;
+    margin-top: 30px;
+    margin-left: 10px; }
 
 footer p {
   margin-left: 190px; }
-  footer p #footer-song {
-    font-size: xx-large;
-    font-weight: bolder;
-    margin-top: 10px; }
-  footer p #footer-artist {
-    font-size: large;
-    font-weight: bold;
-    margin-top: 7px;
-    color: var(--grey); }
+footer #footer-song {
+  font-size: xx-large;
+  font-weight: bolder;
+  margin-top: 10px; }
+footer #footer-artist {
+  font-size: large;
+  font-weight: bold;
+  margin-top: 7px;
+  color: var(--grey); }
 
 /*# sourceMappingURL=main.css.map */

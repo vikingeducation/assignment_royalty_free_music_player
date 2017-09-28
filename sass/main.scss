@@ -1,6 +1,9 @@
-@import "./modules/_colors";
 @import "./partials/_reset";
+@import "./modules/_colors";
 
+/*******************
+ My music player CSS
+********************/
 body {
     font-family: sans-serif;
     background: darkgrey;
@@ -19,16 +22,13 @@ body {
 	width: 800px;
 }
 
-audio {
-	.hide {
-		display: none;
-		/*
-		visibility: hidden;
-		*/
-	}
-	.show {
-		display: block;	
-	}
+audio.hide {
+	display: none;
+	/* visibility: hidden; */
+}
+
+audio.show {
+	display: block;	
 }
 
 /* header */
@@ -50,18 +50,17 @@ header {
 }
 
 /* main */
-main ul li {
+main li {
 	border: 1px solid var(--grey);
 	background: white;
 	cursor: pointer;
-}
-
-main li p {
-	margin-top: 5px;
+	p {
+		margin-top: 5px;
+	}	
 	.song {
 		color: black;
 		font-size: large;
-	}
+	}	
 	.artist {
 		margin-top: 5px;
 		color: var(--grey);
@@ -74,11 +73,13 @@ main .flex-songs {
 	flex-flow: column nowrap;
 }
 
-main li span {
-	float: left;
-	margin-left: 15px;
-	margin-top: 5px;
-	margin-right: 5px;	
+main li {
+	span {
+		float: left;
+		margin-left: 15px;
+		margin-top: 5px;
+		margin-right: 5px;	
+	}	
 	.main-play-icon {
 		background-image:url('/images/main_play_grey.png');
 		background-size: 50px;
@@ -103,35 +104,37 @@ footer {
 	span {
 		cursor: pointer;
 		float: left;
-		#footer-back-icon {
-			background-image:url('/images/footer_left_white.png');
-			background-size: 28px;
-			height: 28px;
-			width: 28px;
-			margin-top: 30px;
-			margin-left: 25px;
-		}
-		#footer-play-icon {
-			background-image:url('/images/footer_play_white.png');
-			background-size: 65px;
-			height: 65px;
-			width: 65px;
-			margin-top: 15px;
-			margin-left: 9px;
-		}
-		#footer-forward-icon {
-			background-image:url('/images/footer_right_white.png');
-			background-size: 28px;
-			height: 28px;
-			width: 28px;
-			margin-top: 30px;
-			margin-left: 10px;
-		}
+	}
+	#footer-back-icon {
+		background-image:url('/images/footer_left_white.png');
+		background-size: 28px;
+		height: 28px;
+		width: 28px;
+		margin-top: 30px;
+		margin-left: 25px;
+	}
+	#footer-play-icon {
+		background-image:url('/images/footer_play_white.png');
+		background-size: 65px;
+		height: 65px;
+		width: 65px;
+		margin-top: 15px;
+		margin-left: 9px;
+	}
+	#footer-forward-icon {
+		background-image:url('/images/footer_right_white.png');
+		background-size: 28px;
+		height: 28px;
+		width: 28px;
+		margin-top: 30px;
+		margin-left: 10px;
 	}
 }
 
-footer p {
-	margin-left: 190px;
+footer {
+	p {
+		margin-left: 190px;
+	}	
 	#footer-song {
 		font-size: xx-large;
 		font-weight: bolder;
