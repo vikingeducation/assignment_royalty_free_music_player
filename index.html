@@ -1,0 +1,118 @@
+<!--
+Usage: This code needs to be viewed after a localhost http server has been started
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Royalty Free Music Player</title>
+
+<!-- Hand-crafted CSS -->
+<!--
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+-->	
+
+<!-- SASS-generated CSS -->
+	<link rel="stylesheet" type="text/css" href="./sass/main.css">
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+			integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+			crossorigin="anonymous"></script>
+	<script type="text/javascript" src="scripts/script.js"></script>
+
+	<!-- the below three lines are a fix to get HTML5 semantic elements working in old versions of Internet Explorer-->
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+</head>	
+
+<body>
+
+
+	<div class="flex-outer-container">	
+		<div class="flex-inner-container">
+			<header>
+				<img src="images/headphones_black.png" height="43" width="43">
+				<h1>Royalty Free Music Player</h1>
+			</header>
+
+			<main>
+				<ul class="flex-songs">
+					<li class="main-song-block">
+						<span class="main-icon main-play-icon"></span>
+						<p class="song">Applause</p>
+						<p class="artist">The People</p>
+						<audio controls class="hide">
+							<source src="songs/Applause.mp3" type="audio/mpeg">
+							<source src="songs/Applause.ogg" type="audio/mpeg">
+							Your browser does not support HTML5 audio.
+						</audio>	
+					</li>
+					<li class="main-song-block">
+						<span class="main-icon main-play-icon"></span>
+						<p class="song">Birds</p>
+						<p class="artist">The Eagles</p>
+						<audio controls class="hide">
+							<source src="songs/Birds.mp3" type="audio/mpeg">
+							<source src="songs/Birds.ogg" type="audio/mpeg">
+							Your browser does not support HTML5 audio.
+						</audio>	
+					</li>
+					<li class="main-song-block">
+						<span class="main-icon main-play-icon"></span>
+						<p class="song">Dog</p>
+						<p class="artist">The Canines</p>
+						<audio controls class="hide">
+							<source src="songs/Dog.mp3" type="audio/mpeg">
+							<source src="songs/Dog.ogg" type="audio/mpeg">
+							Your browser does not support HTML5 audio.
+						</audio>	
+					</li>
+					<li class="main-song-block">
+						<span class="main-icon main-play-icon"></span>
+						<p class="song">Integrales Disko Them</p>
+						<p class="artist">Keith Jars</p>
+						<audio controls class="hide">
+							<source src="songs/Keith-Integrales.mp3" type="audio/mpeg">
+							<source src="songs/Keith-Integrales.ogg" type="audio/mpeg">
+							Your browser does not support HTML5 audio.
+						</audio>	
+					</li>
+					<li class="main-song-block">
+						<span class="main-icon main-play-icon"></span>
+						<p class="song">Dem Druck Erlieget Die Natur</p>
+						<p class="artist">MIT Concert Choir</p>
+						<audio controls class="hide">
+							<source src="songs/MIT-Der.mp3" type="audio/mpeg">
+							<source src="songs/MIT-Der.ogg" type="audio/mpeg">
+							Your browser does not support HTML5 audio.
+						</audio>	
+					</li>
+					<li class="main-song-block">
+						<span class="main-icon main-play-icon"></span>
+						<p class="song">Seashore</p>
+						<p class="artist">The Atlantic</p>
+						<audio controls class="hide">
+							<source src="songs/Seashore.mp3" type="audio/mpeg">
+							<source src="songs/Seashore.ogg" type="audio/mpeg">
+							Your browser does not support HTML5 audio.
+						</audio>	
+					</li>
+				</ul>
+			</main>
+
+			<footer id="footer-song-block">
+				<span id="footer-back-icon"></span>
+				<span id="footer-play-icon"></span>
+				<span id="footer-forward-icon"></span>
+				<p id="footer-song">Dem Druck Erlieget Die Natur</p>
+				<p id="footer-artist">MIT Concert Choir</p>
+			</footer>
+		</div>	<!-- flex-inner-container -->
+	</div>	<!-- flex-outer-container -->
+
+
+
+</body>
+</html>
