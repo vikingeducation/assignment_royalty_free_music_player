@@ -1,55 +1,77 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald");
 body {
-  font: 100% Helvetica, sans-serif;
+  font-family: 'Oswald', sans-serif;
   color: #333; }
 
 div.title-wrapper {
   background-color: #ccc;
-  padding-left: 5px;
-  padding-top: 4px;
-  border-bottom: 1px solid #333; }
-  div.title-wrapper h2 {
-    max-width: 300px;
-    display: inline; }
+  padding: 3px;
+  border-bottom: 1px solid #333;
+  text-align: center; }
+  div.title-wrapper h3 {
+    display: inline-block;
+    font-weight: 200;
+    margin-top: 15px;
+    margin-bottom: 0; }
   div.title-wrapper img {
     width: 30px;
-    margin-bottom: 14px; }
+    margin-bottom: 10px;
+    display: inline; }
 
 div.music-wrapper {
-  width: 600px;
+  width: 500px;
   margin: 150px auto;
   border: 1px solid #333; }
 
-div.song {
+h6 {
+  color: #888;
+  margin: 5px 2px; }
+
+h5, h4 {
+  margin: 5px 2px; }
+
+div.playlist {
+  height: 300px; }
+
+div.playlist div.song-panel {
   padding: 5px;
-  font-size: 14px;
   border-bottom: 1px solid #333; }
-  div.song a span.glyphicon {
-    font-size: 40px;
-    color: #ccc; }
-  div.song a {
+  div.playlist div.song-panel a span.glyphicon {
+    font-size: 25px;
+    color: #ccc;
+    top: -5px; }
+  div.playlist div.song-panel a {
     text-decoration: none; }
-  div.song a span.glyphicon:hover {
+  div.playlist div.song-panel a span.glyphicon:hover {
     color: #000; }
+  div.playlist div.song-panel div.song-title {
+    max-width: 120px;
+    display: inline-block;
+    margin-left: 10px; }
 
-div.song-title {
-  max-width: 120px;
-  display: inline-block;
-  margin-left: 15px; }
-
-div.player {
+div.playing-song {
   background-color: #333;
-  color: #fff; }
-  div.player a span.glyphicon {
-    font-size: 30px;
-    color: #fff; }
-  div.player a {
-    text-decoration: none; }
-  div.player a span.glyphicon:hover {
-    color: #666; }
-
-div.controls {
-  display: inline-block;
-  margin-top: -15px;
-  margin-left: 20px; }
+  padding: 5px 2px; }
+  div.playing-song div.controls {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 15px;
+    margin-left: 20px; }
+    div.playing-song div.controls a span.glyphicon {
+      font-size: 25px;
+      color: #fff;
+      top: -5px; }
+    div.playing-song div.controls a {
+      text-decoration: none; }
+    div.playing-song div.controls a span.glyphicon:hover {
+      color: #666; }
+  div.playing-song div.song-playing-title {
+    font-family: Helvetica;
+    color: #fff;
+    font-weight: 100;
+    display: inline-block;
+    margin-left: 10px; }
+    div.playing-song div.song-playing-title h5 {
+      color: #999; }
 
 /*# sourceMappingURL=out_master.css.map */

@@ -10,6 +10,7 @@
   <script src="music.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="out_master.css">
+
   <title>Royalty Music Player</title>
 </head>
 
@@ -20,36 +21,44 @@
   <div class="music-wrapper">
 
     <div class="title-wrapper">
-
       <img src="assets/crown.png" alt="">
-      <h2>Royalty Free Music Player</h2>
-
+      <h3>Royalty Free Music Player</h3>
     </div>
 
-    <div class="song">
-      <a href="#">
-        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-      </a>
+    <div class="playlist">
 
-      <div class="song-title">
-        <h4>On Hold</h4>
-        <h5>Edith Frost</h5>
+      <div class="song-panel">
+        <a href="#">
+          <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+          <!-- <a href="#">
+            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+          </a> -->
+        </a>
+
+        <div class="song-title">
+          <h5>On Hold</h5>
+          <h6>Edith Frost</h6>
+        </div>
       </div>
-    </div>
 
-    <div class="song">
-      <a href="#">
-        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-      </a>
+      <div class="song-panel">
+        <a href="#">
+          <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+          <!-- <a href="#">
+            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+          </a> -->
+        </a>
 
-      <div class="song-title">
-        <h4>On Hold</h4>
-        <h5>Edith Frost</h5>
+        <div class="song-title">
+          <h5>On Hold</h5>
+          <h6>Edith Frost</h6>
+        </div>
       </div>
+
     </div>
 
-    <div class="player">
-      
+    <div class="playing-song">
+
       <div class="controls">
         <a href="#">
           <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
@@ -65,10 +74,11 @@
         </a> -->
       </div>
 
-      <div class="song-title">
+      <div class="song-playing-title">
         <h4>On Hold</h4>
         <h5>Edith Frost</h5>
       </div>
+
     </div>
 
   </div>

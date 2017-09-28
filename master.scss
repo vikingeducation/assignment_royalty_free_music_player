@@ -1,40 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
 
 body {
-  font: 100% Helvetica, sans-serif;
+  font-family: 'Oswald', sans-serif;
   color: #333;
 }
 
 div.title-wrapper {
   background-color: #ccc;
-  padding-left: 5px;
-  padding-top: 4px;
+  padding: 3px;
   border-bottom: 1px solid #333;
-  h2 {
-    max-width: 300px;
-    display: inline;
+  text-align: center;
+  h3 {
+    display: inline-block;
+    font-weight: 200;
+    margin-top: 15px;
+    margin-bottom: 0;
   }
   img {
     width: 30px;
-    margin-bottom: 14px;
+    margin-bottom: 10px;
+    display: inline;
   }
 
 }
 
 div.music-wrapper {
-  width: 600px;
+  width: 500px;
   margin: 150px auto;
   border: 1px solid #333;
 }
 
+h6 {
+  color: #888;
+  margin: 5px 2px;
+}
+
+h5, h4 {
+  margin: 5px 2px;
+}
 
 
-div.song {
+div.playlist {
+  height: 300px;
+}
+
+div.playlist div.song-panel {
   padding: 5px;
-  font-size: 14px;
   border-bottom: 1px solid #333;
   a span.glyphicon {
-    font-size: 40px;
+    font-size: 25px;
     color: #ccc;
+    top: -5px;
   }
   a{
     text-decoration: none;
@@ -42,32 +58,46 @@ div.song {
   a span.glyphicon:hover {
     color: #000;
   }
-}
-div.song-title {
-  max-width: 120px;
-  display: inline-block;
-  margin-left: 15px;
+
+  div.song-title {
+    max-width: 120px;
+    display: inline-block;
+    margin-left: 10px;
+  }
 }
 
 
-div.player {
+div.playing-song {
   background-color: #333;
-  color: #fff;
-  a span.glyphicon {
-    font-size: 30px;
+  padding: 5px 2px;
+
+  div.controls {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 15px;
+    margin-left: 20px;
+    a span.glyphicon {
+      font-size: 25px;
+      color: #fff;
+      top: -5px;
+    }
+    a{
+      text-decoration: none;
+    }
+
+    a span.glyphicon:hover {
+      color: #666;
+    }
+  }
+
+  div.song-playing-title {
+    font-family: Helvetica;
     color: #fff;
+    font-weight: 100;
+    display: inline-block;
+    margin-left: 10px;
+    h5 {
+      color: #999;
+    }
   }
-  a{
-    text-decoration: none;
-  }
-
-  a span.glyphicon:hover {
-    color: #666;
-  }
-}
-
-div.controls {
-  display: inline-block;
-  margin-top: -15px;
-  margin-left: 20px;
 }
