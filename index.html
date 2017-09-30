@@ -4,10 +4,10 @@
 <head>
   <meta charset="utf-8">
   <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="music.js"></script>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-  <script src="music.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="out_master.css">
 
@@ -27,33 +27,32 @@
 
     <div class="playlist">
 
-      <div class="song-panel">
-        <a href="#">
-          <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-          <!-- <a href="#">
-            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-          </a> -->
-        </a>
+      <audio id="mySong" preload='none'>
+        <source src="http://vcs-royalty-free-music-player.surge.sh/data/mp3s/4-Corner-Bass_preview.mp3" type='audio/mp3' />
+      </audio>
+
+      <a href="#"  class="song-listed" id="audioControl">
+        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
 
         <div class="song-title">
           <h5>On Hold</h5>
           <h6>Edith Frost</h6>
         </div>
-      </div>
+      </a>
 
-      <div class="song-panel">
-        <a href="#">
+
+      <!-- <a href="#"  class="song-listed">
           <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-          <!-- <a href="#">
+          <a href="#">
             <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-          </a> -->
-        </a>
+          </a>
 
         <div class="song-title">
           <h5>On Hold</h5>
           <h6>Edith Frost</h6>
         </div>
-      </div>
+      </a> -->
 
     </div>
 

@@ -20,7 +20,7 @@ div.title-wrapper {
 
 div.music-wrapper {
   width: 500px;
-  margin: 150px auto;
+  margin: 80px auto;
   border: 1px solid #333; }
 
 h6 {
@@ -33,21 +33,22 @@ h5, h4 {
 div.playlist {
   height: 300px; }
 
-div.playlist div.song-panel {
+div.playlist a.song-listed {
   padding: 5px;
-  border-bottom: 1px solid #333; }
-  div.playlist div.song-panel a span.glyphicon {
-    font-size: 25px;
-    color: #ccc;
-    top: -5px; }
-  div.playlist div.song-panel a {
-    text-decoration: none; }
-  div.playlist div.song-panel a span.glyphicon:hover {
-    color: #000; }
-  div.playlist div.song-panel div.song-title {
+  border-bottom: 1px solid #333;
+  font-size: 25px;
+  color: #ccc;
+  text-decoration: none;
+  display: block; }
+  div.playlist a.song-listed div.song-title {
     max-width: 120px;
     display: inline-block;
     margin-left: 10px; }
+  div.playlist a.song-listed span.glyphicon {
+    top: -5px; }
+
+a.song-listed:hover > * {
+  color: #000; }
 
 div.playing-song {
   background-color: #333;
@@ -60,7 +61,7 @@ div.playing-song {
     div.playing-song div.controls a span.glyphicon {
       font-size: 25px;
       color: #fff;
-      top: -5px; }
+      top: -2px; }
     div.playing-song div.controls a {
       text-decoration: none; }
     div.playing-song div.controls a span.glyphicon:hover {
