@@ -41,7 +41,10 @@ h5, h4 {
 
 
 div.playlist {
-  height: 300px;
+  min-height: 150px;
+  max-height: 300px;
+  overflow-y: scroll;
+  overflow: auto;
 }
 
 div.playlist a.song-listed {

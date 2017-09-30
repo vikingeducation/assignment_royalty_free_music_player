@@ -31,7 +31,10 @@ h5, h4 {
   margin: 5px 2px; }
 
 div.playlist {
-  height: 300px; }
+  min-height: 150px;
+  max-height: 300px;
+  overflow-y: scroll;
+  overflow: auto; }
 
 div.playlist a.song-listed {
   padding: 5px;
