@@ -3,6 +3,7 @@
 $(document).ready( function() {
 
   var requestURL = 'https://api.spotify.com/v1/albums?ids=382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc&market=ES';
+  // var requestURL = 'https://accounts.spotify.com/api/token';
 
   function createCORSRequest(method, url) {
     var xhr = new XMLHttpRequest();
@@ -21,7 +22,12 @@ $(document).ready( function() {
   }
 
   var xhr = createCORSRequest('GET', requestURL);
-  xhr.setRequestHeader('Authorization','Bearer BQBGQtPB-DD_9YPHHUuAl8bdbR7jTNaWnwomZaS7p3wLPS2S1D8XnbXWt2DzZuCFkK4d_HBJvbdWJXx5xUqTqIqHfmCCD_7Z6SNt2b4pAkCciDgqovMrIVxLRRMS505vcKKq2iov70Tv');
+  // var xhr = createCORSRequest('POST', requestURL);
+  // xhr.setRequestHeader('grant_type', 'client_credentials');
+  // xhr.setRequestHeader("Authorization", "Basic 1ce48a9a44bb4731bc94a4e7ccb639cf:176637573b904e5399c6d6ac23d14bbc");
+  // xhr.onload = requestComplete;
+
+  xhr.setRequestHeader('Authorization','Bearer BQBgKgh_qII2_ndRuCMMJN9R4XoiIAQFyDFQA8a_Ui1huXjA9Br3bb-EQsCQjV5ThQnzxOEwb5H14Y2NSF2qvjg_zgz5YYxwEn1EoeSKCYTvv8O2rt8ZJbg_RHSEOm4H4zy8S1LxnWyb ');
   xhr.responseType = 'json';
   xhr.send();
   // request.open('GET', requestURL);
@@ -38,10 +44,13 @@ $(document).ready( function() {
       for (var j = 0; j < 1; j++) {
         var currentSongName = albumSongs[j]['name'];
         var currentSongAuthor = albumSongs[j]['artists'][0]['name'];
-        var currentLink = $(albumSongs[j]['linked_from']).attr('href');
+        var currentLink = $(albumSongs[j]['external_urls']).attr('spotify');
+        // console.log(albumSongs[j]);
 
         var $songBox = $('a.song-listed').clone();
-        $($songBox.get(0)).find('#mySong').attr( 'id', 'song' + j + i + Math.floor(Math.random()*10));
+        $($songBox.get(0)).find('#mySong').attr( 'id', 'song' + j + i);
+        $($songBox.get(0)).attr( 'id', 'audioSong' + j + i);
+        //  + Math.floor(Math.random()*10)
         $($songBox.get(0)).find('source').attr('src', currentLink );
         $($songBox.get(0)).find('h5').text(currentSongName);
         $($songBox.get(0)).find('h6').text(currentSongAuthor);
@@ -52,19 +61,15 @@ $(document).ready( function() {
 
   $('span.glyphicon-pause').hide();
 
-  var $control = $('#audioControl');
-  // var aud = document.getElementById('#mySong');
 
-  $control.click( function() {
-    var aud = document.getElementById(this);
-    $('span.glyphicon-pause').toggle();
-    $('span.glyphicon-play').toggle();
-    var pause = $('span.glyphicon-pause').is(':visible');
+  $('div.playlist').click( function(event) {
+    var $control  = $('audio').parent(event.target);
+    var locator = $control.attr('id');
 
-    var zhr = new XDomainRequest();
-    zhr.open('GET', 'https://api.spotify.com/v1/tracks/3aByRUC2BVL6Fs1zI723sd');
-    zhr.setRequestHeader('Authorization','Bearer BQBGQtPB-DD_9YPHHUuAl8bdbR7jTNaWnwomZaS7p3wLPS2S1D8XnbXWt2DzZuCFkK4d_HBJvbdWJXx5xUqTqIqHfmCCD_7Z6SNt2b4pAkCciDgqovMrIVxLRRMS505vcKKq2iov70Tv');
-
+    var aud = document.getElementById(locator);
+    $control.children('span.glyphicon-pause').toggle();
+    $control.children('span.glyphicon-play').toggle();
+    var pause = $(this).children('span.glyphicon-pause').is(':visible');
     pause ? aud.play() : aud.pause() ;
 
     // return false;

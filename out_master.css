@@ -44,7 +44,7 @@ div.playlist a.song-listed {
   text-decoration: none;
   display: block; }
   div.playlist a.song-listed div.song-title {
-    max-width: 120px;
+    max-width: 200px;
     display: inline-block;
     margin-left: 10px; }
   div.playlist a.song-listed span.glyphicon {
