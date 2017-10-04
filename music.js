@@ -2,8 +2,9 @@
 
 $(document).ready( function() {
 
-  var requestURL = 'https://api.spotify.com/v1/albums?ids=382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc&market=ES';
-  // var requestURL = 'https://accounts.spotify.com/api/token';
+  // var requestURL = 'https://api.spotify.com/v1/albums?ids=382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc&market=ES';
+
+  var requestURL = 'http://vcs-royalty-free-music-player.surge.sh/data/tracks/index.json';
 
   function createCORSRequest(method, url) {
     var xhr = new XMLHttpRequest();
@@ -22,12 +23,8 @@ $(document).ready( function() {
   }
 
   var xhr = createCORSRequest('GET', requestURL);
-  // var xhr = createCORSRequest('POST', requestURL);
-  // xhr.setRequestHeader('grant_type', 'client_credentials');
-  // xhr.setRequestHeader("Authorization", "Basic 1ce48a9a44bb4731bc94a4e7ccb639cf:176637573b904e5399c6d6ac23d14bbc");
-  // xhr.onload = requestComplete;
-
-  xhr.setRequestHeader('Authorization','Bearer BQBgKgh_qII2_ndRuCMMJN9R4XoiIAQFyDFQA8a_Ui1huXjA9Br3bb-EQsCQjV5ThQnzxOEwb5H14Y2NSF2qvjg_zgz5YYxwEn1EoeSKCYTvv8O2rt8ZJbg_RHSEOm4H4zy8S1LxnWyb ');
+  var songsLink = {};
+  // xhr.setRequestHeader('Authorization','Bearer BQBgKgh_qII2_ndRuCMMJN9R4XoiIAQFyDFQA8a_Ui1huXjA9Br3bb-EQsCQjV5ThQnzxOEwb5H14Y2NSF2qvjg_zgz5YYxwEn1EoeSKCYTvv8O2rt8ZJbg_RHSEOm4H4zy8S1LxnWyb');
   xhr.responseType = 'json';
   xhr.send();
   // request.open('GET', requestURL);
@@ -36,42 +33,86 @@ $(document).ready( function() {
     showSong(musicSpotify);
   }
 
+
   function showSong(jsonObj) {
-    var albums = jsonObj['albums'];
+    var albums = jsonObj;
 
-    for (var i = 0; i < albums.length; i++) {
-      var albumSongs = albums[i]['tracks']['items'];
-      for (var j = 0; j < 1; j++) {
-        var currentSongName = albumSongs[j]['name'];
-        var currentSongAuthor = albumSongs[j]['artists'][0]['name'];
-        var currentLink = $(albumSongs[j]['external_urls']).attr('spotify');
-        // console.log(albumSongs[j]);
+    // for (var i = 0; i < albums.length; i++) {
+      // var albumSongs = albums[i]['tracks']['items'];
+    for (var j = 0; j < albums.length; j++) {
+      // var currentSongName = albumSongs[j]['name'];
+      var currentSongName = albums[j]['name'];
+      // var currentSongAuthor = albumSongs[j]['artists'][0]['name'];
+      var currentSongAuthor = albums[j]['artist'];
+      // var currentLink = $(albumSongs[j]['external_urls']).attr('spotify');
+      var currentSongLink = albums[j]['track_url'];
+      songsLink.currentSongName = currentSongLink;
 
-        var $songBox = $('a.song-listed').clone();
-        $($songBox.get(0)).find('#mySong').attr( 'id', 'song' + j + i);
-        $($songBox.get(0)).attr( 'id', 'audioSong' + j + i);
-        //  + Math.floor(Math.random()*10)
-        $($songBox.get(0)).find('source').attr('src', currentLink );
-        $($songBox.get(0)).find('h5').text(currentSongName);
-        $($songBox.get(0)).find('h6').text(currentSongAuthor);
-        $songBox.appendTo($('div.playlist'));
-      }
+      var $songBox = $('a.test-song').clone();
+      // $($songBox.get(0)).find('#mySong').attr( 'id', 'song' + j + i);
+      // $($songBox.get(0)).attr( 'id', 'audioSong' + j + i);
+      //  + Math.floor(Math.random()*10)
+      // $songBox.attr('href', currentSongLink );
+      $songBox.removeClass().addClass('song-listed');
+      $songBox.find('h5').text(currentSongName);
+      $songBox.find('h6').text(currentSongAuthor);
+      $songBox.appendTo('.playlist');
     }
+    // }
+    $('a.test-song').hide();
   }
 
   $('span.glyphicon-pause').hide();
 
+  // $(function() {
+  // var $toggle = $('#toggle');
+  //
+  // // Imagine is might be an array of audio elements instead of just one
+  // var audio = new Audio('http://vcs-royalty-free-music-player.surge.sh/data/mp3s/4-Corner-Bass_preview.mp3');
+  // var isPlaying;
+  //
+  // $toggle.click(function(e) {
+  //     e.preventDefault();
+  //     if (isPlaying) {
+  //       audio.pause();
+  //       audio.currentTime = 0;
+  //       $toggle.text('Play');
+  //     } else {
+  //       audio.play();
+  //       $toggle.text('Stop');
+  //     }
+  //     isPlaying = !isPlaying;
+  //     return false;
+  //   });
+  // });
+  var $link = $('a.song-listed');
+  var audio = 'none';
+  audioPicker = function(songHref) {
+    audio = new Audio( songHref );
+  };
 
-  $('div.playlist').click( function(event) {
-    var $control  = $('audio').parent(event.target);
-    var locator = $control.attr('id');
+  var isPlaying;
 
-    var aud = document.getElementById(locator);
-    $control.children('span.glyphicon-pause').toggle();
-    $control.children('span.glyphicon-play').toggle();
-    var pause = $(this).children('span.glyphicon-pause').is(':visible');
-    pause ? aud.play() : aud.pause() ;
+  $link.click( function(event) {
+    event.preventDefault();
+    console.log(event);
+    var songName = $link.children('h5').text();
+    audioPicker(songsLink.songName);
+    if (isPlaying) {
+      audio.pause();
+      audio.currentTime = 0;
+      $('span.glyphicon-pause').hide();
+      $('span.glyphicon-play').show();
+    } else {
+      audio.play();
+      $('span.glyphicon-pause').show();
+      $('span.glyphicon-play').hide();
+    }
+    isPlaying = !isPlaying;
+    return false;
 
+    // var pause = $(this).children('span.glyphicon-pause').is(':visible');
+    // pause ? aud.play() : aud.pause() ;
     // return false;
   })
 });
