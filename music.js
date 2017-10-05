@@ -46,9 +46,9 @@ $(document).ready( function() {
       var currentSongAuthor = albums[j]['artist'];
       // var currentLink = $(albumSongs[j]['external_urls']).attr('spotify');
       var currentSongLink = albums[j]['track_url'];
-      songsLink.currentSongName = currentSongLink;
+      songsLink[currentSongName] = currentSongLink;
 
-      var $songBox = $('a.test-song').clone();
+      var $songBox = $('a.test-song').clone(true, true);
       // $($songBox.get(0)).find('#mySong').attr( 'id', 'song' + j + i);
       // $($songBox.get(0)).attr( 'id', 'audioSong' + j + i);
       //  + Math.floor(Math.random()*10)
@@ -57,7 +57,41 @@ $(document).ready( function() {
       $songBox.find('h5').text(currentSongName);
       $songBox.find('h6').text(currentSongAuthor);
       $songBox.appendTo('.playlist');
+
+
     }
+
+    var $link = $('a.song-listed');
+    var audio = 'none';
+    audioPicker = function(songHref) {
+      audio = new Audio( songHref );
+    };
+
+    var isPlaying;
+
+    $link.click( function(event) {
+      event.preventDefault();
+      var songName = $(this).find('h5').text();
+      audioPicker(songsLink[songName]);
+      if (isPlaying) {
+        audio.pause();
+        console.log('pause');
+        audio.currentTime = 0;
+        $(this).children('span.glyphicon-pause').hide();
+        $(this).children('span.glyphicon-play').show();
+      } else {
+        audio.play();
+        console.log('play');
+        $(this).children('span.glyphicon-pause').show();
+        $(this).children('span.glyphicon-play').hide();
+      }
+      isPlaying = !isPlaying;
+      return false;
+
+      // var pause = $(this).children('span.glyphicon-pause').is(':visible');
+      // pause ? aud.play() : aud.pause() ;
+      // return false;
+    })
     // }
     $('a.test-song').hide();
   }
@@ -85,34 +119,6 @@ $(document).ready( function() {
   //     return false;
   //   });
   // });
-  var $link = $('a.song-listed');
-  var audio = 'none';
-  audioPicker = function(songHref) {
-    audio = new Audio( songHref );
-  };
 
-  var isPlaying;
 
-  $link.click( function(event) {
-    event.preventDefault();
-    console.log(event);
-    var songName = $link.children('h5').text();
-    audioPicker(songsLink.songName);
-    if (isPlaying) {
-      audio.pause();
-      audio.currentTime = 0;
-      $('span.glyphicon-pause').hide();
-      $('span.glyphicon-play').show();
-    } else {
-      audio.play();
-      $('span.glyphicon-pause').show();
-      $('span.glyphicon-play').hide();
-    }
-    isPlaying = !isPlaying;
-    return false;
-
-    // var pause = $(this).children('span.glyphicon-pause').is(':visible');
-    // pause ? aud.play() : aud.pause() ;
-    // return false;
-  })
 });
