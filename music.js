@@ -1,8 +1,4 @@
-// Access-Control-Allow-Origin: http://vcs-royalty-free-music-player.surge.sh
-
 $(document).ready( function() {
-
-  // var requestURL = 'https://api.spotify.com/v1/albums?ids=382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc&market=ES';
 
   var requestURL = 'http://vcs-royalty-free-music-player.surge.sh/data/tracks/index.json';
 
@@ -24,6 +20,7 @@ $(document).ready( function() {
 
   var xhr = createCORSRequest('GET', requestURL);
   var songsLink = {};
+  // var audioTracks = {};
   // xhr.setRequestHeader('Authorization','Bearer BQBgKgh_qII2_ndRuCMMJN9R4XoiIAQFyDFQA8a_Ui1huXjA9Br3bb-EQsCQjV5ThQnzxOEwb5H14Y2NSF2qvjg_zgz5YYxwEn1EoeSKCYTvv8O2rt8ZJbg_RHSEOm4H4zy8S1LxnWyb');
   xhr.responseType = 'json';
   xhr.send();
@@ -47,78 +44,67 @@ $(document).ready( function() {
       // var currentLink = $(albumSongs[j]['external_urls']).attr('spotify');
       var currentSongLink = albums[j]['track_url'];
       songsLink[currentSongName] = currentSongLink;
+      // audioTracks[currentSongName] = new Audio(currentSongLink);
 
       var $songBox = $('a.test-song').clone(true, true);
       // $($songBox.get(0)).find('#mySong').attr( 'id', 'song' + j + i);
       // $($songBox.get(0)).attr( 'id', 'audioSong' + j + i);
-      //  + Math.floor(Math.random()*10)
       // $songBox.attr('href', currentSongLink );
       $songBox.removeClass().addClass('song-listed');
       $songBox.find('h5').text(currentSongName);
       $songBox.find('h6').text(currentSongAuthor);
       $songBox.appendTo('.playlist');
-
-
     }
 
     var $link = $('a.song-listed');
-    var audio = 'none';
-    audioPicker = function(songHref) {
-      audio = new Audio( songHref );
-    };
-
     var isPlaying;
+    var audioTracks = {};
 
     $link.click( function(event) {
       event.preventDefault();
-      var songName = $(this).find('h5').text();
-      audioPicker(songsLink[songName]);
-      if (isPlaying) {
-        audio.pause();
+
+      var name = $(this).find('h5').text();
+      // audioTracks[name] = audioTracks[name] || new Audio(songsLink[name]);
+
+      // if (audioTracks[name] && Object.keys(audioTracks).length == 0) {
+      //   audioTracks[name] = audioTracks[name];
+      // } else if (Object.keys(audioTracks).length > 1) {
+      // } else {
+      //   audioTracks = {};
+      //   audioTracks[name] = new Audio(songsLink[name]);
+      // }
+
+      if (audioTracks[name]) {
+        audioTracks[name] = audioTracks[name];
+      } else {
+        audioTracks[name] = new Audio(songsLink[name]);
+      }
+      console.log('length of audiotracks is ' + Object.keys(audioTracks).length);
+      console.log('name is ' + name);
+      if (isPlaying && name == Object.keys(audioTracks)) {
+        audioTracks[name].pause();
         console.log('pause');
-        audio.currentTime = 0;
         $(this).children('span.glyphicon-pause').hide();
         $(this).children('span.glyphicon-play').show();
+        audioTracks[name].currentTime = 0;
+        audioTracks = {};
+        console.log('in pause lenghts of audioTracks is ' + Object.keys(audioTracks).length );
+      } else if (Object.keys(audioTracks).length > 1) {
+          delete audioTracks[name];
       } else {
-        audio.play();
+        audioTracks[name].play();
         console.log('play');
         $(this).children('span.glyphicon-pause').show();
         $(this).children('span.glyphicon-play').hide();
+        console.log('in playlenghts of audioTracks is ' + Object.keys(audioTracks).length );
       }
       isPlaying = !isPlaying;
       return false;
 
-      // var pause = $(this).children('span.glyphicon-pause').is(':visible');
-      // pause ? aud.play() : aud.pause() ;
-      // return false;
     })
-    // }
     $('a.test-song').hide();
   }
 
   $('span.glyphicon-pause').hide();
-
-  // $(function() {
-  // var $toggle = $('#toggle');
-  //
-  // // Imagine is might be an array of audio elements instead of just one
-  // var audio = new Audio('http://vcs-royalty-free-music-player.surge.sh/data/mp3s/4-Corner-Bass_preview.mp3');
-  // var isPlaying;
-  //
-  // $toggle.click(function(e) {
-  //     e.preventDefault();
-  //     if (isPlaying) {
-  //       audio.pause();
-  //       audio.currentTime = 0;
-  //       $toggle.text('Play');
-  //     } else {
-  //       audio.play();
-  //       $toggle.text('Stop');
-  //     }
-  //     isPlaying = !isPlaying;
-  //     return false;
-  //   });
-  // });
-
 
 });
