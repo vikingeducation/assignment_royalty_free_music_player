@@ -20,37 +20,26 @@ $(document).ready( function() {
 
   var xhr = createCORSRequest('GET', requestURL);
   var songsLink = {};
-  // var audioTracks = {};
-  // xhr.setRequestHeader('Authorization','Bearer BQBgKgh_qII2_ndRuCMMJN9R4XoiIAQFyDFQA8a_Ui1huXjA9Br3bb-EQsCQjV5ThQnzxOEwb5H14Y2NSF2qvjg_zgz5YYxwEn1EoeSKCYTvv8O2rt8ZJbg_RHSEOm4H4zy8S1LxnWyb');
   xhr.responseType = 'json';
   xhr.send();
-  // request.open('GET', requestURL);
   xhr.onload = function() {
     var musicSpotify = xhr.response;
     showSong(musicSpotify);
   }
   var audioTracks = {};
+  var isPlaying;
 
 
   function showSong(jsonObj) {
     var albums = jsonObj;
 
-    // for (var i = 0; i < albums.length; i++) {
-      // var albumSongs = albums[i]['tracks']['items'];
     for (var j = 0; j < albums.length; j++) {
-      // var currentSongName = albumSongs[j]['name'];
       var currentSongName = albums[j]['name'];
-      // var currentSongAuthor = albumSongs[j]['artists'][0]['name'];
       var currentSongAuthor = albums[j]['artist'];
-      // var currentLink = $(albumSongs[j]['external_urls']).attr('spotify');
       var currentSongLink = albums[j]['track_url'];
       songsLink[currentSongName] = currentSongLink;
-      // audioTracks[currentSongName] = new Audio(currentSongLink);
-
       var $songBox = $('a.test-song').clone(true, true);
-      // $($songBox.get(0)).find('#mySong').attr( 'id', 'song' + j + i);
-      // $($songBox.get(0)).attr( 'id', 'audioSong' + j + i);
-      // $songBox.attr('href', currentSongLink );
+
       $songBox.removeClass().addClass('song-listed');
       $songBox.find('h5').text(currentSongName);
       $songBox.find('h6').text(currentSongAuthor);
@@ -58,23 +47,12 @@ $(document).ready( function() {
     }
 
     var $link = $('a.song-listed');
-    var isPlaying;
 
     $link.click( function(event) {
       event.preventDefault();
 
       var name = $(this).find('h5').text();
       var author = $(this).find('h6').text();
-
-      // audioTracks[name] = audioTracks[name] || new Audio(songsLink[name]);
-
-      // if (audioTracks[name] && Object.keys(audioTracks).length == 0) {
-      //   audioTracks[name] = audioTracks[name];
-      // } else if (Object.keys(audioTracks).length > 1) {
-      // } else {
-      //   audioTracks = {};
-      //   audioTracks[name] = new Audio(songsLink[name]);
-      // }
 
       if (audioTracks[name]) {
         audioTracks[name] = audioTracks[name];
@@ -120,27 +98,61 @@ $(document).ready( function() {
 
   var $controlsPlay = $('a.controls span.glyphicon');
 
-  $controlsPlay.click( function(event) {
+  $controlsPlay.on('click', function(event) {
     var $name = $('a.controls').find('h4').text();
     var $target = $(event.target);
+    var $playlistSong = $("h5:contains('" + $name + "')").parents().parents();
 
     if ( $target.is('span.glyphicon-pause') ) {
       audioTracks[$name].pause();
       $(this).hide();
       $(this).siblings('span.glyphicon-play').show();
-      console.log( $(this) );
+
+      $playlistSong.children('span.glyphicon-play').show();
+      $playlistSong.children('span.glyphicon-pause').hide();
     } else if ( $target.is('span.glyphicon-play') ) {
       if ($name) {
         audioTracks[$name].play();
         $(this).siblings('span.glyphicon-pause').show();
         $(this).hide();
+
+        $playlistSong.children('span.glyphicon-play').hide();
+        $playlistSong.children('span.glyphicon-pause').show();
       }
     } else if ( $target.is('span.glyphicon-step-backward') ) {
+      if ($name && $target.siblings('span.glyphicon-play').is(":visible")) {
+        isPlaying = false;
+        audioTracks = {};
+        $playlistSong.prev().trigger( "click" );
+      } else if ($name && $target.siblings('span.glyphicon-pause').is(":visible")) {
+        audioTracks[$name].pause();
+        $(this).siblings('span.glyphicon-pause').hide();
+        $(this).siblings('span.glyphicon-play').show();
 
-
+        $playlistSong.children('span.glyphicon-play').show();
+        $playlistSong.children('span.glyphicon-pause').hide();
+        isPlaying = false;
+        audioTracks = {};
+        $playlistSong.prev().trigger( "click" );
+      }
     } else if ( $target.is('span.glyphicon-step-forward') ) {
+      if ($name && $target.siblings('span.glyphicon-play').is(":visible")) {
+        isPlaying = false;
+        audioTracks = {};
+        $playlistSong.next().trigger( "click" );
+      } else if ($name && $target.siblings('span.glyphicon-pause').is(":visible")) {
+        audioTracks[$name].pause();
+        $(this).siblings('span.glyphicon-pause').hide();
+        $(this).siblings('span.glyphicon-play').show();
 
+        $playlistSong.children('span.glyphicon-play').show();
+        $playlistSong.children('span.glyphicon-pause').hide();
+        isPlaying = false;
+        audioTracks = {};
+        $playlistSong.next().trigger( "click" );
+      }
     }
+    isPlaying = !isPlaying;
   });
 
   $('span.glyphicon-pause').hide();
