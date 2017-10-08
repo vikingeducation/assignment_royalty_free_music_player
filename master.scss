@@ -73,21 +73,18 @@ div.playing-song {
   background-color: #333;
   padding: 5px 2px;
 
-  div.controls {
+  a.controls {
     display: inline-block;
     vertical-align: top;
     margin-top: 15px;
     margin-left: 20px;
-    a span.glyphicon {
+    text-decoration: none;
+    span.glyphicon {
       font-size: 25px;
       color: #fff;
       top: -2px;
     }
-    a{
-      text-decoration: none;
-    }
-
-    a span.glyphicon:hover {
+    span.glyphicon:hover {
       color: #666;
     }
   }

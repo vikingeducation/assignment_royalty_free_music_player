@@ -29,6 +29,7 @@ $(document).ready( function() {
     var musicSpotify = xhr.response;
     showSong(musicSpotify);
   }
+  var audioTracks = {};
 
 
   function showSong(jsonObj) {
@@ -58,12 +59,13 @@ $(document).ready( function() {
 
     var $link = $('a.song-listed');
     var isPlaying;
-    var audioTracks = {};
 
     $link.click( function(event) {
       event.preventDefault();
 
       var name = $(this).find('h5').text();
+      var author = $(this).find('h6').text();
+
       // audioTracks[name] = audioTracks[name] || new Audio(songsLink[name]);
 
       // if (audioTracks[name] && Object.keys(audioTracks).length == 0) {
@@ -86,6 +88,10 @@ $(document).ready( function() {
         console.log('pause');
         $(this).children('span.glyphicon-pause').hide();
         $(this).children('span.glyphicon-play').show();
+
+        $('a.controls').children('span.glyphicon-pause').hide();
+        $('a.controls').children('span.glyphicon-play').show();
+
         audioTracks[name].currentTime = 0;
         audioTracks = {};
         console.log('in pause lenghts of audioTracks is ' + Object.keys(audioTracks).length );
@@ -96,6 +102,12 @@ $(document).ready( function() {
         console.log('play');
         $(this).children('span.glyphicon-pause').show();
         $(this).children('span.glyphicon-play').hide();
+
+        $('a.controls').children('span.glyphicon-pause').show();
+        $('a.controls').children('span.glyphicon-play').hide();
+        $('a.controls').find('h4').text(name);
+        $('a.controls').find('h5').text(author);
+
         console.log('in playlenghts of audioTracks is ' + Object.keys(audioTracks).length );
       }
       isPlaying = !isPlaying;
@@ -104,6 +116,32 @@ $(document).ready( function() {
     })
     $('a.test-song').hide();
   }
+
+
+  var $controlsPlay = $('a.controls span.glyphicon');
+
+  $controlsPlay.click( function(event) {
+    var $name = $('a.controls').find('h4').text();
+    var $target = $(event.target);
+
+    if ( $target.is('span.glyphicon-pause') ) {
+      audioTracks[$name].pause();
+      $(this).hide();
+      $(this).siblings('span.glyphicon-play').show();
+      console.log( $(this) );
+    } else if ( $target.is('span.glyphicon-play') ) {
+      if ($name) {
+        audioTracks[$name].play();
+        $(this).siblings('span.glyphicon-pause').show();
+        $(this).hide();
+      }
+    } else if ( $target.is('span.glyphicon-step-backward') ) {
+
+
+    } else if ( $target.is('span.glyphicon-step-forward') ) {
+
+    }
+  });
 
   $('span.glyphicon-pause').hide();
 

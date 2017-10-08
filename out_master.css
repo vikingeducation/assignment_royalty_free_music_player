@@ -56,18 +56,17 @@ a.song-listed:hover > * {
 div.playing-song {
   background-color: #333;
   padding: 5px 2px; }
-  div.playing-song div.controls {
+  div.playing-song a.controls {
     display: inline-block;
     vertical-align: top;
     margin-top: 15px;
-    margin-left: 20px; }
-    div.playing-song div.controls a span.glyphicon {
+    margin-left: 20px;
+    text-decoration: none; }
+    div.playing-song a.controls span.glyphicon {
       font-size: 25px;
       color: #fff;
       top: -2px; }
-    div.playing-song div.controls a {
-      text-decoration: none; }
-    div.playing-song div.controls a span.glyphicon:hover {
+    div.playing-song a.controls span.glyphicon:hover {
       color: #666; }
   div.playing-song div.song-playing-title {
     font-family: Helvetica;
