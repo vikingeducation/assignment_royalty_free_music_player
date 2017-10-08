@@ -1,64 +1,38 @@
-
-var getJson = {
-  url: 'http://vcs-royalty-free-music-player.surge.sh/data/tracks/index.json',
-  createCORSRequest: function (method, url) {
-                        var xhr = new XMLHttpRequest();
-                        if ("withCredentials" in xhr) {
-                          // XHR for Chrome/Firefox/Opera/Safari.
-                          xhr.open(method, url, true);
-                        } else if (typeof XDomainRequest != "undefined") {
-                          // XDomainRequest for IE.
-                          xhr = new XDomainRequest();
-                          xhr.open(method, url);
-                        } else {
-                          // CORS not supported.
-                          xhr = null;
-                        }
-                        // xhr.responseType = 'json';
-                        return xhr;
-                      },
-};
-
-var togglePlayStatus = function(jQ, elementHide, elementShow) {
-  jQ.children(elementHide).hide();
-  jQ.children(elementShow).show();
-}
-
-var toggleSiblingsPlayStatus = function(jQ, elementHide, elementShow) {
-  jQ.siblings(elementHide).hide();
-  jQ.siblings(elementShow).show();
-}
-
-// var safePausing = function(audio) {
-//   var playPromise = audio.play();
-//   if (playPromise !== undefined) {
-//     playPromise.then(_ => {
-//       // Automatic playback started!
-//       // Show playing UI.
-//       // We can now safely pause video...
-//       video.pause();
-//     })
-//     .catch(error => {
-//       // Auto-play was prevented
-//       // Show paused UI.
-//     });
-//   }
-// }
-
-
 $(document).ready( function() {
 
-  var xhr = getJson.createCORSRequest('GET', getJson.url);
+  var requestURL = 'http://vcs-royalty-free-music-player.surge.sh/data/tracks/index.json';
+
+  function createCORSRequest(method, url) {
+    var xhr = new XMLHttpRequest();
+    if ("withCredentials" in xhr) {
+      // XHR for Chrome/Firefox/Opera/Safari.
+      xhr.open(method, url, true);
+    } else if (typeof XDomainRequest != "undefined") {
+      // XDomainRequest for IE.
+      xhr = new XDomainRequest();
+      xhr.open(method, url);
+    } else {
+      // CORS not supported.
+      xhr = null;
+    }
+    return xhr;
+  }
+
+  var xhr = createCORSRequest('GET', requestURL);
+
+
+
+
+  var songsLink = {};
   xhr.responseType = 'json';
   xhr.send();
   xhr.onload = function() {
-    var vcsMusic = xhr.response;
-    showSong(vcsMusic);
+    var musicSpotify = xhr.response;
+    showSong(musicSpotify);
   }
-
-  var songsLink = {};
   var audioTracks = {};
   var isPlaying;
+
 
   function showSong(jsonObj) {
     var albums = jsonObj;
@@ -78,7 +52,6 @@ $(document).ready( function() {
 
     var $link = $('a.song-listed');
 
-
     $link.click( function(event) {
       event.preventDefault();
 
@@ -90,25 +63,34 @@ $(document).ready( function() {
       } else {
         audioTracks[name] = new Audio(songsLink[name]);
       }
-
+      console.log('length of audiotracks is ' + Object.keys(audioTracks).length);
+      console.log('name is ' + name);
       if (isPlaying && name == Object.keys(audioTracks)) {
-        // safePausing(audioTracks[$name]);
         audioTracks[name].pause();
         console.log('pause');
-        togglePlayStatus( $(this), 'span.glyphicon-pause', 'span.glyphicon-play');
-        togglePlayStatus( $('a.controls'), 'span.glyphicon-pause', 'span.glyphicon-play');
+        $(this).children('span.glyphicon-pause').hide();
+        $(this).children('span.glyphicon-play').show();
+
+        $('a.controls').children('span.glyphicon-pause').hide();
+        $('a.controls').children('span.glyphicon-play').show();
+
         audioTracks[name].currentTime = 0;
         audioTracks = {};
+        console.log('in pause lenghts of audioTracks is ' + Object.keys(audioTracks).length );
       } else if (Object.keys(audioTracks).length > 1) {
           delete audioTracks[name];
       } else {
         audioTracks[name].play();
         console.log('play');
-        togglePlayStatus( $(this), 'span.glyphicon-play', 'span.glyphicon-pause');
-        togglePlayStatus( $('a.controls'), 'span.glyphicon-play', 'span.glyphicon-pause');
+        $(this).children('span.glyphicon-pause').show();
+        $(this).children('span.glyphicon-play').hide();
+
+        $('a.controls').children('span.glyphicon-pause').show();
+        $('a.controls').children('span.glyphicon-play').hide();
         $('a.controls').find('h4').text(name);
         $('a.controls').find('h5').text(author);
 
+        console.log('in playlenghts of audioTracks is ' + Object.keys(audioTracks).length );
       }
       isPlaying = !isPlaying;
       return false;
@@ -126,54 +108,53 @@ $(document).ready( function() {
     var $playlistSong = $("h5:contains('" + $name + "')").parents().parents();
 
     if ( $target.is('span.glyphicon-pause') ) {
-      // safePausing(audioTracks[$name]);
       audioTracks[$name].pause();
       $(this).hide();
       $(this).siblings('span.glyphicon-play').show();
-      togglePlayStatus( $playlistSong, 'span.glyphicon-pause', 'span.glyphicon-play');
 
+      $playlistSong.children('span.glyphicon-play').show();
+      $playlistSong.children('span.glyphicon-pause').hide();
     } else if ( $target.is('span.glyphicon-play') ) {
       if ($name) {
         audioTracks[$name].play();
         $(this).siblings('span.glyphicon-pause').show();
         $(this).hide();
-        togglePlayStatus( $playlistSong, 'span.glyphicon-play', 'span.glyphicon-pause');
-      }
 
+        $playlistSong.children('span.glyphicon-play').hide();
+        $playlistSong.children('span.glyphicon-pause').show();
+      }
     } else if ( $target.is('span.glyphicon-step-backward') ) {
-
       if ($name && $target.siblings('span.glyphicon-play').is(":visible")) {
         isPlaying = false;
         audioTracks = {};
         $playlistSong.prev().trigger( "click" );
-
       } else if ($name && $target.siblings('span.glyphicon-pause').is(":visible")) {
-        // safePausing(audioTracks[$name]);
         audioTracks[$name].pause();
-        toggleSiblingsPlayStatus($(this), 'span.glyphicon-pause', 'span.glyphicon-play');
-        togglePlayStatus( $playlistSong, 'span.glyphicon-pause', 'span.glyphicon-play');
+        $(this).siblings('span.glyphicon-pause').hide();
+        $(this).siblings('span.glyphicon-play').show();
+
+        $playlistSong.children('span.glyphicon-play').show();
+        $playlistSong.children('span.glyphicon-pause').hide();
         isPlaying = false;
         audioTracks = {};
         $playlistSong.prev().trigger( "click" );
       }
-
     } else if ( $target.is('span.glyphicon-step-forward') ) {
-
       if ($name && $target.siblings('span.glyphicon-play').is(":visible")) {
         isPlaying = false;
         audioTracks = {};
         $playlistSong.next().trigger( "click" );
-
       } else if ($name && $target.siblings('span.glyphicon-pause').is(":visible")) {
-        // safePausing(audioTracks[$name]);
         audioTracks[$name].pause();
-        toggleSiblingsPlayStatus($(this), 'span.glyphicon-pause', 'span.glyphicon-play');
-        togglePlayStatus( $playlistSong, 'span.glyphicon-pause', 'span.glyphicon-play');
+        $(this).siblings('span.glyphicon-pause').hide();
+        $(this).siblings('span.glyphicon-play').show();
+
+        $playlistSong.children('span.glyphicon-play').show();
+        $playlistSong.children('span.glyphicon-pause').hide();
         isPlaying = false;
         audioTracks = {};
         $playlistSong.next().trigger( "click" );
       }
-
     }
     isPlaying = !isPlaying;
   });
