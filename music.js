@@ -84,6 +84,8 @@ $(document).ready( function() {
 
       var name = $(this).find('h5').text();
       var author = $(this).find('h6').text();
+      // console.log(name);
+      // console.log(author);
 
       if (audioTracks[name]) {
         audioTracks[name] = audioTracks[name];
@@ -91,7 +93,16 @@ $(document).ready( function() {
         audioTracks[name] = new Audio(songsLink[name]);
       }
 
-      if (isPlaying && name == Object.keys(audioTracks)) {
+      if (Object.keys(audioTracks).length > 1 && !isPlaying ) {
+        delete audioTracks[Object.keys(audioTracks)[0]];
+      }
+
+      // console.log(audioTracks[name]);
+      // console.log(Object.keys(audioTracks));
+      if (Object.keys(audioTracks).length > 1 && isPlaying) {
+        delete audioTracks[name];
+        return
+      } else if (isPlaying && name == Object.keys(audioTracks)) {
         // safePausing(audioTracks[$name]);
         audioTracks[name].pause();
         console.log('pause');
@@ -99,9 +110,7 @@ $(document).ready( function() {
         togglePlayStatus( $('a.controls'), 'span.glyphicon-pause', 'span.glyphicon-play');
         audioTracks[name].currentTime = 0;
         audioTracks = {};
-      } else if (Object.keys(audioTracks).length > 1) {
-          delete audioTracks[name];
-      } else {
+      } else if (!isPlaying && name == Object.keys(audioTracks)) {
         audioTracks[name].play();
         console.log('play');
         togglePlayStatus( $(this), 'span.glyphicon-play', 'span.glyphicon-pause');
