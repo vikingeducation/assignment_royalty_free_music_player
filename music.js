@@ -46,7 +46,7 @@ var toggleSiblingsPlayStatus = function(jQ, elementHide, elementShow) {
 // }
 
 
-$(document).ready( function() {
+$(document).ready(function() {
 
   var xhr = getJson.createCORSRequest('GET', getJson.url);
   xhr.responseType = 'json';

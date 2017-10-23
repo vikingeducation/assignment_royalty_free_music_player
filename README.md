@@ -14,8 +14,14 @@ Here is my music player based on a images provided by VCS. The music player hold
 
 ## Getting Started
 
-You can clone the repository to your laptop and run index.html from the project folder in your browser.
+You can clone the repository to your laptop and got into the project folder, then run:
 
+```
+ruby -run -e httpd . -p 9090
+
+```
+
+and open broswer on http://localhost:9090/
 
 ## Authors
 
