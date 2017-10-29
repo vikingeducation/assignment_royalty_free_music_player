@@ -1,0 +1,171 @@
+
+* {
+box-sizing: border-box;
+}
+
+html {
+    font-family: "Lucida Sans", sans-serif;
+}
+.uInterf {
+	width: 60%;
+	border: 2px solid black;
+	border-radius: 5px;
+
+
+
+ 
+
+
+}
+
+#name {
+	
+	text-align: center;
+	box-shadow: gray 1px 6px 10px;
+	margin-bottom: 3px;
+	font-size: 4vw;
+	background-color: #D3D3D3;
+
+
+}
+#blank {
+	height: 100px;
+}
+#playtit {
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+
+}
+.row {
+	border: 1px solid black;
+	
+}
+.row1 {
+   
+	background-color: red;
+	border: 1px solid black;
+}
+
+.title {
+	margin-top: 4px;
+	font-size: 2vw;
+	padding-left: 30px;
+
+}
+
+.row::after {
+ content: "";
+    clear: both;
+    display: table;
+
+}
+
+#playm1 {
+
+}
+
+class*="col-"] {
+    float: left;
+    padding: 5px;
+}
+
+
+
+}
+
+.col-1 {width: 8.33%;}
+.col-3 {width: 25%;}
+.col-5 {width: 35%;}
+.col-6 {width: 65%;}
+.col-4 {width: 33.33%;}
+.col-9 {width: 75%; padding-left: 10px;}
+.col-12 {width: 100%; height: auto;} 
+
+
+
+
+#control {
+background-color: black; 
+
+padding-top: 5px;
+
+}
+
+.artist {
+
+	color: gray;
+	margin-bottom: 2px;
+	
+	margin-top: -6px;
+	font-size:2vw;
+	padding-left: 30px;
+}
+
+.titlepl {
+	color: white;
+	margin-top: 3px;
+	font-size: 3vw;
+	margin-right: -100px;
+	
+	
+}
+
+.pl {
+	
+	
+}
+#skipback {
+
+
+}
+
+#fwd {
+
+}
+.artistp {
+	color: gray;
+		
+		padding-bottom: 5px;
+		margin-top: -15px;
+		font-size: 2vw;
+		
+
+	
+	}
+
+.col-6 {
+
+
+}
+
+
+
+img {
+	float: left;
+	max-width: 33%%;
+	height: auto;
+}
+
+.playInf {
+	
+	
+	padding-right: 5px;
+
+}
+
+.col-3 img {
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	
+}
+
+
+
+pausem {
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+
+}
