@@ -14,7 +14,7 @@ Here is my music player based on a images provided by VCS. The music player hold
 
 ## Getting Started
 
-OPEN LINK: https://cdn.rawgit.com/Visiona/assignment_royalty_free_music_player/f5bde28c/index.html
+OPEN LINK: http://cdn.rawgit.com/Visiona/assignment_royalty_free_music_player/f5bde28c/index.html
 
 OR
 
