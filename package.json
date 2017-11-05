@@ -1,0 +1,23 @@
+{
+  "name": "assignment_royalty_free_music_player",
+  "version": "1.0.0",
+  "description": "Ushering in the reign of Royalty Free Music w/ JavaScript. Elias Hantula",
+  "main": "music.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eliashantula/assignment_royalty_free_music_player.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eliashantula/assignment_royalty_free_music_player/issues"
+  },
+  "homepage": "https://github.com/eliashantula/assignment_royalty_free_music_player#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
