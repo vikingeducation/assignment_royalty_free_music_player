@@ -1,0 +1,102 @@
+#player {
+  width:50%;
+  height:80%;
+  border:solid 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right:0;
+  bottom:0;
+  margin:auto;
+  box-shadow: 
+    0 5px 15px 1px rgba(0, 0, 0, 0.6), 
+    0 0 200px 1px rgba(255, 255, 255, 0.5);
+}
+
+#title {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  line-height: 34px;
+  background:#d0d1cf; 
+  box-shadow: 0px 1px 5px 0px #000000;
+  background: linear-gradient(#ffffff, #d0d1cf);
+}
+            
+
+#title #logo {
+ border-radius: 50px;
+ border:solid;
+ height: 30px;
+ margin: 20px 20px 20px 20px; 
+}
+
+#title #h1 {
+  font-family:sans-serif;
+}
+
+#footer {
+  position:absolute;
+  display: flex;
+  align-items: center;
+  bottom:0;
+  background:#000000;
+  width:100%;
+  height:auto;
+  box-shadow: 0px 1px 5px 2px #000000;
+}
+
+#footer #back {
+ border-radius: 50px;
+ border:solid;
+ height: 70px;
+ margin:5px;
+}
+
+#footer #playback {
+  border-radius: 50px;
+  border:solid;
+  height: 70px;
+  margin: 20px 5px 20px 5px;
+}
+
+#footer #skip {
+ border-radius: 50px;
+ border:solid;
+ height: 70px;
+ margin:5px;
+}
+
+#play_buttons {
+  display: flex;
+  align-items: center;
+  margin-left:30px;
+  cursor:pointer;
+}
+
+#current_song h2, h3 {
+  color:white;
+  margin-left:50px;
+  font-family:sans-serif;
+}
+
+.songInfo h3 {
+  color:black;
+  margin:0px;
+}
+
+.simpleButton {
+  height: 45px;
+  margin: 20px 20px 20px 20px; 
+}
+
+.songDiv {
+  float:top;
+  display: flex;
+  align-items: center;
+  cursor:pointer;
+  width:100%;
+  height:auto;
+  border:1px solid #d3d3d3;
+
+}
