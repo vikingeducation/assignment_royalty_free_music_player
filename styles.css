@@ -46,21 +46,21 @@
   box-shadow: 0px 1px 5px 2px #000000;
 }
 
-#footer #back {
+#footer #backButton {
  border-radius: 50px;
  border:solid;
  height: 70px;
  margin:5px;
 }
 
-#footer #playback {
+#footer #playBackButton {
   border-radius: 50px;
   border:solid;
   height: 70px;
   margin: 20px 5px 20px 5px;
 }
 
-#footer #skip {
+#footer #forwardButton {
  border-radius: 50px;
  border:solid;
  height: 70px;
