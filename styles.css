@@ -1,0 +1,65 @@
+.hidden{
+	display:none;
+}
+
+body{
+	margin:0;
+}
+
+p, h1{
+	display:inline-block;
+}
+
+header{
+	background:#E8E8E8;
+	border-style:solid;
+	border-width: 2px;
+	border-color: #000;
+}
+
+div{
+	border-style:solid;
+	border-width:0px;
+	border-bottom-width:2px;
+	border-left-width:2px;
+	border-right-width:2px;
+	border-color:#95989A;
+}
+
+footer{
+	position:absolute;
+	bottom:0px;
+	background:#2C2C2C;
+	width:100%;
+}
+
+span{
+	font-size:25px;
+}
+
+footer{
+	color:#FFF;
+}
+
+#footer-song{
+	font-size:20px;
+	color:#FFF;
+}
+#footer-artist{
+	font-size:16px;
+	color:#E8E8E8
+}
+
+#foot-play, #foot-prev, #foot-next{ 
+	padding:40px;
+}
+
+#play0, #play1, #play2, #play3, #play4{
+	padding:20px;
+}
+
+#footer-info{
+	position:relative;
+	top:20px;
+}
+
