@@ -3,6 +3,9 @@
 // Author: Johann Baptista
 // Contact: baptistajohann@gmail.com
 
+// Date Started: Nov 7 2017
+// Date Complete: Nov 9 2017
+
 // ----------------------------------------------------------------------------------------------
 
 // GLOBAL VARIABLES
