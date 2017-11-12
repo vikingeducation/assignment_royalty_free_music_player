@@ -1,0 +1,75 @@
+section {
+  border: 2px solid black;
+  height: 80px;
+  display: flex;
+}
+section h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: black;
+  font-weight: bold;
+}
+section p {
+  margin-top: 10px;
+  color: gray;
+  font-weight: bold;
+}
+
+.play {
+  height: 75px;
+  width: auto;
+  padding: 2px;
+}
+
+#header {
+  border: 5px solid black;
+  background: #d9d9db;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+#header #logo {
+  width: 150px;
+  height: auto;
+  margin: 10px;
+}
+
+#header h1 {
+  font-family: "Roboto", sans-serif;
+  text-align: left;
+  margin-left: 50px;
+  font-size: 50px;
+}
+
+#footer {
+  background-color: black;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+#footer h2, #footer p {
+  font-family: "Roboto", sans-serif;
+  color: white;
+}
+#footer h2 {
+  font-size: 28px;
+}
+#footer p {
+  font-size: 20px;
+}
+
+#controls {
+  display: flex;
+  align-items: flex-start;
+}
+
+.trackInfo {
+  text-align: left;
+  margin-left: 30px;
+}
+
+.current {
+  color: blue;
+}

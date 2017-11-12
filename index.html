@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Austin Smith - Royalty Free Music Player</title>
+  <meta charset="UTF-9">
+  <meta name="viewport" content="width= device-width initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="script.js"> </script>
+</head>
+<body>
+  <header id="header">
+    <img id="logo" src="images/crown.jpg">
+    <h1>Austin's Royalty Free Music Player</h1>
+  </header>
+
+  <main id="main">
+
+    <!-- song #1-->
+    <section>
+      <div class="playBox">
+        <img class="play" src="images/play_button.png">
+      </div>
+      <div class="trackInfo">
+        <h2>Jupiter the Blue</h2>
+        <p>Gillicuddy</p>
+      </div>
+      <audio src="audio/Gillicuddy_-_01_-_Jupiter_the_Blue.mp3"></audio>
+    </section>
+
+    <!-- song #2-->
+    <section>
+      <div class="playBox">
+        <img class="play" src="images/play_button.png">
+      </div>
+      <div class="trackInfo">
+        <h2>Running Waters</h2>
+        <p>Jason Shaw</p>
+      </div>
+      <audio src="audio/Jason_Shaw_-_RUNNING_WATERS.mp3"></audio>
+    </section>
+
+    <!-- song #3-->
+    <section>
+      <div class="playBox">
+        <img class="play" src="images/play_button.png">
+      </div>
+      <div class="trackInfo">
+        <h2>Slow Burn</h2>
+        <p>Kevin MacLeod</p>
+      </div>
+      <audio src="audio/Kevin_MacLeod_-_08_-_Slow_Burn.mp3"></audio>
+    </section>
+
+    <!-- song #4-->
+    <section>
+      <div class="playBox">
+        <img class="play" src="images/play_button.png">
+      </div>
+      <div class="trackInfo">
+        <h2>Swan Song</h2>
+        <p>Paper Navy</p>
+      </div>
+      <audio src="audio/Paper_Navy_-_08_-_Swan_Song.mp3"></audio>
+    </section>
+
+    <!-- song #5-->
+    <section>
+      <div class="playBox">
+        <img class="play" src="images/play_button.png">
+      </div>
+      <div class="trackInfo">
+        <h2>The Entertainer</h2>
+        <p>Scott Joplin</p>
+      </div>
+      <audio src="audio/Scott_Joplin_-_04_-_The_Entertainer_1902_piano_roll.mp3"></audio>
+    </section>
+
+  </main>
+
+  <footer id="footer">
+    <div id="controls">
+      <img id="prev" src="images/RR.jpg">
+      <img id="playPause" src="images/play_button.png">
+      <img id="next" src="images/FF.jpg">
+      <div class="trackInfo">
+        <h2 id="currentSong">Song</h2>
+        <p id="currentArtist">Artist</p>
+      </div>
+    </div>
+    <audio id="currentMusic" src="audio/Gillicuddy_-_01_-_Jupiter_the_Blue.mp3"></audio>
+  </footer>
+
+</body>
+</html>
