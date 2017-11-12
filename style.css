@@ -44,10 +44,9 @@ section p {
 #footer {
   background-color: black;
   height: auto;
-  position: absolute;
-  width: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
 #footer h2, #footer p {
