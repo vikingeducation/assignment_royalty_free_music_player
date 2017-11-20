@@ -1,0 +1,144 @@
+section {
+  border: 2px solid black;
+  height: 80px;
+  display: flex;
+}
+section h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: black;
+  font-weight: bold;
+}
+section p {
+  margin-top: 10px;
+  color: gray;
+  font-weight: bold;
+}
+
+section:nth-child(odd) {
+    background-color: #E2DED7;
+}
+
+.play {
+  height: 75px;
+  width: auto;
+  padding: 2px;
+}
+
+#header {
+  border: 5px solid black;
+  background: #BEB9B8;
+  display: flex;
+  align-items: flex-start;
+}
+#header #logo {
+  width: 150px;
+  height: auto;
+  margin: 10px;
+}
+
+#header h1 {
+  font-family: "Roboto", sans-serif;
+  text-align: left;
+  margin-left: 50px;
+  font-size: 50px;
+}
+
+#footer {
+  background-color: #201F1F;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+
+}
+
+#footer img {
+  height: 80px;
+
+}
+
+#footer h2, #footer p {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  margin-top: 0;
+}
+#footer h2 {
+  font-size: 28px;
+}
+#footer p {
+  font-size: 20px;
+}
+
+#controls {
+  display: flex;
+  align-items: flex-start;
+  margin-left:5%;
+  margin-top:.5em;
+  
+}
+
+.trackInfo-footer {
+  display: inline;
+  text-align: left;
+  margin-left: 40px;
+  font-size: 18px;
+  
+}
+
+.current {
+  color: blue;
+}
+
+ // * Responsive Design
+ // */
+
+
+@media screen and (max-width: 1024px) {
+
+
+}
+
+@media screen and (max-width: 950px) {
+ 
+
+}
+
+
+@media screen and (max-width: 547px) {
+ #header h1 {
+  margin-top: 1.5em;
+  margin-right: 1em;
+  font-size: 22px;
+ }
+
+
+h2 {
+  font-size:18px;
+}
+
+.trackInfo-footer {
+  padding-top:5.5em;
+
+}
+
+#footer {
+  height: 200px;
+
+
+}
+
+.trackInfo-footer {
+  position: absolute;
+  width: 100%;
+  padding-left:1em;
+
+}
+
+
+
+}
+
+@media screen and (max-width: 480px) {
+ your font  style goes here
+
+}
