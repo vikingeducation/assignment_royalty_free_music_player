@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sarah's Royalty Free Music Player</title>
+  <meta charset="UTF-9">
+  <meta name="viewport" content="width= device-width initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="js/script.js"> </script>
+</head>
+<!-- Header -->
+<body>
+  <header id="header">
+    <img id="logo" src="images/crown.jpg">
+    <h1>Royalty Free Music Player</h1>
+  </header>
+  <!-- Main music section -->
+  <main id="main">
+    <section>
+      <div class="playBox">
+        <img class="play" src="images/play_button.png">
+      </div>
+      <div class="trackInfo">
+        <h2>Entrepreneurs</h2>
+        <p>Scott Holmes</p>
+      </div>
+      <audio src="audio/Scott_Holmes13.mp3"></audio>
+    </section>
+    <section>
+      <div class="playBox">
+        <img class="play" src="images/play_button.png">
+      </div>
+      <div class="trackInfo">
+        <h2>40 Miles of Bad Road</h2>
+        <p>Dead Moon</p>
+      </div>
+      <audio src="audio/Dead_Moon7.mp3"></audio>
+    </section>
+    <section>
+      <div class="playBox">
+        <img class="play" src="images/play_button.png">
+      </div>
+      <div class="trackInfo">
+        <h2>Last Train</h2>
+        <p>Fred and Toody</p>
+      </div>
+      <audio src="audio/Fred_and_Toody8.mp3"></audio>
+    </section>
+    <section>
+      <div class="playBox">
+        <img class="play" src="images/play_button.png">
+      </div>
+      <div class="trackInfo">
+        <h2>Let It Rain</h2>
+        <p>Pierced Arrows</p>
+      </div>
+      <audio src="audio/Pierced_Arrows9.mp3"></audio>
+    </section>
+    <section>
+      <div class="playBox">
+        <img class="play" src="images/play_button.png">
+      </div>
+      <div class="trackInfo">
+        <h2>Inspiring Corporate</h2>
+        <p>Scott Holmes</p>
+      </div>
+      <audio src="audio/Scott_Holmes3.mp3"></audio>
+    </section>
+  </main>
+<!-- Footer -->
+  <footer id="footer">
+    <div id="controls">
+      <img id="prev" src="images/reverse.jpg">
+      <img id="playPause" src="images/play_button.png">
+      <img id="next" src="images/forward.jpg">
+      <div class="trackInfo-footer">
+        <h2 id="currentSong">Song</h2>
+        <p id="currentArtist">Artist</p>
+      </div>
+    </div>
+    
+    <audio id="currentMusic" src=""></audio>
+  </footer>
+</body>
+</html>
