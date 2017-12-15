@@ -9,6 +9,20 @@ $(document).ready(function() {
   let $play = $('.songs').find('i');
   let arrPlay = $play.get();
 
+  //create array of songs to style
+  let $songDivs = $('#selections').find('.songs');
+  let arrSongDivs = $songDivs.get();
+
+  (function colorSongs() {
+    for (var i = 0; i < arrSongDivs.length; i++) {
+      if (i == 0 || i % 2 == 0) {
+        $(arrSongDivs[i]).addClass('light');
+      } else {
+        $(arrSongDivs[i]).addClass('dark');
+      }
+    }
+  })();
+
   //keep track of current song
   var currentSong = 0;
 

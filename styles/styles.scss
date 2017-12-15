@@ -70,7 +70,7 @@ table {
 }
 
 header {
-  @include outer(#dedfe0);
+  @include outer(#FFC52C);
 
   .fa {
     vertical-align: middle;
@@ -84,6 +84,14 @@ header {
     font-weight: 700;
     font-size: 22px;
   }
+}
+
+.light {
+  background-color: #E7EDEA;
+}
+
+.dark {
+  background-color: #CEECEF;
 }
 
 .songs {
@@ -122,20 +130,23 @@ header {
   flex-grow: 1;
   width: 100%;
   border: 1px solid gray;
+  background-color: #CEECEF;
 }
 
 footer {
-  @include outer(black);
+  @include outer(#030D4F);
   color: white;
 
   #controls {
     float: left;
+    color: #F2E9E1;
 
      i {
        padding-left: 10px;
      }
      #playPause {
          vertical-align: middle;
+         color: #FB0C06;
      }
   }
 
