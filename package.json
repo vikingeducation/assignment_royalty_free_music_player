@@ -1,0 +1,26 @@
+{
+  "name": "assignment_royalty_free_music_player",
+  "version": "1.0.0",
+  "description": "Royalty free music player",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksc23/assignment_royalty_free_music_player.git"
+  },
+  "keywords": [
+    "music",
+    "free"
+  ],
+  "author": "ksc23",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ksc23/assignment_royalty_free_music_player/issues"
+  },
+  "homepage": "https://github.com/ksc23/assignment_royalty_free_music_player#readme",
+  "dependencies": {
+    "mdi": "^2.1.19"
+  }
+}
