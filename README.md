@@ -3,6 +3,8 @@
 Seong Kim's assignment for [Viking Code
 School](https://www.vikingcodeschool.com)
 
+View it here: https://ksc23.github.io/assignment_royalty_free_music_player/
+
 ## Specifications
 - A list of songs with their names, artists, and sound URLs (the URLs will not be displayed, but are necessary for audio playback).
 - The user can start playing a track.
