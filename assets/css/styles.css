@@ -420,9 +420,7 @@ h1 {
   background-color: #513C0B;
   color: #BAB2A0;
   display: flex;
-  align-items: center; }
-
-.music-player-controls {
+  align-items: center;
   padding: .3rem 1rem; }
   .music-player-controls span {
     margin: 0 .2rem; }
@@ -430,11 +428,12 @@ h1 {
 .music-player-current {
   margin-left: 1rem; }
 
-.music-player-current-title {
+#music-player-current-title {
   font-size: 1.5rem;
-  margin-bottom: .5rem; }
+  margin-bottom: .3rem; }
 
-.music-player-current-artist {
-  color: #968C75; }
+#music-player-current-artist {
+  color: #968C75;
+  margin-left: .5rem; }
 
 /*# sourceMappingURL=styles.css.map */

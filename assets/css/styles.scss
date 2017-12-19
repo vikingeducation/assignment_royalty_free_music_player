@@ -83,9 +83,6 @@ h1 {
   color: $khaki;
   display: flex;
   align-items: center;
-}
-
-.music-player-controls {
   padding: .3rem 1rem;
 
   span {
@@ -98,13 +95,14 @@ h1 {
   margin-left: 1rem;
 }
 
-.music-player-current-title {
-  font-size: 1.5rem;
-  margin-bottom: .5rem;
+#music-player-current-title {
+    font-size: 1.5rem;
+    margin-bottom: .3rem;
 }
 
-.music-player-current-artist {
+#music-player-current-artist {
   color: $cinereous;
+  margin-left: .5rem;
 }
 
 
