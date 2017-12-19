@@ -2,13 +2,16 @@
 <html lang="en">
   <head>
     <title>Royalty Free Music Player</title>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="assets/css/styles.css">
     <link href="assets/css/mdi/css/materialdesignicons.min.css" media="all"
     rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700"
     rel="stylesheet">
+
     <script defer src="assets/scripts/index.js"></script>
   </head>
   <body>
@@ -22,17 +25,45 @@
 
         <ul class="music-player-list">
 
-          <li class="mdi mdi-play mdi-36px">
+          <li class="mdi mdi-play mdi-36px" data-status="paused">
             <div class="music-player-track">
-              <span class="title">On Hold</span>
-              <span class="artist">Edith Frost</span>
+              <span class="title">Chill Mode</span>
+              <span class="artist">Audiobinger</span>
+              <audio src="assets/audio/Audiobinger_-_Chill_Mode.mp3"></audio>
             </div>
           </li>
 
-          <li class="mdi mdi-pause mdi-36px">
+          <li class="mdi mdi-play mdi-36px" data-status="paused">
             <div class="music-player-track">
-              <span class="title">18 Wheels</span>
-              <span class="artist">Moonshine Willy</span>
+              <span class="title">Bittersweet</span>
+              <span class="artist">Podington Bear</span>
+              <audio src="assets/audio/Podington_Bear_-_Bittersweet.mp3"></audio>
+            </div>
+          </li>
+
+          <li class="mdi mdi-play mdi-36px" data-status="paused">
+            <div class="music-player-track">
+              <span class="title">Enthusiasist</span>
+              <span class="artist">Tours</span>
+              <audio src="assets/audio/Tours_-_01_-_Enthusiast.mp3"></audio>
+            </div>
+          </li>
+
+          <li class="mdi mdi-play mdi-36px" data-status="paused">
+            <div class="music-player-track">
+              <span class="title">Night Owl</span>
+              <span class="artist">Broke For Free</span>
+              <audio src="assets/audio/Broke_For_Free_-_01_-_Night_Owl.mp3">
+              </audio>
+            </div>
+          </li>
+
+          <li class="mdi mdi-play mdi-36px" data-status="paused">
+            <div class="music-player-track">
+              <span class="title">Dream</span>
+              <span class="artist">Snowflake</span>
+              <audio src="assets/audio/Snowflake__ccMixter_-_09_-_Dream.mp3">
+              </audio>
             </div>
           </li>
 
@@ -40,13 +71,14 @@
 
         <div class="music-player-controls">
 
-          <span class="mdi mdi-skip-previous mdi-36px"></span>
-          <span class="mdi mdi-play-circle-outline mdi-48px"></span>
-          <span class="mdi mdi-skip-next mdi-36px"></span>
+          <span class="mdi mdi-skip-previous mdi-36px" id="previous-btn"></span>
+          <span class="mdi mdi-play-circle-outline mdi-48px" id="toggle-btn"
+            data-status="paused"></span>
+          <span class="mdi mdi-skip-next mdi-36px" id="next-btn"></span>
 
           <div class="music-player-current">
-            <span class="music-player-current-title">18 Wheels</span>
-            <span class="music-player-current-artist">Moonshine Willy</span>
+            <span id="music-player-current-title">Chill Mode</span>
+            <span id="music-player-current-artist">Audiobinger</span>
           </div>
 
         </div>
