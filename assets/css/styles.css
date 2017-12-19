@@ -369,4 +369,64 @@ template {
 [hidden] {
   display: none; }
 
+body {
+  background-color: #D1C6AD;
+  color: #513C0B;
+  font-family: 'Lato', sans-serif; }
+
+.container {
+  display: grid;
+  grid-template: 3rem 50% 1fr / 1fr 70% 1fr;
+  min-height: 500px;
+  max-width: 960px;
+  margin: 0 auto; }
+
+.music-player {
+  border: 2px solid #A09885;
+  border-radius: 5px;
+  grid-area: 2 / 2 / 3 / 3;
+  justify-items: start; }
+
+.music-player-name, .music-player-list li {
+  border-bottom: 1px solid #A09885;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem; }
+
+h1 {
+  display: inline-block;
+  margin-left: .5rem; }
+
+.music-player-list {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+.music-player-track,
+.music-player-current {
+  display: inline-block;
+  margin: .5rem; }
+  .music-player-track span,
+  .music-player-current span {
+    display: block; }
+
+.title {
+  font-size: 20px; }
+
+.artist {
+  color: #968C75; }
+
+.music-player-controls {
+  background-color: #513C0B;
+  color: #BAB2A0;
+  display: flex;
+  align-items: center; }
+
+.music-player-controls {
+  margin-bottom: 0;
+  padding: .3rem 1rem; }
+
+.music-player-current-title {
+  font-size: 1.5rem; }
+
 /*# sourceMappingURL=styles.css.map */
