@@ -165,7 +165,7 @@ const AUDIOPLAYER = {
     // Pause current track
     AUDIOPLAYER.pauseCurrent();
 
-    // Play next track
+    // Play previous track
     previous
       .querySelectorAll('audio')
       [0]
@@ -242,5 +242,5 @@ if (document.readyState === 'complete' || document.readyState !== 'loading') {
   // initialize
   AUDIOPLAYER.init();
 } else {
-  document.addEventListener('DOMContentLoaded', AUDIOPLAYER.init());
+  document.addEventListener('DOMContentLoaded', AUDIOPLAYER.init);
 }
