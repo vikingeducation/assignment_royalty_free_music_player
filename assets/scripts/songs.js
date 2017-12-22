@@ -1,5 +1,8 @@
-// For multiple files
-let MP = MP || {};
+// If undefined assign new obj to MP
+
+var MP = MP || {};
+
+'use strict';
 
 MP.songs = [
   {
