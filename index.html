@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Royalty Free Music Player</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="assets/css/mdi/css/materialdesignicons.min.css" media="all"
+    rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700"
+    rel="stylesheet">
+
+    <script defer src="assets/scripts/songs.js"></script>
+    <script defer src="assets/scripts/view.js"></script>
+    <script defer src="assets/scripts/player.js"></script>
+  </head>
+  <body>
+    <main class="container">
+      <section class="music-player">
+
+        <header class="music-player-name">
+          <span class="mdi mdi-music-circle mdi-36px"></span>
+          <h1>Royalty Free Music Player</h1>
+        </header>
+
+        <!-- Fill playlist with songs in songs.js -->
+        <ul class="music-player-list" id="music-player-list">
+       
+        </ul>
+
+        <footer class="music-player-controls">
+
+          <span class="mdi mdi-skip-previous mdi-36px" id="previous-btn"></span>
+          <span class="mdi mdi-play-circle-outline mdi-48px" id="toggle-btn"
+            data-idx="-1"></span>
+          <span class="mdi mdi-skip-next mdi-36px" id="next-btn"></span>
+
+          <div class="music-player-current">
+            <span id="music-player-current-title"></span>
+            <span id="music-player-current-artist"></span>
+          </div>
+
+        </footer>
+
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+@import "reset";
+
+// Colors
+$dark-vanilla: #D1C6AD;
+$khaki: #BAB2A0;
+$grullo: #A09885;
+$cinereous: #968C75;
+$seal-brown: #513C0B;
+
+// Layout
+body {
+  background-color: $dark-vanilla;
+  color: $seal-brown;
+  font-family: 'Lato', sans-serif;
+}
+
+// Container
+.container {
+  display: grid;
+  grid-template: 3rem 50% 1fr / 1fr 60% 1fr;
+  min-height: 500px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+// Music Player
+.music-player {
+  border: 2px solid $grullo;
+  border-radius: 5px;
+  grid-area: 2 / 2 / 3 / 3;
+  justify-items: start;
+}
+
+// Music Player Name
+.music-player-name {
+  border-bottom: 1px solid $grullo;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+h1 {
+    display: inline-block;
+    margin-left: .5rem;
+}
+
+
+// Music Player List
+.music-player-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    @extend .music-player-name;
+  }
+}
+
+// Music Player Tracks
+.music-player-track,
+.music-player-current {
+  display: inline-block;
+  margin: .5rem;
+
+  span {
+    display: block;
+  }
+}
+
+// Titles
+.title {
+  font-size: 20px;
+}
+
+// Artists
+.artist {
+  color: $cinereous;
+}
+
+// Music Player Controls
+.music-player-controls {
+  background-color: $seal-brown;
+  color: $khaki;
+  display: flex;
+  align-items: center;
+  padding: .3rem 1rem;
+
+  span {
+    margin: 0 .2rem;
+  }
+}
+
+// Music Player Current
+.music-player-current {
+  margin-left: 1rem;
+}
+
+#music-player-current-title {
+    font-size: 1.5rem;
+    margin-bottom: .3rem;
+}
+
+#music-player-current-artist {
+  color: $cinereous;
+  margin-left: .5rem;
+}
+
+
+
+
