@@ -110,6 +110,7 @@ MP.player = {
 
     // Update footer controls icon
     MP.view.updateBtn();
+    MP.view.updateCurrent();
 
   },
 
