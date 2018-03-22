@@ -2,3 +2,95 @@
 * {
   font-family: sans-serif;
 }
+
+body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.title_bar {
+  background-color: lightgrey;
+  width: calc(100% - 2px);
+  border: 1px solid black;
+  height: 7%;
+}
+
+h1 {
+  font: {
+    size: 32px;
+    weight: bold;
+  }
+  margin: {
+    top: 10px;
+    bottom: 10px;
+    left: 16px;
+  }
+}
+
+.song {
+  width: calc(100% - 2px);
+  border: 1px solid black;
+  height: 6%;
+  overflow: auto;
+}
+
+h2 {
+  font: {
+    size: 16px;
+    weight: bold;
+  }
+  margin: {
+    top: 6px;
+    bottom: 6px;
+    left: 24px;
+  }
+}
+
+h3 {
+  color: grey;
+  font: {
+    size: 12px;
+  }
+  margin: {
+    top: 0;
+    bottom: 6px;
+    left: 24px;
+  }
+}
+
+.playing {
+  width: calc(100% - 2px);
+  border: 1px solid black;
+  height: 10%;
+  overflow: auto;
+  margin-top: 28%;
+  background-color: black;
+}
+
+h4 {
+  color: white;
+  font: {
+    size: 24px;
+  }
+  margin: {
+    top: 16px;
+    bottom: 4px;
+    left: 24px
+  }
+}
+
+h5 {
+  color: grey;
+  font: {
+    size: 20px;
+  }
+  margin: {
+    top: 0;
+    bottom: 16px;
+    left: 24px
+  }
+}
