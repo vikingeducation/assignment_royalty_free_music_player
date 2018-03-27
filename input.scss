@@ -43,14 +43,16 @@ h1 {
   width: calc(100% - 2px);
   border: 1px solid black;
   height: 52px;
+// remove overflow in final version
   overflow: auto;
 }
 
 .play {
-  height: 25px;
-  width: 25px;
+  height: 30px;
+  width: 30px;
   margin: {
-
+    top: 12px;
+    left: 12px;
   }
 }
 
@@ -60,9 +62,8 @@ h2 {
     weight: bold;
   }
   margin: {
-    top: 6px;
-    bottom: 6px;
-    left: 24px;
+    top: -36px;
+    left: 66px;
   }
 }
 
@@ -72,9 +73,8 @@ h3 {
     size: 12px;
   }
   margin: {
-    top: 0;
-    bottom: 6px;
-    left: 24px;
+    top: -10px;
+    left: 66px;
   }
 }
 
@@ -82,9 +82,10 @@ h3 {
   width: calc(100% - 2px);
   border: 1px solid black;
   height: 10%;
-  overflow: auto;
   margin-top: 25%;
   background-color: black;
+// remove overflow in final version and set static height
+  overflow: auto;
 }
 
 h4 {
