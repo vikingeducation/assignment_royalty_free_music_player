@@ -20,10 +20,10 @@ body {
 }
 
 .crown {
-  height: 32px;
-  width: 32px;
+  height: 36px;
+  width: 36px;
   margin: {
-    top: 16px;
+    top: 13px;
     left: 16px;
   }
 }
@@ -35,23 +35,25 @@ h1 {
   }
   margin: {
     left: 64px;
-    top: -36px;
+    top: -37.5px;
   }
 }
 
 .song {
   width: calc(100% - 2px);
-  border: 1px solid black;
   height: 52px;
-// remove overflow in final version
-  overflow: auto;
+  border: {
+    bottom: 1px solid black;
+    left: 1px solid black;
+    right: 1px solid black;
+  }
 }
 
-.play {
-  height: 30px;
-  width: 30px;
+.play, .stop {
+  height: 25px;
+  width: 25px;
   margin: {
-    top: 12px;
+    top: 14px;
     left: 12px;
   }
 }
@@ -62,7 +64,7 @@ h2 {
     weight: bold;
   }
   margin: {
-    top: -36px;
+    top: -33.5px;
     left: 66px;
   }
 }
@@ -81,11 +83,10 @@ h3 {
 .playing {
   width: calc(100% - 2px);
   border: 1px solid black;
-  height: 10%;
   margin-top: 25%;
   background-color: black;
-// remove overflow in final version and set static height
-  overflow: auto;
+// set static height
+  height: 10%;
 }
 
 h4 {
