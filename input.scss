@@ -50,10 +50,10 @@ h1 {
 }
 
 .play, .stop {
-  height: 25px;
-  width: 25px;
+  height: 30px;
+  width: 30px;
   margin: {
-    top: 14px;
+    top: 11.5px;
     left: 12px;
   }
 }
@@ -65,7 +65,7 @@ h2 {
   }
   margin: {
     top: -33px;
-    left: 66px;
+    left: 60px;
   }
 }
 
@@ -76,7 +76,7 @@ h3 {
   }
   margin: {
     top: -10px;
-    left: 66px;
+    left: 60px;
   }
 }
 
@@ -89,11 +89,25 @@ h3 {
   height: 10%;
 }
 
+.next-button {
+  height: 40px;
+  width: 40px;
+  margin: {
+    top: 18.5px;
+    left: 16px;
+  }
+  /*
+    flip?
+    transform: scaleX(-1);
+    filter: FlipH;
+  */
+}
+
 .play-button {
   height: 50px;
   width: 50px;
   margin: {
-    top: 18px;
+    top: 18.5px;
     left: 16px;
   }
 }

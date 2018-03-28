@@ -35,22 +35,22 @@ h1 {
   border-right: 1px solid black; }
 
 .play, .stop {
-  height: 25px;
-  width: 25px;
-  margin-top: 14px;
+  height: 30px;
+  width: 30px;
+  margin-top: 11.5px;
   margin-left: 12px; }
 
 h2 {
   font-size: 16px;
   font-weight: bold;
   margin-top: -33px;
-  margin-left: 66px; }
+  margin-left: 60px; }
 
 h3 {
   color: grey;
   font-size: 12px;
   margin-top: -10px;
-  margin-left: 66px; }
+  margin-left: 60px; }
 
 .playing {
   width: calc(100% - 2px);
@@ -59,10 +59,21 @@ h3 {
   background-color: black;
   height: 10%; }
 
+.next-button {
+  height: 40px;
+  width: 40px;
+  margin-top: 18.5px;
+  margin-left: 16px;
+  /*
+    flip?
+    transform: scaleX(-1);
+    filter: FlipH;
+  */ }
+
 .play-button {
   height: 50px;
   width: 50px;
-  margin-top: 18px;
+  margin-top: 18.5px;
   margin-left: 16px; }
 
 h4 {
