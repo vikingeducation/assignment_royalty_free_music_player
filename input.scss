@@ -64,7 +64,7 @@ h2 {
     weight: bold;
   }
   margin: {
-    top: -33px;
+    top: -35.5px;
     left: 60px;
   }
 }
@@ -75,7 +75,7 @@ h3 {
     size: 12px;
   }
   margin: {
-    top: -10px;
+    top: -11.5px;
     left: 60px;
   }
 }
@@ -85,29 +85,34 @@ h3 {
   border: 1px solid black;
   margin-top: 25%;
   background-color: black;
-// set static height
-  height: 10%;
+  height: 80px;
 }
 
-.next-button {
+.previous-button {
   height: 40px;
   width: 40px;
+  transform: scaleX(-1);
+  filter: FlipH;
   margin: {
-    top: 18.5px;
+    bottom: 6px;
     left: 16px;
   }
-  /*
-    flip?
-    transform: scaleX(-1);
-    filter: FlipH;
-  */
 }
 
 .play-button {
   height: 50px;
   width: 50px;
   margin: {
-    top: 18.5px;
+    top: 15px;
+    left: 16px;
+  }
+}
+
+.after-button {
+  height: 40px;
+  width: 40px;
+  margin: {
+    bottom: 6px;
     left: 16px;
   }
 }
@@ -118,9 +123,8 @@ h4 {
     size: 24px;
   }
   margin: {
-    top: 16px;
-    bottom: 4px;
-    left: 24px
+    top: -54px;
+    left: 224px
   }
 }
 
@@ -130,8 +134,7 @@ h5 {
     size: 20px;
   }
   margin: {
-    top: 0;
-    bottom: 16px;
-    left: 24px
+    top: -30px;
+    left: 224px
   }
 }

@@ -43,13 +43,13 @@ h1 {
 h2 {
   font-size: 16px;
   font-weight: bold;
-  margin-top: -33px;
+  margin-top: -35.5px;
   margin-left: 60px; }
 
 h3 {
   color: grey;
   font-size: 12px;
-  margin-top: -10px;
+  margin-top: -11.5px;
   margin-left: 60px; }
 
 .playing {
@@ -57,37 +57,38 @@ h3 {
   border: 1px solid black;
   margin-top: 25%;
   background-color: black;
-  height: 10%; }
+  height: 80px; }
 
-.next-button {
+.previous-button {
   height: 40px;
   width: 40px;
-  margin-top: 18.5px;
-  margin-left: 16px;
-  /*
-    flip?
-    transform: scaleX(-1);
-    filter: FlipH;
-  */ }
+  transform: scaleX(-1);
+  filter: FlipH;
+  margin-bottom: 6px;
+  margin-left: 16px; }
 
 .play-button {
   height: 50px;
   width: 50px;
-  margin-top: 18.5px;
+  margin-top: 15px;
+  margin-left: 16px; }
+
+.after-button {
+  height: 40px;
+  width: 40px;
+  margin-bottom: 6px;
   margin-left: 16px; }
 
 h4 {
   color: white;
   font-size: 24px;
-  margin-top: 16px;
-  margin-bottom: 4px;
-  margin-left: 24px; }
+  margin-top: -54px;
+  margin-left: 224px; }
 
 h5 {
   color: grey;
   font-size: 20px;
-  margin-top: 0;
-  margin-bottom: 16px;
-  margin-left: 24px; }
+  margin-top: -30px;
+  margin-left: 224px; }
 
 /*# sourceMappingURL=style.css.map */
