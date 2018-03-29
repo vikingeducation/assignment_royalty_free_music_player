@@ -15,10 +15,18 @@
 
       sass input.scss style.css
 
-1. finish media queries for bottom playing bar
-2. double check req's
+2. double check req's - make it so adding "playing class" makes an element's
+button image switch
+  a. options:
+    https://www.w3schools.com/cssref/pr_gen_content.asp
+    https://codepen.io/scottkellum/pen/jvtdr
+    https://css-tricks.com/replace-the-image-in-an-img-with-css/
+    https://stackoverflow.com/questions/2182716/is-it-possible-to-set-the-equivalent-of-a-src-attribute-of-an-img-tag-in-css
+  b. this means you'll probably need to rename some images and classes, and
+  will not only affect the selected song but the bottom bar
+
 3. find songs and update html to match
-4. move onto JS portion (text and buttom swapping, actually playing song)
+4. move onto JS portion (text / button swapping, and actually playing song)
     -->
 
     <title>Royalty Free Music Player</title>
@@ -45,13 +53,13 @@
 
     <div class="song">
       <img src="play.png" class="song-button">
-      <h2>Filler 3 but what if really ridiculously long song name</h2>
+      <h2>Filler 3</h2>
       <h3>by Example C</h3>
     </div>
 
     <div class="song">
       <img src="play.png" class="song-button">
-      <h2>Filler 4</h2>
+      <h2>Filler 4 but what if really ridiculously long song name</h2>
       <h3>by Example D or a really ridiculously long artist name</h3>
     </div>
 
@@ -69,7 +77,7 @@
       <img src="stop_button.gif" class="main-button">
       <img src="next_button.gif" class="after-button">
       <h4>Filler 1 but what if really ridiculously long song name</h4>
-      <h5>by Example A</h5>
+      <h5>by Example A or a really ridiculously long artist name</h5>
     </div>
 
   </body>

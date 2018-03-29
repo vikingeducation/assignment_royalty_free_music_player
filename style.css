@@ -104,4 +104,54 @@ h5 {
   margin-top: -23px;
   margin-left: 210px; }
 
+@media screen and (max-width: 1279px) {
+  .previous-button {
+    margin-left: 10px; }
+
+  .main-button {
+    margin-left: 6px; }
+
+  .after-button {
+    margin-left: 6px; }
+
+  h4 {
+    margin-left: 176px; }
+
+  h5 {
+    margin-left: 176px; } }
+@media screen and (max-width: 959px) {
+  .main-button {
+    margin-left: 4px; }
+
+  .after-button {
+    margin-left: 4px; }
+
+  h4 {
+    font-size: 18px;
+    max-width: 500px;
+    margin-top: -62px;
+    margin-left: 170px; }
+
+  h5 {
+    max-width: 500px;
+    margin-left: 170px; } }
+@media screen and (max-width: 750px) {
+  * {
+    overflow: hidden; }
+
+  h4 {
+    font-size: 14px; }
+
+  h5 {
+    font-size: 14px;
+    margin-top: -16px; } }
+@media screen and (max-width: 479px) {
+  h4 {
+    font-size: 12px;
+    margin-top: -60px; }
+
+  h5 {
+    font-size: 12px;
+    margin-top: -12px; } }
+
 /*# sourceMappingURL=style.css.map */
