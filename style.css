@@ -27,14 +27,20 @@ h1 {
   margin-left: 66px;
   margin-top: -37.5px; }
 
+@media screen and (max-width: 575px) {
+  h1 {
+    font-size: 24px;
+    width: 240px;
+    margin-top: -48px; } }
 .song {
   width: calc(100% - 2px);
   height: 52px;
+  min-height: 52px;
   border-bottom: 1px solid black;
   border-left: 1px solid black;
   border-right: 1px solid black; }
 
-.play, .stop {
+.song-button {
   height: 30px;
   width: 30px;
   margin-top: 11.5px;
@@ -43,19 +49,27 @@ h1 {
 h2 {
   font-size: 16px;
   font-weight: bold;
-  margin-top: -35.5px;
+  margin-top: -37px;
   margin-left: 60px; }
 
 h3 {
   color: grey;
   font-size: 12px;
-  margin-top: -11.5px;
+  margin-top: -11px;
   margin-left: 60px; }
 
+@media screen and (max-width: 575px) {
+  h2 {
+    font-size: 12px;
+    margin-top: -40px;
+    max-width: 350px; }
+
+  h3 {
+    max-width: 350px; } }
 .playing {
   width: calc(100% - 2px);
   border: 1px solid black;
-  margin-top: 25%;
+  margin-top: 18%;
   background-color: black;
   height: 80px; }
 
@@ -63,32 +77,31 @@ h3 {
   height: 40px;
   width: 40px;
   transform: scaleX(-1);
-  filter: FlipH;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   margin-left: 16px; }
 
-.play-button {
+.main-button {
   height: 50px;
   width: 50px;
-  margin-top: 15px;
+  margin-top: 14px;
   margin-left: 16px; }
 
 .after-button {
   height: 40px;
   width: 40px;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   margin-left: 16px; }
 
 h4 {
   color: white;
-  font-size: 24px;
-  margin-top: -54px;
-  margin-left: 224px; }
+  font-size: 20px;
+  margin-top: -51px;
+  margin-left: 210px; }
 
 h5 {
   color: grey;
-  font-size: 20px;
-  margin-top: -30px;
-  margin-left: 224px; }
+  font-size: 16px;
+  margin-top: -23px;
+  margin-left: 210px; }
 
 /*# sourceMappingURL=style.css.map */
