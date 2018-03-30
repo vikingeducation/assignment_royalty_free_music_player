@@ -15,18 +15,22 @@
 
       sass input.scss style.css
 
-2. double check req's - make it so adding "playing class" makes an element's
+1. (required) make it so adding "playing class" makes an element's
 button image switch
+
   a. options:
     https://www.w3schools.com/cssref/pr_gen_content.asp
     https://codepen.io/scottkellum/pen/jvtdr
     https://css-tricks.com/replace-the-image-in-an-img-with-css/
     https://stackoverflow.com/questions/2182716/is-it-possible-to-set-the-equivalent-of-a-src-attribute-of-an-img-tag-in-css
+
   b. this means you'll probably need to rename some images and classes, and
   will not only affect the selected song but the bottom bar
 
-3. find songs and update html to match
-4. move onto JS portion (text / button swapping, and actually playing song)
+2. find songs and update html to match
+
+3. move onto JS portion (text / button swapping, and actually playing song)
+
     -->
 
     <title>Royalty Free Music Player</title>
@@ -35,49 +39,49 @@ button image switch
   <body>
 
     <div class="title">
-      <img src="crown.png" class="crown">
+      <img src="images/crown.png" class="crown">
       <h1>Royalty Free Music Player</h1>
     </div>
 
     <div class="song">
-      <img src="stop.png" class="song-button">
+      <img src="images/stop.png" class="song-button">
       <h2>Filler 1</h2>
       <h3>by Example A</h3>
     </div>
 
     <div class="song">
-      <img src="play.png" class="song-button">
+      <img src="images/play.png" class="song-button">
       <h2>Filler 2 </h2>
       <h3>by Example B</h3>
     </div>
 
     <div class="song">
-      <img src="play.png" class="song-button">
+      <img src="images/play.png" class="song-button">
       <h2>Filler 3</h2>
       <h3>by Example C</h3>
     </div>
 
     <div class="song">
-      <img src="play.png" class="song-button">
-      <h2>Filler 4 but what if really ridiculously long song name</h2>
-      <h3>by Example D or a really ridiculously long artist name</h3>
+      <img src="images/play.png" class="song-button">
+      <h2>Filler 4</h2>
+      <h3>by Example D</h3>
     </div>
 
     <div class="song">
-      <img src="play.png" class="song-button">
+      <img src="images/play.png" class="song-button">
       <h2>Filler 5</h2>
       <h3>by Example E</h3>
     </div>
 
     <div class="playing">
-      <img src="next_button.gif" class="previous-button">
+      <img src="images/next_button.gif" class="previous-button">
       <!--
-        <img src="play_button.gif" class="main-button">
+        <img src="images/play_button.gif" class="main-button">
       -->
-      <img src="stop_button.gif" class="main-button">
-      <img src="next_button.gif" class="after-button">
-      <h4>Filler 1 but what if really ridiculously long song name</h4>
-      <h5>by Example A or a really ridiculously long artist name</h5>
+      <img src="images/stop_button.gif" class="main-button">
+      <img src="images/next_button.gif" class="after-button">
+      <h4>Filler 1</h4>
+      <h5>by Example A</h5>
     </div>
 
   </body>
