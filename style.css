@@ -66,7 +66,7 @@ h3 {
 
   h3 {
     max-width: 350px; } }
-.playing {
+.status {
   width: calc(100% - 2px);
   border: 1px solid black;
   margin-top: 18%;
