@@ -126,7 +126,7 @@ h3 {
   }
 }
 
-.status-stop {
+.status-pause {
   width: 50px;
   display: none;
   height: 50px;
@@ -185,7 +185,7 @@ h5 {
     margin-left: 10px;
   }
 
-  .status-play, .status-stop {
+  .status-play, .status-pause {
     margin-left: 6px;
   }
 
@@ -204,7 +204,7 @@ h5 {
 }
 
 @media screen and (max-width: 959px) {
-  .status-play, .status-stop {
+  .status-play, .status-pause {
     margin-left: 4px;
   }
 
