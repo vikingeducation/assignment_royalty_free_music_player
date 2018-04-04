@@ -1,157 +1,25 @@
-* {
-  font-family: sans-serif; }
+/*
+Errno::ENOENT: No such file or directory @ rb_sysopen - assets/styles/input.scss
 
-body {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  position: absolute; }
-
-.title {
-  background-color: lightgrey;
-  width: calc(100% - 2px);
-  border: 1px solid black;
-  height: 64px; }
-
-.crown {
-  height: 36px;
-  width: 36px;
-  margin-top: 13px;
-  margin-left: 16px; }
-
-h1 {
-  font-size: 32px;
-  font-weight: bold;
-  margin-left: 66px;
-  margin-top: -37.5px; }
-
-@media screen and (max-width: 575px) {
-  h1 {
-    font-size: 24px;
-    width: 240px;
-    margin-top: -48px; } }
-.song {
-  width: calc(100% - 2px);
-  height: 52px;
-  min-height: 52px;
-  border-bottom: 1px solid black;
-  border-left: 1px solid black;
-  border-right: 1px solid black; }
-
-.song-button {
-  height: 30px;
-  width: 30px;
-  margin-top: 11.5px;
-  margin-left: 12px; }
-
-h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: -37px;
-  margin-left: 60px; }
-
-h3 {
-  color: grey;
-  font-size: 12px;
-  margin-top: -11px;
-  margin-left: 60px; }
-
-@media screen and (max-width: 575px) {
-  h2 {
-    font-size: 12px;
-    margin-top: -40px;
-    max-width: 350px; }
-
-  h3 {
-    max-width: 350px; } }
-.status {
-  width: calc(100% - 2px);
-  border: 1px solid black;
-  margin-top: 18%;
-  background-color: black;
-  height: 80px; }
-
-.previous-button {
-  height: 40px;
-  width: 40px;
-  transform: scaleX(-1);
-  margin-bottom: 4px;
-  margin-left: 16px; }
-
-.main-button {
-  height: 50px;
-  width: 50px;
-  margin-top: 14px;
-  margin-left: 16px; }
-
-.after-button {
-  height: 40px;
-  width: 40px;
-  margin-bottom: 4px;
-  margin-left: 16px; }
-
-h4 {
-  color: white;
-  font-size: 20px;
-  margin-top: -51px;
-  margin-left: 210px; }
-
-h5 {
-  color: grey;
-  font-size: 16px;
-  margin-top: -23px;
-  margin-left: 210px; }
-
-@media screen and (max-width: 1279px) {
-  .previous-button {
-    margin-left: 10px; }
-
-  .main-button {
-    margin-left: 6px; }
-
-  .after-button {
-    margin-left: 6px; }
-
-  h4 {
-    margin-left: 176px; }
-
-  h5 {
-    margin-left: 176px; } }
-@media screen and (max-width: 959px) {
-  .main-button {
-    margin-left: 4px; }
-
-  .after-button {
-    margin-left: 4px; }
-
-  h4 {
-    font-size: 18px;
-    max-width: 500px;
-    margin-top: -62px;
-    margin-left: 170px; }
-
-  h5 {
-    max-width: 500px;
-    margin-left: 170px; } }
-@media screen and (max-width: 750px) {
-  * {
-    overflow: hidden; }
-
-  h4 {
-    font-size: 14px; }
-
-  h5 {
-    font-size: 14px;
-    margin-top: -16px; } }
-@media screen and (max-width: 479px) {
-  h4 {
-    font-size: 12px;
-    margin-top: -60px; }
-
-  h5 {
-    font-size: 12px;
-    margin-top: -12px; } }
-
-/*# sourceMappingURL=style.css.map */
+Backtrace:
+/home/brennan/.rvm/gems/ruby-2.4.1/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:454:in `read'
+/home/brennan/.rvm/gems/ruby-2.4.1/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:454:in `update_stylesheet'
+/home/brennan/.rvm/gems/ruby-2.4.1/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/home/brennan/.rvm/gems/ruby-2.4.1/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:209:in `each'
+/home/brennan/.rvm/gems/ruby-2.4.1/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/home/brennan/.rvm/gems/ruby-2.4.1/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:294:in `watch'
+/home/brennan/.rvm/gems/ruby-2.4.1/gems/sass-3.5.3/lib/sass/plugin.rb:109:in `method_missing'
+/home/brennan/.rvm/gems/ruby-2.4.1/gems/sass-3.5.3/lib/sass/exec/sass_scss.rb:360:in `watch_or_update'
+/home/brennan/.rvm/gems/ruby-2.4.1/gems/sass-3.5.3/lib/sass/exec/sass_scss.rb:51:in `process_result'
+/home/brennan/.rvm/gems/ruby-2.4.1/gems/sass-3.5.3/lib/sass/exec/base.rb:52:in `parse'
+/home/brennan/.rvm/gems/ruby-2.4.1/gems/sass-3.5.3/lib/sass/exec/base.rb:19:in `parse!'
+/home/brennan/.rvm/gems/ruby-2.4.1/gems/sass-3.5.3/bin/sass:13:in `<top (required)>'
+/home/brennan/.rvm/gems/ruby-2.4.1/bin/sass:22:in `load'
+/home/brennan/.rvm/gems/ruby-2.4.1/bin/sass:22:in `<main>'
+/home/brennan/.rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `eval'
+/home/brennan/.rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Errno::ENOENT: No such file or directory @ rb_sysopen - assets/styles/input.scss"; }
