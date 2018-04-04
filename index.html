@@ -19,18 +19,9 @@
 
 TODO
 
-1. (required) make it so adding "playing class" makes an element's
-button image switch
+1. find songs and update html to match
 
-  a. options:
-    https://www.w3schools.com/cssref/pr_gen_content.asp
-    https://codepen.io/scottkellum/pen/jvtdr
-    https://css-tricks.com/replace-the-image-in-an-img-with-css/
-    https://stackoverflow.com/questions/2182716/is-it-possible-to-set-the-equivalent-of-a-src-attribute-of-an-img-tag-in-css
-
-2. find songs and update html to match
-
-3. move onto JS portion (text / button swapping, and actually playing song)
+2. move onto JS portion (text / button swapping, and actually playing song)
 
     -->
 
@@ -40,47 +31,50 @@ button image switch
   <body>
 
     <div class="title">
-      <img src="assets/images/crown.png" class="crown">
+      <img src="assets/images/crown.png" alt="crown" class="crown">
       <h1>Royalty Free Music Player</h1>
     </div>
 
     <div class="song">
-      <img src="assets/images/song_stop.png" class="song-button">
+      <img src="assets/images/song_stop.png" alt="stop song" class="song-button">
+      <img src="assets/images/song_play.png" alt="play song" class="song-button hide">
       <h2>Filler 1</h2>
       <h3>by Example A</h3>
     </div>
 
     <div class="song">
-      <img src="assets/images/song_play.png" class="song-button">
+      <img src="assets/images/song_stop.png" alt="stop song" class="song-button hide">
+      <img src="assets/images/song_play.png" alt="play song" class="song-button">
       <h2>Filler 2 </h2>
       <h3>by Example B</h3>
     </div>
 
     <div class="song">
-      <img src="assets/images/song_play.png" class="song-button">
+      <img src="assets/images/song_stop.png" alt="stop song" class="song-button hide">
+      <img src="assets/images/song_play.png" alt="play song" class="song-button">
       <h2>Filler 3</h2>
       <h3>by Example C</h3>
     </div>
 
     <div class="song">
-      <img src="assets/images/song_play.png" class="song-button">
+      <img src="assets/images/song_stop.png" alt="stop song" class="song-button hide">
+      <img src="assets/images/song_play.png" alt="play song" class="song-button">
       <h2>Filler 4</h2>
       <h3>by Example D</h3>
     </div>
 
     <div class="song">
-      <img src="assets/images/song_play.png" class="song-button">
+      <img src="assets/images/song_stop.png" alt="stop song" class="song-button hide">
+      <img src="assets/images/song_play.png" alt="play song" class="song-button">
       <h2>Filler 5</h2>
       <h3>by Example E</h3>
     </div>
 
     <div class="status">
-      <img src="assets/images/status_switch.gif" class="previous-button">
-      <!--
-        <img src="assets/images/status_play.gif" class="main-button">
-      -->
-      <img src="assets/images/status_stop.gif" class="main-button">
-      <img src="assets/images/status_switch.gif" class="after-button">
+      <img src="assets/images/status_switch.gif" alt="song above" class="previous-button">
+      <img src="assets/images/status_stop.gif" alt="stop selected" class="main-button">
+      <img src="assets/images/status_play.gif" alt="play selected" class="main-button hide">
+      <img src="assets/images/status_switch.gif" alt="next song" class="after-button">
       <h4>Filler 1</h4>
       <h5>by Example A</h5>
     </div>
