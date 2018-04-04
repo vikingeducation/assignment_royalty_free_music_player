@@ -58,9 +58,19 @@ h1 {
   }
 }
 
-.song-button {
-  height: 30px;
+.song-stop {
   width: 30px;
+  display: none;
+  height: 30px;
+  margin: {
+    top: 11.5px;
+    left: 12px;
+  }
+}
+
+.song-play {
+  width: 30px;
+  height: 30px;
   margin: {
     top: 11.5px;
     left: 12px;
@@ -116,9 +126,19 @@ h3 {
   }
 }
 
-.main-button {
-  height: 50px;
+.status-stop {
   width: 50px;
+  display: none;
+  height: 50px;
+  margin: {
+    top: 14px;
+    left: 16px;
+  }
+}
+
+.status-play {
+  width: 50px;
+  height: 50px;
   margin: {
     top: 14px;
     left: 16px;
@@ -152,12 +172,20 @@ h5 {
   }
 }
 
+.hide {
+  display: none;
+}
+
+.playing {
+  display: initial;
+}
+
 @media screen and (max-width: 1279px) {
   .previous-button {
     margin-left: 10px;
   }
 
-  .main-button {
+  .status-play, .status-stop {
     margin-left: 6px;
   }
 
@@ -176,7 +204,7 @@ h5 {
 }
 
 @media screen and (max-width: 959px) {
-  .main-button {
+  .status-play, .status-stop {
     margin-left: 4px;
   }
 
@@ -224,8 +252,4 @@ h5 {
     font-size: 12px;
     margin-top: -12px;
   }
-}
-
-.hide {
-  display: none;
 }
