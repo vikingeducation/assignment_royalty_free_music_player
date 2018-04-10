@@ -21,7 +21,23 @@ TODO
 
 */
 
+var songPlay = document.getElementsByClassName("song-play");
+var counter = 0;
 
+while (songPlay.length > counter) {
+
+  songPlay[counter].addEventListener("click", function(action) {
+    var play = action.target;
+    var stop = play.parentNode.children[1];
+
+    play.classList.add("hide");
+    stop.classList.add("playing");
+
+    // status bar changes
+  });
+
+  counter++
+}
 
 
 
