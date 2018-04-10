@@ -33,7 +33,17 @@ while (songPlay.length > counter) {
     play.classList.add("hide");
     stop.classList.add("playing");
 
-    // status bar changes
+/* status bar changes:
+  1. change to pause button
+  2. grab artist and song name and replace text
+*/
+
+  var statusPlay = document.getElementsByClassName("status-play")[0];
+  var pause = document.getElementsByClassName("status-pause")[0];
+
+  statusPlay.classList.add("hide");
+  pause.classList.add("playing");
+
   });
 
   counter++
