@@ -21,34 +21,49 @@ TODO
 
 */
 
+// song play button click event
 var songPlay = document.getElementsByClassName("song-play");
 var counter = 0;
 
 while (songPlay.length > counter) {
 
   songPlay[counter].addEventListener("click", function(action) {
-    var play = action.target;
-    var stop = play.parentNode.children[1];
+// reset previous song
+    var hidden = document.getElementsByClassName("song-play hide")[0];
+    var played = document.getElementsByClassName("song-stop playing")[0];
 
-    play.classList.add("hide");
-    stop.classList.add("playing");
+    if (hidden != undefined ) {
+      hidden.classList.remove("hide");
+    }
 
-/* status bar changes:
-  1. change to pause button
-  2. grab artist and song name and replace text
+    if (played != undefined) {
+      played.classList.remove("playing");
+    }
+
+// song button change
+    var source = action.target;
+    var siblings = source.parentNode.children;
+
+    source.classList.add("hide");
+    siblings[1].classList.add("playing");
+
+// status bar button change
+    document.getElementsByClassName("status-play")[0].classList.add("hide");
+    document.getElementsByClassName("status-pause")[0].classList.add("playing");
+
+// status bar text change
+    document.querySelectorAll("h4")[0].innerHTML = siblings[2].innerHTML;
+    document.querySelectorAll("h5")[0].innerHTML = siblings[3].innerHTML;
+
+/*
+  TODO
+  actually play song
 */
-
-  var statusPlay = document.getElementsByClassName("status-play")[0];
-  var pause = document.getElementsByClassName("status-pause")[0];
-
-  statusPlay.classList.add("hide");
-  pause.classList.add("playing");
-
   });
 
   counter++
 }
-
+// song play button click event
 
 
 
