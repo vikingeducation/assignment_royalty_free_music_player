@@ -65,7 +65,7 @@ while (counter < 5) {
 /* status play button */
 var statusPlay = document.getElementsByClassName("status-play")[0];
 
-statusPlay.addEventListener("click", function(action) {
+statusPlay.addEventListener("click", function() {
   // status bar button change
   statusPlay.classList.add("hide");
   document.getElementsByClassName("status-pause")[0].classList.add("playing");
@@ -99,6 +99,28 @@ statusPlay.addEventListener("click", function(action) {
 /* status play button */
 
 /* song stop button */
+var songStop = document.getElementsByClassName("song-stop");
+var ticker = 0;
+
+while (ticker < 5) {
+  songStop[ticker].addEventListener("click", function(clicky) {
+    // song button change
+    var origin = clicky.target;
+
+    origin.classList.remove("playing");
+    origin.parentNode.children[0].classList.remove("hide");
+
+    // status bar button change
+    statusPlay.classList.remove("hide");
+    document.getElementsByClassName("status-pause")[0].classList.remove("playing");
+
+    /*
+      TODO
+      actually stop song
+    */
+  });
+  ticker++;
+}
 /* song stop button */
 
 /* status pause button */
