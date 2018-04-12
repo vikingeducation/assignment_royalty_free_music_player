@@ -40,7 +40,7 @@ h1 {
   border-left: 1px solid black;
   border-right: 1px solid black; }
 
-.song-stop {
+.song-pause {
   width: 30px;
   display: none;
   height: 30px;

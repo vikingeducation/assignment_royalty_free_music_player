@@ -17,7 +17,7 @@
 
   3. update html to match songs
 
-  4. js to actually play/stop songs
+  4. js to actually play/pause songs
 */
 
 /* song play button */
@@ -28,7 +28,7 @@ while (counter < 5) {
   songPlay[counter].addEventListener("click", function(action) {
     // reset previous song
     var hidden = document.getElementsByClassName("song-play hide")[0];
-    var played = document.getElementsByClassName("song-stop playing")[0];
+    var played = document.getElementsByClassName("song-pause playing")[0];
 
     if (hidden != undefined) {
       hidden.classList.remove("hide");
@@ -98,12 +98,12 @@ statusPlay.addEventListener("click", function() {
 });
 /* status play button */
 
-/* song stop button */
-var songStop = document.getElementsByClassName("song-stop");
+/* song pause button */
+var songPause = document.getElementsByClassName("song-pause");
 var ticker = 0;
 
 while (ticker < 5) {
-  songStop[ticker].addEventListener("click", function(clicky) {
+  songPause[ticker].addEventListener("click", function(clicky) {
     // song button change
     var origin = clicky.target;
 
@@ -116,14 +116,17 @@ while (ticker < 5) {
 
     /*
       TODO
-      actually stop song
+      actually pause song
     */
   });
   ticker++;
 }
-/* song stop button */
+/* song pause button */
 
 /* status pause button */
+var statusPause = document.getElementsByClassName("status-pause")[0];
+
+
 /* status pause button */
 
 /* status previous button */
