@@ -126,7 +126,37 @@ while (ticker < 5) {
 /* status pause button */
 var statusPause = document.getElementsByClassName("status-pause")[0];
 
+statusPause.addEventListener("click", function() {
+  // status bar button change
+  statusPause.classList.remove("playing");
+  document.getElementsByClassName("status-play")[0].classList.remove("hide");
 
+  // find selected song
+  var statusSong = document.querySelectorAll("h4")[0].innerHTML;
+  var statusArtist = document.querySelectorAll("h5")[0].innerHTML;
+  var songs = document.getElementsByClassName("song");
+  var ticker = 0;
+
+  while (ticker < 5) {
+    if (
+      songs[ticker].children[2].innerHTML == statusSong &&
+      songs[ticker].children[3].innerHTML == statusArtist
+    ) {
+      var selectedSong = songs[ticker].children;
+      break;
+    }
+    ticker++;
+  }
+
+  // song button change
+  selectedSong[0].classList.remove("hide");
+  selectedSong[1].classList.remove("playing");
+
+  /*
+    TODO
+    actually pausing song
+  */
+});
 /* status pause button */
 
 /* status previous button */
