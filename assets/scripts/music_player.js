@@ -64,6 +64,7 @@ while (counter < 5) {
 
 /* status play button */
 var statusPlay = document.getElementsByClassName("status-play")[0];
+var songs = document.getElementsByClassName("song");
 
 statusPlay.addEventListener("click", function() {
   // status bar button change
@@ -73,18 +74,17 @@ statusPlay.addEventListener("click", function() {
   // find selected song
   var statusSong = document.querySelectorAll("h4")[0].innerHTML;
   var statusArtist = document.querySelectorAll("h5")[0].innerHTML;
-  var songs = document.getElementsByClassName("song");
-  var tracker = 0;
+  var step = 0;
 
-  while (tracker < 5) {
+  while (step < 5) {
     if (
-      songs[tracker].children[2].innerHTML == statusSong &&
-      songs[tracker].children[3].innerHTML == statusArtist
+      songs[step].children[2].innerHTML == statusSong &&
+      songs[step].children[3].innerHTML == statusArtist
     ) {
-      var selectedSong = songs[tracker].children;
+      var selectedSong = songs[step].children;
       break;
     }
-    tracker++;
+    step++;
   }
 
   // song button change
@@ -100,10 +100,10 @@ statusPlay.addEventListener("click", function() {
 
 /* song pause button */
 var songPause = document.getElementsByClassName("song-pause");
-var ticker = 0;
+var limit = 0;
 
-while (ticker < 5) {
-  songPause[ticker].addEventListener("click", function(clicky) {
+while (limit < 5) {
+  songPause[limit].addEventListener("click", function(clicky) {
     // song button change
     var origin = clicky.target;
 
@@ -119,7 +119,7 @@ while (ticker < 5) {
       actually pause song
     */
   });
-  ticker++;
+  limit++;
 }
 /* song pause button */
 
@@ -132,20 +132,19 @@ statusPause.addEventListener("click", function() {
   document.getElementsByClassName("status-play")[0].classList.remove("hide");
 
   // find selected song
-  var statusSong = document.querySelectorAll("h4")[0].innerHTML;
-  var statusArtist = document.querySelectorAll("h5")[0].innerHTML;
-  var songs = document.getElementsByClassName("song");
-  var ticker = 0;
+  var currentSong = document.querySelectorAll("h4")[0].innerHTML;
+  var currentArtist = document.querySelectorAll("h5")[0].innerHTML;
+  var count = 0;
 
-  while (ticker < 5) {
+  while (count < 5) {
     if (
-      songs[ticker].children[2].innerHTML == statusSong &&
-      songs[ticker].children[3].innerHTML == statusArtist
+      songs[count].children[2].innerHTML == currentSong &&
+      songs[count].children[3].innerHTML == currentArtist
     ) {
-      var selectedSong = songs[ticker].children;
+      var selectedSong = songs[count].children;
       break;
     }
-    ticker++;
+    count++;
   }
 
   // song button change
@@ -160,9 +159,15 @@ statusPause.addEventListener("click", function() {
 /* status pause button */
 
 /* status previous button */
+document.getElementsByClassName("previous-button")[0].addEventListener("click", function() {
+
+});
 /* status previous button */
 
 /* status next button */
+document.getElementsByClassName("after-button")[0].addEventListener("click", function() {
+
+});
 /* status next button */
 
 
