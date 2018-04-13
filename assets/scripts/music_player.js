@@ -81,15 +81,15 @@ statusPlay.addEventListener("click", function() {
       songs[step].children[2].innerHTML == statusSong &&
       songs[step].children[3].innerHTML == statusArtist
     ) {
-      var statusSong = songs[step].children;
+      var theSong = songs[step].children;
       break;
     }
     step++;
   }
 
   // song button change
-  statusSong[0].classList.add("hide");
-  statusSong[1].classList.add("playing");
+  theSong[0].classList.add("hide");
+  theSong[1].classList.add("playing");
 
   /*
     TODO
@@ -141,19 +141,19 @@ statusPause.addEventListener("click", function() {
       songs[count].children[2].innerHTML == currentSong &&
       songs[count].children[3].innerHTML == currentArtist
     ) {
-      var currentSong = songs[count].children;
+      var songResult = songs[count].children;
       break;
     }
     count++;
   }
 
   // song button change
-  currentSong[0].classList.remove("hide");
-  currentSong[1].classList.remove("playing");
+  songResult[0].classList.remove("hide");
+  songResult[1].classList.remove("playing");
 
   /*
     TODO
-    actually pausing song
+    actually pause song
   */
 });
 /* status pause button */
@@ -170,26 +170,26 @@ document.getElementsByClassName("previous-button")[0].addEventListener("click", 
       songs[tick].children[2].innerHTML == selectedSong &&
       songs[tick].children[3].innerHTML == selectedArtist
     ) {
-      var selectedSong = songs[tick];
+      var subjectSong = songs[tick];
       break;
     }
     tick++;
   }
 
   // song button change
-  selectedSong.children[0].classList.remove("hide");
-  selectedSong.children[1].classList.remove("playing");
+  subjectSong.children[0].classList.remove("hide");
+  subjectSong.children[1].classList.remove("playing");
 
   /*
     TODO
-    actually pausing song
+    actually stop song
   */
 
   // determine previous song
-  if (selectedSong.getAttribute("num") == 1) {
+  if (subjectSong.getAttribute("num") == 1) {
     var listing = 5;
   } else {
-    var listing = selectedSong.getAttribute("num") - 1;
+    var listing = subjectSong.getAttribute("num") - 1;
   }
 
   var sequence = 0;
@@ -222,7 +222,63 @@ document.getElementsByClassName("previous-button")[0].addEventListener("click", 
 
 /* status next button */
 document.getElementsByClassName("after-button")[0].addEventListener("click", function() {
+  // find selected song
+  var targetSong = document.querySelectorAll("h4")[0].innerHTML;
+  var targetArtist = document.querySelectorAll("h5")[0].innerHTML;
 
+  var pace = 0;
+  while (pace < 5) {
+    if (
+      songs[pace].children[2].innerHTML == targetSong &&
+      songs[pace].children[3].innerHTML == targetArtist
+    ) {
+      var pickedSong = songs[pace];
+      break;
+    }
+    pace++;
+  }
+
+  // song button change
+  pickedSong.children[0].classList.remove("hide");
+  pickedSong.children[1].classList.remove("playing");
+
+  /*
+    TODO
+    actually stop song
+  */
+
+  // determine previous song
+  if (pickedSong.getAttribute("num") == 5) {
+    var numeral = 1;
+  } else {
+    var numeral = parseFloat(pickedSong.getAttribute("num")) + 1;
+  }
+
+  var timer = 0;
+  while (timer < 5) {
+    if (songs[timer].getAttribute("num") == numeral) {
+      var music = songs[timer].children;
+      break;
+    }
+    timer++;
+  }
+
+  // status bar text change
+  document.querySelectorAll("h4")[0].innerHTML = music[2].innerHTML;
+  document.querySelectorAll("h5")[0].innerHTML = music[3].innerHTML;
+
+  // status bar button change
+  document.getElementsByClassName("status-play")[0].classList.add("hide");
+  document.getElementsByClassName("status-pause")[0].classList.add("playing");
+
+  // song button change
+  music[0].classList.add("hide");
+  music[1].classList.add("playing");
+
+  /*
+    TODO
+    actually play song
+  */
 });
 /* status next button */
 
