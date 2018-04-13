@@ -159,17 +159,6 @@ statusPause.addEventListener("click", function() {
 /* status pause button */
 
 /* status previous button */
-  /*
-    1. find current song *
-    2. toggle its button to play (if needed) *
-    3. stop playing the song *
-    4. get its num attribute *
-    5. -1 its num attribute or if num = 1 make it 5 *
-    6. find song with matching num attribute *
-    7. switch status text to match
-    8. toggle both status and that songs buttons
-    9. start playing the song
-  */
 document.getElementsByClassName("previous-button")[0].addEventListener("click", function() {
   // find selected song
   var selectedSong = document.querySelectorAll("h4")[0].innerHTML;
@@ -206,14 +195,28 @@ document.getElementsByClassName("previous-button")[0].addEventListener("click", 
   var sequence = 0;
   while (sequence < 5) {
     if (songs[sequence].getAttribute("num") == listing) {
-      var track = songs[sequence];
+      var track = songs[sequence].children;
       break;
     }
     sequence++;
   }
 
-  console.log(track);
+  // status bar text change
+  document.querySelectorAll("h4")[0].innerHTML = track[2].innerHTML;
+  document.querySelectorAll("h5")[0].innerHTML = track[3].innerHTML;
 
+  // status bar button change
+  document.getElementsByClassName("status-play")[0].classList.add("hide");
+  document.getElementsByClassName("status-pause")[0].classList.add("playing");
+
+  // song button change
+  track[0].classList.add("hide");
+  track[1].classList.add("playing");
+
+  /*
+    TODO
+    actually play song
+  */
 });
 /* status previous button */
 
