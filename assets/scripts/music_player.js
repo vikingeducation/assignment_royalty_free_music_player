@@ -10,7 +10,7 @@
 
   TODO
   1. js button and text swapping
-    a. look into functions for repeated actions and maybe global variables for
+    a. look into functions for repeated actions and global variables for
        repeated selections/other methods to reduce repetition
 
   2. find actual songs - https://freemusicarchive.org/
@@ -22,8 +22,8 @@
 
 /* song play button */
 var songPlay = document.getElementsByClassName("song-play");
-var counter = 0;
 
+var counter = 0;
 while (counter < 5) {
   songPlay[counter].addEventListener("click", function(action) {
     // reset previous song
@@ -74,22 +74,22 @@ statusPlay.addEventListener("click", function() {
   // find selected song
   var statusSong = document.querySelectorAll("h4")[0].innerHTML;
   var statusArtist = document.querySelectorAll("h5")[0].innerHTML;
-  var step = 0;
 
+  var step = 0;
   while (step < 5) {
     if (
       songs[step].children[2].innerHTML == statusSong &&
       songs[step].children[3].innerHTML == statusArtist
     ) {
-      var selectedSong = songs[step].children;
+      var statusSong = songs[step].children;
       break;
     }
     step++;
   }
 
   // song button change
-  selectedSong[0].classList.add("hide");
-  selectedSong[1].classList.add("playing");
+  statusSong[0].classList.add("hide");
+  statusSong[1].classList.add("playing");
 
   /*
     TODO
@@ -100,8 +100,8 @@ statusPlay.addEventListener("click", function() {
 
 /* song pause button */
 var songPause = document.getElementsByClassName("song-pause");
-var limit = 0;
 
+var limit = 0;
 while (limit < 5) {
   songPause[limit].addEventListener("click", function(clicky) {
     // song button change
@@ -134,22 +134,22 @@ statusPause.addEventListener("click", function() {
   // find selected song
   var currentSong = document.querySelectorAll("h4")[0].innerHTML;
   var currentArtist = document.querySelectorAll("h5")[0].innerHTML;
-  var count = 0;
 
+  var count = 0;
   while (count < 5) {
     if (
       songs[count].children[2].innerHTML == currentSong &&
       songs[count].children[3].innerHTML == currentArtist
     ) {
-      var selectedSong = songs[count].children;
+      var currentSong = songs[count].children;
       break;
     }
     count++;
   }
 
   // song button change
-  selectedSong[0].classList.remove("hide");
-  selectedSong[1].classList.remove("playing");
+  currentSong[0].classList.remove("hide");
+  currentSong[1].classList.remove("playing");
 
   /*
     TODO
@@ -159,7 +159,60 @@ statusPause.addEventListener("click", function() {
 /* status pause button */
 
 /* status previous button */
+  /*
+    1. find current song *
+    2. toggle its button to play (if needed) *
+    3. stop playing the song *
+    4. get its num attribute *
+    5. -1 its num attribute or if num = 1 make it 5 *
+    6. find song with matching num attribute *
+    7. switch status text to match
+    8. toggle both status and that songs buttons
+    9. start playing the song
+  */
 document.getElementsByClassName("previous-button")[0].addEventListener("click", function() {
+  // find selected song
+  var selectedSong = document.querySelectorAll("h4")[0].innerHTML;
+  var selectedArtist = document.querySelectorAll("h5")[0].innerHTML;
+
+  var tick = 0;
+  while (tick < 5) {
+    if (
+      songs[tick].children[2].innerHTML == selectedSong &&
+      songs[tick].children[3].innerHTML == selectedArtist
+    ) {
+      var selectedSong = songs[tick];
+      break;
+    }
+    tick++;
+  }
+
+  // song button change
+  selectedSong.children[0].classList.remove("hide");
+  selectedSong.children[1].classList.remove("playing");
+
+  /*
+    TODO
+    actually pausing song
+  */
+
+  // determine previous song
+  if (selectedSong.getAttribute("num") == 1) {
+    var listing = 5;
+  } else {
+    var listing = selectedSong.getAttribute("num") - 1;
+  }
+
+  var sequence = 0;
+  while (sequence < 5) {
+    if (songs[sequence].getAttribute("num") == listing) {
+      var track = songs[sequence];
+      break;
+    }
+    sequence++;
+  }
+
+  console.log(track);
 
 });
 /* status previous button */
