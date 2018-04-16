@@ -20,9 +20,17 @@
   4. js to actually play/pause songs
 */
 
-/* song play button */
+/* global variables */
+var songs = document.getElementsByClassName("song");
 var songPlay = document.getElementsByClassName("song-play");
+var songPause = document.getElementsByClassName("song-pause");
+var statusPlay = document.getElementsByClassName("status-play")[0];
+var statusPause = document.getElementsByClassName("status-pause")[0];
+var statusSong = document.querySelectorAll("h4")[0];
+var statusArtist = document.querySelectorAll("h5")[0];
+/* global variables */
 
+/* song play button */
 var counter = 0;
 while (counter < 5) {
   songPlay[counter].addEventListener("click", function(action) {
@@ -46,12 +54,12 @@ while (counter < 5) {
     siblings[1].classList.add("playing");
 
     // status bar button change
-    document.getElementsByClassName("status-play")[0].classList.add("hide");
-    document.getElementsByClassName("status-pause")[0].classList.add("playing");
+    statusPlay.classList.add("hide");
+    statusPause.classList.add("playing");
 
     // status bar text change
-    document.querySelectorAll("h4")[0].innerHTML = siblings[2].innerHTML;
-    document.querySelectorAll("h5")[0].innerHTML = siblings[3].innerHTML;
+    statusSong.innerHTML = siblings[2].innerHTML;
+    statusArtist.innerHTML = siblings[3].innerHTML;
 
     /*
       TODO
@@ -63,23 +71,22 @@ while (counter < 5) {
 /* song play button */
 
 /* status play button */
-var statusPlay = document.getElementsByClassName("status-play")[0];
-var songs = document.getElementsByClassName("song");
+
 
 statusPlay.addEventListener("click", function() {
   // status bar button change
   statusPlay.classList.add("hide");
-  document.getElementsByClassName("status-pause")[0].classList.add("playing");
+  statusPause.classList.add("playing");
 
   // find selected song
-  var statusSong = document.querySelectorAll("h4")[0].innerHTML;
-  var statusArtist = document.querySelectorAll("h5")[0].innerHTML;
+  var chosenSong = statusSong.innerHTML;
+  var chosenArtist = statusArtist.innerHTML;
 
   var step = 0;
   while (step < 5) {
     if (
-      songs[step].children[2].innerHTML == statusSong &&
-      songs[step].children[3].innerHTML == statusArtist
+      songs[step].children[2].innerHTML == chosenSong &&
+      songs[step].children[3].innerHTML == chosenArtist
     ) {
       var theSong = songs[step].children;
       break;
@@ -99,7 +106,7 @@ statusPlay.addEventListener("click", function() {
 /* status play button */
 
 /* song pause button */
-var songPause = document.getElementsByClassName("song-pause");
+
 
 var limit = 0;
 while (limit < 5) {
@@ -112,7 +119,7 @@ while (limit < 5) {
 
     // status bar button change
     statusPlay.classList.remove("hide");
-    document.getElementsByClassName("status-pause")[0].classList.remove("playing");
+    statusPause.classList.remove("playing");
 
     /*
       TODO
@@ -124,16 +131,14 @@ while (limit < 5) {
 /* song pause button */
 
 /* status pause button */
-var statusPause = document.getElementsByClassName("status-pause")[0];
-
 statusPause.addEventListener("click", function() {
   // status bar button change
   statusPause.classList.remove("playing");
-  document.getElementsByClassName("status-play")[0].classList.remove("hide");
+  statusPlay.classList.remove("hide");
 
   // find selected song
-  var currentSong = document.querySelectorAll("h4")[0].innerHTML;
-  var currentArtist = document.querySelectorAll("h5")[0].innerHTML;
+  var currentSong = statusSong.innerHTML;
+  var currentArtist = statusArtist.innerHTML;
 
   var count = 0;
   while (count < 5) {
@@ -161,8 +166,8 @@ statusPause.addEventListener("click", function() {
 /* status previous button */
 document.getElementsByClassName("previous-button")[0].addEventListener("click", function() {
   // find selected song
-  var selectedSong = document.querySelectorAll("h4")[0].innerHTML;
-  var selectedArtist = document.querySelectorAll("h5")[0].innerHTML;
+  var selectedSong = statusSong.innerHTML;
+  var selectedArtist = statusArtist.innerHTML;
 
   var tick = 0;
   while (tick < 5) {
@@ -202,12 +207,12 @@ document.getElementsByClassName("previous-button")[0].addEventListener("click", 
   }
 
   // status bar text change
-  document.querySelectorAll("h4")[0].innerHTML = track[2].innerHTML;
-  document.querySelectorAll("h5")[0].innerHTML = track[3].innerHTML;
+  statusSong.innerHTML = track[2].innerHTML;
+  statusArtist.innerHTML = track[3].innerHTML;
 
   // status bar button change
-  document.getElementsByClassName("status-play")[0].classList.add("hide");
-  document.getElementsByClassName("status-pause")[0].classList.add("playing");
+  statusPlay.classList.add("hide");
+  statusPause.classList.add("playing");
 
   // song button change
   track[0].classList.add("hide");
@@ -223,8 +228,8 @@ document.getElementsByClassName("previous-button")[0].addEventListener("click", 
 /* status next button */
 document.getElementsByClassName("after-button")[0].addEventListener("click", function() {
   // find selected song
-  var targetSong = document.querySelectorAll("h4")[0].innerHTML;
-  var targetArtist = document.querySelectorAll("h5")[0].innerHTML;
+  var targetSong = statusSong.innerHTML;
+  var targetArtist = statusArtist.innerHTML;
 
   var pace = 0;
   while (pace < 5) {
@@ -264,12 +269,12 @@ document.getElementsByClassName("after-button")[0].addEventListener("click", fun
   }
 
   // status bar text change
-  document.querySelectorAll("h4")[0].innerHTML = music[2].innerHTML;
-  document.querySelectorAll("h5")[0].innerHTML = music[3].innerHTML;
+  statusSong.innerHTML = music[2].innerHTML;
+  statusArtist.innerHTML = music[3].innerHTML;
 
   // status bar button change
-  document.getElementsByClassName("status-play")[0].classList.add("hide");
-  document.getElementsByClassName("status-pause")[0].classList.add("playing");
+  statusPlay.classList.add("hide");
+  statusPause.classList.add("playing");
 
   // song button change
   music[0].classList.add("hide");
