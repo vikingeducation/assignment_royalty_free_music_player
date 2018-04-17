@@ -25,18 +25,14 @@
 var songs = document.getElementsByClassName("song");
 var songPlay = document.getElementsByClassName("song-play");
 var songPause = document.getElementsByClassName("song-pause");
-var statusPlay = document.getElementsByClassName("status-play")[0];
-var statusPause = document.getElementsByClassName("status-pause")[0];
-var statusSong = document.querySelectorAll("h4")[0];
-var statusArtist = document.querySelectorAll("h5")[0];
+var statusBar = document.getElementsByClassName("status")[0].children;
+var statusPlay = statusBar[1];
+var statusPause = statusBar[2];
+var statusSong = statusBar[4];
+var statusArtist = statusBar[5];
 /* global variables */
 
 /* shared functions */
-function stop(play, pause) {
-  play.classList.remove("hide");
-  pause.classList.remove("playing");
-}
-
 function start(play, pause) {
   play.classList.add("hide");
   pause.classList.add("playing");
@@ -45,6 +41,29 @@ function start(play, pause) {
 function songChange(songData) {
   statusSong.innerHTML = songData[2].innerHTML;
   statusArtist.innerHTML = songData[3].innerHTML;
+}
+
+function stop(play, pause) {
+  play.classList.remove("hide");
+  pause.classList.remove("playing");
+}
+
+function seek() {
+  var currentSong = statusSong.innerHTML;
+  var tick = 0;
+  var currentArtist = statusArtist.innerHTML;
+
+  while (tick < 5) {
+    if (
+      songs[tick].children[2].innerHTML == currentSong &&
+      songs[tick].children[3].innerHTML == currentArtist
+    ) {
+      var songMatch = songs[tick];
+      break;
+    }
+    tick++;
+  }
+  return songMatch;
 }
 /* shared functions */
 
@@ -61,16 +80,15 @@ while (counter < 5) {
     }
 
     // song button change
-    var source = action.target;
-    var siblings = source.parentNode.children;
+    var source = action.target.parentNode.children;
 
-    start(source, siblings[1]);
+    start(source[0], source[1]);
 
     // status bar button change
     start(statusPlay, statusPause);
 
     // status bar text change
-    songChange(siblings);
+    songChange(source);
 
     /*
       TODO
@@ -87,20 +105,7 @@ statusPlay.addEventListener("click", function() {
   start(statusPlay, statusPause);
 
   // find selected song
-  var chosenSong = statusSong.innerHTML;
-  var chosenArtist = statusArtist.innerHTML;
-
-  var step = 0;
-  while (step < 5) {
-    if (
-      songs[step].children[2].innerHTML == chosenSong &&
-      songs[step].children[3].innerHTML == chosenArtist
-    ) {
-      var theSong = songs[step].children;
-      break;
-    }
-    step++;
-  }
+  var theSong = seek().children;
 
   // song button change
   start(theSong[0], theSong[1]);
@@ -117,9 +122,9 @@ var limit = 0;
 while (limit < 5) {
   songPause[limit].addEventListener("click", function(clicky) {
     // song button change
-    var origin = clicky.target;
+    var origin = clicky.target.parentNode.children;
 
-    stop(origin.parentNode.children[0], origin);
+    stop(origin[0], origin[1]);
 
     // status bar button change
     stop(statusPlay, statusPause);
@@ -139,20 +144,7 @@ statusPause.addEventListener("click", function() {
   stop(statusPlay, statusPause);
 
   // find selected song
-  var currentSong = statusSong.innerHTML;
-  var currentArtist = statusArtist.innerHTML;
-
-  var count = 0;
-  while (count < 5) {
-    if (
-      songs[count].children[2].innerHTML == currentSong &&
-      songs[count].children[3].innerHTML == currentArtist
-    ) {
-      var songResult = songs[count].children;
-      break;
-    }
-    count++;
-  }
+  var songResult = seek().children;
 
   // song button change
   stop(songResult[0], songResult[1]);
@@ -165,22 +157,9 @@ statusPause.addEventListener("click", function() {
 /* status pause button */
 
 /* status previous button */
-document.getElementsByClassName("previous-button")[0].addEventListener("click", function() {
+statusBar[0].addEventListener("click", function() {
   // find selected song
-  var selectedSong = statusSong.innerHTML;
-  var selectedArtist = statusArtist.innerHTML;
-
-  var tick = 0;
-  while (tick < 5) {
-    if (
-      songs[tick].children[2].innerHTML == selectedSong &&
-      songs[tick].children[3].innerHTML == selectedArtist
-    ) {
-      var subjectSong = songs[tick];
-      break;
-    }
-    tick++;
-  }
+  var subjectSong = seek();
 
   // song button change
   stop(subjectSong.children[0], subjectSong.children[1]);
@@ -222,23 +201,10 @@ document.getElementsByClassName("previous-button")[0].addEventListener("click", 
 });
 /* status previous button */
 
-/* status next button */
-document.getElementsByClassName("after-button")[0].addEventListener("click", function() {
+/* status after button */
+statusBar[3].addEventListener("click", function() {
   // find selected song
-  var targetSong = statusSong.innerHTML;
-  var targetArtist = statusArtist.innerHTML;
-
-  var pace = 0;
-  while (pace < 5) {
-    if (
-      songs[pace].children[2].innerHTML == targetSong &&
-      songs[pace].children[3].innerHTML == targetArtist
-    ) {
-      var pickedSong = songs[pace];
-      break;
-    }
-    pace++;
-  }
+  var pickedSong = seek();
 
   // song button change
   stop(pickedSong.children[0], pickedSong.children[1]);
@@ -278,7 +244,7 @@ document.getElementsByClassName("after-button")[0].addEventListener("click", fun
     actually play song
   */
 });
-/* status next button */
+/* status after button */
 
 
 
