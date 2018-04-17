@@ -12,6 +12,7 @@
   1. js button and text swapping
     a. look into functions for repeated actions and global variables for
        repeated selections/other methods to reduce repetition
+    b. re-evaluate comments
 
   2. find actual songs - https://freemusicarchive.org/
 
@@ -30,6 +31,18 @@ var statusSong = document.querySelectorAll("h4")[0];
 var statusArtist = document.querySelectorAll("h5")[0];
 /* global variables */
 
+/* shared functions */
+function stop(play, pause) {
+  play.classList.remove("hide");
+  pause.classList.remove("playing");
+}
+
+function start(play, pause) {
+  play.classList.add("hide");
+  pause.classList.add("playing");
+}
+/* shared functions */
+
 /* song play button */
 var counter = 0;
 while (counter < 5) {
@@ -38,24 +51,18 @@ while (counter < 5) {
     var hidden = document.getElementsByClassName("song-play hide")[0];
     var played = document.getElementsByClassName("song-pause playing")[0];
 
-    if (hidden != undefined) {
-      hidden.classList.remove("hide");
-    }
-
-    if (played != undefined) {
-      played.classList.remove("playing");
+    if (hidden != undefined && played != undefined) {
+      stop(hidden, played);
     }
 
     // song button change
     var source = action.target;
     var siblings = source.parentNode.children;
 
-    source.classList.add("hide");
-    siblings[1].classList.add("playing");
+    start(source, siblings[1]);
 
     // status bar button change
-    statusPlay.classList.add("hide");
-    statusPause.classList.add("playing");
+    start(statusPlay, statusPause);
 
     // status bar text change
     statusSong.innerHTML = siblings[2].innerHTML;
@@ -71,12 +78,9 @@ while (counter < 5) {
 /* song play button */
 
 /* status play button */
-
-
 statusPlay.addEventListener("click", function() {
   // status bar button change
-  statusPlay.classList.add("hide");
-  statusPause.classList.add("playing");
+  start(statusPlay, statusPause);
 
   // find selected song
   var chosenSong = statusSong.innerHTML;
@@ -95,8 +99,7 @@ statusPlay.addEventListener("click", function() {
   }
 
   // song button change
-  theSong[0].classList.add("hide");
-  theSong[1].classList.add("playing");
+  start(theSong[0], theSong[1]);
 
   /*
     TODO
@@ -106,20 +109,16 @@ statusPlay.addEventListener("click", function() {
 /* status play button */
 
 /* song pause button */
-
-
 var limit = 0;
 while (limit < 5) {
   songPause[limit].addEventListener("click", function(clicky) {
     // song button change
     var origin = clicky.target;
 
-    origin.classList.remove("playing");
-    origin.parentNode.children[0].classList.remove("hide");
+    stop(origin.parentNode.children[0], origin);
 
     // status bar button change
-    statusPlay.classList.remove("hide");
-    statusPause.classList.remove("playing");
+    stop(statusPlay, statusPause);
 
     /*
       TODO
@@ -133,8 +132,7 @@ while (limit < 5) {
 /* status pause button */
 statusPause.addEventListener("click", function() {
   // status bar button change
-  statusPause.classList.remove("playing");
-  statusPlay.classList.remove("hide");
+  stop(statusPlay, statusPause);
 
   // find selected song
   var currentSong = statusSong.innerHTML;
@@ -153,8 +151,7 @@ statusPause.addEventListener("click", function() {
   }
 
   // song button change
-  songResult[0].classList.remove("hide");
-  songResult[1].classList.remove("playing");
+  stop(songResult[0], songResult[1]);
 
   /*
     TODO
@@ -182,8 +179,7 @@ document.getElementsByClassName("previous-button")[0].addEventListener("click", 
   }
 
   // song button change
-  subjectSong.children[0].classList.remove("hide");
-  subjectSong.children[1].classList.remove("playing");
+  stop(subjectSong.children[0], subjectSong.children[1]);
 
   /*
     TODO
@@ -211,12 +207,10 @@ document.getElementsByClassName("previous-button")[0].addEventListener("click", 
   statusArtist.innerHTML = track[3].innerHTML;
 
   // status bar button change
-  statusPlay.classList.add("hide");
-  statusPause.classList.add("playing");
+  start(statusPlay, statusPause);
 
   // song button change
-  track[0].classList.add("hide");
-  track[1].classList.add("playing");
+  start(track[0], track[1]);
 
   /*
     TODO
@@ -244,15 +238,14 @@ document.getElementsByClassName("after-button")[0].addEventListener("click", fun
   }
 
   // song button change
-  pickedSong.children[0].classList.remove("hide");
-  pickedSong.children[1].classList.remove("playing");
+  stop(pickedSong.children[0], pickedSong.children[1]);
 
   /*
     TODO
     actually stop song
   */
 
-  // determine previous song
+  // determine next song
   if (pickedSong.getAttribute("num") == 5) {
     var numeral = 1;
   } else {
@@ -273,12 +266,10 @@ document.getElementsByClassName("after-button")[0].addEventListener("click", fun
   statusArtist.innerHTML = music[3].innerHTML;
 
   // status bar button change
-  statusPlay.classList.add("hide");
-  statusPause.classList.add("playing");
+  start(statusPlay, statusPause);
 
   // song button change
-  music[0].classList.add("hide");
-  music[1].classList.add("playing");
+  start(music[0], music[1]);
 
   /*
     TODO
