@@ -41,6 +41,11 @@ function start(play, pause) {
   play.classList.add("hide");
   pause.classList.add("playing");
 }
+
+function songChange(songData) {
+  statusSong.innerHTML = songData[2].innerHTML;
+  statusArtist.innerHTML = songData[3].innerHTML;
+}
 /* shared functions */
 
 /* song play button */
@@ -65,8 +70,7 @@ while (counter < 5) {
     start(statusPlay, statusPause);
 
     // status bar text change
-    statusSong.innerHTML = siblings[2].innerHTML;
-    statusArtist.innerHTML = siblings[3].innerHTML;
+    songChange(siblings);
 
     /*
       TODO
@@ -203,8 +207,7 @@ document.getElementsByClassName("previous-button")[0].addEventListener("click", 
   }
 
   // status bar text change
-  statusSong.innerHTML = track[2].innerHTML;
-  statusArtist.innerHTML = track[3].innerHTML;
+  songChange(track);
 
   // status bar button change
   start(statusPlay, statusPause);
@@ -262,8 +265,7 @@ document.getElementsByClassName("after-button")[0].addEventListener("click", fun
   }
 
   // status bar text change
-  statusSong.innerHTML = music[2].innerHTML;
-  statusArtist.innerHTML = music[3].innerHTML;
+  songChange(music);
 
   // status bar button change
   start(statusPlay, statusPause);
