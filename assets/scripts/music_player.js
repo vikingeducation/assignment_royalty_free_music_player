@@ -14,6 +14,8 @@
   2. update html to match songs
 
   3. js to actually play/pause songs
+  https://www.w3schools.com/tags/tag_audio.asp
+  https://www.w3schools.com/jsref/met_audio_play.asp
 */
 
 var statusBar = document.getElementsByClassName("status")[0].children,
@@ -66,7 +68,7 @@ function lookup(listing) {
   return beat;
 };
 
-/* song play button */
+// song play button
 for (var counter = 0; counter < 5; counter++) {
   songPlay[counter].addEventListener("click", function(action) {
     var source = action.target.parentNode.children,
@@ -87,9 +89,9 @@ for (var counter = 0; counter < 5; counter++) {
     */
   });
 }
-/* song play button */
+// song play button
 
-/* status play button */
+// status play button
 statusPlay.addEventListener("click", function() {
   var theSong = seek().children;
 
@@ -101,9 +103,9 @@ statusPlay.addEventListener("click", function() {
     actually play song
   */
 });
-/* status play button */
+// status play button
 
-/* song pause button */
+// song pause button
 for (var limit = 0; limit < 5; limit++) {
   songPause[limit].addEventListener("click", function(root) {
     var origin = root.target.parentNode.children;
@@ -117,9 +119,9 @@ for (var limit = 0; limit < 5; limit++) {
     */
   });
 }
-/* song pause button */
+// song pause button
 
-/* status pause button */
+// status pause button
 statusPause.addEventListener("click", function() {
   var songResult = seek().children;
 
@@ -131,9 +133,9 @@ statusPause.addEventListener("click", function() {
     actually pause song
   */
 });
-/* status pause button */
+// status pause button
 
-/* status previous button */
+// status previous button
 statusBar[0].addEventListener("click", function() {
   var subjectSong = seek();
 
@@ -161,9 +163,9 @@ statusBar[0].addEventListener("click", function() {
     actually play song
   */
 });
-/* status previous button */
+// status previous button
 
-/* status after button */
+// status after button
 statusBar[3].addEventListener("click", function() {
   var pickedSong = seek();
 
@@ -191,7 +193,7 @@ statusBar[3].addEventListener("click", function() {
     actually play song
   */
 });
-/* status after button */
+// status after button
 
 
 
