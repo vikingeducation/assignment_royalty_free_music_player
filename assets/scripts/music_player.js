@@ -9,13 +9,11 @@
   sass input.scss style.css
 
   TODO
-  1. find actual songs - https://freemusicarchive.org/
+  1. handle when audio stops playing / potentially automatically playing next
+  song
 
-  2. update html to match songs
-
-  3. js to actually play/pause songs
-  https://www.w3schools.com/tags/tag_audio.asp
-  https://www.w3schools.com/jsref/met_audio_play.asp
+  2. look into merging play/start and pause/stop functions - move status
+  change into a specific function as variables are the same everytime
 */
 
 var statusBar = document.getElementsByClassName("status")[0].children,
@@ -40,6 +38,14 @@ function start(play, pause) {
 function songChange(songData) {
   statusSong.innerHTML = songData[2].innerHTML;
   statusArtist.innerHTML = songData[3].innerHTML;
+}
+
+function player(song) {
+  song[4].play();
+}
+
+function pauser(song) {
+  song[4].pause();
 }
 
 function seek() {
@@ -77,16 +83,13 @@ for (var counter = 0; counter < 5; counter++) {
 
     if (hidden != undefined && played != undefined) {
       stop(hidden, played);
+      pauser(hidden.parentNode.children);
     }
 
     start(source[0], source[1]);
     start(statusPlay, statusPause);
     songChange(source);
-
-    /*
-      TODO
-      actually play song
-    */
+    player(source);
   });
 }
 // song play button
@@ -97,11 +100,7 @@ statusPlay.addEventListener("click", function() {
 
   start(statusPlay, statusPause);
   start(theSong[0], theSong[1]);
-
-  /*
-    TODO
-    actually play song
-  */
+  player(theSong);
 });
 // status play button
 
@@ -112,11 +111,7 @@ for (var limit = 0; limit < 5; limit++) {
 
     stop(origin[0], origin[1]);
     stop(statusPlay, statusPause);
-
-    /*
-      TODO
-      actually pause song
-    */
+    pauser(origin);
   });
 }
 // song pause button
@@ -127,11 +122,7 @@ statusPause.addEventListener("click", function() {
 
   stop(statusPlay, statusPause);
   stop(songResult[0], songResult[1]);
-
-  /*
-    TODO
-    actually pause song
-  */
+  pauser(songResult);
 });
 // status pause button
 
@@ -140,11 +131,7 @@ statusBar[0].addEventListener("click", function() {
   var subjectSong = seek();
 
   stop(subjectSong.children[0], subjectSong.children[1]);
-
-  /*
-    TODO
-    actually stop song
-  */
+  pauser(subjectSong.children);
 
   if (subjectSong.getAttribute("num") == 1) {
     var symbol = 5;
@@ -157,11 +144,7 @@ statusBar[0].addEventListener("click", function() {
   start(statusPlay, statusPause);
   start(track[0], track[1]);
   songChange(track);
-
-  /*
-    TODO
-    actually play song
-  */
+  player(track);
 });
 // status previous button
 
@@ -170,11 +153,7 @@ statusBar[3].addEventListener("click", function() {
   var pickedSong = seek();
 
   stop(pickedSong.children[0], pickedSong.children[1]);
-
-  /*
-    TODO
-    actually stop song
-  */
+  pauser(pickedSong.children);
 
   if (pickedSong.getAttribute("num") == 5) {
     var numeral = 1;
@@ -187,11 +166,7 @@ statusBar[3].addEventListener("click", function() {
   start(statusPlay, statusPause);
   start(music[0], music[1]);
   songChange(music);
-
-  /*
-    TODO
-    actually play song
-  */
+  player(music);
 });
 // status after button
 
