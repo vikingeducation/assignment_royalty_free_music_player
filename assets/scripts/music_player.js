@@ -2,28 +2,19 @@
 /*
   cd Documents/Viking/JS/music_player
 
-  cd Documents/Viking/JS/music_player/assets/styles
-
-  sass --watch input.scss:style.css
-
-  sass input.scss style.css
-
   TODO
-  1. handle when audio stops playing / potentially automatically playing next
-  song
-
-  2. look into merging play/start and pause/stop functions - move status
+  1. look into merging play/start and pause/stop functions - move status
   change into a specific function as variables are the same everytime
 */
 
 var statusBar = document.getElementsByClassName("status")[0].children,
-    statusPlay = statusBar[1],
-    statusPause = statusBar[2],
-    statusSong = statusBar[4],
-    statusArtist = statusBar[5],
-    songs = document.getElementsByClassName("song"),
-    songPlay = document.getElementsByClassName("song-play"),
-    songPause = document.getElementsByClassName("song-pause");
+  statusPlay = statusBar[1],
+  statusPause = statusBar[2],
+  statusSong = statusBar[4],
+  statusArtist = statusBar[5],
+  songs = document.getElementsByClassName("song"),
+  songPlay = document.getElementsByClassName("song-play"),
+  songPause = document.getElementsByClassName("song-pause");
 
 function stop(play, pause) {
   play.classList.remove("hide");
@@ -50,7 +41,7 @@ function pauser(song) {
 
 function seek() {
   var currentSong = statusSong.innerHTML,
-      currentArtist = statusArtist.innerHTML;
+    currentArtist = statusArtist.innerHTML;
 
   for (var piece in songs) {
     if (
@@ -72,14 +63,32 @@ function lookup(listing) {
     }
   }
   return beat;
-};
+}
+
+function next(current) {
+  stop(current.children[0], current.children[1]);
+  pauser(current.children);
+
+  if (current.getAttribute("num") == 5) {
+    var numeral = 1;
+  } else {
+    var numeral = parseFloat(current.getAttribute("num")) + 1;
+  }
+
+  var music = lookup(numeral);
+
+  start(statusPlay, statusPause);
+  start(music[0], music[1]);
+  songChange(music);
+  player(music);
+}
 
 // song play button
 for (var counter = 0; counter < 5; counter++) {
   songPlay[counter].addEventListener("click", function(action) {
     var source = action.target.parentNode.children,
-        hidden = document.getElementsByClassName("song-play hide")[0],
-        played = document.getElementsByClassName("song-pause playing")[0];
+      hidden = document.getElementsByClassName("song-play hide")[0],
+      played = document.getElementsByClassName("song-pause playing")[0];
 
     if (hidden != undefined && played != undefined) {
       stop(hidden, played);
@@ -152,29 +161,18 @@ statusBar[0].addEventListener("click", function() {
 statusBar[3].addEventListener("click", function() {
   var pickedSong = seek();
 
-  stop(pickedSong.children[0], pickedSong.children[1]);
-  pauser(pickedSong.children);
-
-  if (pickedSong.getAttribute("num") == 5) {
-    var numeral = 1;
-  } else {
-    var numeral = parseFloat(pickedSong.getAttribute("num")) + 1;
-  }
-
-  var music = lookup(numeral);
-
-  start(statusPlay, statusPause);
-  start(music[0], music[1]);
-  songChange(music);
-  player(music);
+  next(pickedSong);
 });
 // status after button
 
+// song finish handler
+var audios = document.querySelectorAll("audio");
 
+for (var tick = 0; tick < 5; tick++) {
+  audios[tick].addEventListener("ended", function(ended) {
+    var last = ended.target.parentNode;
 
-
-
-
-
-
-// spacing
+    next(last);
+  });
+}
+// song finish handler
