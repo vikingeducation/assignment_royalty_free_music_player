@@ -3,8 +3,15 @@
   cd Documents/Viking/JS/music_player
 
   TODO
-  1. look into merging play/start and pause/stop functions - move status
-  change into a specific function as variables are the same everytime
+  1. need to handle resetting a song if you play another song while the
+  previous song was paused (maybe through looping through all songs to find
+  the one with current time not equal to 0)
+
+  2. final review
+    a. song reset (from song play)
+    b. remove html about audio compatability
+    c. reset function seems like a waste
+    d. review variables to see if any can be eliminated
 */
 
 var statusBar = document.getElementsByClassName("status")[0].children,
@@ -14,29 +21,29 @@ var statusBar = document.getElementsByClassName("status")[0].children,
   statusArtist = statusBar[5],
   songs = document.getElementsByClassName("song"),
   songPlay = document.getElementsByClassName("song-play"),
-  songPause = document.getElementsByClassName("song-pause");
-
-function stop(play, pause) {
-  play.classList.remove("hide");
-  pause.classList.remove("playing");
-}
-
-function start(play, pause) {
-  play.classList.add("hide");
-  pause.classList.add("playing");
-}
-
-function songChange(songData) {
-  statusSong.innerHTML = songData[2].innerHTML;
-  statusArtist.innerHTML = songData[3].innerHTML;
-}
-
-function player(song) {
-  song[4].play();
-}
+  songPause = document.getElementsByClassName("song-pause"),
+  audios = document.querySelectorAll("audio");
 
 function pauser(song) {
   song[4].pause();
+  song[0].classList.remove("hide");
+  song[1].classList.remove("playing");
+  statusPlay.classList.remove("hide");
+  statusPause.classList.remove("playing");
+}
+
+function reset(song) {
+  song[4].currentTime = 0;
+}
+
+function starter(song) {
+  song[4].play();
+  song[0].classList.add("hide");
+  song[1].classList.add("playing");
+  statusPlay.classList.add("hide");
+  statusPause.classList.add("playing");
+  statusSong.innerHTML = song[2].innerHTML;
+  statusArtist.innerHTML = song[3].innerHTML;
 }
 
 function seek() {
@@ -66,8 +73,8 @@ function lookup(listing) {
 }
 
 function next(current) {
-  stop(current.children[0], current.children[1]);
   pauser(current.children);
+  reset(current.children);
 
   if (current.getAttribute("num") == 5) {
     var numeral = 1;
@@ -77,10 +84,7 @@ function next(current) {
 
   var music = lookup(numeral);
 
-  start(statusPlay, statusPause);
-  start(music[0], music[1]);
-  songChange(music);
-  player(music);
+  starter(music);
 }
 
 // song play button
@@ -91,14 +95,13 @@ for (var counter = 0; counter < 5; counter++) {
       played = document.getElementsByClassName("song-pause playing")[0];
 
     if (hidden != undefined && played != undefined) {
-      stop(hidden, played);
-      pauser(hidden.parentNode.children);
+      hidden.classList.remove("hide");
+      played.classList.remove("playing");
+      hidden.parentNode.children[4].pause();
+      reset(hidden.parentNode.children);
     }
 
-    start(source[0], source[1]);
-    start(statusPlay, statusPause);
-    songChange(source);
-    player(source);
+    starter(source);
   });
 }
 // song play button
@@ -107,9 +110,7 @@ for (var counter = 0; counter < 5; counter++) {
 statusPlay.addEventListener("click", function() {
   var theSong = seek().children;
 
-  start(statusPlay, statusPause);
-  start(theSong[0], theSong[1]);
-  player(theSong);
+  starter(theSong);
 });
 // status play button
 
@@ -118,8 +119,6 @@ for (var limit = 0; limit < 5; limit++) {
   songPause[limit].addEventListener("click", function(root) {
     var origin = root.target.parentNode.children;
 
-    stop(origin[0], origin[1]);
-    stop(statusPlay, statusPause);
     pauser(origin);
   });
 }
@@ -129,8 +128,6 @@ for (var limit = 0; limit < 5; limit++) {
 statusPause.addEventListener("click", function() {
   var songResult = seek().children;
 
-  stop(statusPlay, statusPause);
-  stop(songResult[0], songResult[1]);
   pauser(songResult);
 });
 // status pause button
@@ -139,8 +136,8 @@ statusPause.addEventListener("click", function() {
 statusBar[0].addEventListener("click", function() {
   var subjectSong = seek();
 
-  stop(subjectSong.children[0], subjectSong.children[1]);
   pauser(subjectSong.children);
+  reset(subjectSong.children);
 
   if (subjectSong.getAttribute("num") == 1) {
     var symbol = 5;
@@ -150,10 +147,7 @@ statusBar[0].addEventListener("click", function() {
 
   var track = lookup(symbol);
 
-  start(statusPlay, statusPause);
-  start(track[0], track[1]);
-  songChange(track);
-  player(track);
+  starter(track);
 });
 // status previous button
 
@@ -166,7 +160,7 @@ statusBar[3].addEventListener("click", function() {
 // status after button
 
 // song finish handler
-var audios = document.querySelectorAll("audio");
+
 
 for (var tick = 0; tick < 5; tick++) {
   audios[tick].addEventListener("ended", function(ended) {
