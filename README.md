@@ -2,6 +2,8 @@
 
 by Brennan Fulmer
 
+https://brennanfulmer.github.io/assignment_royalty_free_music_player/
+
 All songs used are owned by their respective artists, and are only being used
 by me under their creative commons licenses. I have made no changes to the
 songs and have received no endorsement from their creators. For more from these
