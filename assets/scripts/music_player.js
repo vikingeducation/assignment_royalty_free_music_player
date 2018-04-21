@@ -1,28 +1,13 @@
 
-/*
-  cd Documents/Viking/JS/music_player
-
-  TODO
-  1. need to handle resetting a song if you play another song while the
-  previous song was paused (maybe through looping through all songs to find
-  the one with current time not equal to 0)
-
-  2. final review
-    a. song reset (from song play)
-    b. remove html about audio compatability
-    c. reset function seems like a waste
-    d. review variables to see if any can be eliminated
-*/
-
 var statusBar = document.getElementsByClassName("status")[0].children,
   statusPlay = statusBar[1],
   statusPause = statusBar[2],
   statusSong = statusBar[4],
   statusArtist = statusBar[5],
+  audios = document.querySelectorAll("audio"),
   songs = document.getElementsByClassName("song"),
   songPlay = document.getElementsByClassName("song-play"),
-  songPause = document.getElementsByClassName("song-pause"),
-  audios = document.querySelectorAll("audio");
+  songPause = document.getElementsByClassName("song-pause");
 
 function pauser(song) {
   song[4].pause();
@@ -30,10 +15,6 @@ function pauser(song) {
   song[1].classList.remove("playing");
   statusPlay.classList.remove("hide");
   statusPause.classList.remove("playing");
-}
-
-function reset(song) {
-  song[4].currentTime = 0;
 }
 
 function starter(song) {
@@ -44,37 +25,35 @@ function starter(song) {
   statusPause.classList.add("playing");
   statusSong.innerHTML = song[2].innerHTML;
   statusArtist.innerHTML = song[3].innerHTML;
+
+  for (var step = 0; step < 5; step++) {
+    if (audios[step].paused && audios[step].currentTime > 0) {
+      audios[step].currentTime = 0;
+    }
+  }
 }
 
 function seek() {
-  var currentSong = statusSong.innerHTML,
-    currentArtist = statusArtist.innerHTML;
-
   for (var piece in songs) {
     if (
-      songs[piece].children[2].innerHTML == currentSong &&
-      songs[piece].children[3].innerHTML == currentArtist
+      songs[piece].children[2].innerHTML == statusSong.innerHTML &&
+      songs[piece].children[3].innerHTML == statusArtist.innerHTML
     ) {
-      var songMatch = songs[piece];
-      break;
+      return songs[piece];
     }
   }
-  return songMatch;
 }
 
 function lookup(listing) {
   for (var sequence = 0; sequence < 5; sequence++) {
     if (songs[sequence].getAttribute("num") == listing) {
-      var beat = songs[sequence].children;
-      break;
+      return songs[sequence].children;
     }
   }
-  return beat;
 }
 
 function next(current) {
   pauser(current.children);
-  reset(current.children);
 
   if (current.getAttribute("num") == 5) {
     var numeral = 1;
@@ -82,53 +61,40 @@ function next(current) {
     var numeral = parseFloat(current.getAttribute("num")) + 1;
   }
 
-  var music = lookup(numeral);
-
-  starter(music);
+  starter(lookup(numeral));
 }
 
 // song play button
 for (var counter = 0; counter < 5; counter++) {
   songPlay[counter].addEventListener("click", function(action) {
-    var source = action.target.parentNode.children,
-      hidden = document.getElementsByClassName("song-play hide")[0],
-      played = document.getElementsByClassName("song-pause playing")[0];
+    var played = document.getElementsByClassName("song-pause playing")[0];
 
-    if (hidden != undefined && played != undefined) {
-      hidden.classList.remove("hide");
-      played.classList.remove("playing");
-      hidden.parentNode.children[4].pause();
-      reset(hidden.parentNode.children);
+    if (played != undefined) {
+      pauser(played.parentNode.children);
     }
 
-    starter(source);
+    starter(action.target.parentNode.children);
   });
 }
 // song play button
 
 // status play button
 statusPlay.addEventListener("click", function() {
-  var theSong = seek().children;
-
-  starter(theSong);
+  starter(seek().children);
 });
 // status play button
 
 // song pause button
 for (var limit = 0; limit < 5; limit++) {
   songPause[limit].addEventListener("click", function(root) {
-    var origin = root.target.parentNode.children;
-
-    pauser(origin);
+    pauser(root.target.parentNode.children);
   });
 }
 // song pause button
 
 // status pause button
 statusPause.addEventListener("click", function() {
-  var songResult = seek().children;
-
-  pauser(songResult);
+  pauser(seek().children);
 });
 // status pause button
 
@@ -137,7 +103,6 @@ statusBar[0].addEventListener("click", function() {
   var subjectSong = seek();
 
   pauser(subjectSong.children);
-  reset(subjectSong.children);
 
   if (subjectSong.getAttribute("num") == 1) {
     var symbol = 5;
@@ -145,28 +110,20 @@ statusBar[0].addEventListener("click", function() {
     var symbol = subjectSong.getAttribute("num") - 1;
   }
 
-  var track = lookup(symbol);
-
-  starter(track);
+  starter(lookup(symbol));
 });
 // status previous button
 
 // status after button
 statusBar[3].addEventListener("click", function() {
-  var pickedSong = seek();
-
-  next(pickedSong);
+  next(seek());
 });
 // status after button
 
 // song finish handler
-
-
 for (var tick = 0; tick < 5; tick++) {
   audios[tick].addEventListener("ended", function(ended) {
-    var last = ended.target.parentNode;
-
-    next(last);
+    next(ended.target.parentNode);
   });
 }
 // song finish handler
