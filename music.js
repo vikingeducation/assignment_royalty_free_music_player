@@ -1,6 +1,6 @@
 
 var getJson = {
-  url: 'https://vcs-royalty-free-music-player.surge.sh/data/tracks/index.json',
+  url: 'http://vcs-royalty-free-music-player.surge.sh/data/tracks/index.json',
   createCORSRequest: function (method, url) {
                         var xhr = new XMLHttpRequest();
                         if ("withCredentials" in xhr) {
@@ -62,11 +62,13 @@ $(document).ready(function() {
 
   function showSong(jsonObj) {
     var albums = jsonObj;
+    var http = /http/gi;
 
     for (var j = 0; j < albums.length; j++) {
       var currentSongName = albums[j]['name'];
       var currentSongAuthor = albums[j]['artist'];
       var currentSongLink = albums[j]['track_url'];
+      currentSongLink = currentSongLink.replace(http, 'https');
       songsLink[currentSongName] = currentSongLink;
       var $songBox = $('a.test-song').clone(true, true);
 
