@@ -1,6 +1,6 @@
 
 var getJson = {
-  url: 'https://vcs-royalty-free-music-player.surge.sh/data/tracks/index.json',
+  url: 'https://www.dropbox.com/s/rz4b6k9d0yytjwu/songs.json?raw=1',
   createCORSRequest: function (method, url) {
                         var xhr = new XMLHttpRequest();
                         if ("withCredentials" in xhr) {
