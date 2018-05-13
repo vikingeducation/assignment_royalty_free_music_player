@@ -62,13 +62,11 @@ $(document).ready(function() {
 
   function showSong(jsonObj) {
     var albums = jsonObj;
-    var http = /http/gi;
 
     for (var j = 0; j < albums.length; j++) {
       var currentSongName = albums[j]['name'];
       var currentSongAuthor = albums[j]['artist'];
       var currentSongLink = albums[j]['track_url'];
-      currentSongLink = currentSongLink.replace(http, 'https');
       songsLink[currentSongName] = currentSongLink;
       var $songBox = $('a.test-song').clone(true, true);
 
