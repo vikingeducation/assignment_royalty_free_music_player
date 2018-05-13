@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Oswald");
 body {
   font-family: 'Oswald', sans-serif;
-  color: #333; }
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
 
 div.title-wrapper {
   background-color: #ccc;
@@ -76,5 +79,3 @@ div.playing-song {
     margin-left: 10px; }
     div.playing-song div.song-playing-title h5 {
       color: #999; }
-
-/*# sourceMappingURL=out_master.css.map */
