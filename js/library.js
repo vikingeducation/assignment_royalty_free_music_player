@@ -21,27 +21,3 @@ function action(collection, collection2, do_it, action, result){
 		index += 1
 	}
 }
-/*
-signatures
- L(Selector) - returns collection of values selected 
- //loop through objects and set as event Listeners
-
-function obj(collection){
-	for(var item in collection){
-	  functionArray.push(item, collection[item])
-	}
-	return functionArray
-}
-
-let allElements = [
-  "div", "div", "textarea", "input"
-]
-
-let element = (el, inner) => { 
-  if (Array.isArray(el)){
-   return el.map( (item) => `<${item}>${inner}</${item}>` ).join("")
-  } else {
-    return `<${el}>${inner}</${el}>`
-  }
-}
-*/
